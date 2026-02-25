@@ -9,9 +9,9 @@ export const clientBannerService = {
   },
 
   getBannersServer: async (): Promise<IBanner[]> => {
-    // Use LONG cache (1 hour) for Banners as they rarely change
+    // Temporarily disabled cache for debugging, should be LONG in production
     const data = await fetchClient.get<IBanner[]>("/banners/public", {
-      cacheStrategy: "LONG",
+      cacheStrategy: "NO_CACHE",
       next: { tags: ["banners"] },
     });
     return data || [];

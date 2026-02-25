@@ -213,7 +213,7 @@ const NavigationMenu = ({
     <>
       <div
         ref={containerRef}
-        className="bg-[#7a1e1e] md:bg-[#fdfce8] shadow-md relative z-20 overflow-visible"
+        className="bg-naka-blue md:bg-white shadow-md relative z-20 overflow-visible"
       >
         <div className="absolute inset-0 z-0 md:hidden bg-[url('/bg/footer_pattent.png')] bg-repeat opacity-60 pointer-events-none" />
         <div className="container mx-auto  flex items-center justify-between md:justify-center relative min-h-15 md:min-h-12.5">
@@ -222,7 +222,7 @@ const NavigationMenu = ({
             <button
               onClick={onToggleMobileMenu}
               aria-label="Toggle mobile menu"
-              className="p-1 text-[#fdfce8] hover:bg-white/10 rounded transition-colors"
+              className="p-1 text-white hover:bg-white/10 rounded transition-colors"
             >
               <Menu size={28} strokeWidth={2} />
             </button>
@@ -275,7 +275,7 @@ const NavigationMenu = ({
                     >
                       <Link
                         href={item.href as any}
-                        className="h-full flex items-center px-3 font-bold text-[#7a1e1e] text-sm sm:text-base lg:text-sm uppercase hover:bg-[#c9a149] hover:text-[#7a1e1e] transition-colors whitespace-nowrap"
+                        className="h-full flex items-center px-3 font-bold text-naka-blue text-sm sm:text-base lg:text-sm uppercase hover:bg-naka-blue hover:text-white transition-colors whitespace-nowrap"
                       >
                         {item.label}
                       </Link>
@@ -293,8 +293,8 @@ const NavigationMenu = ({
                     className={`p-2 rounded transition-colors ${
                       !canGoPrev
                         ? "opacity-50 cursor-not-allowed"
-                        : "cursor-pointer hover:bg-[#c9a149]"
-                    } text-[#7a1e1e]`}
+                        : "cursor-pointer hover:bg-naka-blue/10"
+                    } text-naka-blue`}
                     aria-label="Previous items"
                   >
                     <ChevronLeft className="w-4 h-4" />
@@ -305,8 +305,8 @@ const NavigationMenu = ({
                     className={`p-2 rounded transition-colors ${
                       !canGoNext
                         ? "opacity-50 cursor-not-allowed"
-                        : "cursor-pointer hover:bg-[#c9a149]"
-                    } text-[#7a1e1e]`}
+                        : "cursor-pointer hover:bg-naka-blue/10"
+                    } text-naka-blue`}
                     aria-label="Next items"
                   >
                     <ChevronRight className="w-4 h-4" />
@@ -318,7 +318,7 @@ const NavigationMenu = ({
 
           {/* Mobile Logo Title (Center) */}
           <div className="md:hidden absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
-            <div className="text-[#fdfce8] font-serif text-lg sm:text-xl font-bold tracking-wider uppercase whitespace-nowrap">
+            <div className="text-white font-serif text-lg sm:text-xl font-bold tracking-wider uppercase whitespace-nowrap">
               {t("mobile_title")}
             </div>
             <div className="text-[10px] sm:text-xs text-white/80 tracking-widest uppercase">
@@ -332,8 +332,8 @@ const NavigationMenu = ({
               onClick={() => setIsSearchOpen(!isSearchOpen)}
               className={`p-2 rounded-full transition-colors ${
                 isSearchOpen
-                  ? "bg-[#fdfce8] text-[#7a1e1e]"
-                  : "text-[#fdfce8] hover:bg-white/10"
+                  ? "bg-white text-naka-blue"
+                  : "text-white hover:bg-white/10"
               }`}
             >
               {isSearchOpen ? (

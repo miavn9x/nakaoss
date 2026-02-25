@@ -27,15 +27,13 @@ export default function Banner({ initialData = [] }: BannerProps) {
 
   return (
     <section className="w-full">
-      <div className="w-full h-auto">
-        <MainBanner
-          banners={mainBanners}
-          currentSlide={currentSlide}
-          setCurrentSlide={setCurrentSlide}
-          nextSlide={nextSlide}
-          prevSlide={prevSlide}
-        />
-      </div>
+      <MainBanner
+        banners={mainBanners}
+        currentSlide={currentSlide}
+        setCurrentSlide={setCurrentSlide}
+        nextSlide={nextSlide}
+        prevSlide={prevSlide}
+      />
     </section>
   );
 }

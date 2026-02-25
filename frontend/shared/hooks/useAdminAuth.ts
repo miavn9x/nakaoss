@@ -29,10 +29,16 @@ export const useAdminAuth = () => {
       }
     };
 
+    const handleSessionExpired = () => {
+      window.location.href = "/";
+    };
+
     window.addEventListener("storage", handleStorageChange);
+    window.addEventListener("naka-session-expired", handleSessionExpired);
 
     return () => {
       window.removeEventListener("storage", handleStorageChange);
+      window.removeEventListener("naka-session-expired", handleSessionExpired);
     };
   }, []);
 

@@ -75,8 +75,8 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
               </div>
               <button
                 onClick={() => changeLanguage("vi")}
-                className={`hover:text-[#7a1e1e] transition-colors ${
-                  currentLocale === "vi" ? "text-[#7a1e1e]" : ""
+                className={`hover:text-naka-blue transition-colors ${
+                  currentLocale === "vi" ? "text-naka-blue" : ""
                 }`}
               >
                 VN
@@ -84,8 +84,8 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
               <span className="w-px h-3 bg-gray-300"></span>
               <button
                 onClick={() => changeLanguage("en")}
-                className={`hover:text-[#7a1e1e] transition-colors ${
-                  currentLocale === "en" ? "text-[#7a1e1e]" : ""
+                className={`hover:text-naka-blue transition-colors ${
+                  currentLocale === "en" ? "text-naka-blue" : ""
                 }`}
               >
                 EN
@@ -93,8 +93,8 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
               <span className="w-px h-3 bg-gray-300"></span>
               <button
                 onClick={() => changeLanguage("cn")}
-                className={`hover:text-[#7a1e1e] transition-colors ${
-                  currentLocale === "cn" ? "text-[#7a1e1e]" : ""
+                className={`hover:text-naka-blue transition-colors ${
+                  currentLocale === "cn" ? "text-naka-blue" : ""
                 }`}
               >
                 CN
@@ -102,8 +102,8 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
               <span className="w-px h-3 bg-gray-300"></span>
               <button
                 onClick={() => changeLanguage("bo")}
-                className={`hover:text-[#7a1e1e] transition-colors ${
-                  currentLocale === "bo" ? "text-[#7a1e1e]" : ""
+                className={`hover:text-naka-blue transition-colors ${
+                  currentLocale === "bo" ? "text-naka-blue" : ""
                 }`}
               >
                 BO
@@ -138,11 +138,11 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                     onClick={onClose}
                     className="group border-b border-gray-100 py-4 flex items-center justify-between"
                   >
-                    <span className="text-gray-800 font-bold text-sm uppercase group-hover:text-[#7a1e1e] transition-colors">
+                    <span className="text-gray-800 font-bold text-sm uppercase group-hover:text-naka-blue transition-colors">
                       {item.label}
                     </span>
                     {item.hasSub && (
-                      <span className="text-gray-400 text-lg font-light group-hover:text-[#7a1e1e]">
+                      <span className="text-gray-400 text-lg font-light group-hover:text-naka-blue">
                         +
                       </span>
                     )}
@@ -156,7 +156,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
               {user ? (
                 <div className="flex flex-col gap-2">
                   <div className="flex items-center gap-3 mb-2">
-                    <div className="w-8 h-8 rounded-full bg-[#7a1e1e] text-[#fdfce8] flex items-center justify-center font-bold text-sm">
+                    <div className="w-8 h-8 rounded-full bg-naka-blue text-white flex items-center justify-center font-bold text-sm">
                       {user.lastName?.[0]}
                     </div>
                     <div>
@@ -169,13 +169,13 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                   <Link
                     href="/profile"
                     onClick={onClose}
-                    className="text-sm text-gray-700 hover:text-[#7a1e1e] py-1"
+                    className="text-sm text-gray-700 hover:text-naka-blue py-1"
                   >
                     {tAuth("profile")}
                   </Link>
                   <button
                     onClick={logout}
-                    className="text-sm text-gray-600 hover:text-[#7a1e1e] py-1 text-left"
+                    className="text-sm text-gray-600 hover:text-naka-blue py-1 text-left"
                   >
                     {tAuth("logout")}
                   </button>
@@ -187,7 +187,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       openModal("login");
                       onClose();
                     }}
-                    className="text-left text-sm font-bold text-gray-800 hover:text-[#7a1e1e] uppercase tracking-wide"
+                    className="text-left text-sm font-bold text-gray-800 hover:text-naka-blue uppercase tracking-wide"
                   >
                     {tAuth("login")}
                   </button>
@@ -196,7 +196,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       openModal("register");
                       onClose();
                     }}
-                    className="text-left text-sm font-bold text-gray-800 hover:text-[#800000] uppercase tracking-wide"
+                    className="text-left text-sm font-bold text-gray-800 hover:text-naka-blue uppercase tracking-wide"
                   >
                     {tAuth("register")}
                   </button>
@@ -209,28 +209,28 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
               <a
                 href="#"
                 aria-label="Facebook"
-                className="hover:text-[#7a1e1e] transition-colors"
+                className="hover:text-naka-blue transition-colors"
               >
                 <Facebook size={18} />
               </a>
               <a
                 href="#"
                 aria-label="Instagram"
-                className="hover:text-[#800000] transition-colors"
+                className="hover:text-naka-blue transition-colors"
               >
                 <Instagram size={18} />
               </a>
               <a
                 href="#"
                 aria-label="Youtube"
-                className="hover:text-[#800000] transition-colors"
+                className="hover:text-naka-blue transition-colors"
               >
                 <Youtube size={20} />
               </a>
               <a
                 href="#"
                 aria-label="Twitter"
-                className="hover:text-[#800000] transition-colors"
+                className="hover:text-naka-blue transition-colors"
               >
                 <Twitter size={18} />
               </a>

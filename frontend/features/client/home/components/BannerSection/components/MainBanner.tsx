@@ -26,12 +26,12 @@ export const MainBanner = ({
   const tBanner = useTranslations("Banner");
 
   return (
-    <div className="w-full relative group overflow-hidden bg-black">
+    <div className="w-full relative group overflow-hidden bg-black h-[calc(100svh-var(--header-height,120px))]">
       {banners.map((banner, index) => {
         return (
           <div
             key={banner.code}
-            className={`w-full transition-all duration-1000 ease-in-out ${
+            className={`w-full h-full transition-all duration-1000 ease-in-out ${
               index === currentSlide
                 ? "opacity-100 relative translate-x-0 scale-100 z-10"
                 : "opacity-0 invisible absolute top-0 left-0 scale-105 z-0"
@@ -41,10 +41,10 @@ export const MainBanner = ({
             <Image
               src={getImageUrl(banner.imageUrl)}
               alt={stripHtml(banner.title) || "Banner"}
-              width={1920}
-              height={1080}
+              fill
               priority={index === 0}
-              className="w-full h-auto"
+              unoptimized
+              className="object-cover"
               sizes="100vw"
             />
 
@@ -162,7 +162,7 @@ export const MainBanner = ({
               aria-label={tBanner("goToSlide", { index: idx + 1 })}
               className={`w-8 md:w-12 h-1 md:h-1.5 rounded-full transition-all ${
                 idx === currentSlide
-                  ? "bg-[#c9a149]"
+                  ? "bg-white"
                   : "bg-white/30 hover:bg-white/50"
               }`}
             />

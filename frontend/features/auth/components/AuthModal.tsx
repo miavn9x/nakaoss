@@ -62,7 +62,7 @@ export const AuthModal = ({
                   {t("orCreateAccount")}
                   <span
                     onClick={switchToRegister}
-                    className="text-[#E31D1C] cursor-pointer hover:underline"
+                    className="text-naka-blue cursor-pointer hover:underline"
                   >
                     {t("createAccount")}
                   </span>
@@ -71,7 +71,7 @@ export const AuthModal = ({
                 <>
                   <span
                     onClick={switchToLogin}
-                    className="text-[#E31D1C] cursor-pointer hover:underline"
+                    className="text-naka-blue cursor-pointer hover:underline"
                   >
                     {t("login")}
                   </span>

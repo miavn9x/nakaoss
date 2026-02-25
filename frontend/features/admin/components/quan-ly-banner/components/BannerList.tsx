@@ -64,8 +64,9 @@ export default function BannerList({
                       <div className="relative w-24 h-12 rounded overflow-hidden bg-gray-100 border">
                         <Image
                           src={getImageUrl(banner.imageUrl)}
-                          alt={banner.title}
+                          alt={banner.title.replace(/<[^>]*>/g, "")}
                           fill
+                          unoptimized
                           className="object-cover"
                         />
                       </div>

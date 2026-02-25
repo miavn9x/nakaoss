@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     icon: "/img/VvAzinO9.ico",
     apple: "/img/VvAzinO9.ico",
   },
-  manifest: "/manifest.json",
+  manifest: "/manifest.webmanifest",
   alternates: {
     languages: {
       "vi-VN": "/",

@@ -1,4 +1,4 @@
-import { IsBoolean, IsEnum, IsNumber, IsOptional, IsString, IsUrl } from 'class-validator';
+import { IsBoolean, IsEnum, IsNumber, IsOptional, IsString } from 'class-validator';
 import { BannerType } from '../schemas/banner.schema';
 
 export class CreateBannerDto {
@@ -14,7 +14,7 @@ export class CreateBannerDto {
   buttonText?: string;
 
   @IsString()
-  @IsUrl() // Validate as URL if possible, or just IsString if relative path
+  // Gỡ bỏ @IsUrl() vì hệ thống lưu đường dẫn tương đối /uploads/...
   imageUrl: string;
 
   @IsString()

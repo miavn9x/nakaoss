@@ -19,18 +19,16 @@ export function getImageUrl(
   }
 
   // 2. Handle Relative URLs
-  // If we're using devtunnels proxy mode, ALWAYS return relative path
-  // This ensures server and client render the same URL
-  if (process.env.NEXT_PUBLIC_API_URL === "/api-proxy") {
-    // Return relative path so Next.js rewrites can handle it
+  // If IMAGE_URL is empty (Local Dev Rewrite mode or Tunnel Proxy mode)
+  // return relative path so Next.js handles it via rewrites
+  if (!IMAGE_URL || process.env.NEXT_PUBLIC_API_URL === "/api-proxy") {
     const path = url.startsWith("/") ? url : `/${url}`;
     return path;
   }
 
-  // 3. For non-proxy mode (localhost dev, LAN, production)
-  const imageBaseUrl = IMAGE_URL || "http://localhost:4001";
+  // 3. For production or specified IMAGE_URL
   const path = url.startsWith("/") ? url : `/${url}`;
-  return `${imageBaseUrl}${path}`;
+  return `${IMAGE_URL}${path}`;
 }
 
 export function getRelativeImageUrl(url: string): string {
@@ -42,7 +40,7 @@ export function getRelativeImageUrl(url: string): string {
   }
 
   // Also handle localhost fallbacks if env var is not set matches
-  const localhostAliases = ["http://localhost:4001", "http://127.0.0.1:4001"];
+  const localhostAliases = ["http://localhost:4000", "http://127.0.0.1:4000"];
   for (const alias of localhostAliases) {
     if (url.startsWith(alias)) {
       return url.replace(alias, "");

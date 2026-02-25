@@ -19,7 +19,7 @@ const LineageIntroSection = async () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-6 items-start">
           {/* Left Column: Content */}
           <div className="space-y-6 md:space-y-8">
-            <div className="border-l-4 border-[#7a1e1e] pl-6">
+            <div className="border-l-4 border-naka-blue pl-6">
               <h2 className="text-gray-800 text-2xl sm:text-3xl lg:text-4xl font-bold uppercase leading-tight">
                 {t("title")}
               </h2>
@@ -49,7 +49,7 @@ const LineageIntroSection = async () => {
               href="/jamtul-rinpoche-jamyang-sherab"
               className="inline-block"
             >
-              <button className="bg-[#7a1e1e] text-white px-8 py-3 text-sm sm:text-base font-bold uppercase hover:bg-[#5e1717] transition-colors flex items-center gap-2">
+              <button className="bg-naka-blue text-white px-8 py-3 text-sm sm:text-base font-bold uppercase hover:bg-naka-blue/90 transition-colors flex items-center gap-2">
                 {t("read_more")} <span>→</span>
               </button>
             </Link>

@@ -16,10 +16,7 @@ axiosInstance.interceptors.request.use(
     if (typeof window !== "undefined") {
       const sudoToken = sessionStorage.getItem("sudoToken");
       if (sudoToken) {
-        console.log("[Axios] Attaching Sudo Token to request:", config.url);
         config.headers["x-sudo-token"] = sudoToken;
-      } else {
-        console.log("[Axios] No Sudo Token found in sessionStorage");
       }
     }
     return config;
@@ -42,16 +39,23 @@ axiosInstance.interceptors.response.use(
       return Promise.reject(error);
     }
 
-    if (error.response?.status === 401 && !originalRequest._retry) {
-      // Nếu URL là /auth/login hoặc /auth/register thì không retry refresh token, mà trả lỗi luôn để Form xử lý
+    if (error.response?.status === 401) {
+      // Nếu là các API xác thực cơ bản, không retry mà xử lý logout luôn
       if (
         originalRequest.url?.includes("/auth/login") ||
-        originalRequest.url?.includes("/auth/register")
+        originalRequest.url?.includes("/auth/register") ||
+        originalRequest.url?.includes("/auth/re-access-token")
       ) {
+        if (typeof window !== "undefined") {
+          localStorage.removeItem("NAKA_SESSION_HINT");
+          localStorage.clear();
+          sessionStorage.clear();
+          window.dispatchEvent(new CustomEvent("naka-session-expired"));
+        }
         return Promise.reject(error);
       }
 
-      if (isRefreshing) return Promise.reject(error);
+      if (originalRequest._retry || isRefreshing) return Promise.reject(error);
 
       originalRequest._retry = true;
       isRefreshing = true;
@@ -62,10 +66,12 @@ axiosInstance.interceptors.response.use(
         return axiosInstance(originalRequest);
       } catch (refreshError) {
         isRefreshing = false;
-        // Session expired or invalid - Force Logout
-        localStorage.clear();
-        sessionStorage.clear();
-        // Không redirect cứng, để UI tự xử lý khi Promise reject
+        if (typeof window !== "undefined") {
+          localStorage.removeItem("NAKA_SESSION_HINT");
+          localStorage.clear();
+          sessionStorage.clear();
+          window.dispatchEvent(new CustomEvent("naka-session-expired"));
+        }
         return Promise.reject(refreshError);
       }
     }

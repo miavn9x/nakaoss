@@ -9,6 +9,7 @@ import { useNotification } from "../contexts/NotificationContext";
 
 import { useCurrentUser } from "@/features/auth/shared/hooks/useCurrentUser";
 import { useTranslations } from "next-intl";
+import { useAuth } from "@/features/auth/shared/contexts/AuthContext";
 
 const AdminHeader = () => {
   const t = useTranslations("AdminHeader");
@@ -20,6 +21,7 @@ const AdminHeader = () => {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const langDropdownRef = useRef<HTMLDivElement>(null);
   const { user } = useCurrentUser();
+  const { logout } = useAuth();
 
   // Handle click outside to close dropdowns
   useEffect(() => {
@@ -51,18 +53,7 @@ const AdminHeader = () => {
 
   const handleLogout = async () => {
     setShowUserDropdown(false);
-    try {
-      await axiosInstance.post("/auth/logout");
-    } catch {
-      // Ignore error
-    } finally {
-      // Broadcast logout
-      localStorage.setItem("auth-sync", `logout-${Date.now()}`);
-      // Clear data
-      localStorage.clear();
-      sessionStorage.clear();
-      window.location.href = "/";
-    }
+    await logout();
   };
 
   const handleLanguageChange = (locale: string) => {

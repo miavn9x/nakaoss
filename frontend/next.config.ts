@@ -36,13 +36,7 @@ const nextConfig: NextConfig = {
         port: "4000",
         pathname: "/**",
       },
-      // Allow images from other device IPs during development
-      {
-        protocol: "http",
-        hostname: "192.168.1.9",
-        port: "4000",
-        pathname: "/**",
-      },
+
       // Dev Tunnel HTTPS (cho test từ xa)
       {
         protocol: "https",
@@ -62,25 +56,43 @@ const nextConfig: NextConfig = {
   allowedDevOrigins: [
     "localhost:3000",
     "http://localhost:3000",
-    "192.168.1.9:3000",
-    "http://192.168.1.9:3000",
-    "192.168.1.9",
+    "localhost:3001",
+    "http://localhost:3001",
+
     "*.devtunnels.ms",
     "*.ngrok-free.app",
   ],
   async rewrites() {
-    return [
-      {
-        source: "/api-proxy/:path*",
-        // Proxy API requests to Backend Tunnel (port 4000)
-        destination: "https://83xqq1xp-4000.asse.devtunnels.ms/api/:path*",
-      },
-      {
-        source: "/uploads/:path*",
-        // Proxy Image requests to Backend Tunnel (port 4000)
-        destination: "https://83xqq1xp-4000.asse.devtunnels.ms/uploads/:path*",
-      },
-    ];
+    const tunnelUrl = process.env.NEXT_PUBLIC_TUNNEL_URL || "";
+
+    if (tunnelUrl) {
+      return [
+        {
+          source: "/api-proxy/:path*",
+          destination: `${tunnelUrl}/api/:path*`,
+        },
+        {
+          source: "/uploads/:path*",
+          destination: `${tunnelUrl}/uploads/:path*`,
+        },
+      ];
+    }
+
+    // Local development proxy to avoid CORS/Cookie/Hydration issues
+    if (process.env.NODE_ENV === "development") {
+      return [
+        {
+          source: "/api/:path*",
+          destination: "http://127.0.0.1:4000/api/:path*",
+        },
+        {
+          source: "/uploads/:path*",
+          destination: "http://127.0.0.1:4000/uploads/:path*",
+        },
+      ];
+    }
+
+    return [];
   },
   async headers() {
     return [
@@ -116,7 +128,7 @@ const nextConfig: NextConfig = {
               "style-src 'self' 'unsafe-inline' https://*.devtunnels.ms https://fonts.googleapis.com; " +
               "img-src 'self' data: blob: https: http:; " +
               "font-src 'self' data: https://fonts.gstatic.com; " +
-              "connect-src 'self' https://*.devtunnels.ms http://localhost:* http://127.0.0.1:* http://192.168.*:*; " +
+              "connect-src 'self' https://*.devtunnels.ms http://localhost:* http://127.0.0.1:*; " +
               "base-uri 'self'; " +
               "form-action 'self'; " +
               "frame-ancestors 'self';",
@@ -126,16 +138,6 @@ const nextConfig: NextConfig = {
             key: "Cross-Origin-Resource-Policy",
             value: "cross-origin", // Less strict than same-origin, allows external resources
           },
-          // COEP/COOP disabled - Too strict for Next.js with external fonts/images
-          // Enabling these would break Google Fonts and external resources
-          // {
-          //   key: "Cross-Origin-Embedder-Policy",
-          //   value: "require-corp",
-          // },
-          // {
-          //   key: "Cross-Origin-Opener-Policy",
-          //   value: "same-origin",
-          // },
         ],
       },
     ];

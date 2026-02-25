@@ -16,6 +16,7 @@ export const dynamic = "force-dynamic"; // Fix build error: Route used cookies
 
 import { redirect } from "next/navigation";
 import { verifyAdminAccess } from "@/features/admin/lib/admin-guard";
+import { AuthProvider } from "@/features/auth/shared/contexts/AuthContext";
 
 export const metadata: Metadata = {
   title: "W Four Tech Admin",
@@ -58,25 +59,27 @@ export default async function AdminLayout({
     <html lang={locale} suppressHydrationWarning>
       <body suppressHydrationWarning>
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <AdminClientWrapper>
-            <QueryProvider>
-              <SidebarProvider>
-                <NotificationProvider>
-                  <AdminPageProvider>
-                    <div className="h-screen flex flex-col overflow-hidden">
-                      {children}
-                    </div>
-                    <ToastContainer
-                      position="top-right"
-                      theme="light"
-                      autoClose={1000}
-                      limit={2}
-                    />
-                  </AdminPageProvider>
-                </NotificationProvider>
-              </SidebarProvider>
-            </QueryProvider>
-          </AdminClientWrapper>
+          <AuthProvider>
+            <AdminClientWrapper>
+              <QueryProvider>
+                <SidebarProvider>
+                  <NotificationProvider>
+                    <AdminPageProvider>
+                      <div className="h-screen flex flex-col overflow-hidden">
+                        {children}
+                      </div>
+                      <ToastContainer
+                        position="top-right"
+                        theme="light"
+                        autoClose={1000}
+                        limit={2}
+                      />
+                    </AdminPageProvider>
+                  </NotificationProvider>
+                </SidebarProvider>
+              </QueryProvider>
+            </AdminClientWrapper>
+          </AuthProvider>
         </NextIntlClientProvider>
       </body>
     </html>

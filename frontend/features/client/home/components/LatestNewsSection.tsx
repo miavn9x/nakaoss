@@ -84,13 +84,13 @@ export default function LatestNewsSection({
   return (
     <section className="container mx-auto py-12 px-4 overflow-hidden">
       {/* Header */}
-      <div className="flex items-center justify-between mb-8 border-l-4 border-[#7a1e1e] px-4 lg:pr-0">
+      <div className="flex items-center justify-between mb-8 border-l-4 border-naka-blue px-4 lg:pr-0">
         <h2 className="text-3xl font-bold text-gray-800">
           {tHome("latestNews")}
         </h2>
         <Link
           href={"/tin-moi" as any}
-          className="bg-[#7a1e1e] text-white px-4 py-2 text-sm font-semibold rounded hover:bg-[#5e1717] transition-colors uppercase"
+          className="bg-naka-blue text-white px-4 py-2 text-sm font-semibold rounded hover:bg-naka-blue/90 transition-colors uppercase"
         >
           {tCommon("viewAll")} &rarr;
         </Link>
@@ -152,7 +152,7 @@ function LargeNewsCard({
       </div>
       <div>
         <div className="flex items-center text-sm text-gray-500 mb-2 space-x-2">
-          <span className="font-semibold text-[#7a1e1e] uppercase">
+          <span className="font-semibold text-naka-blue uppercase">
             {getCategoryName(post, locale)}
           </span>
           <span>&mdash;</span>
@@ -163,7 +163,7 @@ function LargeNewsCard({
           </span>
         </div>
         <Link href={getPostLink(post, locale) as any} className="block">
-          <h3 className="text-2xl font-bold text-[#7a1e1e] mb-3 hover:text-[#5e1717] transition-colors line-clamp-2 text-left sm:text-justify wrap-break-word">
+          <h3 className="text-2xl font-bold text-naka-blue mb-3 hover:text-naka-blue/80 transition-colors line-clamp-2 text-left sm:text-justify wrap-break-word">
             {detail.title}
           </h3>
         </Link>
@@ -203,7 +203,7 @@ function SmallNewsCard({ post }: { post: PostClientListItem }) {
       </div>
       <div className="flex-1 min-w-0 flex flex-col justify-start h-full py-1">
         <div className="flex items-center text-xs text-gray-500 mb-2 space-x-1">
-          <span className="font-semibold text-[#7a1e1e] uppercase">
+          <span className="font-semibold text-naka-blue uppercase">
             {getCategoryName(post, locale)}
           </span>
           <span>&bull;</span>
@@ -214,7 +214,7 @@ function SmallNewsCard({ post }: { post: PostClientListItem }) {
           </span>
         </div>
         <Link href={getPostLink(post, locale) as any} className="block mb-3">
-          <h4 className="text-xl font-bold text-[#7a1e1e] line-clamp-2 hover:text-[#5e1717] transition-colors leading-snug text-left sm:text-justify wrap-break-word">
+          <h4 className="text-xl font-bold text-naka-blue line-clamp-2 hover:text-naka-blue/80 transition-colors leading-snug text-left sm:text-justify wrap-break-word">
             {detail.title}
           </h4>
         </Link>

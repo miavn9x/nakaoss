@@ -163,7 +163,7 @@ export default function FeaturedNewsSection({
 
       <div className="container mx-auto  featured-carousel-container">
         {/* Header */}
-        <div className="flex items-center justify-between mb-8 border-l-4 border-[#7a1e1e] px-4 lg:pr-0">
+        <div className="flex items-center justify-between mb-8 border-l-4 border-naka-blue px-4 lg:pr-0">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800">
             {tHome("featuredNews")}
           </h2>
@@ -173,14 +173,14 @@ export default function FeaturedNewsSection({
               <div className="hidden lg:flex gap-2">
                 <button
                   onClick={handlePrev}
-                  className="p-2 rounded-full border border-gray-300 hover:bg-[#7a1e1e] hover:text-white hover:border-[#7a1e1e] transition-colors"
+                  className="p-2 rounded-full border border-gray-300 hover:bg-naka-blue hover:text-white hover:border-naka-blue transition-colors"
                   aria-label={tBanner("prevSlide")}
                 >
                   <ChevronLeft size={20} />
                 </button>
                 <button
                   onClick={handleNext}
-                  className="p-2 rounded-full border border-gray-300 hover:bg-red-700 hover:text-white hover:border-red-700 transition-colors"
+                  className="p-2 rounded-full border border-gray-300 hover:bg-naka-blue hover:text-white hover:border-naka-blue transition-colors"
                   aria-label={tBanner("nextSlide")}
                 >
                   <ChevronRight size={20} />
@@ -190,7 +190,7 @@ export default function FeaturedNewsSection({
 
             <Link
               href={"/tin-noi-bat" as any}
-              className="bg-[#7a1e1e] text-white px-4 py-2 text-sm font-semibold rounded hover:bg-[#5e1717] transition-colors uppercase"
+              className="bg-naka-blue text-white px-4 py-2 text-sm font-semibold rounded hover:bg-naka-blue/90 transition-colors uppercase"
             >
               {tCommon("viewAll")} &rarr;
             </Link>
@@ -208,7 +208,7 @@ export default function FeaturedNewsSection({
             {canScroll && (
               <button
                 onClick={handlePrev}
-                className="flex lg:hidden absolute left-6 md:left-0 top-[35%] -translate-y-1/2 z-10 p-1.5 rounded-full bg-white border-2 border-gray-300 hover:bg-[#7a1e1e] hover:text-white hover:border-[#7a1e1e] transition-colors shadow-lg"
+                className="flex lg:hidden absolute left-6 md:left-0 top-[35%] -translate-y-1/2 z-10 p-1.5 rounded-full bg-white border-2 border-gray-300 hover:bg-naka-blue hover:text-white hover:border-naka-blue transition-colors shadow-lg"
                 aria-label={tBanner("prevSlide")}
               >
                 <ChevronLeft size={20} />
@@ -219,7 +219,7 @@ export default function FeaturedNewsSection({
             {canScroll && (
               <button
                 onClick={handleNext}
-                className="flex lg:hidden absolute right-6 md:right-0  top-[35%] -translate-y-1/2 z-10 p-1.5 rounded-full bg-white border-2 border-gray-300 hover:bg-[#7a1e1e] hover:text-white hover:border-[#7a1e1e] transition-colors shadow-lg"
+                className="flex lg:hidden absolute right-6 md:right-0  top-[35%] -translate-y-1/2 z-10 p-1.5 rounded-full bg-white border-2 border-gray-300 hover:bg-naka-blue hover:text-white hover:border-naka-blue transition-colors shadow-lg"
                 aria-label={tBanner("nextSlide")}
               >
                 <ChevronRight size={20} />
@@ -325,7 +325,7 @@ function FeaturedCard({
 
         {/* Content */}
         <div className="text-center px-2 flex flex-col grow">
-          <div className="flex items-center justify-center text-[10px] sm:text-xs text-[#7a1e1e] font-semibold uppercase mb-3 gap-2">
+          <div className="flex items-center justify-center text-[10px] sm:text-xs text-naka-blue font-semibold uppercase mb-3 gap-2">
             <span>{getCategoryName(post, locale)}</span>
             <span className="text-gray-400">&mdash;</span>
             <span className="text-gray-500 font-medium normal-case">
@@ -336,7 +336,7 @@ function FeaturedCard({
           </div>
 
           <Link href={getPostLink(post, locale) as any} className="block mb-3">
-            <h3 className="text-lg sm:text-xl font-bold text-[#7a1e1e] line-clamp-2 hover:text-[#5e1717] transition-colors leading-tight text-center sm:text-justify wrap-break-word">
+            <h3 className="text-lg sm:text-xl font-bold text-naka-blue line-clamp-2 hover:text-naka-blue/80 transition-colors leading-tight text-center sm:text-justify wrap-break-word">
               {detail.title}
             </h3>
           </Link>

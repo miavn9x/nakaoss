@@ -68,8 +68,8 @@ async function bootstrap() {
   app.enableCors({
     origin: (requestOrigin, callback) => {
       const allowedOrigins = [
-        'http://localhost:3030',
         'http://localhost:3000',
+        'http://localhost:3001',
         'https://demobanhtrang.wfourtech.vn',
         'https://miavn9x.id.vn',
         'https://83xqq1xp-3000.asse.devtunnels.ms',

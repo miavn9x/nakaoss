@@ -1,1 +1,6 @@
 @import "tailwindcss";
+
+@theme {
+  --color-naka-blue: #1d3b78;
+  --color-naka-white: #ffffff;
+}

@@ -393,7 +393,7 @@ export const ModalLoginForm = () => {
                 e.target.setCustomValidity("");
               }}
               onBlur={handleBlur}
-              className="w-full border-b-[1.5px] border-gray-300 py-1.5 focus:outline-none focus:border-[#E31D1C] transition-colors placeholder-gray-400 text-gray-800"
+              className="w-full border-b-[1.5px] border-gray-300 py-1.5 focus:outline-none focus:border-naka-blue transition-colors placeholder-gray-400 text-gray-800"
               required
             />
           </div>
@@ -416,7 +416,7 @@ export const ModalLoginForm = () => {
                 setPassword(e.target.value);
                 e.target.setCustomValidity(""); // Clear validation error
               }}
-              className="w-full border-b-[1.5px] border-gray-300 py-1.5 focus:outline-none focus:border-[#E31D1C] transition-colors placeholder-gray-400 text-gray-800 pr-10"
+              className="w-full border-b-[1.5px] border-gray-300 py-1.5 focus:outline-none focus:border-naka-blue transition-colors placeholder-gray-400 text-gray-800 pr-10"
               required
             />
             <button
@@ -451,7 +451,7 @@ export const ModalLoginForm = () => {
                   handleCaptchaInput(e);
                   e.target.setCustomValidity(""); // Clear validation error
                 }}
-                className="w-full border-b-[1.5px] border-gray-300 py-1.5 focus:outline-none focus:border-[#E31D1C] transition-colors placeholder-gray-400 text-gray-800 text-center sm:text-left"
+                className="w-full border-b-[1.5px] border-gray-300 py-1.5 focus:outline-none focus:border-naka-blue transition-colors placeholder-gray-400 text-gray-800 text-center sm:text-left"
                 required
                 placeholder={t("captchaPlaceholder")}
               />
@@ -490,7 +490,7 @@ export const ModalLoginForm = () => {
         <button
           type="submit"
           disabled={isLoading || isLocked}
-          className="w-full bg-[#E31D1C] hover:bg-[#c91918] text-white font-bold py-3 rounded text-sm sm:text-base transition-all shadow-sm mt-2 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full bg-naka-blue hover:bg-naka-blue/90 text-white font-bold py-3 rounded text-sm sm:text-base transition-all shadow-sm mt-2 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {isLocked
             ? t("locked", {

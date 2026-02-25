@@ -7,7 +7,7 @@ export default async function Footer() {
   const t = await getTranslations("Footer");
 
   return (
-    <footer className="bg-[#7a1e1e] text-gray-300 text-xs font-sans relative overflow-hidden">
+    <footer className="bg-naka-blue text-gray-300 text-xs font-sans relative overflow-hidden">
       {/* Mobile-only Background Pattern */}
       <div className="absolute inset-0 z-0 md:hidden bg-[url('/bg/footer_pattent.png')] bg-repeat opacity-60 pointer-events-none" />
 
@@ -44,7 +44,7 @@ export default async function Footer() {
             <div className="flex flex-wrap gap-x-4 gap-y-2">
               <Link
                 href="#"
-                className="hover:text-[#c9a149] transition-colors whitespace-nowrap"
+                className="hover:text-white transition-colors whitespace-nowrap"
               >
                 <span className="text-[10px] mr-1">»</span>{" "}
                 <span className="text-xs sm:text-sm">
@@ -53,7 +53,7 @@ export default async function Footer() {
               </Link>
               <Link
                 href="#"
-                className="hover:text-[#c9a149] transition-colors whitespace-nowrap"
+                className="hover:text-white transition-colors whitespace-nowrap"
               >
                 <span className="text-[10px] mr-1">»</span>{" "}
                 <span className="text-xs sm:text-sm">
@@ -62,7 +62,7 @@ export default async function Footer() {
               </Link>
               <Link
                 href="#"
-                className="hover:text-[#c9a149] transition-colors whitespace-nowrap"
+                className="hover:text-white transition-colors whitespace-nowrap"
               >
                 <span className="text-[10px] mr-1">»</span>{" "}
                 <span className="text-xs sm:text-sm">
@@ -71,7 +71,7 @@ export default async function Footer() {
               </Link>
               <Link
                 href="#"
-                className="hover:text-[#c9a149] transition-colors whitespace-nowrap"
+                className="hover:text-white transition-colors whitespace-nowrap"
               >
                 <span className="text-[10px] mr-1">»</span>{" "}
                 <span className="text-xs sm:text-sm">
@@ -80,7 +80,7 @@ export default async function Footer() {
               </Link>
               <Link
                 href="#"
-                className="hover:text-[#c9a149] transition-colors whitespace-nowrap"
+                className="hover:text-white transition-colors whitespace-nowrap"
               >
                 <span className="text-[10px] mr-1">»</span>{" "}
                 <span className="text-xs sm:text-sm">
@@ -102,7 +102,7 @@ export default async function Footer() {
             <div className="flex flex-wrap gap-x-4 gap-y-2">
               <Link
                 href="#"
-                className="hover:text-[#c9a149] transition-colors whitespace-nowrap"
+                className="hover:text-white transition-colors whitespace-nowrap"
               >
                 <span className="text-[10px] mr-1">»</span>{" "}
                 <span className="text-xs sm:text-sm">
@@ -111,14 +111,14 @@ export default async function Footer() {
               </Link>
               <Link
                 href="#"
-                className="hover:text-[#c9a149] transition-colors whitespace-nowrap"
+                className="hover:text-white transition-colors whitespace-nowrap"
               >
                 <span className="text-[10px] mr-1">»</span>{" "}
                 <span className="text-xs sm:text-sm">{t("dharmawheel")}</span>
               </Link>
               <Link
                 href="#"
-                className="hover:text-[#c9a149] transition-colors whitespace-nowrap"
+                className="hover:text-white transition-colors whitespace-nowrap"
               >
                 <span className="text-[10px] mr-1">»</span>{" "}
                 <span className="text-xs sm:text-sm">
@@ -127,7 +127,7 @@ export default async function Footer() {
               </Link>
               <Link
                 href="#"
-                className="hover:text-[#c9a149] transition-colors whitespace-nowrap"
+                className="hover:text-white transition-colors whitespace-nowrap"
               >
                 <span className="text-[10px] mr-1">»</span>{" "}
                 <span className="text-xs sm:text-sm">
@@ -152,7 +152,7 @@ export default async function Footer() {
           </div>
 
           <div>
-            <h2 className="text-[#c9a149] text-xl sm:text-2xl font-serif font-bold uppercase tracking-wide">
+            <h2 className="text-white text-xl sm:text-2xl font-serif font-bold uppercase tracking-wide">
               DRIKUNG KAGYU
             </h2>
             <p className="text-[10px] text-white/50 uppercase tracking-[0.2em]">
@@ -182,14 +182,14 @@ export default async function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="bg-[#fdfce8] text-[#7a1e1e] py-3 text-center border-t border-[#c9a149]">
+      <div className="bg-white text-naka-blue py-3 text-center border-t border-gray-100">
         <div className="container mx-auto px-4 font-semibold text-xs transition-colors">
           © 2025-2026 {t("description")} {t("design_by")}{" "}
           <a
             href="https://wfourtech.vn"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:underline hover:text-[#7a1e1e] transition-colors"
+            className="hover:underline hover:text-naka-blue transition-colors"
           >
             W Four Tech
           </a>

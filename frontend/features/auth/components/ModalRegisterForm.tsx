@@ -400,7 +400,7 @@ export const ModalRegisterForm = ({ onSuccess }: ModalRegisterFormProps) => {
               onChange={handleChange}
               onBlur={handleBlur}
               disabled={isLocked}
-              className="w-full border-b-[1.5px] border-gray-300 py-1 focus:outline-none focus:border-[#E31D1C] transition-colors placeholder-gray-400 text-gray-800 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full border-b-[1.5px] border-gray-300 py-1 focus:outline-none focus:border-naka-blue transition-colors placeholder-gray-400 text-gray-800 disabled:opacity-50 disabled:cursor-not-allowed"
               required
             />
           </div>
@@ -421,7 +421,7 @@ export const ModalRegisterForm = ({ onSuccess }: ModalRegisterFormProps) => {
               onChange={handleChange}
               onBlur={handleBlur}
               disabled={isLocked}
-              className="w-full border-b-[1.5px] border-gray-300 py-1 focus:outline-none focus:border-[#E31D1C] transition-colors placeholder-gray-400 text-gray-800 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full border-b-[1.5px] border-gray-300 py-1 focus:outline-none focus:border-naka-blue transition-colors placeholder-gray-400 text-gray-800 disabled:opacity-50 disabled:cursor-not-allowed"
               required
             />
           </div>
@@ -443,7 +443,7 @@ export const ModalRegisterForm = ({ onSuccess }: ModalRegisterFormProps) => {
             onChange={handleChange}
             onBlur={handleBlur}
             disabled={isLocked}
-            className="w-full border-b-[1.5px] border-gray-300 py-1 focus:outline-none focus:border-[#E31D1C] transition-colors placeholder-gray-400 text-gray-800 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full border-b-[1.5px] border-gray-300 py-1 focus:outline-none focus:border-naka-blue transition-colors placeholder-gray-400 text-gray-800 disabled:opacity-50 disabled:cursor-not-allowed"
           />
         </div>
 
@@ -463,7 +463,7 @@ export const ModalRegisterForm = ({ onSuccess }: ModalRegisterFormProps) => {
             onChange={handleChange}
             onBlur={handleBlur}
             disabled={isLocked}
-            className="w-full border-b-[1.5px] border-gray-300 py-1 focus:outline-none focus:border-[#E31D1C] transition-colors placeholder-gray-400 text-gray-800 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full border-b-[1.5px] border-gray-300 py-1 focus:outline-none focus:border-naka-blue transition-colors placeholder-gray-400 text-gray-800 disabled:opacity-50 disabled:cursor-not-allowed"
           />
         </div>
 
@@ -483,7 +483,7 @@ export const ModalRegisterForm = ({ onSuccess }: ModalRegisterFormProps) => {
             onChange={handleChange}
             onBlur={handleBlur}
             disabled={isLocked}
-            className="w-full border-b-[1.5px] border-gray-300 py-1 focus:outline-none focus:border-[#E31D1C] transition-colors placeholder-gray-400 text-gray-800 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full border-b-[1.5px] border-gray-300 py-1 focus:outline-none focus:border-naka-blue transition-colors placeholder-gray-400 text-gray-800 disabled:opacity-50 disabled:cursor-not-allowed"
             required
           />
         </div>
@@ -505,7 +505,7 @@ export const ModalRegisterForm = ({ onSuccess }: ModalRegisterFormProps) => {
               onChange={handleChange}
               onBlur={handleBlur}
               disabled={isLocked}
-              className="w-full border-b-[1.5px] border-gray-300 py-1 focus:outline-none focus:border-[#E31D1C] transition-colors placeholder-gray-400 text-gray-800 pr-10 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full border-b-[1.5px] border-gray-300 py-1 focus:outline-none focus:border-naka-blue transition-colors placeholder-gray-400 text-gray-800 pr-10 disabled:opacity-50 disabled:cursor-not-allowed"
               required
             />
             <button
@@ -542,7 +542,7 @@ export const ModalRegisterForm = ({ onSuccess }: ModalRegisterFormProps) => {
                   e.target.setCustomValidity("");
                 }}
                 disabled={isLocked}
-                className="w-full border-b-[1.5px] border-gray-300 py-1 focus:outline-none focus:border-[#E31D1C] transition-colors placeholder-gray-400 text-gray-800 text-center sm:text-left disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full border-b-[1.5px] border-gray-300 py-1 focus:outline-none focus:border-naka-blue transition-colors placeholder-gray-400 text-gray-800 text-center sm:text-left disabled:opacity-50 disabled:cursor-not-allowed"
                 required
                 placeholder={t("captchaPlaceholder")}
               />
@@ -584,7 +584,7 @@ export const ModalRegisterForm = ({ onSuccess }: ModalRegisterFormProps) => {
         <button
           type="submit"
           disabled={isLocked}
-          className="w-full bg-[#E31D1C] hover:bg-[#c91918] text-white font-bold py-2 rounded text-sm sm:text-base transition-all shadow-sm mt-4 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full bg-naka-blue hover:bg-naka-blue/90 text-white font-bold py-2 rounded text-sm sm:text-base transition-all shadow-sm mt-4 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {isLocked
             ? t("locked", {

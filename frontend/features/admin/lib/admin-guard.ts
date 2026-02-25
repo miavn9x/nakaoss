@@ -18,8 +18,7 @@ export async function verifyAdminAccess(): Promise<boolean> {
       return false;
     }
 
-    // 2. Nếu có accessToken, kiểm tra Role bằng cách parse (không verify chữ ký)
-    // Đơn giản hóa theo yêu cầu để tránh phức tạp config env
+    // 2. Nếu có accessToken, kiểm tra Role bằng cách parse
     if (accessToken) {
       try {
         const payload = parseJwt(accessToken);
@@ -29,17 +28,20 @@ export async function verifyAdminAccess(): Promise<boolean> {
         }
 
         const hasPermission = payload.roles.some((role: string) =>
-          ALLOWED_ADMIN_ROLES.includes(role)
+          ALLOWED_ADMIN_ROLES.includes(role),
         );
 
         return hasPermission;
       } catch (e) {
-        return false; // Parse lỗi -> Token đểu
+        // Parse lỗi -> Token đểu, không cho qua
+        return false;
       }
     }
 
-    // 3. Fallback cho Refresh Token
-    return true;
+    // 3. Nếu không có accessToken nhưng có refreshToken
+    // Chúng ta cho phép truy cập tạm thời để CLIENT-SIDE có thể thực hiện refresh token.
+    // Nếu refresh thất bại, Axios interceptor sẽ thực hiện redirect về trang chủ.
+    return !!refreshToken;
   } catch (error) {
     console.error("Admin Access Verification Error:", error);
     return false;

@@ -40,7 +40,7 @@ export default async function Home({ locale = "vi" }: { locale?: string }) {
 
       <LineageIntroSection />
 
-      <div className="w-full bg-[#fdfce8]">
+      <div className="w-full bg-white">
         <LatestNewsSection initialPosts={latestPosts} />
 
         <FeaturedNewsSection initialPosts={featuredPosts} />

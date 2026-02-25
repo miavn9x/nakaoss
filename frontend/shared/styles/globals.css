@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+@layer base {
+  :root {
+    --color-naka-blue: #1d3b78;
+    --color-naka-white: #ffffff;
+  }
+}
+
 @theme {
   --color-naka-blue: #1d3b78;
   --color-naka-white: #ffffff;

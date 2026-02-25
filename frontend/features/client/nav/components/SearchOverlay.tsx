@@ -81,8 +81,8 @@ const SearchOverlay = ({ isOpen, onClose }: SearchOverlayProps) => {
           {/* Search Input */}
           <div className="flex items-center gap-4">
             <div className="flex-1 relative group">
-              <div className="flex items-center bg-gray-50 rounded-full border border-[#7a1e1e] focus-within:bg-white transition-all p-1.5 pl-5">
-                <Search className="text-[#7a1e1e] w-5 h-5 mr-3" />
+              <div className="flex items-center bg-gray-50 rounded-full border border-naka-blue focus-within:bg-white transition-all p-1.5 pl-5">
+                <Search className="text-naka-blue w-5 h-5 mr-3" />
                 <input
                   ref={inputRef}
                   type="text"
@@ -95,7 +95,7 @@ const SearchOverlay = ({ isOpen, onClose }: SearchOverlayProps) => {
                 <button
                   onClick={handleSearch}
                   aria-label="Submit search"
-                  className="w-10 h-10 flex items-center justify-center bg-[#7a1e1e] text-white rounded-full hover:bg-[#5e1717] transition-colors"
+                  className="w-10 h-10 flex items-center justify-center bg-naka-blue text-white rounded-full hover:bg-naka-blue/90 transition-colors"
                 >
                   <ArrowRight size={18} />
                 </button>
@@ -128,7 +128,7 @@ const SearchOverlay = ({ isOpen, onClose }: SearchOverlayProps) => {
                   {isLoading ? t("searching") : t("results")} ({results.length})
                 </h3>
                 {isLoading && (
-                  <Loader2 className="w-4 h-4 text-[#7a1e1e] animate-spin" />
+                  <Loader2 className="w-4 h-4 text-naka-blue animate-spin" />
                 )}
               </div>
 
@@ -158,7 +158,7 @@ const SearchOverlay = ({ isOpen, onClose }: SearchOverlayProps) => {
                           />
                         </div>
                         <div className="flex-1 min-w-0">
-                          <h4 className="text-sm font-semibold text-gray-800 line-clamp-2 leading-tight group-hover:text-[#7a1e1e] transition-colors">
+                          <h4 className="text-sm font-semibold text-gray-800 line-clamp-2 leading-tight group-hover:text-naka-blue transition-colors">
                             {detail.title}
                           </h4>
                         </div>

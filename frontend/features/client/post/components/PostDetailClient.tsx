@@ -102,7 +102,7 @@ const PostDetailClient: React.FC<PostDetailClientProps> = ({
   }
 
   return (
-    <div className="bg-[#fdfce8] min-h-screen">
+    <div className="bg-white min-h-screen">
       <div className="container mx-auto py-8 lg:py-12 px-4">
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
           {/* Main Content: 75% */}

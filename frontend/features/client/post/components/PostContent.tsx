@@ -41,7 +41,7 @@ const PostContent: React.FC<PostContentProps> = ({ post }) => {
   return (
     <article className="space-y-6">
       <header className="border-b border-gray-100 pb-6 mb-6">
-        <div className="flex items-center text-xs md:text-sm font-semibold text-[#7a1e1e] uppercase mb-4 gap-2">
+        <div className="flex items-center text-xs md:text-sm font-semibold text-naka-blue uppercase mb-4 gap-2">
           {/* Hiển thị tên danh mục đã xử lý */}
           <span>{categoryLabel}</span>
           <span className="text-gray-400 font-normal">&mdash;</span>

@@ -40,7 +40,7 @@ export default async function SupportUsFeaturePage({
       <PageBanner />
 
       <div className="container mx-auto px-4 mt-8">
-        <h1 className="text-3xl md:text-4xl font-bold text-center text-[#7a1e1e] uppercase">
+        <h1 className="text-3xl md:text-4xl font-bold text-center text-naka-blue uppercase">
           {t("title")}
         </h1>
       </div>
@@ -67,7 +67,7 @@ export default async function SupportUsFeaturePage({
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div className="order-2 md:order-1 space-y-6">
               <p className="font-semibold text-lg">{t("milarepa_intro")}</p>
-              <div className="border-l-4 border-[#7a1e1e] pl-6 py-2 italic text-lg text-gray-700 bg-gray-50 rounded-r-lg">
+              <div className="border-l-4 border-naka-blue pl-6 py-2 italic text-lg text-gray-700 bg-gray-50 rounded-r-lg">
                 <p className="whitespace-pre-line leading-relaxed">
                   {t("milarepa_quote")}
                 </p>
@@ -84,7 +84,7 @@ export default async function SupportUsFeaturePage({
       </div>
 
       <div className="container mx-auto px-4 mt-16 text-center">
-        <h2 className="text-2xl md:text-3xl font-bold text-[#7a1e1e] uppercase">
+        <h2 className="text-2xl md:text-3xl font-bold text-naka-blue uppercase">
           {t("bank_title")}
         </h2>
       </div>
@@ -173,14 +173,14 @@ export default async function SupportUsFeaturePage({
                 (Email{" "}
                 <a
                   href="mailto:secretarydki@gmail.com"
-                  className="text-[#7a1e1e] font-semibold hover:underline"
+                  className="text-naka-blue font-semibold hover:underline"
                 >
                   secretarydki@gmail.com
                 </a>
                 , phone No.{" "}
                 <a
                   href="tel:+911352607863"
-                  className="text-[#7a1e1e] font-semibold hover:underline"
+                  className="text-naka-blue font-semibold hover:underline"
                 >
                   +91 135 2607863
                 </a>
@@ -193,7 +193,7 @@ export default async function SupportUsFeaturePage({
 
       {/* SENDING CHEQUE/DRAFT */}
       <div className="container mx-auto px-4 mt-16 text-center">
-        <h2 className="text-2xl md:text-3xl font-bold text-[#7a1e1e] uppercase">
+        <h2 className="text-2xl md:text-3xl font-bold text-naka-blue uppercase">
           {t("cheque_title")}
         </h2>
       </div>
@@ -212,7 +212,7 @@ export default async function SupportUsFeaturePage({
 
       {/* SENDING CHEQUE/DRAFT TO HIS HOLINESS */}
       <div className="container mx-auto px-4 mt-16 text-center">
-        <h2 className="text-2xl md:text-3xl font-bold text-[#7a1e1e] uppercase">
+        <h2 className="text-2xl md:text-3xl font-bold text-naka-blue uppercase">
           {t("hh_cheque_title")}
         </h2>
       </div>
@@ -227,7 +227,7 @@ export default async function SupportUsFeaturePage({
           </p>
           <div className="grid gap-2 font-medium">
             <p>{t("hh_contact_phone")}</p>
-            <p className="text-[#7a1e1e]">{t("hh_contact_email")}</p>
+            <p className="text-naka-blue">{t("hh_contact_email")}</p>
           </div>
           <p className="pt-8 italic text-gray-700">{t("thank_you")}</p>
         </div>

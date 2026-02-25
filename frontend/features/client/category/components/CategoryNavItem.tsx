@@ -52,7 +52,7 @@ export default function CategoryNavItem({ category }: CategoryNavItemProps) {
     >
       <Link
         href={getSlug(category) as any}
-        className="h-full flex items-center px-3 font-bold text-[#7a1e1e] text-sm sm:text-base lg:text-sm uppercase hover:bg-[#c9a149] hover:text-[#7a1e1e] transition-colors whitespace-nowrap gap-1"
+        className="h-full flex items-center px-3 font-bold text-naka-blue text-sm sm:text-base lg:text-sm uppercase hover:bg-naka-blue hover:text-white transition-colors whitespace-nowrap gap-1"
       >
         {getName(category)}
         {hasChildren && (
@@ -68,14 +68,14 @@ export default function CategoryNavItem({ category }: CategoryNavItemProps) {
         <>
           {isMegaMenu ? (
             /* MEGA MENU STYLE (Full Width) */
-            <div className="absolute top-full left-0 w-full bg-white shadow-2xl border-t-2 border-[#7a1e1e] hidden group-hover:block animate-in fade-in slide-in-from-top-1 duration-200 z-50">
+            <div className="absolute top-full left-0 w-full bg-white shadow-2xl border-t-2 border-naka-blue hidden group-hover:block animate-in fade-in slide-in-from-top-1 duration-200 z-50">
               <div className="grid grid-cols-4 gap-8 p-8">
                 {category.children!.map((level2) => (
                   <div key={level2.code} className="space-y-3">
                     <div className="flex items-center gap-1 pb-2 border-b border-gray-200">
                       <Link
                         href={getSlug(level2) as any}
-                        className="font-bold text-sm text-[#7a1e1e] hover:text-[#c9a149] uppercase tracking-wide transition-colors"
+                        className="font-bold text-sm text-naka-blue hover:text-naka-blue/80 uppercase tracking-wide transition-colors"
                       >
                         {getName(level2)}
                       </Link>
@@ -87,7 +87,7 @@ export default function CategoryNavItem({ category }: CategoryNavItemProps) {
                           <li key={level3.code}>
                             <Link
                               href={getSlug(level3) as any}
-                              className="text-sm text-gray-700 hover:text-[#7a1e1e] hover:translate-x-1 transition-all block py-1"
+                              className="text-sm text-gray-700 hover:text-naka-blue hover:translate-x-1 transition-all block py-1"
                             >
                               {getName(level3)}
                             </Link>
@@ -101,13 +101,13 @@ export default function CategoryNavItem({ category }: CategoryNavItemProps) {
             </div>
           ) : (
             /* SIMPLE LIST STYLE (Dropdown) */
-            <div className="absolute top-full left-0 min-w-[250px] bg-white shadow-xl border-t-2 border-[#7a1e1e] hidden group-hover:block animate-in fade-in slide-in-from-top-1 duration-200 z-50">
+            <div className="absolute top-full left-0 min-w-[250px] bg-white shadow-xl border-t-2 border-naka-blue hidden group-hover:block animate-in fade-in slide-in-from-top-1 duration-200 z-50">
               <ul className="py-2">
                 {category.children!.map((level2) => (
                   <li key={level2.code}>
                     <Link
                       href={getSlug(level2) as any}
-                      className="block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-[#fdfce8] hover:text-[#7a1e1e] border-b border-gray-100 last:border-0 transition-colors"
+                      className="block px-4 py-3 text-sm font-medium text-gray-700 hover:bg-naka-blue/5 hover:text-naka-blue border-b border-gray-100 last:border-0 transition-colors"
                     >
                       {getName(level2)}
                     </Link>

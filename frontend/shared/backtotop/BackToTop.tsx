@@ -42,7 +42,7 @@ const BackToTop = () => {
     >
       <button
         onClick={scrollToTop}
-        className="p-3 rounded bg-[#d6b981] text-white shadow-lg hover:bg-[#c91918] transition-transform duration-300 transform hover:scale-110 focus:outline-none flex items-center justify-center border border-[#800000]/20 hover:border-[#800000]/40"
+        className="p-3 rounded bg-naka-blue text-white shadow-lg hover:bg-naka-blue/80 transition-transform duration-300 transform hover:scale-110 focus:outline-none flex items-center justify-center border border-white/20 hover:border-white/40"
         aria-label="Back to top"
       >
         <ArrowUp size={20} />

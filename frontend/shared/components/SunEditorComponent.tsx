@@ -414,7 +414,7 @@ export default function SunEditorComponent({
 
       // Default style
       defaultStyle:
-        "font-family: Arial; font-size: 16px; padding: 0; margin: 0; width: 100%; box-sizing: border-box; background-color: #fdfce8;",
+        "font-family: Arial; font-size: 16px; padding: 0; margin: 0; width: 100%; box-sizing: border-box; background-color: #ffffff;",
       // Templates
       templates: [
         {

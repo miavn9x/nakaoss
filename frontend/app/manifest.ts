@@ -8,8 +8,8 @@ export default function manifest(): MetadataRoute.Manifest {
       "Cổng thông tin tin tức, sự kiện và kiến thức Phật giáo chính thống tại Việt Nam.",
     start_url: "/",
     display: "standalone",
-    background_color: "#fdfce8",
-    theme_color: "#7a1e1e",
+    background_color: "#ffffff",
+    theme_color: "#1d3b78",
     icons: [
       {
         src: "/img/VvAzinO9.ico",

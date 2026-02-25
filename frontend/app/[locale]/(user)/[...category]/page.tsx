@@ -249,7 +249,7 @@ const UniversalCategoryPage = async ({ params }: UniversalPageProps) => {
     };
 
     return (
-      <div className=" bg-[#fdfce8] min-h-screen">
+      <div className=" bg-white min-h-screen">
         {/* Inject JSON-LD */}
         <Script
           id="post-jsonld"
@@ -297,7 +297,7 @@ const UniversalCategoryPage = async ({ params }: UniversalPageProps) => {
     );
 
     return (
-      <div className=" bg-[#fdfce8] min-h-screen">
+      <div className=" bg-white min-h-screen">
         <div className="container mx-auto py-12 px-4">
           <CategoryListContent
             categorySlug={lastSegment}
@@ -364,7 +364,7 @@ const UniversalCategoryPage = async ({ params }: UniversalPageProps) => {
   }
 
   return (
-    <div className=" bg-[#fdfce8] min-h-screen">
+    <div className=" bg-white min-h-screen">
       <div className="container mx-auto py-8 lg:py-12 px-4">
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
           {/* Main Content: 75% */}

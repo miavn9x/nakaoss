@@ -42,7 +42,7 @@ export default function SunEditorContent({
 
   return (
     <div
-      className={`sun-editor-editable w-auto h-auto bg-[#fdfce8]! p-0 font-inherit ${className}`}
+      className={`sun-editor-editable w-auto h-auto p-0 font-inherit ${className}`}
       dangerouslySetInnerHTML={{ __html: sanitizedContent }}
     />
   );

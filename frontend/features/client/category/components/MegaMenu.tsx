@@ -38,7 +38,7 @@ export default function MegaMenu() {
     <div className="relative group">
       {/* Trigger Button - Main Nav Item */}
       <button
-        className="h-full flex items-center px-3 font-bold text-[#7a1e1e] text-sm sm:text-base lg:text-sm uppercase hover:bg-[#c9a149] hover:text-[#7a1e1e] transition-colors whitespace-nowrap gap-1"
+        className="h-full flex items-center px-3 font-bold text-naka-blue text-sm sm:text-base lg:text-sm uppercase hover:bg-naka-blue hover:text-white transition-colors whitespace-nowrap gap-1"
         onMouseEnter={() => setActiveCategory(null)}
       >
         Danh Mục
@@ -46,17 +46,17 @@ export default function MegaMenu() {
       </button>
 
       {/* Dropdown Container */}
-      <div className="absolute top-full left-0 w-[800px] bg-[#fdfce8] shadow-2xl rounded-b-xl border border-t-0 border-[#7a1e1e]/10 hidden group-hover:flex animate-in fade-in slide-in-from-top-1 duration-200 z-50 overflow-hidden">
+      <div className="absolute top-full left-0 w-[800px] bg-white shadow-2xl rounded-b-xl border border-t-0 border-naka-blue/10 hidden group-hover:flex animate-in fade-in slide-in-from-top-1 duration-200 z-50 overflow-hidden">
         {/* Level 1 Sidebar */}
-        <div className="w-1/3 bg-[#7a1e1e]/5 py-4">
+        <div className="w-1/3 bg-naka-blue/5 py-4">
           {categories.map((cat) => (
             <div
               key={cat.code}
               onMouseEnter={() => setActiveCategory(cat.code)}
               className={`px-4 py-3 flex items-center justify-between cursor-pointer transition-colors ${
                 activeCategory === cat.code
-                  ? "bg-[#7a1e1e] text-[#fdfce8]"
-                  : "text-[#7a1e1e] hover:bg-[#7a1e1e]/10"
+                  ? "bg-naka-blue text-white"
+                  : "text-naka-blue hover:bg-naka-blue/10"
               }`}
             >
               <Link
@@ -79,8 +79,8 @@ export default function MegaMenu() {
               key={level1.code}
               className={activeCategory === level1.code ? "block" : "hidden"}
             >
-              <div className="mb-4 pb-2 border-b border-[#7a1e1e]/10">
-                <h3 className="text-xl font-serif font-bold text-[#7a1e1e] uppercase">
+              <div className="mb-4 pb-2 border-b border-naka-blue/10">
+                <h3 className="text-xl font-serif font-bold text-naka-blue uppercase">
                   {getName(level1)}
                 </h3>
               </div>
@@ -91,7 +91,7 @@ export default function MegaMenu() {
                     <div key={level2.code} className="space-y-2">
                       <Link
                         href={getSlug(level2) as any}
-                        className="block font-bold text-sm text-[#7a1e1e] hover:underline uppercase mb-1"
+                        className="block font-bold text-sm text-naka-blue hover:underline uppercase mb-1"
                       >
                         {getName(level2)}
                       </Link>
@@ -103,7 +103,7 @@ export default function MegaMenu() {
                             <li key={level3.code}>
                               <Link
                                 href={getSlug(level3) as any}
-                                className="text-xs text-gray-600 hover:text-[#7a1e1e] hover:underline transition-colors block py-0.5"
+                                className="text-xs text-gray-600 hover:text-naka-blue hover:underline transition-colors block py-0.5"
                               >
                                 {getName(level3)}
                               </Link>

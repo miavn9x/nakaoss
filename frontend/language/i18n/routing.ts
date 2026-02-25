@@ -1,10 +1,10 @@
 import { defineRouting } from "next-intl/routing";
 
 export const routing = defineRouting({
-  locales: ["vi", "cn", "bo", "en"],
+  locales: ["vi", "cn", "ja", "en"],
   defaultLocale: "vi",
 
-  // Hiển thị locale trên URL cho các ngôn ngữ không phải mặc định (en, cn, bo)
+  // Hiển thị locale trên URL cho các ngôn ngữ không phải mặc định (en, cn, ja)
   // vi: /lien-he
   // en: /en/contact
   localePrefix: "never",
@@ -14,49 +14,49 @@ export const routing = defineRouting({
     "/tue-quang": {
       vi: "/thu-vien-tue-quang",
       cn: "/tue-quang",
-      bo: "/tue-quang",
+      ja: "/tue-quang",
       en: "/tue-quang-library",
     },
     "/longchen": {
       vi: "/dong-longchen-nyingthig",
       cn: "/longchen",
-      bo: "/longchen",
+      ja: "/longchen",
       en: "/longchen-lineage",
     },
     "/about": {
       vi: "/gioi-thieu",
       cn: "/guan-yu",
-      bo: "/about",
+      ja: "/about",
       en: "/about-us",
     },
     "/schedule": {
       vi: "/lich-phung-vu",
       cn: "/ri-cheng",
-      bo: "/schedule",
+      ja: "/schedule",
       en: "/schedule",
     },
     "/contact": {
       vi: "/lien-he",
       cn: "/lian-xi",
-      bo: "/contact",
+      ja: "/contact",
       en: "/contact",
     },
     "/profile": {
       vi: "/thong-tin-tai-khoan",
       cn: "/profile",
-      bo: "/profile",
+      ja: "/profile",
       en: "/profile",
     },
     "/support-us": {
       vi: "/ung-ho",
       cn: "/zhi-chi",
-      bo: "/support-us",
+      ja: "/support-us",
       en: "/support-us",
     },
     "/jamtul-rinpoche-jamyang-sherab": {
       vi: "/jamtul-rinpoche-jamyang-sherab",
       cn: "/jamtul-rinpoche-jamyang-sherab",
-      bo: "/jamtul-rinpoche-jamyang-sherab",
+      ja: "/jamtul-rinpoche-jamyang-sherab",
       en: "/jamtul-rinpoche-jamyang-sherab",
     },
     "/featured": "/featured",

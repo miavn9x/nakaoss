@@ -94,3 +94,8 @@
 */mysql/
 */mysqldump.sql
 */*.sql
+
+# Security Tokens & Audit Scripts
+google-tokens.json
+full_security_audit.js
+frontend_security_audit.js

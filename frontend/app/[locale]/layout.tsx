@@ -80,7 +80,7 @@ export const metadata: Metadata = {
       "vi-VN": "https://nakaoss.com/vi",
       "en-US": "https://nakaoss.com/en",
       "zh-CN": "https://nakaoss.com/cn",
-      "ja-JP": "https://nakaoss.com/bo",
+      "ja-JP": "https://nakaoss.com/ja",
     },
   },
   robots: {

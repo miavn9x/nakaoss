@@ -1,15 +1,15 @@
 {
   "Navigation": {
     "home": "TRANG CHỦ",
-    "tue_quang_library": "THƯ VIỆN TUỆ QUANG",
-    "longchen_lineage": "DÒNG LONGCHEN NYINGTHIG",
+    "tue_quang_library": "SẢN PHẨM",
+    "longchen_lineage": "LỢI THẾ",
     "about": "GIỚI THIỆU",
     "contact": "LIÊN HỆ",
-    "schedule": "LỊCH TRÌNH",
-    "support_us": "HÃY ỦNG HỘ CHÚNG TÔI",
+    "schedule": "TIN TỨC",
+    "support_us": "TÀI LIỆU",
     "language": "Ngôn ngữ",
-    "mobile_title": "Nội dung",
-    "mobile_subtitle": "Hoa văn hoặc Banner"
+    "mobile_title": "NAKAO VIETNAM",
+    "mobile_subtitle": "Phụ kiện cửa Nhật Bản"
   },
   "LineageIntro": {
     "title": "In short, Jamtul Rinpoche Jamyang Sherab Özer devoted his life to studying and reflecting on both Sūtra and Tantra, along with other sciences",
@@ -68,7 +68,43 @@
   "Home": {
     "latestNews": "Tin Tức Mới Nhất",
     "featuredNews": "Tin Tức Nổi Bật",
-    "memberPosts": "Bài Viết Thành Viên"
+    "memberPosts": "Bài Viết Thành Viên",
+    "history_title": "Giới thiệu lịch sử hình thành Nakao Nhật Bản",
+    "history_desc_1": "Có mặt tại Việt Nam từ tháng 6/2025, Nakao mang đến những giải pháp phụ kiện cửa hàng đầu.",
+    "history_desc_2": "Với hơn 100 năm kinh nghiệm, chúng tôi tự hào về những thành tựu đạt được tại Nhật Bản, đặc biệt trong lĩnh vực sản xuất và cung cấp phụ kiện cửa chất lượng cao.",
+    "history_achievement_title": "Thành Tựu & Thế Mạnh",
+    "history_achievement_1": "Hơn 100 năm kinh nghiệm sản xuất",
+    "history_achievement_2": "Thị phần hàng đầu tại Nhật Bản",
+    "history_achievement_3": "Chất lượng gia công chính xác tuyệt đối",
+    "history_achievement_4": "Giải pháp toàn diện cho mọi công trình",
+    "history_about_title": "Lịch Sử & Thành Tựu",
+    "history_about_desc": "Hơn 100 năm kinh nghiệm tại Nhật Bản, tự hào là thương hiệu dẫn đầu thị phần phụ kiện cửa với nhiều giải thưởng danh giá.",
+    "history_vietnam_title": "Nakao Việt Nam",
+    "history_vietnam_desc": "Chính thức có mặt tại Việt Nam từ tháng 6/2025, mang sứ mệnh cung cấp giải pháp phụ kiện cửa chuẩn Nhật Bản cho mọi công trình.",
+    "history_business_title": "Lĩnh Vực Kinh Doanh",
+    "history_business_desc": "Chuyên nghiên cứu, phát triển và sản xuất các dòng phụ kiện cao cấp: bản lề, ray trượt giảm chấn, tay nắm và hệ thống kiểm soát cửa.",
+    "history_strength_title": "Thế Mạnh Vượt Trội",
+    "history_strength_desc": "Sở hữu công nghệ lõi gia công cơ khí chính xác, đảm bảo độ bền vượt thời gian và khả năng vận hành êm ái tuyệt đối.",
+    "core_values_title": "GIÁ TRỊ CỐT LÕI TỪ NHẬT BẢN",
+    "core_value_1_title": "Công Nghệ Chính Xác (Precision)",
+    "core_value_1_desc": "Sản phẩm được chế tác với dung sai cực nhỏ, đảm bảo sự vận hành trơn tru và tuổi thọ lên tới hàng trăm ngàn chu kỳ đóng mở.",
+    "core_value_2_title": "Thiết Kế Ẩn Mình (Hidden Aesthetics)",
+    "core_value_2_desc": "Triết lý thiết kế tối giản, tập trung vào công năng. Phụ kiện NAKAO hòa mình vào cánh cửa, tôn vinh vẻ đẹp của nội thất mà không phô trương.",
+    "core_value_3_title": "Vận Hành Êm Ái (Smooth Operation)",
+    "core_value_3_desc": "Công nghệ giảm chấn (Soft-close) và hệ thống ray trượt cao cấp giúp triệt tiêu tiếng ồn, mang lại không gian sống tĩnh tại tuyệt đối.",
+    "history_product_category_title": "DANH MỤC SẢN PHẨM CỐT LÕI",
+    "history_product_hinge_title": "Bản Lề Tiêu Chuẩn & 3D",
+    "history_product_hinge_desc": "Chịu tải cao, tinh chỉnh góc 3D linh hoạt, đạt kiểm định trên 300,000 lần đóng mở.",
+    "history_product_sliding_title": "Hệ Ray Trượt Giảm Chấn",
+    "history_product_sliding_desc": "Chuyển động mượt mà không tiếng ồn. Công nghệ phanh khí nén (Air Tight) an toàn tuyệt đối.",
+    "history_product_bottom_title": "Chắn Bụi Đáy Cửa Kín Khí",
+    "history_product_bottom_desc": "Giải pháp cách âm, chẹn gió và ngăn côn trùng hiệu quả, ẩn gọn trong khung cửa.",
+    "history_product_stopper_title": "Chặn Cửa Gắn Sàn",
+    "history_product_stopper_desc": "Thiết kế nam châm lực hút mạnh, ẩn gọn và không gây cản trở di chuyển trên sàn.",
+    "history_cta_consulting": "Tư Vấn Kỹ Thuật",
+    "history_cta_catalog": "Tải Catalogue 2025",
+    "history_cta_quote": "Yêu Cầu Báo Giá",
+    "history_cta_contact": "Liên Hệ Đại Lý"
   },
   "Search": {
     "placeholder": "Tìm kiếm...",
@@ -174,7 +210,7 @@
     "col3_factories_cn": "Nhà máy tại Trung Quốc",
     "col3_factory_shanghai": "Shanghai Nakao Hardware Co., Ltd.",
     "col3_factory_haiyang": "Haiyang Nakao Hardware Co., Ltd.",
-    "copyright": "© 2025 Công ty TNHH Nakao Việt Nam. Bản quyền thuộc về W Four Tech."
+    "copyright": "© 2025 Công ty TNHH Nakao Việt Nam. Design by W Four Tech."
   },
   "Quote": {
     "content": "Vật chất, của cải hủy diệt an bình trong tâm khi con người có quá nhiều tham luyến đối với chúng. Và họ lạc lối giữa thế giới này bởi vì họ không có một sự hiểu biết đúng đắn và một con đường đúng đắn. Vậy nên, chúng ta cần phải học Pháp nhiều hơn, chúng ta cần phải thực hành Pháp nhiều hơn để làm lợi lạc cho chính mình.",

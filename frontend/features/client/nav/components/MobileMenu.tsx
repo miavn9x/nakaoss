@@ -101,12 +101,12 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
               </button>
               <span className="w-px h-3 bg-gray-300"></span>
               <button
-                onClick={() => changeLanguage("bo")}
+                onClick={() => changeLanguage("ja")}
                 className={`hover:text-naka-blue transition-colors ${
-                  currentLocale === "bo" ? "text-naka-blue" : ""
+                  currentLocale === "ja" ? "text-naka-blue" : ""
                 }`}
               >
-                BO
+                JP
               </button>
             </div>
           </div>

@@ -129,6 +129,7 @@ const nextConfig: NextConfig = {
               "img-src 'self' data: blob: https: http:; " +
               "font-src 'self' data: https://fonts.gstatic.com; " +
               "connect-src 'self' https://*.devtunnels.ms http://localhost:* http://127.0.0.1:*; " +
+              "frame-src 'self' https://www.youtube.com https://youtu.be; " +
               "base-uri 'self'; " +
               "form-action 'self'; " +
               "frame-ancestors 'self';",

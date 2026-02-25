@@ -2,6 +2,8 @@ import React, { Suspense } from "react";
 import BannerWrapper from "./components/BannerSection/BannerWrapper";
 import QuoteSection from "./components/QuoteSection";
 import LineageIntroSection from "./components/LineageIntroSection";
+import HistoryIntroSection from "./components/HistoryIntroSection";
+import CoreValuesSection from "./components/CoreValuesSection";
 import LatestNewsSection from "./components/LatestNewsSection";
 import FeaturedNewsSection from "./components/FeaturedNewsSection";
 import { getPostsServer } from "@/features/client/post/services/post.server";
@@ -36,11 +38,14 @@ export default async function Home({ locale = "vi" }: { locale?: string }) {
         <BannerWrapper />
       </Suspense>
 
-      <QuoteSection />
+      <HistoryIntroSection />
 
-      <LineageIntroSection />
+      <CoreValuesSection />
 
-      <div className="w-full bg-white">
+      {/* <QuoteSection /> */}
+      {/* <LineageIntroSection /> */}
+
+      <div className="w-full bg-slate-50">
         <LatestNewsSection initialPosts={latestPosts} />
 
         <FeaturedNewsSection initialPosts={featuredPosts} />

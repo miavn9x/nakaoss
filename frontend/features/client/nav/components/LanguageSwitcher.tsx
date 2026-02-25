@@ -27,8 +27,8 @@ const LanguageSwitcher = () => {
         return "VN";
       case "cn":
         return "CN";
-      case "bo":
-        return "BO";
+      case "ja":
+        return "JP";
       case "en":
         return "US";
       default:
@@ -75,16 +75,16 @@ const LanguageSwitcher = () => {
             <span className="font-mono text-xs opacity-70">CN</span> 中文
           </button>
 
-          {/* Tibetan (Bodhi) */}
+          {/* Japanese */}
           <button
-            onClick={() => changeLanguage("bo")}
+            onClick={() => changeLanguage("ja")}
             className={`flex items-center gap-2 w-full text-left px-3 py-2 text-sm font-bold rounded-md transition-colors ${
-              currentLocale === "bo"
+              currentLocale === "ja"
                 ? "text-naka-blue bg-naka-blue/5"
                 : "text-naka-blue/70 hover:text-naka-blue hover:bg-naka-blue/5"
             }`}
           >
-            <span className="font-mono text-xs opacity-70">BO</span> བོད་ཡིག
+            <span className="font-mono text-xs opacity-70">JP</span> 日本語
           </button>
 
           {/* English */}

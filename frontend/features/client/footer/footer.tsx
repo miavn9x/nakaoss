@@ -93,18 +93,11 @@ export default async function Footer() {
 
           {/* Brand name – dùng <p> thay <h2> để không phá heading hierarchy trang */}
           <div>
-            <p className="text-white text-2xl font-bold tracking-wide">
-              {t("col3_company")}
-            </p>
-            <p className="text-white/50 text-sm tracking-widest uppercase mt-1">
+            <p className="text-white text-2xl font-bold tracking-widest uppercase">
               NAKAO VIETNAM
             </p>
+            <p className="text-white/60 text-sm mt-1">{t("col3_company")}</p>
           </div>
-
-          {/* Tagline */}
-          <p className="text-white/75 text-sm max-w-lg leading-relaxed">
-            {t("tagline")}
-          </p>
         </div>
       </div>
 

@@ -1,0 +1,579 @@
+{
+  "Navigation": {
+    "home": "TRANG CHỦ",
+    "tue_quang_library": "THƯ VIỆN TUỆ QUANG",
+    "longchen_lineage": "DÒNG LONGCHEN NYINGTHIG",
+    "about": "GIỚI THIỆU",
+    "contact": "LIÊN HỆ",
+    "schedule": "LỊCH TRÌNH",
+    "support_us": "HÃY ỦNG HỘ CHÚNG TÔI",
+    "language": "Ngôn ngữ",
+    "mobile_title": "Nội dung",
+    "mobile_subtitle": "Hoa văn hoặc Banner"
+  },
+  "LineageIntro": {
+    "title": "In short, Jamtul Rinpoche Jamyang Sherab Özer devoted his life to studying and reflecting on both Sūtra and Tantra, along with other sciences",
+    "content": " He often stayed in mountain retreats, where he found great success in his practice. To benefit others, he supported the Dharma through teaching, study, and writing. Living as a hidden yogi, he dedicated his life to practicing Dzogchen. ",
+    "content_2": "Jamyang Sherab Özer Rinpoche was born in 1910 in eastern Tibet, into the Nangchen Tagtsar family, which is part of the Mugpo Ling lineage from the Tamshung Boldé region. His parents were Tagtsar Könchok Tendhar and Pönza Karzes Lhamo. He was born in the Iron Male Dog year of the fifteenth Tibetan Rabjung cycle, and many auspicious signs appeared during his birth.",
+    "read_more": "ĐỌC THÊM"
+  },
+  "Auth": {
+    "login": "Đăng nhập",
+    "register": "Đăng ký",
+    "logout": "ĐĂNG XUẤT",
+    "hello": "Xin chào",
+    "profile": "Thông tin tài khoản",
+    "emailLabel": "Email của bạn",
+    "emailPlaceholder": "Nhập email của bạn",
+    "passwordLabel": "Mật khẩu",
+    "passwordPlaceholder": "Nhập mật khẩu",
+    "captchaLabel": "Mã xác nhận",
+    "captchaPlaceholder": "Nhập mã xác nhận",
+    "changeCaptcha": "Đổi mã khác",
+    "processing": "Đang xử lý...",
+    "loginSuccess": "Đăng nhập thành công!",
+    "registerSuccess": "Đăng ký thành công!",
+    "locked": "Tạm khóa ({seconds}s)",
+    "tooManyAttempts": "Bạn đã nhập sai quá nhiều lần. Vui lòng chờ mở khóa.",
+    "invalidEmail": "Email không hợp lệ. Vui lòng kiểm tra lại.",
+    "requiredEmail": "Vui lòng nhập email.",
+    "requiredPassword": "Vui lòng nhập mật khẩu.",
+    "requiredCaptcha": "Vui lòng nhập mã xác nhận.",
+    "firstName": "Tên",
+    "lastName": "Họ",
+    "phoneNumber": "Số điện thoại",
+    "address": "Địa chỉ",
+    "confirmPassword": "Xác nhận mật khẩu",
+    "welcomeBack": "Xin chào,",
+    "orCreateAccount": " hoặc ",
+    "createAccount": "Tạo tài khoản",
+    "orLogin": " hoặc ",
+    "close": "Đóng",
+    "onlySupportEmails": "Hệ thống chỉ hỗ trợ các loại email: {domains}",
+    "invalidLogin": "Đăng nhập thất bại. Kiểm tra lại thông tin.",
+    "tooFast": "Thao tác quá nhanh. Vui lòng đợi.",
+    "failedToLoadCaptcha": "Không thể tải mã xác nhận.",
+    "nameNoNumbers": "Tên không được chứa số.",
+    "nameLettersOnly": "Tên chỉ được chứa chữ cái và khoảng trắng.",
+    "invalidPhoneNumber": "Số điện thoại không hợp lệ.",
+    "passwordRequirement": "Mật khẩu phải từ 8-32 ký tự, có ít nhất 1 chữ hoa và 1 ký tự đặc biệt (!@#$&*)"
+  },
+  "Banner": {
+    "title": " để nội dung ...",
+    "subtitle": " để nội dung  hoặc banner hình...",
+    "prevSlide": "Slide trước",
+    "nextSlide": "Slide tiếp theo",
+    "goToSlide": "Đi tới slide {index}"
+  },
+  "Home": {
+    "latestNews": "Tin Tức Mới Nhất",
+    "featuredNews": "Tin Tức Nổi Bật",
+    "memberPosts": "Bài Viết Thành Viên"
+  },
+  "Search": {
+    "placeholder": "Tìm kiếm...",
+    "suggestions": "Gợi ý",
+    "tags": {
+      "sutra": "Kinh sách",
+      "statue": "Tượng Phật",
+      "mala": "Chuỗi hạt",
+      "incense": "Hương trầm"
+    },
+    "searching": "Đang tìm kiếm...",
+    "results": "Kết quả",
+    "noResults": "Không tìm thấy kết quả nào phù hợp."
+  },
+  "Common": {
+    "loading": "Đang tải...",
+    "error": "Có lỗi xảy ra",
+    "submit": "Gửi",
+    "search": "Tìm kiếm",
+    "save": "Lưu",
+    "cancel": "Hủy",
+    "delete": "Xóa",
+    "edit": "Sửa",
+    "create": "Tạo mới",
+    "action": "Hành động",
+    "close": "Đóng",
+    "viewAll": "Xem tất cả"
+  },
+  "Contact": {
+    "title": "Liên hệ với chúng tôi",
+    "main_office": "Văn phòng chính",
+    "private_office": "Văn phòng riêng của HH Drikung Kyabgon Chetsang",
+    "institute": "Viện Drikung Kagyu",
+    "library": "Thư viện Songtsen",
+    "college": "Cao đẳng Kagyu",
+    "nunnery": "Ni viện Samtenling",
+    "map_title": "Bản đồ chỉ đường",
+    "address_line_1": "P.O. Kulhan, Đường Sahastradhara",
+    "address_line_2": "Dehradun- 248013, Uttarakhand, Ấn Độ",
+    "seo_title": "Liên Hệ - Viện Drikung Kagyu & Thư Viện Songtsen",
+    "seo_description": "Liên hệ với Viện Drikung Kagyu, Văn phòng tư nhân của HH Drikung Kyabgon Chetsang, Thư viện Songtsen và các cơ sở liên quan tại Dehradun, Ấn Độ.",
+    "seo_keywords": "Liên hệ Drikung Kagyu, Địa chỉ Viện Drikung Kagyu, Email Thư viện Songtsen, Điện thoại Drikung Kagyu, Phật giáo Dehradun"
+  },
+  "Support": {
+    "title": "SỰ ỦNG HỘ CỦA BẠN",
+    "content_1": "Trong những lời dạy của mình, Đức Phật đã ca ngợi hành động thiện lành xây dựng và trùng tu chùa chiền, bảo tháp (nơi cúng dường) và nơi ở cho Tăng đoàn (cộng đồng tâm linh) là nguồn công đức to lớn.",
+    "content_2": "Vì vậy, sự tích lũy nguồn công đức này không chỉ là nhân để đạt được sức khỏe tuyệt vời, sự giàu có, thân tướng đẹp đẽ và uy nghiêm trong đời này, mà còn là hạt giống để đạt được Niết bàn hay quả vị Phật toàn giác.",
+    "milarepa_intro": "Trong một bài Đạo ca, Đại Thành Tựu Giả Milarepa (1040-1123) đã dạy:",
+    "milarepa_quote": "Hành giả tu thiền nơi hang đá\nVà thí chủ cúng dường vật thực\nCả hai nương tựa nhau cùng thành Phật đạo\nTinh túy của sự nương tựa ấy chính là hồi hướng.",
+    "bank_title": "CHUYỂN KHOẢN NGÂN HÀNG (SWIFT)",
+    "bank_intro": "Quý vị có thể gửi tiền cúng dường đến Viện Drikung Kagyu qua Chuyển khoản Ngân hàng tới:",
+    "bank_account_holder": "Chủ tài khoản ngân hàng",
+    "bank_account_holder_value": "Viện Drikung Kagyu",
+    "bank_account_no": "Số tài khoản ngân hàng",
+    "bank_account_no_value": "40081020778",
+    "dki_banker_name": "Tên ngân hàng DKI",
+    "dki_banker_name_value": "Ngân hàng Nhà nước Ấn Độ (Mã ngân hàng 00691)",
+    "swift_code": "Mã SWIFT",
+    "swift_code_value": "SBININBB104",
+    "bank_name": "Tên ngân hàng",
+    "bank_name_value": "Phòng FCRA, tầng 4, Ngân hàng Nhà nước Ấn Độ\nCHI NHÁNH CHÍNH NEW DELHI, SỐ 11 ĐƯỜNG PARLIAMENT\nNEW DELHI-110001, ẤN ĐỘ",
+    "ifsc_code": "Mã IFSC",
+    "ifsc_code_value": "SBIN0000691",
+    "bank_footer": "Vui lòng thông báo cho chúng tôi nếu quý vị đã gửi tiền theo cách này. Ngân hàng không cung cấp thông tin cho chúng tôi khi tiền được ghi có. Khi quý vị gửi tiền đến Viện Drikung Kagyu qua tài khoản ngân hàng của viện, vui lòng thông báo cho thư ký kiêm kế toán của Viện Drikung Kagyu để ông có thể xác nhận đã nhận được khoản cúng dường hảo tâm của quý vị.",
+    "cheque_title": "GỬI SÉC/HỐI PHIẾU",
+    "cheque_instruction_1": "Vui lòng đảm bảo rằng quý vị gửi séc hoặc hối phiếu thụ hưởng cho Viện Drikung Kagyu bằng thư bảo đảm tới:",
+    "cheque_address_1": "Drikung Kagyu Institute\nP.O. Kulhan, Sahastradhara Road\nDehra Dun 248001\nUK India",
+    "cheque_instruction_2": "Vui lòng ghi rõ trên Séc/Hối phiếu mục đích cúng dường hoặc tài khoản nào sẽ nhận, ví dụ: Viện Drikung Kagyu, Ni viện Drikung Kagyu Samtenling, Trung tâm Nhập thất Samtenling, Cao đẳng Kagyu hoặc Thư viện Songtsen.",
+    "hh_cheque_title": "GỬI SÉC/HỐI PHIẾU CÚNG DƯỜNG ĐỨC PHÁP VƯƠNG",
+    "hh_cheque_instruction": "Vui lòng đảm bảo quý vị gửi séc hoặc Hối phiếu thụ hưởng 'Skyabgon Chetsang Rinpoche' bằng thư bảo đảm tới:",
+    "hh_cheque_address": "The Office of His Holiness the Drikung Kyabgon Chetsang\nDrikung Kagyu Institute\nP.O. Kulhan Sahastradhara Road\nDehra Dun 248001\nUK India",
+    "hh_contact_phone": "Điện thoại: +91 135 2607189",
+    "hh_contact_email": "Email: pohhdkc@drikung.org",
+    "thank_you": "Xin chân thành cảm ơn sự ủng hộ của quý vị."
+  },
+  "Schedule": {
+    "title": "Lịch Trình",
+    "upcoming_events": "Sự Kiện Sắp Tới",
+    "no_events": "Hiện tại chưa có sự kiện nào sắp diễn ra. Vui lòng quay lại sau."
+  },
+  "Footer": {
+    "about_budha": "VỀ ĐỨC PHẬT",
+    "about_dharma": "VỀ GIÁO PHÁP",
+    "birth_of_buddha": "Sự Đản Sinh của Đức Phật",
+    "buddha_renunciation": "Sự Xuất Gia của Đức Phật",
+    "in_search_of_truth": "Tầm Cầu Chân Lý",
+    "turning_wheel_dharma": "Chuyển Pháp Luân",
+    "buddha_parinirvana": "Đức Phật Nhập Niết Bàn",
+    "buddha_teachings": "Giáo Lý của Đức Phật",
+    "dharmawheel": "Bánh Xe Pháp",
+    "four_noble_truth": "Tứ Diệu Đế",
+    "eightfold_path": "Bát Chánh Đạo",
+    "official_website": "Trang Web Chính Thức",
+    "description": "Trang Web Chính Thức của Dòng Truyền Thừa Drikung Kagyu của Phật Giáo Tây Tạng.",
+    "design_by": "Thiết Kế Bởi"
+  },
+  "Quote": {
+    "content": "Vật chất, của cải hủy diệt an bình trong tâm khi con người có quá nhiều tham luyến đối với chúng. Và họ lạc lối giữa thế giới này bởi vì họ không có một sự hiểu biết đúng đắn và một con đường đúng đắn. Vậy nên, chúng ta cần phải học Pháp nhiều hơn, chúng ta cần phải thực hành Pháp nhiều hơn để làm lợi lạc cho chính mình.",
+    "author": "Khyentse Rigdzin Hungkar Dorje Rinpoche"
+  },
+  "LineageDetailPage": {
+    "title": "Lược sử Dòng truyền thừa Drikung Kagyu của Phật giáo Tây Tạng",
+    "intro": {
+      "title": "Giới thiệu về Dòng truyền thừa Kagyu",
+      "p1": "Dòng Kagyu (bka’ brgyud) đôi khi được gọi là “dòng khẩu truyền”. Chữ “Ka” (bka’) trong Kagyu đề cập đến những chỉ dẫn, giới luật hoặc lời dạy (Skt. vacana) đầy uy quyền của Đức Phật, trong khi “gyu” (brgyud) là dòng truyền thừa không gián đoạn của các bậc thầy và học trò.",
+      "p2": "Người sáng lập dòng Kagyu là Đại Thành Tựu Giả Tilopa (988-1069), sống ở miền Bắc Ấn Độ. Ngài được coi là đã nhận sự truyền trao trực tiếp từ Phật Nguyên Thủy Vajradhara. Trong bối cảnh này, dòng Kagyu bắt nguồn từ chính bản chất của thực tại và do đó vượt qua mọi không gian và thời gian.",
+      "p3": "Nhìn từ một cấp độ hiểu biết khác, ngài cũng có những người thầy phàm trần, từ đó ngài nhận được bốn dòng truyền thừa đặc biệt, Bốn Dòng Khẩu Truyền (bka’ babs bzhi) mà ngài trở thành người nắm giữ dòng truyền thừa.",
+      "p4": "Một số cách giải thích từ nguyên của tên gọi “Kagyu” cho rằng nó là viết tắt của Dòng Truyền Thừa Bốn Dòng Khẩu Truyền (bka’ babs bzhi brgyud pa).",
+      "p5": "Khi sự truyền thừa của Tilopa được liên kết trực tiếp với Vajradhara (Kim Cương Trì), nó được gọi là “truyền thừa trực tiếp” nhưng khi truy nguyên về các người thầy phàm trần của ngài, nó được gọi là “truyền thừa gián tiếp”."
+    },
+    "four_transmissions": {
+      "intro": "Mặc dù có một số khác biệt trong các nguồn sử liệu liên quan đến danh tính của các bậc thầy yoga liên kết với mỗi dòng trong bốn dòng truyền thừa, sự đồng thuận phổ biến nhất chỉ ra nguồn gốc của chúng như sau:",
+      "list": {
+        "item1": "Dòng đầu tiên trong bốn dòng đến từ Lopon Ludrub (slob dpon klu sgrub, Skt. Acarya Nagarjuna) và bao gồm hai mật điển, Mật điển “Sangwa Dupa” (gsang ba dus pa, Skt. Guhasamaja) và mật điển gọi là “Denshi” (gden bzhi). Dòng truyền thừa này cũng kết hợp các thực hành gọi là “Thiễn thân” (sgyu lus, Skt. Mayadeva) và “Chuyển di tâm thức” (pho ba, Skt. Samkranti).",
+        "item2": "Dòng truyền thừa đặc biệt thứ hai đến từ Nakpo Chopa (nag po spyod pa). Nó bao gồm mật điển gọi là “Gyuma Chenpo” (sgyu ma chen po, Skt. Mahamaya) và thực hành gọi là “Mộng du già” (rmi lam, Skt: Svapna).",
+        "item3": "Dòng truyền thừa đặc biệt thứ ba đến từ Lawapa (la ba pa) và được gọi là “Demchok” hoặc, thay vào đó là “Khorlo Dompa” (bde mchog, khor lo sdompa, Skt. Chakrasamvara), và thực hành gọi là “Quang minh” (odgsal, Skt. Prabhasvara).",
+        "item4": "Dòng thứ tư được truyền từ Khandro Kalpa Sangmo (mkha gro bskal pa bzangmo) và bao gồm mật điển được gọi là “Gyepa Dorje” (dgyes pa rdo rje, Skt. Hevajra) và thực hành gọi là “Tumo” (gtum mo, Skt. Candali). Những dòng truyền thừa này hình thành cốt lõi của các giới luật và chỉ dẫn bí mật của dòng Kagyu được truyền từ thế hệ này sang thế hệ khác, không gián đoạn từ thầy sang trò. Nội dung của Bốn Dòng Khẩu Truyền bao gồm cả con đường phương tiện và con đường giải thoát."
+      }
+    },
+    "naropa_marpa": {
+      "p1": "Những giáo lý này được truyền từ Tilopa cho đệ tử của ngài, Đại Thành Tựu Giả Naropa (1016–1100) và chúng được hệ thống hóa thành Sáu Pháp Yoga của Naropa, những pháp thiền định được coi là giáo lý cốt tủy của dòng Kagyu.",
+      "p2": "Naropa đã truyền lại kiến thức của mình cho Marpa Chökyi Lodrö (1012–1097), đại dịch giả, người đã hành hương từ Tây Tạng sang Ấn Độ để thọ nhận các chỉ dẫn và sau đó trở về Tây Tạng và truyền bá giáo lý Phật pháp rộng rãi.",
+      "p3": "Đệ tử quan trọng nhất của Marpa là Jetsun Milarepa (1040-1123). Ngài trở thành một trong những yogi vĩ đại của Tây Tạng. Câu chuyện cuộc đời ngài, bắt đầu với những hoàn cảnh khó khăn do cha mất sớm, sự trả thù người cô và chú không trung thực, và sự hối hận sau đó dẫn đến mong muốn tha thiết bước vào con đường Phật pháp, được biết đến rộng rãi trong người dân Tây Tạng.",
+      "p4": "Thông qua sự kiên trì và khả năng chấp nhận mọi hoàn cảnh gặp phải, ngài đã đạt được sự chứng ngộ sâu sắc về bản chất tối hậu của thực tại. Những lời dạy của ngài được ghi lại trong 100.000 bài ca của Milarepa và các bộ sưu tập khác."
+    },
+    "gampopa_phagdru": {
+      "p1": "Giáo lý của Milarepa được tiếp nối bởi Gampopa (1079-1153), còn được gọi là Dakpo Lhaje, vị y sĩ đến từ Dakpo. Đầu tiên ngài tu học theo truyền thống Kadampa, một con đường tiệm tiến và có hệ thống. Ở tuổi trưởng thành hơn, ngài gặp Milarepa và thực hành dưới sự hướng dẫn của ngài, thọ nhận và chứng ngộ ý nghĩa chân thực của giáo lý hoàn chỉnh.",
+      "p2": "Kể từ đó, dòng truyền thừa được gọi là Dakpo Kagyu. Chính từ Gampopa mà các trường phái Kagyu đầu tiên bắt nguồn: Karma Kagyu, Tselpa Kagyu, Barom Kagyu, và Phagdru Kagyu.",
+      "p3": "Người sáng lập Phagdru Kagyu là Phagmodrupa Dorje Gyalpo (1110–1170), một trong những đệ tử quan trọng nhất của Gampopa. Dòng truyền thừa riêng của ngài đã không còn tồn tại như một tổ chức tôn giáo, trong khi gia tộc của ngài đóng vai trò quan trọng trong việc cai trị thế tục của đất nước trong thời đại tiếp theo. Các đệ tử chính của Phagmodrupa đã thành lập các dòng truyền thừa riêng của họ, trong đó chỉ còn ba dòng còn tồn tại: Drikung Kagyu, Taklung Kagyu và Drukpa Kagyu."
+    },
+    "origin_drikung": {
+      "title": "Nguồn gốc của Dòng truyền thừa Drikung Kagyu"
+    },
+    "jigten_sumgon": {
+      "p1": "Tâm tử của Phagmodrupa, Kyobpa Jigten Sumgön (1143-1217) đã tiếp quản ngai tòa của Phagdru tại Tu viện Densa Thil trong ba năm sau khi thầy của ngài qua đời (1177-1179). Sau đó, ngài thành lập dòng truyền thừa riêng của mình với việc thành lập Tu viện Drikung Thil tại vùng Drikung, như Phagmodrupa đã tiên tri.",
+      "p2": "Mặc dù Phagmodrupa có vô số học trò, Jigten Sumgön là một trong những đệ tử thân cận và chính yếu nhất của ngài. Phagmodrupa đã tiên tri rằng một vị Bồ Tát (Jigten Sumgön), người đã đạt được Thập Địa (mười cấp độ trên con đường Bồ Tát), sẽ tiếp nối giáo lý và ân phước. Jigten Sumgön đã nhận trọn vẹn giáo lý, khẩu truyền bí mật, giải thích và quán đảnh, cùng ân phước chứng ngộ giác ngộ, v.v. từ Phagmodrupa. Đến lượt mình, Jigten Sumgön đã truyền lại trọn vẹn giáo lý cho đệ tử trưởng của mình, Gurawa Tsultrim Dorje (1154-1221). [Đọc thêm về cuộc đời của Jigten Sumgön].",
+      "p3": "Kyobpa Jigten Sumgön là hậu duệ của gia tộc Kyura. Theo phong tục của nhiều trường phái Phật giáo Tây Tạng, Jigten Sumgön đã chọn người kế vị từ trong số những người thân của mình. Do đó, ban đầu tất cả trừ ba người nắm giữ ngai tòa Drikung Kagyu đều xuất thân từ dòng dõi nam của gia tộc Kyura, mặc dù không có hướng dẫn cố định nào cho việc kế vị giữa các thành viên trong gia đình. Ngay từ đầu ở Drikung, quyền lực được chia sẻ; lãnh đạo tinh thần được dành cho Denrab (gdan rabs), người giữ ngai tòa, trong khi các vấn đề thế tục nằm dưới sự cai quản của một Gompa (sgom pa), một nhà quản lý hành chính. Cả hai thường là thành viên của gia tộc Kyura.",
+      "p4": "Trong những năm đầu của dòng phái, một nhánh phụ được gọi là Lhapa Kagyu xuất hiện từ một đệ tử của Jigten Sumgön, tên là Gyalwa Lhanangpa (1164-1224), nhưng dòng truyền thừa này không tồn tại được lâu."
+    },
+    "early_developments": {
+      "title": "Sự phát triển ban đầu của Dòng phái (1217-1400)",
+      "p1": "Một số Drikung Denrab đầu tiên đã đạt được danh tiếng, trong số đó có Chenga Drakpa Jungne (1175–1255), một tâm tử của Jigten Sumgön, người được giao phó lãnh đạo tu viện của Phagmodrupa, Densa Thil. Ngài đã dẫn dắt tu viện đến một thời kỳ hưng thịnh mới và tiếp quản ngai tòa Drikung vào năm 1235. Ngài đã lèo lái dòng phái qua những thời kỳ khó khăn với bàn tay bình tĩnh và vững chắc. Khi người Tây Tạng nổi dậy chống lại sự cai trị của Mông Cổ và ngừng cống nạp, Ogodei (1186–1241), con trai và người kế vị của Thành Cát Tư Hãn (1162–1227), đã ra lệnh thực hiện một hành động trừng phạt khủng khiếp vào năm 1239.",
+      "p2": "Quân đội Mông Cổ đã đốt cháy nhiều tu viện, trong số đó có Reting (rwa sgreng), nơi họ tàn sát 500 tăng sĩ và di chuyển về phía Drikung gần đó. Lãnh chúa thế tục của Drikung chống lại họ, bị bắt làm tù binh và sắp bị giết. Người ta nói rằng đá đã rơi xuống từ bầu trời khi Drakpa Jungne vội vã đến gặp quân đội Mông Cổ từ Drikung Thil. Có lẽ đó chỉ là một cơn mưa đá dữ dội. Dù sao đi nữa, sự can thiệp dũng cảm của ngài đã dẫn đến một thỏa thuận hòa bình với người Mông Cổ. Cuộc tấn công tàn bạo vào Tu viện Reting rõ ràng nhằm mục đích cảnh cáo Drikung. Nhưng Drikung đã tránh được một cuộc đối đầu với kết quả không chắc chắn, và vươn lên trở thành một thế lực lớn ở miền trung Tây Tạng.",
+      "p3": "Kunga Gyaltsen, sau này được gọi là Sakya Pandita (1182–1251), đã ký kết một hiệp ước với Godan Khan, tướng của Ogodei, trong đó Tây Tạng chấp nhận quyền tể trị của Mông Cổ và đồng ý cống nạp. Thỏa thuận mà Kunga Gyaltsen đạt được với người láng giềng hùng mạnh của Tây Tạng không nhận được sự ủng hộ nhất trí ở quê hương ông. Nhiều quý tộc Tây Tạng đã chống lại các yêu cầu cống nạp. Quân đội Mông Cổ đã dập tắt cuộc nổi dậy của họ bằng một thất bại đẫm máu và thảm khốc vào năm 1251.",
+      "p4": "Cháu trai và người kế vị của Kunga Gyaltsen, Phagpa Lodrö (1235–1280), trở thành người thầy tâm linh của Hốt Tất Liệt, Đại Hãn của người Mông Cổ từ năm 1259, và sau này là Đại Hãn Hốt Tất Liệt (1215–1294). Mối liên hệ chặt chẽ của họ với người Mông Cổ đã cho phép phái Sakya nắm quyền lãnh đạo chính trị tại Tây Tạng, vì tham vọng của Karma Kagyu nhằm giành được sự ủng hộ của người Mông Cổ đã không thành công. Năm 1275, Hốt Tất Liệt Hãn đã trao cho Phagpa Lodrö các tỉnh U và Tsang, cũng như Kham và Amdo làm thái ấp phong kiến. Các tỉnh được chia thành cái gọi là vạn hộ, các khu vực hành chính về lý thuyết bao gồm 10.000 gia đình. Khi Hốt Tất Liệt trở thành Hoàng đế Trung Quốc năm 1279 và thành lập triều đại nhà Nguyên, ông đã phong cho Phagpa Lodrö danh hiệu “Đế Sư”. Bằng cách này, lần đầu tiên ở Tây Tạng, hình thức chính quyền thần quyền được thiết lập trong mối quan hệ bảo trợ giữa Hoàng đế và người thầy tâm linh của mình.",
+      "p5": "Sự phản kháng đối với sự chuyển đổi đất nước thành các thái ấp phong kiến bắt đầu nhen nhóm trong giới quý tộc Tây Tạng, đặc biệt là ở các tỉnh Ü (dbus) và Tsang (gtsang) ở miền trung Tây Tạng, có mối liên hệ mật thiết với Drikung, Phagdru và Karma Kagyu. Cùng lúc đó, các bộ lạc Mông Cổ đang tham gia vào các cuộc tranh giành quyền lãnh đạo và đất đai giữa họ. Drikung đã vươn lên thành thế lực to lớn vào thời điểm này. Có những báo cáo cho rằng ngay từ thời cai trị của Denrab thứ 5, Chung Dorje Drakpa (1210–1278), vô số tăng sĩ đã đổ về các tu viện Drikung. Sau cái chết của Đại Hãn Mongke năm 1259, Hulagu (khoảng 1217–1265), anh trai và đối thủ của Hốt Tất Liệt, trở thành người bảo hộ của dòng Drikung Kagyu và ông đã gửi một đơn vị Mông Cổ nhỏ đến Drikung để bảo vệ an toàn và an ninh cho họ.",
+      "p6": "Nhưng chẳng bao lâu sau, các nhóm Mông Cổ đối địch đã giải quyết tranh chấp giữa họ trên đất Tây Tạng, điều mà sau này đi vào lịch sử như cuộc chiến giữa Drikung và Sakya. Đây không phải là một “cuộc chiến tranh tôn giáo”, hay mối thù giữa hai trường phái Phật giáo Tây Tạng, như thường được tuyên bố, mà đúng hơn là nỗ lực của một vài tỉnh miền trung Tây Tạng nhằm nổi dậy chống lại quyền tể trị bị Hốt Tất Liệt áp đặt lên họ với sự hỗ trợ từ các nhóm Mông Cổ đối địch. Xung đột địa phương thực tế tập trung vào các tranh chấp liên quan đến việc kế vị tại tu viện Densa Thil của Phagmodrupa. Tại đây, các nhánh của dòng họ Lang đang theo đuổi những lợi ích mâu thuẫn với nhau. Một nhánh được Sakyapa ủng hộ và nhánh kia được Drikungpa ủng hộ. Chiến tranh bùng nổ dưới thời ngai chủ thứ 7, Tsamche Drakpa Sonam (1238–1286). Năm 1290, dưới thời người kế vị Nub Chogo Dorje Yeshe (1223–1293), Tu viện Drikung Thil bị quân đội Mông Cổ tàn phá. Thảm họa này không đến bất ngờ đối với dân chúng địa phương. Vì Dorje Yeshe không phải là thành viên của gia tộc Kyura, mà thuộc gia tộc Nub, ông thiếu sự ủng hộ trong những thời điểm khó khăn, vì quan điểm phổ biến cho rằng việc một người ngoài gia tộc chiếm ngai tòa Drikung là không phù hợp với mong muốn của người sáng lập dòng truyền thừa.",
+      "p7": "Drikung Thil được xây dựng lại dưới thời ngai chủ thứ 9, Chunyi Dorje Rinchen (1278–1314), với sự hỗ trợ từ Hoàng đế và Sakyapa. Nhưng ảnh hưởng mạnh mẽ mà tu viện đã thực hiện trong nhiều thập kỷ ở Tây Tạng đã không còn nữa. Dorje Rinchen đã đặt ra quy tắc mới về ba kỳ hạn hàng năm cho việc giảng dạy tu viện.",
+      "p8": "Trong khi chủ yếu các văn bản triết học của dòng truyền thừa và nền tảng của Phật giáo Đại thừa được giảng dạy vào mùa xuân và mùa thu, thì vào mùa hè, các giáo lý về Ngũ Chi Đại Thủ Ấn được truyền trao. Vào mùa đông, chỉ mặc trang phục vải bông nhẹ, Dorje Rinchen giảng dạy Sáu Pháp Yoga của Naropa trên sân thượng lớn bên ngoài ngôi đền chính của Drikung Thil.",
+      "p9": "Vào thế kỷ 14, Phagmodrupa đảm nhận vai trò lãnh đạo thế tục ở miền trung Tây Tạng. Các thành viên của trường phái Phật giáo Tây Tạng cùng tên đang trong tình trạng suy tàn không được đề cập ở đây, mà là những người cai trị của gia tộc Lang có liên hệ chặt chẽ với dòng Phagdru. Nhân vật trung tâm của thời đại này là Jangchub Gyaltsen (1302–1373), vừa là một chính trị gia khéo léo vừa là một tăng sĩ của Phagdru Kagyu. Ông đã dẫn dắt đất nước đến sự độc lập lớn hơn và tạo ra một hệ thống hành chính mới. Những cải cách của ông làm xấu đi mối quan hệ với Drikung, dẫn đến xung đột vũ trang với Phagmodrupa. Sau những thành công ban đầu, Drikungpa buộc phải chấp nhận một vài thất bại đau đớn trên chiến trường và thỏa hiệp với sự cai trị của Phagmodrupa ở phía bắc Ü. Về cuối đời của Jangchub Gyaltsen, Drikungpa đã thành công trong việc tái thiết lập quyền tự trị cho vùng đất của họ. Vào khoảng thời gian này, một sự thay đổi trong cân bằng quyền lực đang diễn ra ở châu Á qua sự sụp đổ của triều đại nhà Nguyên và sự trỗi dậy của triều đại nhà Minh (1368–1644) là hoàng tộc của Trung Quốc. Nhưng người Mông Cổ vẫn là một thế lực mà cả Tây Tạng và các Hoàng đế nhà Minh phải dè chừng.",
+      "p10": "Giữa tất cả sự hỗn loạn này, Chenga Chökyi Gyalpo (1335–1407), ngai chủ thứ 11, đã cố gắng nâng cao trình độ tâm linh của dòng Drikung một lần nữa. Ông đã cho sao chép bộ Kangyur của Narthang và phiên bản mới biên tập của Tengyur. Tsongkhapa (tsong kha pa, 1357-1419), người sáng lập phái Gelug, đã đi từ Amdo đến Drikung vào năm 1373, và trở thành đệ tử của Chökyi Gyalpo. Gia đình ông định cư tại một ngôi làng cách tu viện khoảng 40 km. Tsongkhapa đã thọ nhận các giáo lý Drikung về Sáu Pháp Yoga của Naropa cũng như tất cả các văn bản bên ngoài và bên trong của Jigten Sumgön."
+    },
+    "reform": {
+      "title": "Thời kỳ Cải cách (1400-1615)",
+      "p1": "Vào thế kỷ 15, triều đại nhà Minh công nhận ảnh hưởng ngày càng tăng và đổi mới của Drikungpa và ban cho ngai chủ danh hiệu danh dự Ch’an chiao wang (Thiền Giáo Vương) được trao cho những người đứng đầu của tám trường phái hoặc tu viện quan trọng nhất. Trong hai thế kỷ, Shigatse ở tỉnh Tsang trở thành trung tâm quyền lực ở Tây Tạng, đầu tiên dưới các nhà cai trị của Rinpung (1436–1566), sau đó dưới Tsangpa (1566–1642). Vì cả hai gia đình quý tộc đều ủng hộ Karmapa, Karma Kagyu đã tiến lên trở thành trường phái có ảnh hưởng nhất trong thời đại.",
+      "p2": "Hai nhân vật xuất chúng trên ngai tòa Drikung đã để lại dấu ấn của họ trong những năm đầu của thế kỷ 16: Gyalwang Kunga Rinchen (1475–1527) và người kế vị Gyalwang Rinchen Phuntsog (1509–1557). Kunga Rinchen được coi là hóa thân của Jigten Sumgön. Ông khao khát cải thiện chất lượng đời sống tâm linh. Kunga Rinchen đã cống hiến hết mình để truyền trao và giảng dạy, và ông cũng cam kết khôi phục truyền thống nhập thất. Nhiều đệ tử mới của ông, những người đang đổ về Drikung, đã được ông gửi đi nhập thất tại Núi Kailash, Tsari và Lapchi. Dưới sự chỉ đạo của ông, 50 tịnh thất thiền định mới đã được xây dựng tại Tu viện Drikung Thil. Kangyur và Tengyur được sao chép trên giấy chàm bằng chữ vàng và bạc, trong khi hai trăm người chép kinh tham gia vào việc sản xuất các văn bản hoàn chỉnh của dòng truyền thừa Drikung.",
+      "p3": "Rinchen Phuntsog, Drikung Denrab thứ 17, là một nhà cải cách vĩ đại. Sau khi nhận các dòng truyền thừa từ nhiều dòng phái khác nhau, ông đã tích hợp các học thuyết, nghi lễ và thực hành thiền định, trên hết là của phái Nyingma vào các giáo lý Drikung Kagyu truyền thống, qua đó mở rộng và bổ sung định hướng giáo lý của nó. Rinchen Phuntsog đã khám phá ra văn bản kho tàng Gongpa Yangzab trong hang động Kiri Yangdzong ở thung lũng Terdrom. Rinchen Phuntsog là một tác giả cần mẫn, các tác phẩm của ông cũng được phái Nyingma đánh giá cao và được đưa vào bộ sưu tập các mật điển Nyingma.",
+      "p4": "Con trai duy nhất của Rinchen Phuntsog, Chogyal Rinchen Phuntsog (1547–1602), là Denrab thứ 21 trên ngai tòa Drikung khi Altan Khan (1507–1582), người cai trị quyền lực của người Mông Cổ Tumat, đã tham gia vào một liên minh với Sonam Gyatso (1543–1588) từ phái Gelugpa, điều này ảnh hưởng quyết định đến tiến trình tương lai của lịch sử Tây Tạng. Người cai trị Mông Cổ đã phong danh hiệu Đạt Lai Lạt Ma cho Sonam Gyatso và dành cho ông những đặc quyền rộng rãi. Sonam Gyatso trở thành Đạt Lai Lạt Ma thứ 3 vì hai người tiền nhiệm của ông được phong danh hiệu Đạt Lai Lạt Ma sau khi qua đời. Do hậu quả của nhiều cuộc xung đột vũ trang trong phần sau của thế kỷ 16, Chogyal Rinchen Phuntsog đã mở rộng khu phức hợp Drikung Dzong thành một pháo đài.",
+      "p5": "Giai đoạn đầu tiên của việc kế vị chức vụ cao nhất trong dòng truyền thừa kết thúc với các con trai của Chogyal Rinchen Phuntsog. Con trai cả của ông, Naro Tashi Phuntsog (1574–1628), được gọi là Naro Nyipa (“Naropa thứ hai”), kế vị ngai tòa, trong khi con trai thứ, Garwang Chökyi Wangchug (1584–1630), được công nhận là Shamarpa thứ 6. Hai con trai út của ông, Gyalwang Konchog Rinchen (1590–1654) và Kunkhyen Rigzin Chödrak (1595–1659) trở thành những người thừa kế cuối cùng của ngai tòa Drikung; dòng dõi Kyura đã chết cùng với họ. Sau cái chết của Konchog Rinchen, Drikungpa bắt đầu tìm kiếm các hóa thân của những người nắm giữ ngai tòa của họ. Một hệ thống hai người nắm giữ dòng truyền thừa được thiết lập, đó là anh trai (Chetsang) và em trai (Chungtsang). Trong niên đại Drikung, Konchog Rinchen được coi là Chetsang đầu tiên và Rigzin Chödrak là Chungtsang đầu tiên. Cả hai đều mang danh hiệu Drikung Kyabgon (‘bri gung skyabs mgon)."
+    },
+    "chetsang_chungtsang": {
+      "title": "Kỷ nguyên của các Rinpoche Chetsang và Chungtsang (1615-nay)",
+      "p1": "Trong thời của Chetsang Rinpoche thứ 1, Konchog Rinchen (1590–1655), người Mông Cổ Tumat tuyên bố quyền đối với đất đai và tài sản Tây Tạng, vì Đạt Lai Lạt Ma thứ 4 là hậu duệ của gia tộc Tumat. Do đó, Drikungpa một lần nữa thấy mình bị lôi kéo vào xung đột vũ trang và pháo đài Drikung Dzong sụp đổ trước sự tấn công dữ dội của quân đội Mông Cổ. Toàn bộ vùng Drikung nằm trong đống đổ nát đến nỗi Konchog Rinchen không thể sống ở đó trong một thời gian dài. Khi vua Tsangpa, Phuntsog Namgyal, thành công trong việc đẩy lùi người Mông Cổ, Konchog Rinchen đã xây dựng lại Drikung Dzong trong một thời gian rất ngắn vào năm 1624. Ông đặt tên cho tòa nhà mới là Namgyal Chodzong. Nhưng chiến tranh vẫn tiếp diễn với lực lượng của Gushri Khan, người cai trị Khoshuud, đảm bảo quyền lực ở miền trung Tây Tạng cho Đạt Lai Lạt Ma thứ 5 (1617–1682) với những chiến thắng quyết định trước các đối thủ của ông. Gelugpa tiến tới thống trị toàn bộ đất nước. Đạt Lai Lạt Ma thực thi quyền tối cao của Gelugpa đối với các trường phái Phật giáo Tây Tạng khác, tiến hành với sự nghiêm khắc đặc biệt chống lại Karma Kagyu. Tại Drikung, không còn lại gì của vô số ngôi làng ngoài tên gọi của chúng. Các tu viện và dinh thự quý tộc trở thành nạn nhân của sự cướp phá của quân đội Mông Cổ, cũng như Namgyal Chödzong mới được dựng lên gần đây.",
+      "p2": "Giữa thời đại tàn phá và đổ nát này, Drikung trở nên nổi tiếng khắp nơi như một trung tâm phép thuật được ngưỡng mộ và sợ hãi. Danh tiếng này có thể truy nguyên từ hoạt động của em trai Konchog Rinchen, Chungtsang Rinpoche thứ 1, Rigzin Chödrak. Rigzin Chödrak đã thành lập một trường phái chiêm tinh và bói toán quan trọng ở Drikung và ngài cũng là người sáng lập hệ thống y học Drikung, một trong bốn truyền thống y học của Tây Tạng.",
+      "p3": "Dưới thời Chetsang thứ 2, Konchog Thrinle Sangpo (1656–1718), phong tục đầu tiên đăng quang cho các Kyabgon Rinpoche tại Tu viện Drikung Tse đã được đưa vào. Thrinle Sangpo đã thành lập một trong bốn trường phái hội họa lớn ở Tây Tạng, cái gọi là phong cách Driri của Drikung. Vào năm Tỵ 1677, ngài đã giới thiệu Các Giáo Lý Năm Tỵ trên sân đập lúa của Drikung Tse, nơi ngài ban các quán đảnh và giáo lý về các mật điển Chakrasamvara và Guhyasamaja. Năm 1681, ngài đã cho xây dựng lại hoàn toàn Tu viện Yangrigar, vì nó đã bị phá hủy phần lớn bởi chiến tranh không ngừng nghỉ. Ngày nay ngài được coi là người sáng lập tu viện. Ngài cũng bắt đầu khôi phục Drikung Dzong giữa sự hỗn loạn của một cuộc xâm lược khác của Mông Cổ vào năm 1717, trong đó người Dzungar tàn phá Lhasa và đốt phá, cướp bóc vô số tu viện Nyingma.",
+      "p4": "Thrinle Sangpo đã dẫn dắt dòng truyền thừa một mình trong một thời gian dài, bởi vì hóa thân của Chungtsang được Karmapa thứ 10 công nhận đã chết trong một trận dịch đậu mùa trước khi có thể được đưa đến Drikung. Do đó, phải mất đến năm 1704 Chungtsang mới tái sinh trong Thrinle Döndrup Chögyal (1704–1754). Döndrup Chogyal, người được biết đến với tên gọi Drikung Bhande Dharmarāja, đã thành lập một số tu viện mới. Trong tác phẩm Kho Tàng Lời Khuyên Như Ý (Jewel Treasury of Advice), ngài đã tóm tắt toàn bộ cấu trúc của con đường Phật giáo theo cả Kinh thừa và Mật thừa.",
+      "p5": "Cuộc đời của Chetsang thứ 3, Konchog Tenzin Drodul (1724–1766) bị lu mờ bởi những tranh chấp trong các tu viện của ông. Ông cố ý rút lui khỏi đời sống hoạt động và dành gần như toàn bộ thời gian để thiền định trong phòng của mình tại cung điện Trolung. Tenzin Chökyi Nyima, Chungtsang thứ 3 (1755–1792), con trai của một gia đình quý tộc từ Jangyul, cũng không đạt được nhiều tiến bộ trước tình trạng này, mặc dù ông đã nỗ lực hết sức để cải tạo các tu viện và thanh lọc kỷ luật. Chetsang thứ 4, Tenzin Peme Gyaltsen (1770–1826), nổi tiếng với tư cách là tác giả của một lịch sử tiểu sử về những người nắm giữ ngai tòa Drikung Kagyu, Bậc Thầy của Dòng Chuỗi Hạt Vàng (Masters of the Golden Rosary Lineage). Khi Chungtsang thứ 4 Tenzin Chökyi Gyaltsen (1793–1826) qua đời cùng năm với Peme Gyaltsen, cần phải có một nhiếp chính, Lhochen Chökyi Lodrö (1801–1859), để dẫn dắt dòng truyền thừa.",
+      "p6": "Konchog Chönyi Norbu (1827–1865), Chungtsang thứ 5, và Konchog Thukje Nyima (1828–1885), Chetsang thứ 5, được đăng quang cùng lúc trên ngai tòa đất đỏ của Jigten Sumgön gần Drikung Thil. Trong thời gian lãnh đạo của họ, người Sikh đã chinh phục Ladakh và chiếm đóng ba tỉnh của Ngari. Các tu viện Drikung ở Ladakh và gần Núi Kailash chịu thiệt hại nặng nề trong những cuộc xung đột này. Tuy nhiên, dòng Drikung đang ở thời kỳ nở rộ trong giai đoạn này. Thukje Nyima được coi là một người đặc biệt uyên bác, và đặc biệt là chuyên gia về các vấn đề y học, nhưng lại bị cuốn vào những âm mưu của các quan chức tu viện. Cuối cùng, Chetsang Thukje Nyima bị buộc phải thoái vị vào năm 1854 do sự can thiệp của chính quyền Tây Tạng. Như một hình phạt, mái vàng của ngôi đền ở Drikung Thil đã bị gỡ bỏ mang về Lhasa và một số điền trang của Drikung Kagyupa bị tịch thu, dẫn đến tình trạng thiếu lương thực trầm trọng. Thukje Nyima bí mật lên đường hành hương đến Núi Kailash từ nơi lưu đày ở Tsang, và ban giáo lý cùng quán đảnh ở những địa điểm khác. Năm năm sau, ngài nhận được sự cho phép từ chính quyền Tây Tạng để trở về Drikung.",
+      "p7": "Khi Chungtsang Chönyi Norbu qua đời năm 1865, các quan chức tu viện bắt đầu ấp ủ những âm mưu chống lại Thukje Nyima một lần nữa. Thukje Nyima buộc phải rời khỏi vị trí của mình ở Drikung Thil một lần nữa và rút về Trolung trong phần còn lại của cuộc đời. Nhiều tín đồ của ngài rơi vào tuyệt vọng sâu sắc, trong khi ngài chấp nhận mọi trở ngại với một trái tim rộng mở tràn đầy bồ đề tâm và sự thanh thản sâu thẳm. Hai lần trong đời, Thukje Nyima là nạn nhân của sự phỉ báng và các trò chơi quyền lực tu viện. Không nghi ngờ gì nữa, đây là một trong những chương buồn nhất trong lịch sử dòng Drikung Kagyu.",
+      "p8": "Chungtsang thứ 6, Tenzin Chökyi Lodrö (1868–1906), cao lớn và có ngoại hình ấn tượng khác thường. Ngài đã viết hai cuốn sách hướng dẫn toàn diện về các thánh địa về các cuộc hành hương của ngài đến Núi Kailash và Lapchi. Hai tác phẩm học thuật của ngài cung cấp cái nhìn sâu sắc về khái niệm địa lý tôn giáo trong Phật giáo Tây Tạng. Trong thời gian ở vùng Kailash, ngài đã thành lập cộng đồng tu viện Phuntsogling ở phía đông Ladakh và công nhận hóa thân thứ 9 của Togden Rinpoche là người đứng đầu tôn giáo của các tu viện Drikung ở Mangyul (Ladakh). Cùng với Chetsang thứ 6 trẻ tuổi, Tenzin Shiwe Lodrö (1886–1943), ngài đã đến thăm Lhasa vào năm 1893, nơi hai Kyabgon Rinpoche được trao tặng danh hiệu Mãn Châu là hotogthu. Kể từ thời điểm đó, các Drikung Kyabgon Rinpoche luôn đội mũ vàng hotogthu trong các chuyến đi chính thức, phù hợp với một lời tiên tri cổ xưa của Chungtsang thứ 1 Rigzin Chödrak rằng trong tương lai ngài sẽ đội một chiếc mũ vàng.",
+      "p9": "Mối quan tâm chính của Shiwe Lodrö nằm ở việc tích hợp thực hành thiền định và giảng dạy triết học, vì đây là những trụ cột trung tâm của giáo dục và đào tạo trong truyền thống Drikung Kagyu. Ngài cũng đạt được danh tiếng lớn nhờ khả năng thấu thị của mình.",
+      "p10": "Ngài đã sắp xếp việc cải tạo Tu viện Yangrigar và bổ sung một tòa nhà để lưu trữ các mộc bản dùng để in các văn bản Phật giáo, và cũng giới thiệu ủy ban đầu tiên ở Drikung Thil để cải thiện quản lý tu viện. Tuy nhiên, trình độ giáo dục kém trong các tu viện của ngài vẫn là mối lo ngại lớn nhất của ngài. Năm 1932, ngài thành lập học viện nghiên cứu Phật giáo cao cấp Nyima Changra.",
+      "p11": "Sau cái chết sớm của Chungtsang thứ 7, Tenzin Chökyi Jungne (1909–1940), Shiwe Lodrö trở nên nặng lòng và ngay sau đó, trong một chuyến đi đến Kham, ngài bị đột quỵ và không qua khỏi. Ngài dành phần lớn thời gian để thiền định cho đến khi qua đời. Shiwe Lodrö viên tịch năm 1943. Kể từ đó Tritsab Gyabra (1924–1979) trở thành nhiếp chính. Dưới sự lãnh đạo của ngài, các hóa thân hiện tại của Chungtsang thứ 8 và Chetsang Rinpoche thứ 7 đã được tìm thấy và đăng quang là người nắm giữ dòng truyền thừa thứ 36 và 37."
+    }
+  },
+  "ConfirmRole": {
+    "invalidLink": "Liên kết không hợp lệ",
+    "invalidLinkDesc": "Đường dẫn xác nhận bị thiếu thông tin hoặc đã bị hỏng.",
+    "backHome": "Về trang chủ",
+    "verificationFailed": "Xác thực thất bại",
+    "successMessage": "Chúc mừng! Quyền hạn của bạn đã được cập nhật.",
+    "expiredLink": "Liên kết đã hết hạn hoặc không hợp lệ.",
+    "successTitle": "Thăng cấp thành công!",
+    "redirecting": "Chào mừng bạn đến với quyền hạn mới. Hệ thống sẽ tự động chuyển hướng trong giây lát...",
+    "goToAdmin": "Vào trang quản trị ngay",
+    "confirmTitle": "Xác nhận Thăng cấp",
+    "confirmDesc": "Bạn đã nhận được yêu cầu thay đổi quyền hạn tài khoản. Vui lòng xác nhận để áp dụng thay đổi này.",
+    "confirmButton": "Chấp nhận Quyền mới",
+    "cancelButton": "Bỏ qua và về Trang chủ",
+    "disclaimer": "Nếu bạn không yêu cầu thay đổi này, hãy bỏ qua hoặc liên hệ quản trị viên."
+  },
+  "AdminHeader": {
+    "notification": "{count} đơn hàng chờ xử lý",
+    "logout": "Đăng xuất",
+    "language": "Ngôn ngữ"
+  },
+  "Sidebar": {
+    "dashboard": "Bảng điều khiển",
+    "overview": "TỔNG QUAN",
+    "website": "Xem trang web",
+    "content_management": "QUẢN LÝ NỘI DUNG",
+    "content": "Nội dung",
+    "post_list": "Danh sách bài viết",
+    "create_post": "Đăng bài viết",
+    "categories": "Danh mục",
+    "ads_management": "QUẢN LÝ QUẢNG CÁO",
+    "banner_management": "Quản lý Banner",
+    "banner_list": "Danh sách Banner",
+    "create_banner": "Thêm Banner",
+    "ads": "Quảng cáo",
+    "schedule_management": "Quản lý lịch",
+    "users": "Thành viên",
+    "products": "Sản phẩm",
+    "orders": "Đơn hàng",
+    "schedule": "Lịch trình",
+    "media": "Thư viện",
+    "banner": "Banner",
+    "settings": "Cài đặt",
+    "user_management": "Quản lý thành viên",
+    "user_list": "Danh sách thành viên",
+    "collapse": "Thu gọn menu",
+    "expand": "Mở rộng menu",
+    "create": "Tạo mới"
+  },
+  "Dashboard": {
+    "title": "Bảng Điều Khiển Tổng Quan",
+    "subtitle": "Dữ liệu được cập nhật theo thời gian thực từ hệ thống",
+    "refresh": "Làm mới dữ liệu",
+    "posts": "Bài Viết",
+    "total": "Tổng cộng",
+    "current_total": "Tổng hiện tại",
+    "posts_desc": "Tổng số bài viết nội dung",
+    "welcome_title": "Hệ thống quản lý nội dung Phật Giáo",
+    "welcome_desc": "Dùng menu bên trái để quản lý bài viết, banner và các nội dung khác."
+  },
+  "DefaultPage": {
+    "page_developing": "Trang đang phát triển",
+    "feature_developing": "Tính năng đang được phát triển",
+    "page_in_development_msg": "Trang <bold>{page}</bold> hiện đang trong giai đoạn phát triển.",
+    "need_support": "Cần hỗ trợ phát triển?",
+    "contact_dev": "Để hoàn thiện tính năng này, vui lòng liên hệ nhà phát triển:",
+    "contact_now": "Liên hệ ngay",
+    "get_quote": "Báo giá"
+  },
+  "Content": {
+    "postsList": "Danh sách bài viết",
+    "managePosts": "Quản lý bài viết của bạn",
+    "totalPosts": "tổng cộng",
+    "refresh": "Làm mới",
+    "newPost": "Bài viết mới",
+    "errorLoadingPosts": "Lỗi tải bài viết",
+    "tryAgain": "Thử lại",
+    "searchPlaceholder": "Tìm kiếm bài viết...",
+    "noPostsFound": "Không tìm thấy bài viết nào",
+    "noPostsYet": "Chưa có bài viết nào",
+    "adjustSearch": "Hãy thử điều chỉnh các từ khóa tìm kiếm của bạn hoặc xóa tìm kiếm để xem tất cả các bài viết.",
+    "getStarted": "Bắt đầu bằng cách tạo bài viết đầu tiên của bạn.",
+    "createFirstPost": "Tạo bài viết đầu tiên của bạn",
+    "editPost": "Chỉnh sửa bài viết",
+    "deletePost": "Xóa bài viết",
+    "confirmDelete": "Bạn có chắc chắn muốn xóa bài viết này không?",
+    "failedToDelete": "Xóa bài viết thất bại. Vui lòng thử lại.",
+    "loadingPosts": "Đang tải bài viết...",
+    "postTitle": "Tiêu đề bài viết",
+    "postDescription": "Mô tả bài viết",
+    "backToEditor": "Quay lại",
+    "previewMode": "Chế độ xem trước",
+    "preview": "Xem trước",
+    "publishing": "Đang xuất bản...",
+    "publish": "Xuất bản",
+    "error": "Lỗi",
+    "failedToUploadCover": "Tải ảnh bìa thất bại: ",
+    "failedToDeleteCover": "Xóa ảnh bìa thất bại: ",
+    "titleRequired": "Tiêu đề là bắt buộc",
+    "contentRequired": "Nội dung là bắt buộc",
+    "failedToSavePost": "Lưu bài viết thất bại",
+    "coverImage": "Ảnh bìa",
+    "removeCoverImage": "Xóa ảnh bìa",
+    "processing": "Đang xử lý...",
+    "uploading": "Đang tải lên...",
+    "clickToUpload": "Nhấp để tải lên",
+    "orDragAndDrop": "hoặc kéo và thả",
+    "imageFormatSize": "PNG, JPG, GIF tối đa 5MB",
+    "errorUploadingImage": "Lỗi tải ảnh lên: ",
+    "postTitleLabel": "Tiêu đề bài viết",
+    "postTitlePlaceholder": "Nhập tiêu đề bài viết...",
+    "description": "Mô tả",
+    "descriptionPlaceholder": "Mô tả ngắn gọn về bài viết...",
+    "content": "Nội dung *",
+    "contentPlaceholder": "Bắt đầu viết nội dung bài viết...",
+    "createNewPost": "Tạo bài viết mới",
+    "deletePostConfirmation": "Bạn có chắc chắn muốn xóa bài viết này không? Hành động này không thể hoàn tác.",
+    "cancel": "Hủy",
+    "delete": "Xóa",
+    "edit": "Sửa",
+    "notAvailable": "N/A",
+    "noContent": "Chưa có nội dung...",
+    "updating": "Đang cập nhật...",
+    "update": "Cập nhật",
+    "failedToUpdatePost": "Cập nhật bài viết thất bại",
+    "originalPostNotFound": "Không tìm thấy dữ liệu bài viết gốc",
+    "loadingPost": "Đang tải bài viết...",
+    "postNotFound": "Không tìm thấy bài viết",
+    "failedToLoadPost": "Tải bài viết thất bại",
+    "failedToDeletePost": "Xóa bài viết thất bại",
+    "uploadFailed": "Tải lên thất bại",
+    "retry": "Thử lại",
+    "chooseDifferentFile": "Chọn tệp khác",
+    "uploadError": "Lỗi tải lên",
+    "imageUploadSuccess": "Ảnh đã tải lên thành công!",
+    "maxFileSize": "• Kích thước tệp tối đa: {maxSize}MB",
+    "supportedFormats": "• Định dạng được hỗ trợ: JPG, PNG, GIF, WebP, SVG",
+    "recommendedDimensions": "• Kích thước khuyến nghị: 1200x630px để có kết quả tốt nhất",
+    "changeImage": "Thay đổi ảnh",
+    "removeImage": "Xóa ảnh",
+    "retrying": "Đang thử lại... ({count}/3)",
+    "retryCount": "Thử lại {count}/3",
+    "categories": {
+      "all": "Tất cả danh mục",
+      "tinTuc": "Tin Tức",
+      "tinMoi": "Tin Mới",
+      "tinNoiBat": "Tin Nổi Bật",
+      "events": "Sự Kiện",
+      "suKien": "Sự Kiện",
+      "vietnamBuddhism": "Phật Giáo Việt Nam",
+      "phatGiaoVietNam": "Phật Giáo Việt Nam",
+      "internationalBuddhism": "Phật Giáo Quốc Tế",
+      "phatGiaoQuocTe": "Phật Giáo Quốc Tế",
+      "announcements": "Thông Báo",
+      "thongBao": "Thông Báo"
+    },
+    "visibility": {
+      "all": "Tất cả",
+      "public": "Công khai",
+      "membersOnly": "Thành viên"
+    },
+    "languages": {
+      "vietnamese": "Tiếng Việt",
+      "english": "English",
+      "chinese": "中文",
+      "tibetan": "Tibetan"
+    },
+    "noTitle": "(Không có tiêu đề)",
+    "noDescription": "(Không có mô tả)",
+    "deleteFailed": "Xóa thất bại",
+    "loadingData": "Đang tải dữ liệu...",
+    "saving": "Đang lưu...",
+    "publishPost": "Đăng Bài",
+    "updatePost": "Cập nhật",
+    "filterByCategory": "Lọc theo danh mục",
+    "filterByVisibility": "Lọc theo quyền truy cập",
+    "showing": "Hiển thị",
+    "to": "đến",
+    "outOf": "trong tổng số",
+    "pageOfTotal": "Trang {page} / {total}",
+    "previousPage": "Trang trước",
+    "nextPage": "Trang sau",
+    "allPermissions": "Tất cả quyền",
+    "publicAccess": "Công khai",
+    "multilingualContentEditor": "Soạn thảo nội dung đa ngôn ngữ",
+    "titlePlaceholder": "Nhập tiêu đề {language}...",
+    "contentEditorPlaceholder": "Soạn thảo nội dung...",
+    "titleRequiredVi": "Vui lòng nhập Tiêu đề (Tiếng Việt)",
+    "languageLabels": {
+      "vi": "Tiếng Việt",
+      "en": "English",
+      "zh": "中文",
+      "bo": "Tibetan"
+    },
+    "pageTitle": "Quản Lý Bài Viết",
+    "pageDescription": "Danh sách tin tức, sự kiện và thông báo chính thức",
+    "noResultsFor": "Không có kết quả nào cho \"{query}\"",
+    "tableHeaders": {
+      "category": "Danh mục",
+      "status": "Trạng thái",
+      "createdDate": "Ngày tạo",
+      "actions": "Hành động"
+    },
+    "badges": {
+      "new": "MỚI",
+      "hot": "NỔI BẬT"
+    },
+    "categoryLabel": "Danh mục",
+    "membersOnlyLabel": "Hội viên",
+    "membersOnlyLabelWithIcon": "Hội viên 🔒",
+    "form": {
+      "sections": {
+        "classification": "Phân Loại",
+        "visibilityAndPermissions": "Hiển Thị & Quyền",
+        "accessRights": "Quyền truy cập:"
+      },
+      "options": {
+        "publicWithIcon": "Công khai 🌐",
+        "isNew": "Tin Mới / Hot",
+        "isNewDesc": "Hiện badge \"Mới\"",
+        "isFeatured": "Tin Nổi Bật",
+        "isFeaturedDesc": "Đẩy lên Slider trang chủ"
+      }
+    },
+    "actions": {
+      "saveSuccess": "Lưu thành công",
+      "updateSuccess": "Cập nhật thành công"
+    },
+    "back_to_home": "Quay lại trang chủ",
+    "no_posts_in_category": "Chưa có bài viết nào trong danh mục này.",
+    "read_more_arrow": "Xem thêm →",
+    "new_badge": "MỚI",
+    "error_loading_posts": "Có lỗi xảy ra khi tải danh sách bài viết."
+  },
+  "Profile": {
+    "title": "Thông tin tài khoản",
+    "edit_profile": "Chỉnh sửa thông tin",
+    "account_info": "Thông tin tài khoản",
+    "personal_info": "Thông tin cá nhân",
+    "member_exclusive_content": "Nội dung dành riêng cho thành viên",
+    "not_updated": "Chưa cập nhật",
+    "role_label": "Vai trò",
+    "roles": {
+      "user": "Thành viên",
+      "admin": "Quản trị viên"
+    },
+    "click_to_change_avatar": "Nhấn vào ảnh để thay đổi",
+    "save_changes": "Lưu thay đổi",
+    "success_message": "Cập nhật thông tin thành công!",
+    "error_message": "Có lỗi xảy ra khi cập nhật!",
+    "errors": {
+      "max_file_size": "Kích thước ảnh không được vượt quá 5MB",
+      "invalid_image_type": "Vui lòng chọn định dạng ảnh hợp lệ (JPG, PNG, GIF)"
+    }
+  },
+  "Users": {
+    "title": "Quản Lý Thành Viên",
+    "subtitle": "Danh sách thành viên hệ thống ({count} tài khoản)",
+    "refresh": "Làm mới",
+    "searchPlaceholder": "Tìm kiếm theo tên, email hoặc số điện thoại...",
+    "noUsersFound": "Không tìm thấy thành viên nào.",
+    "list": {
+      "user": "Thành Viên",
+      "contact": "Liên Hệ",
+      "role": "Vai Trò",
+      "joinedDate": "Ngày Tham Gia",
+      "id": "ID"
+    },
+    "roles": {
+      "admin": "Quản trị viên",
+      "user": "Thành viên"
+    }
+  },
+  "EditRoleModal": {
+    "title": "Cập nhật Quyền hạn",
+    "roles": {
+      "user": {
+        "label": "Người dùng (User)",
+        "description": "Quyền cơ bản, có thể bình luận."
+      },
+      "admin": {
+        "label": "Quản trị viên (Admin)",
+        "description": "Toàn quyền quản lý hệ thống."
+      }
+    },
+    "cancel": "Hủy",
+    "save": "Lưu thay đổi",
+    "processing": "Đang xử lý..."
+  },
+  "Category": {
+    "title": "Quản Lý Danh Mục",
+    "description": "danh mục đa ngôn ngữ",
+    "create": "Tạo danh mục",
+    "createTitle": "Thêm danh mục mới",
+    "editTitle": "Chỉnh sửa danh mục",
+    "back": "Quay lại danh sách",
+    "save": "Lưu lại",
+    "saving": "Đang lưu...",
+    "cancel": "Hủy",
+    "fields": {
+      "code": "Mã danh mục",
+      "parent": "Danh mục cha",
+      "order": "Thứ tự",
+      "active": "Kích hoạt",
+      "name": "Tên danh mục"
+    },
+    "hints": {
+      "code": "Mã duy nhất (A-Z, 0-9, _), không thể sửa sau khi tạo.",
+      "autoGen": "Tự động tạo từ Tên nếu để trống",
+      "slug": "Slug dùng cho URL"
+    },
+    "columns": {
+      "name": "Tên danh mục",
+      "order": "Thứ tự",
+      "status": "Trạng thái",
+      "actions": "Thao tác"
+    },
+    "messages": {
+      "createSuccess": "Tạo danh mục thành công",
+      "updateSuccess": "Cập nhật danh mục thành công",
+      "deleteSuccess": "Xóa danh mục thành công",
+      "deleteFailed": "Xóa thất bại. Hãy chắc chắn danh mục không có con.",
+      "confirmDelete": "Bạn có chắc chắn muốn xóa danh mục này?",
+      "notFound": "Không tìm thấy danh mục",
+      "loading": "Đang tải dữ liệu..."
+    },
+    "rootCategory": "Danh mục gốc",
+    "required": "Bắt buộc nhập",
+    "errors": {
+      "codeInvalid": "Mã không hợp lệ (Chỉ dùng chữ hoa, số và gạch dưới)"
+    }
+  }
+}

@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Schedule } from "@/features/admin/components/quan-ly-lich/types/schedule.types";
 import { scheduleService } from "../services/schedule.service";
-import SunEditorContent from "@/shared/components/SunEditorContent";
+import TinyMCEContent from "@/shared/components/TinyMCEContent";
 
 export default function ScheduleList() {
   const locale = useLocale();
@@ -57,7 +57,7 @@ export default function ScheduleList() {
           <div key={schedule.code} className="schedule-item">
             {/* HTML Content */}
             <div className="mt-8 bg-white p-4 md:p-8 rounded shadow-sm text-gray-700 leading-relaxed text-base md:text-lg">
-              <SunEditorContent content={detail.content} />
+              <TinyMCEContent content={detail.content} />
             </div>
           </div>
         );

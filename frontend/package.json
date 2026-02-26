@@ -6,10 +6,12 @@
     "dev": "next dev -p 3001",
     "build": "next build",
     "start": "next start -p 3001",
-    "lint": "eslint"
+    "lint": "eslint",
+    "postinstall": "node -e \"const fs = require('fs'); fs.cpSync('node_modules/tinymce', 'public/tinymce', {recursive: true});\""
   },
   "dependencies": {
     "@tanstack/react-query": "^5.90.12",
+    "@tinymce/tinymce-react": "^6.3.0",
     "axios": "^1.13.2",
     "driver.js": "^1.4.0",
     "echarts": "^6.0.0",
@@ -28,7 +30,8 @@
     "react-toastify": "^11.0.5",
     "striptags": "^3.2.0",
     "suneditor": "^2.47.8",
-    "suneditor-react": "^3.6.1"
+    "suneditor-react": "^3.6.1",
+    "tinymce": "^8.3.2"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.3",

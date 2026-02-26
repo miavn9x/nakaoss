@@ -3,9 +3,8 @@
 import { useState, useEffect } from "react";
 import { Save, Trash2, Edit, X } from "lucide-react";
 import { useSchedule } from "@/features/admin/components/quan-ly-lich/hooks/useSchedule";
-import SunEditorComponent from "@/shared/components/SunEditorComponent";
-import SunEditorContent from "@/shared/components/SunEditorContent";
-import "suneditor/dist/css/suneditor.min.css"; // Ensure styles are available for View mode
+import TinyMCEComponent from "@/shared/components/TinyMCEComponent";
+import TinyMCEContent from "@/shared/components/TinyMCEContent";
 import { useTranslations } from "next-intl";
 
 const ScheduleManager = () => {
@@ -231,7 +230,7 @@ const ScheduleManager = () => {
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 {t("contentLabel", { language: activeTab })}
               </label>
-              <SunEditorComponent
+              <TinyMCEComponent
                 key={activeTab} // Force re-render when switching tabs
                 value={details[activeTab].content}
                 onChange={(content) =>
@@ -268,16 +267,13 @@ const ScheduleManager = () => {
           // VIEW MODE
           <div className="sun-editor border-none!">
             <style jsx global>{`
-              .sun-editor {
-                border: none !important;
-              }
-              .sun-editor-editable {
+              .tinymce-content-container {
                 border: none !important;
                 padding: 0 !important;
                 outline: none !important;
               }
             `}</style>
-            <SunEditorContent
+            <TinyMCEContent
               content={details[activeTab].content}
               className="border-0! p-0! font-inherit min-h-auto outline-none!"
             />

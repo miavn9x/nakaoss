@@ -1,7 +1,7 @@
 "use client";
 
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import SunEditorContent from "@/shared/components/SunEditorContent";
+import TinyMCEContent from "@/shared/components/TinyMCEContent";
 import Image from "next/image";
 import { getImageUrl } from "@/shared/lib/image";
 import { stripHtml } from "@/shared/lib/html";
@@ -78,7 +78,7 @@ export const MainBanner = ({
             <div className="absolute inset-0 pointer-events-none overflow-hidden">
               {/* Title */}
               {banner.showTitle !== false && (
-                <SunEditorContent
+                <TinyMCEContent
                   content={banner.title}
                   className="absolute inset-0 w-full h-full pointer-events-auto bg-transparent!"
                 />

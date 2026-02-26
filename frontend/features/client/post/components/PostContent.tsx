@@ -5,7 +5,7 @@ import Image from "next/image";
 import { PostClientDetail, getPostDetail } from "../types/post.types";
 import { getImageUrl } from "@/shared/lib/image";
 import { useLocale, useTranslations } from "next-intl";
-import SunEditorContent from "@/shared/components/SunEditorContent";
+import TinyMCEContent from "@/shared/components/TinyMCEContent";
 
 interface PostContentProps {
   post: PostClientDetail;
@@ -57,7 +57,7 @@ const PostContent: React.FC<PostContentProps> = ({ post }) => {
       </header>
 
       <div className="text-gray-700 leading-relaxed text-base md:text-lg lg:text-xl text-left sm:text-justify wrap-break-word">
-        <SunEditorContent content={detail.content || ""} />
+        <TinyMCEContent content={detail.content || ""} />
       </div>
     </article>
   );

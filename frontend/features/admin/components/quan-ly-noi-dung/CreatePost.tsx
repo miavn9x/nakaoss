@@ -13,7 +13,7 @@ import {
   Star,
   Zap,
 } from "lucide-react";
-import SunEditorComponent from "@/shared/components/SunEditorComponent";
+import TinyMCEComponent from "@/shared/components/TinyMCEComponent";
 import {
   EnhancedImageUpload,
   MediaItem,
@@ -352,7 +352,7 @@ export default function CreatePost() {
                   {t("content")}
                 </label>
                 <div className="prose-editor">
-                  <SunEditorComponent
+                  <TinyMCEComponent
                     key={activeLang}
                     value={currentDetail.content}
                     onChange={(content) =>

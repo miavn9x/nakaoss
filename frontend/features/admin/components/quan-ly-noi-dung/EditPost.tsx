@@ -14,7 +14,7 @@ import {
   Zap,
 } from "lucide-react";
 import { toast } from "react-toastify";
-import SunEditorComponent from "@/shared/components/SunEditorComponent";
+import TinyMCEComponent from "@/shared/components/TinyMCEComponent";
 import {
   EnhancedImageUpload,
   MediaItem,
@@ -462,7 +462,7 @@ export default function EditPost() {
                   {t("content")}
                 </label>
                 <div className="prose-editor">
-                  <SunEditorComponent
+                  <TinyMCEComponent
                     key={activeLang}
                     value={currentDetail.content}
                     onChange={(content) =>

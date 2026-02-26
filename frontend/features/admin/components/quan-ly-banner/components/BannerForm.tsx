@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form";
 import { bannerService } from "../services/banner.service";
 import { BannerType, IBanner } from "../types";
 import { CustomColorPicker } from "./CustomColorPicker";
-import SunEditorComponent from "@/shared/components/SunEditorComponent";
+import TinyMCEComponent from "@/shared/components/TinyMCEComponent";
 import { useTranslations } from "next-intl";
 import {
   EnhancedImageUpload,
@@ -168,7 +168,7 @@ export function BannerForm({
                 </label>
               </div>
             </div>
-            <SunEditorComponent
+            <TinyMCEComponent
               value={watch("title")}
               onChange={(content) => setValue("title", content)}
               placeholder={t("form.title")}

@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { Save, ArrowLeft, FileText } from "lucide-react";
-import SunEditorComponent from "@/shared/components/SunEditorComponent";
+import TinyMCEComponent from "@/shared/components/TinyMCEComponent";
 import { useAdminPage } from "@/features/admin/contexts/AdminPageContext";
 import { useSchedule } from "@/features/admin/components/quan-ly-lich/hooks/useSchedule";
 import { useTranslations } from "next-intl";
@@ -74,7 +74,7 @@ export default function CreateSchedule() {
             <label className="block text-sm font-medium text-gray-700 mb-2">
               {t("contentDetail")}
             </label>
-            <SunEditorComponent
+            <TinyMCEComponent
               value={formData.content}
               onChange={(content) => setFormData({ ...formData, content })}
               placeholder={t("enterContentPlaceholder", { language: "" })}

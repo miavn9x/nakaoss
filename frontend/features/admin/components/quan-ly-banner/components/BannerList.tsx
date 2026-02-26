@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 import { Edit, Loader2, Plus, Trash2 } from "lucide-react";
 import Image from "next/image";
 import { getImageUrl } from "@/shared/lib/image";
-import SunEditorContent from "@/shared/components/SunEditorContent";
+import TinyMCEContent from "@/shared/components/TinyMCEContent";
 import { BannerType, IBanner } from "../types";
 
 interface BannerListProps {
@@ -72,7 +72,7 @@ export default function BannerList({
                       </div>
                     </td>
                     <td className="px-6 py-4">
-                      <SunEditorContent
+                      <TinyMCEContent
                         content={banner.title}
                         className="font-medium text-gray-900"
                       />

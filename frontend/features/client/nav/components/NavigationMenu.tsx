@@ -62,7 +62,7 @@ const NavigationMenu = ({
   const menuItems = useMemo(() => {
     const staticBefore = [
       { label: t("home"), href: "/" },
-      { label: t("schedule"), href: "/schedule" },
+      { label: t("news"), href: "/news" },
     ];
 
     // Map categories to menu items
@@ -74,6 +74,7 @@ const NavigationMenu = ({
 
     const staticAfter = [
       { label: t("contact"), href: "/contact" },
+      { label: t("recruitment"), href: "/recruitment" },
       { label: t("support_us"), href: "/support-us" },
     ];
 

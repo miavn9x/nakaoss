@@ -5,7 +5,7 @@
     "longchen_lineage": "优势",
     "about": "关于我们",
     "contact": "联系我们",
-    "schedule": "新闻",
+    "news": "新闻",
     "support_us": "资料",
     "language": "语言",
     "mobile_title": "NAKAO VIETNAM",
@@ -59,56 +59,11 @@
     "nextSlide": "下一张",
     "goToSlide": "转到第 {index} 张"
   },
-  "Home": {
-    "latestNews": "最新消息",
-    "featuredNews": "精选消息",
-    "memberPosts": "会员文章",
-    "history_title": "中尾日本历史与介绍",
-    "history_desc_1": "中尾自2025年6月起在越南成立，带来顶级的门五金解决方案。",
-    "history_desc_2": "凭借100多年的经验，我们为在日本取得的成就感到自豪，特别是在制造和提供高质量门五金方面。",
-    "history_achievement_title": "成就与优势",
-    "history_achievement_1": "超过100年的制造经验",
-    "history_achievement_2": "日本领先的市场份额",
-    "history_achievement_3": "绝对精准的加工质量",
-    "history_achievement_4": "适用于所有建筑项目的全面解决方案",
-    "history_about_title": "历史与成就",
-    "history_about_desc": "在日本拥有100多年的经验，以众多著名奖项自豪地引领门五金市场。",
-    "history_vietnam_title": "中尾越南",
-    "history_vietnam_desc": "于2025年6月在越南正式成立，使命是为所有项目提供日本标准的门五金解决方案。",
-    "history_business_title": "业务领域",
-    "history_business_desc": "专业研发和生产优质五金配件：铰链、阻尼滑轨、把手和门控系统。",
-    "history_strength_title": "核心优势",
-    "history_strength_desc": "拥有核心精密加工技术，确保永恒的耐用性和绝对平稳的运行。",
-    "core_values_title": "日本核心价值观",
-    "core_value_1_title": "精密技术 (Precision)",
-    "core_value_1_desc": "制作为微小公差，确保平稳运行和数十万次开关循环的寿命。",
-    "core_value_2_title": "隐藏美学 (Hidden Aesthetics)",
-    "core_value_2_desc": "专注于功能的极简设计理念。NAKAO五金融入门中，不张扬地彰显内饰之美。",
-    "core_value_3_title": "平稳运行 (Smooth Operation)",
-    "core_value_3_desc": "阻尼技术（软关闭）和高端滑轨系统有助于消除噪音，为生活空间带来绝对的宁静。",
-    "history_product_category_title": "核心产品类别",
-    "history_product_hinge_title": "标准和3D铰链",
-    "history_product_hinge_desc": "高承重，灵活的3D调节，经受30万次以上开合测试。",
-    "history_product_sliding_title": "软闭合滑轨系统",
-    "history_product_sliding_desc": "移动平稳无噪音，Air Tight气动刹车技术，绝对安全。",
-    "history_product_bottom_title": "气密门底密封条",
-    "history_product_bottom_desc": "隔音、防风、防虫的有效解决方案，完美隐藏在门框内。",
-    "history_product_stopper_title": "落地式门吸",
-    "history_product_stopper_desc": "强力磁吸设计，巧妙隐藏，不阻碍地面活动。",
-    "history_cta_consulting": "技术咨询",
-    "history_cta_catalog": "下载2025年产品目录",
-    "history_cta_quote": "获取报价",
-    "history_cta_contact": "联系经销商"
-  },
+
   "Search": {
     "placeholder": "搜索...",
     "suggestions": "建议",
-    "tags": {
-      "sutra": "经书",
-      "statue": "佛像",
-      "mala": "念珠",
-      "incense": "沉香"
-    },
+
     "searching": "搜索中...",
     "results": "结果",
     "noResults": "未找到相关结果。"
@@ -174,11 +129,7 @@
     "hh_contact_email": "邮件: pohhdkc@drikung.org",
     "thank_you": "感谢您的支持。"
   },
-  "Schedule": {
-    "title": "日程",
-    "upcoming_events": "即将举行的活动",
-    "no_events": "目前没有即将举行的活动。请稍后再回来查看。"
-  },
+
   "Footer": {
     "tagline": "打造符合日本品牌标准的网站，提升在越南市场的信誉度",
     "col1_title": "联系信息",
@@ -210,12 +161,7 @@
     "content": "当人们过于执着于物质财富时，它会破坏内心的平静。由于缺乏正确的理解和正确的道路，他们在世俗中迷失了方向。因此，我们需要更多地研习佛法，更多地实修佛法，从而利益我们自己。",
     "author": "钦哲力格力增·红嘎多吉仁波切"
   },
-  "LineageIntro": {
-    "title": "直贡噶举传承简介",
-    "content": "藏传佛教噶举派由西藏大译师玛尔巴（1012-1097）创立，他的上师是印度那烂陀寺的那洛巴。那洛巴是大成就者帝洛巴的弟子，帝洛巴直接领受了金刚总持的教法。玛尔巴的主要弟子是米拉日巴尊者（1040-1123），米拉日巴将教法传给冈波巴（1079-1153），冈波巴的弟子是帕木竹巴（1110-1170）。帕木竹巴的主要弟子是觉巴吉天颂恭（1143-1217），被认为是龙树菩萨的化身。1179年，吉天颂恭在西藏创立了直贡梯寺，成为直贡噶举传承的主寺。",
-    "content_2": "自吉天颂恭创立直贡噶举派以来，该传承已连续传承了三十七代。目前，直贡噶举派由两位法王共同领导：第36任法王直贡澈赞仁波切（1942-）和第37任法王直贡琼赞仁波切（1946-）。",
-    "read_more": "阅读更多"
-  },
+
   "LineageDetailPage": {
     "title": "藏传佛教直贡噶举传承简史",
     "intro": {

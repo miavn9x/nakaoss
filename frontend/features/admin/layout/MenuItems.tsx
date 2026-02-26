@@ -138,18 +138,6 @@ const MenuItems = ({ isSidebarOpen, idPrefix = "" }: MenuItemsProps) => {
             { label: t("create_banner"), page: "banners-create" },
           ],
         },
-        // {
-        //   id: "advertisements",
-        //   icon: Globe, // Tạm dùng icon Globe hoặc tìm cái khác
-        //   label: t("ads"),
-        //   page: "ads-manager",
-        // },
-        {
-          id: "schedule",
-          icon: Calendar,
-          label: t("schedule_management"),
-          page: "schedule-manager",
-        },
       ],
     },
     {

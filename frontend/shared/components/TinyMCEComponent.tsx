@@ -222,10 +222,35 @@ export default function TinyMCEComponent({
             @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300&family=Roboto:ital,wght@0,400;0,500;0,700;1,400&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&family=Lato:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Oswald:wght@400;500;600;700&display=swap');
             @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
             .material-symbols-outlined { font-family: 'Material Symbols Outlined'; font-weight: normal; font-style: normal; display: inline-block; line-height: 1; text-transform: none; letter-spacing: normal; word-wrap: normal; white-space: nowrap; direction: ltr; -webkit-font-smoothing: antialiased; }
-            body { font-family: 'Inter', Arial, sans-serif; font-size:16px } 
-            img { max-width: 100% !important; height: auto !important; display: block; }
-            figure.image { max-width: 100% !important; }
-            figure.image img { max-width: 100% !important; height: auto !important; }
+            body { font-family: 'Inter', Arial, sans-serif; font-size:16px; line-height: 1.6; color: #334155; } 
+            
+            h1, h2, h3, h4, h5, h6 { color: #0f172a; font-weight: 700; margin-top: 1.5em; margin-bottom: 0.5em; line-height: 1.3; }
+            h1 { font-size: 2.25em; } h2 { font-size: 1.5em; } h3 { font-size: 1.25em; } h4 { font-size: 1em; }
+            
+            p { margin-top: 0; margin-bottom: 1.25em; }
+            ul, ol { margin-top: 0; margin-bottom: 1.25em; padding-left: 1.625em; }
+            ul { list-style-type: disc; } ol { list-style-type: decimal; }
+            li { margin-bottom: 0.5em; } ul ul, ol ol { margin-top: 0.5em; margin-bottom: 0; }
+            
+            a { color: #1d3b78; text-decoration: underline; }
+            a:hover { color: #1152d4; }
+            b, strong { font-weight: 700; color: #0f172a; }
+            i, em { font-style: italic; }
+            
+            blockquote { border-left: 4px solid #1d3b78; padding-left: 1rem; margin-left: 0; margin-right: 0; font-style: italic; color: #475569; background-color: #f8fafc; padding: 1rem; border-radius: 4px; }
+            
+            img, video { max-width: 100% !important; height: auto !important; margin-top: 1.5em; margin-bottom: 1.5em; border-radius: 8px; display: block; }
+            figure { margin: 1.5em 0; max-width: 100% !important; }
+            figure.image img { max-width: 100% !important; height: auto !important; margin: 0; }
+            figcaption { font-size: 0.875em; color: #64748b; text-align: center; margin-top: 0.5em; font-style: italic; }
+            
+            details { background-color: #f1f5f9; padding: 1rem; border-radius: 6px; margin-bottom: 1rem; border: 1px solid #e2e8f0; }
+            details summary { font-weight: 600; cursor: pointer; color: #0f172a; }
+            details > *:not(summary) { margin-top: 1rem; }
+            
+            table { width: 100%; margin-bottom: 1.5em; border-collapse: collapse; }
+            th, td { border: 1px solid #cbd5e1; padding: 0.75rem; text-align: left; }
+            th { background-color: #f1f5f9; font-weight: 600; color: #0f172a; }
           `,
           placeholder: placeholder,
           branding: false,

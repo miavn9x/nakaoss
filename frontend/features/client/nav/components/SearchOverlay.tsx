@@ -7,7 +7,6 @@ import Image from "next/image";
 
 import { useTranslations, useLocale } from "next-intl";
 import { API_URL } from "@/shared/config/api.config";
-import { PostClientListItem, getPostLink } from "../../post/types/post.types";
 
 interface SearchOverlayProps {
   isOpen: boolean;
@@ -16,11 +15,9 @@ interface SearchOverlayProps {
 
 const SearchOverlay = ({ isOpen, onClose }: SearchOverlayProps) => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [results, setResults] = useState<PostClientListItem[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const t = useTranslations("Search");
-  const locale = useLocale();
 
   // Focus input when opened
   useEffect(() => {
@@ -28,32 +25,6 @@ const SearchOverlay = ({ isOpen, onClose }: SearchOverlayProps) => {
       setTimeout(() => inputRef.current?.focus(), 100);
     }
   }, [isOpen]);
-
-  // Debounced search logic
-  useEffect(() => {
-    const delayDebounceFn = setTimeout(async () => {
-      if (searchTerm.trim().length >= 2) {
-        setIsLoading(true);
-        try {
-          const response = await fetch(
-            `${API_URL}/client/posts?search=${encodeURIComponent(searchTerm)}&limit=5`,
-          );
-          const json = await response.json();
-          if (json.data && json.data.items) {
-            setResults(json.data.items);
-          }
-        } catch (error) {
-          console.error("Search failed:", error);
-        } finally {
-          setIsLoading(false);
-        }
-      } else {
-        setResults([]);
-      }
-    }, 400);
-
-    return () => clearTimeout(delayDebounceFn);
-  }, [searchTerm]);
 
   const handleSearch = () => {
     if (searchTerm.trim()) {
@@ -103,76 +74,19 @@ const SearchOverlay = ({ isOpen, onClose }: SearchOverlayProps) => {
             </div>
           </div>
 
-          {/* Suggestions or Results */}
-          {!searchTerm ? (
-            <div className="flex items-center gap-3 text-sm text-gray-500">
-              {/* <span className="font-medium uppercase text-xs tracking-wider opacity-70">
-                {t("suggestions")}:
-              </span> */}
-              {/* <div className="flex flex-wrap gap-2">
-                {["sutra", "statue", "mala", "incense"].map((tagKey) => (
-                  <button
-                    key={tagKey}
-                    onClick={() => setSearchTerm(t(`tags.${tagKey}`))}
-                    className="hover:text-[#7a1e1e] hover:underline transition-colors capitalize"
-                  >
-                    {t(`tags.${tagKey}`)}
-                  </button>
-                ))}
-              </div> */}
-            </div>
-          ) : (
+          {searchTerm && (
             <div className="flex flex-col gap-4">
               <div className="flex items-center justify-between">
                 <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest">
-                  {isLoading ? t("searching") : t("results")} ({results.length})
+                  {isLoading ? t("searching") : t("results")}
                 </h3>
                 {isLoading && (
                   <Loader2 className="w-4 h-4 text-naka-blue animate-spin" />
                 )}
               </div>
-
-              {results.length > 0 ? (
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {results.map((post) => {
-                    const detail =
-                      post.details.find((d) => d.lang === locale) ||
-                      post.details[0];
-                    const postLink = getPostLink(post, locale);
-                    const finalLink =
-                      locale === "vi" ? postLink : `/${locale}${postLink}`;
-
-                    return (
-                      <Link
-                        key={post.code}
-                        href={finalLink}
-                        onClick={onClose}
-                        className="flex items-center gap-4 p-3 rounded-xl hover:bg-gray-50 transition-colors group"
-                      >
-                        <div className="relative w-16 h-16 rounded-lg overflow-hidden shrink-0 bg-gray-100">
-                          <Image
-                            src={post.cover?.url || "/img/placeholder.png"}
-                            alt={detail.title}
-                            fill
-                            className="object-cover group-hover:scale-110 transition-transform duration-500"
-                          />
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <h4 className="text-sm font-semibold text-gray-800 line-clamp-2 leading-tight group-hover:text-naka-blue transition-colors">
-                            {detail.title}
-                          </h4>
-                        </div>
-                      </Link>
-                    );
-                  })}
-                </div>
-              ) : (
-                !isLoading && (
-                  <p className="text-sm text-gray-500 py-4 italic">
-                    {t("noResults")}
-                  </p>
-                )
-              )}
+              <p className="text-sm text-gray-500 py-4 italic">
+                {t("noResults")}
+              </p>
             </div>
           )}
         </div>

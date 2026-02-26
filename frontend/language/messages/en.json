@@ -5,7 +5,7 @@
     "longchen_lineage": "ADVANTAGES",
     "about": "ABOUT US",
     "contact": "CONTACT",
-    "schedule": "NEWS",
+    "news": "NEWS",
     "support_us": "DOCUMENTS",
     "language": "Language",
     "mobile_title": "NAKAO VIETNAM",
@@ -59,56 +59,11 @@
     "nextSlide": "Next slide",
     "goToSlide": "Go to slide {index}"
   },
-  "Home": {
-    "latestNews": "Latest News",
-    "featuredNews": "Featured News",
-    "memberPosts": "Member Only Posts",
-    "history_title": "Nakao Japan History & Introduction",
-    "history_desc_1": "Established in Vietnam since June 2025, Nakao brings top-tier door hardware solutions.",
-    "history_desc_2": "With over 100 years of combined experience, we take pride in our achievements in Japan, especially in manufacturing and supplying high-quality door hardware.",
-    "history_achievement_title": "Achievements & Strengths",
-    "history_achievement_1": "Over 100 years of manufacturing experience",
-    "history_achievement_2": "Leading market share in Japan",
-    "history_achievement_3": "Absolute precision machining quality",
-    "history_achievement_4": "Comprehensive solutions for all architectural projects",
-    "history_about_title": "History & Achievements",
-    "history_about_desc": "Over 100 years of experience in Japan, proudly leading the door hardware market with prestigious awards.",
-    "history_vietnam_title": "Nakao Vietnam",
-    "history_vietnam_desc": "Officially established in Vietnam in June 2025, with the mission of providing Japanese standard door hardware solutions.",
-    "history_business_title": "Business Domain",
-    "history_business_desc": "Specializing in the research, development, and production of premium hardware: hinges, soft-close sliding tracks, and door controls.",
-    "history_strength_title": "Core Strengths",
-    "history_strength_desc": "Owning core precision machining technology, ensuring timeless durability and absolute smooth operation.",
-    "core_values_title": "JAPANESE CORE VALUES",
-    "core_value_1_title": "Precision Technology",
-    "core_value_1_desc": "Crafted with micro tolerances, ensuring smooth operation and a lifespan of hundreds of thousands of open/close cycles.",
-    "core_value_2_title": "Hidden Aesthetics",
-    "core_value_2_desc": "Minimalist design philosophy focused on function. Nakao hardware blends into the door, honoring the beauty of the interior without being ostentatious.",
-    "core_value_3_title": "Smooth Operation",
-    "core_value_3_desc": "Soft-close technology and premium sliding track systems help eliminate noise, bringing absolute tranquility to living spaces.",
-    "history_product_category_title": "CORE PRODUCT CATEGORIES",
-    "history_product_hinge_title": "Standard & 3D Hinges",
-    "history_product_hinge_desc": "High load-bearing capacity, flexible 3D adjustment, tested for over 300,000 open/close cycles.",
-    "history_product_sliding_title": "Soft-Close Sliding Track Systems",
-    "history_product_sliding_desc": "Smooth, noiseless operation with Air Tight pneumatic braking technology for absolute safety.",
-    "history_product_bottom_title": "Air-Tight Bottom Door Seals",
-    "history_product_bottom_desc": "Effective solution for sound insulation, draft blocking, and insect prevention, hidden neatly within the door frame.",
-    "history_product_stopper_title": "Floor-Mounted Door Stoppers",
-    "history_product_stopper_desc": "Strong magnetic design, neatly hidden and unobtrusive on the floor.",
-    "history_cta_consulting": "Technical Consulting",
-    "history_cta_catalog": "Download 2025 Catalog",
-    "history_cta_quote": "Request a Quote",
-    "history_cta_contact": "Contact Dealer"
-  },
+
   "Search": {
     "placeholder": "Search...",
     "suggestions": "Suggestions",
-    "tags": {
-      "sutra": "Sutras",
-      "statue": "Buddha Statues",
-      "mala": "Malas",
-      "incense": "Incense"
-    },
+
     "searching": "Searching...",
     "results": "Results",
     "noResults": "No results found."
@@ -174,11 +129,7 @@
     "hh_contact_email": "Email: pohhdkc@drikung.org",
     "thank_you": "Thank you for your support."
   },
-  "Schedule": {
-    "title": "Schedule",
-    "upcoming_events": "Upcoming Events",
-    "no_events": "There are no upcoming events at this time. Please check back later."
-  },
+
   "Footer": {
     "tagline": "Building a Japanese brand-standard website to enhance credibility in the Vietnamese market",
     "col1_title": "CONTACT INFORMATION",
@@ -210,12 +161,7 @@
     "content": "Material wealth destroys peace of mind when people become too attached to it. And they get lost in this world because they don't have a correct understanding and a right path. Therefore, we need to study the Dharma more, we need to practice the Dharma more to benefit ourselves.",
     "author": "Khyentse Rigdzin Hungkar Dorje Rinpoche"
   },
-  "LineageIntro": {
-    "title": "Brief Introduction to the Drikung Kagyu Lineage",
-    "content": "The Kagyu lineage of Tibetan Buddhism was founded by the Tibetan great master and translator Marpa (1012-1097), whose teacher was the Indian scholar Pandita Naropa. Naropa was a disciple of the Mahasiddha Tilopa, who received teachings directly from the Buddha Vajradhara. Marpa's main disciple was the enlightened master Milarepa (1040-1123), and Milarepa passed his teachings to Gampopa (1079-1153), whose disciple was Phagmo Drupa (1110-1170). The main disciple of Phagmo Drupa was Lord Jigten Sumgon (1143-1217), who is considered an emanation of Nagarjuna. In 1179, Jigten Sumgon founded the great Drikung Thil Monastery in Tibet, which became the main seat of the Drikung Kagyu lineage.",
-    "content_2": "Since Lord Jigten Sumgon founded the Drikung Kagyu Order of Tibetan Buddhism, the Drikung Kagyu lineage of practice has been continuously transmitted through thirty-seven generations of enlightened masters. Currently, the Drikung Kagyu lineage is headed by two Holinesses: His Holiness Drikung Kyabgon Chetsang Konchok Tenzin Chokyi Nangwa (1942-), the 36th throne holder, residing in India, and His Holiness Drikung Kyabgon Chungtsang Konchok Tenzin Kunzang Trinley Lhundrup (1946-), the 37th throne holder, residing in Tibet.",
-    "read_more": "READ MORE"
-  },
+
   "LineageDetailPage": {
     "title": "A Brief History of the Drikung Kagyu Lineage of Tibetan Buddhism",
     "intro": {
@@ -520,7 +466,18 @@
     "no_posts_in_category": "No posts found in this category.",
     "read_more_arrow": "Read more →",
     "new_badge": "NEW",
-    "error_loading_posts": "An error occurred while loading the posts."
+    "error_loading_posts": "An error occurred while loading the posts.",
+    "newsSubtitle": "NAKAO INSIGHTS",
+    "newsDesc": "Stay updated with the latest news, featured events, and in-depth knowledge of hinge technology from Nakao Vietnam.",
+    "newsletterTitle": "Technical Newsletter",
+    "newsletterDesc": "Subscribe to receive in-depth articles on installation techniques and the latest technology trends from Nakao experts.",
+    "emailPlaceholder": "Your email address",
+    "subscribeButton": "Subscribe Now",
+    "catalogueTitle": "Catalogue 2025",
+    "catalogueDesc": "Download the complete set of the latest hinge and door accessory product catalogues.",
+    "downloadPDF": "Download PDF",
+    "topicsTitle": "Topics of Interest",
+    "readMore": "Read more"
   },
   "Profile": {
     "title": "Account Profile",

@@ -29,11 +29,11 @@ export const routing = defineRouting({
       ja: "/about",
       en: "/about-us",
     },
-    "/schedule": {
-      vi: "/lich-phung-vu",
-      cn: "/ri-cheng",
-      ja: "/schedule",
-      en: "/schedule",
+    "/news": {
+      vi: "/tin-tuc",
+      cn: "/xin-wen",
+      ja: "/news",
+      en: "/news",
     },
     "/contact": {
       vi: "/lien-he",
@@ -60,7 +60,6 @@ export const routing = defineRouting({
       en: "/jamtul-rinpoche-jamyang-sherab",
     },
     "/featured": "/featured",
-    "/news": "/news",
   },
 });
 

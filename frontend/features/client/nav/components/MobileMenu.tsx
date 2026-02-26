@@ -127,7 +127,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                 //   hasSub: true,
                 // },
                 // { label: t("about"), href: "/about" },
-                { label: t("schedule"), href: "/schedule" },
+                { label: t("news"), href: "/news" },
                 { label: t("contact"), href: "/contact" },
                 { label: t("support_us"), href: "/support-us" },
               ].map(

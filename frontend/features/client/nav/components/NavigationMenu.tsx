@@ -60,10 +60,7 @@ const NavigationMenu = ({
 
   // Menu items array
   const menuItems = useMemo(() => {
-    const staticBefore = [
-      { label: t("home"), href: "/" },
-      { label: t("news"), href: "/news" },
-    ];
+    const staticBefore = [{ label: t("home"), href: "/" }];
 
     // Map categories to menu items
     const dynamicCategories = categories.map((cat) => ({
@@ -75,7 +72,6 @@ const NavigationMenu = ({
     const staticAfter = [
       { label: t("contact"), href: "/contact" },
       { label: t("recruitment"), href: "/recruitment" },
-      { label: t("support_us"), href: "/support-us" },
     ];
 
     return [...staticBefore, ...dynamicCategories, ...staticAfter];

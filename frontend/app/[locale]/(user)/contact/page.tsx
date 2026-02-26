@@ -1,6 +1,5 @@
-import ContactFeaturePage, {
-  generateMetadata,
-} from "@/features/client/contact/page";
+import ContactFeaturePage from "@/features/client/contact/page";
 
-export { generateMetadata };
+export { generateMetadata } from "@/features/client/contact/page";
+
 export default ContactFeaturePage;

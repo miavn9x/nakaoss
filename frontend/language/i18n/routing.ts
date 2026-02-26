@@ -23,18 +23,7 @@ export const routing = defineRouting({
       ja: "/longchen",
       en: "/longchen-lineage",
     },
-    "/about": {
-      vi: "/gioi-thieu",
-      cn: "/guan-yu",
-      ja: "/about",
-      en: "/about-us",
-    },
-    "/news": {
-      vi: "/tin-tuc",
-      cn: "/xin-wen",
-      ja: "/news",
-      en: "/news",
-    },
+
     "/contact": {
       vi: "/lien-he",
       cn: "/lian-xi",
@@ -47,12 +36,13 @@ export const routing = defineRouting({
       ja: "/profile",
       en: "/profile",
     },
-    "/support-us": {
-      vi: "/ung-ho",
-      cn: "/zhi-chi",
-      ja: "/support-us",
-      en: "/support-us",
+    "/recruitment": {
+      vi: "/tuyen-dung",
+      cn: "/recruit",
+      ja: "/recruitment",
+      en: "/recruitment",
     },
+
     "/jamtul-rinpoche-jamyang-sherab": {
       vi: "/jamtul-rinpoche-jamyang-sherab",
       cn: "/jamtul-rinpoche-jamyang-sherab",

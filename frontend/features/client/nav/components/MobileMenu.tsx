@@ -116,20 +116,8 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
             <div className="flex flex-col">
               {[
                 { label: t("home"), href: "/" },
-                // {
-                //   label: t("tue_quang_library"),
-                //   href: "/tue-quang",
-                //   hasSub: true,
-                // },
-                // {
-                //   label: t("longchen_lineage"),
-                //   href: "/longchen",
-                //   hasSub: true,
-                // },
-                // { label: t("about"), href: "/about" },
-                { label: t("news"), href: "/news" },
                 { label: t("contact"), href: "/contact" },
-                { label: t("support_us"), href: "/support-us" },
+                { label: t("recruitment"), href: "/recruitment" },
               ].map(
                 (item: { label: string; href: string; hasSub?: boolean }) => (
                   <Link

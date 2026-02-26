@@ -1,8 +1,4 @@
-import { getTranslations } from "next-intl/server";
-import { Mail, Phone, MapPin, Globe } from "lucide-react";
-
-import PageBanner from "@/shared/components/PageBanner";
-import DecorativeLine from "@/shared/components/DecorativeLine";
+import { MapPin, Phone, Mail, ArrowRight, PenTool, BookOpen, ArrowUpRight } from "lucide-react";
 
 export async function generateMetadata({
   params,
@@ -10,214 +6,278 @@ export async function generateMetadata({
   params: { locale: string };
 }) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "Contact" });
 
   return {
-    title: t("seo_title"),
-    description: t("seo_description"),
-    keywords: t("seo_keywords"),
+    title: "Liên Hệ - Nakao Việt Nam",
+    description: "Chúng tôi sẵn sàng hỗ trợ tư vấn giải pháp kỹ thuật và báo giá dự án cho doanh nghiệp của bạn.",
+    keywords: "Liên hệ Nakao, Nakao Việt Nam, Phụ kiện cửa Nakao, Báo giá dự án Nakao",
     openGraph: {
-      title: t("seo_title"),
-      description: t("seo_description"),
+      title: "Liên Hệ - Nakao Việt Nam",
+      description: "Chúng tôi sẵn sàng hỗ trợ tư vấn giải pháp kỹ thuật và báo giá dự án cho doanh nghiệp của bạn.",
       type: "website",
-      url: `https://phatgiao.vn/${locale}/contact`,
+      url: `https://nakaoss.com/${locale}/contact`,
       images: [
         {
           url: "/banner/melatoslide.jpg",
           width: 1200,
           height: 630,
-          alt: t("seo_title"),
+          alt: "Liên Hệ - Nakao Việt Nam",
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: t("seo_title"),
-      description: t("seo_description"),
+      title: "Liên Hệ - Nakao Việt Nam",
+      description: "Chúng tôi sẵn sàng hỗ trợ tư vấn giải pháp kỹ thuật và báo giá dự án cho doanh nghiệp của bạn.",
       images: ["/banner/melatoslide.jpg"],
     },
     alternates: {
-      canonical: `https://phatgiao.vn/${locale}/contact`,
+      canonical: `https://nakaoss.com/${locale}/contact`,
     },
   };
 }
 
-export default async function ContactFeaturePage({
-  params,
-}: {
-  params: { locale: string };
-}) {
-  const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "Contact" });
-  const tSupport = await getTranslations({ locale, namespace: "Support" });
-
+export default async function ContactFeaturePage() {
   return (
-    <main className="pb-8 relative">
-      <div className="fixed inset-0 z-[-1] w-full h-full bg-[url('/bg/patten-1.png')] opacity-40 bg-repeat" />
-      {/* Banner Section */}
-      <PageBanner />
-
-      <div className="container mx-auto px-4 mt-8">
-        <h1 className="text-3xl md:text-4xl font-bold text-center text-[#9b1422] uppercase">
-          {t("title")}
-        </h1>
+    <main className="pb-8 relative bg-[#f6f7f8] font-display text-slate-900 min-h-screen flex flex-col">
+      <div
+        className="relative w-full h-[400px] bg-cover bg-center flex items-center justify-center overflow-hidden"
+        style={{ backgroundImage: "linear-gradient(rgba(19, 23, 31, 0.7), rgba(29, 59, 119, 0.6)), url('https://lh3.googleusercontent.com/aida-public/AB6AXuA-843n6M9fN4vYXoedNKOxBf4tIBE0n65ZLi9HIIuS-huvZD-4cLJdoxl1_gdFz1d4fUJ4apQisM4cK_5CDRLK4XIPzJ7krQXvE_4m9T48e9sHGJCAHhudMmSk3zcF4uHnw6FG2184MQ1SeGzYCJv25HE1eHXwWK1ZOBBHueZE4GrFRo0iFqKoWlXJG-GMLqkyIKywNlvgxpevOYMk7tV8xWRho_HvstKKVJVXTd1An1AH1o36iXtL3P-YG7rE384gPxdxW4QbFQXw')" }}
+      >
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <h1 className="text-white text-4xl sm:text-5xl lg:text-6xl font-black mb-4 tracking-tight">
+            LIÊN HỆ VỚI NAKAO VIỆT NAM
+          </h1>
+          <p className="text-slate-200 text-lg sm:text-xl font-normal max-w-2xl mx-auto leading-relaxed">
+            Chúng tôi sẵn sàng hỗ trợ tư vấn giải pháp kỹ thuật và báo giá dự án cho doanh nghiệp của bạn.
+          </p>
+        </div>
       </div>
 
-      {/* Decorative Line */}
-      <DecorativeLine />
-
-      <div className="container mx-auto px-4 mt-8">
-        {/* Info Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-10 mb-12 p-4">
-          {/* Left Column: Main Office (4/10 = 2/5) */}
-          <section className="md:col-span-2">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-0.75 h-10 bg-[#9b1422] rounded-full"></div>
-              <h2 className="text-3xl font-bold text-gray-800">
-                {t("main_office")}
-              </h2>
+      <div className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 -mt-16 mb-20 relative z-20">
+        <div className="bg-white rounded-xl shadow-xl overflow-hidden flex flex-col lg:flex-row">
+          <div className="lg:w-2/5 bg-slate-50 p-8 lg:p-12 border-r border-slate-100">
+            <div className="mb-10">
+              <h3 className="text-2xl font-bold text-slate-900 mb-2">Thông tin liên hệ & Tư vấn</h3>
+              <p className="text-slate-500">Vui lòng điền thông tin hoặc liên hệ trực tiếp văn phòng đại diện.</p>
             </div>
 
-            <address className="space-y-6 not-italic text-lg">
+            <div className="space-y-8">
               <div className="flex items-start gap-4">
-                <MapPin className="w-6 h-6 text-[#9b1422] mt-1 shrink-0" />
+                <div className="w-10 h-10 rounded-full bg-[#1d3b77]/10 flex items-center justify-center flex-shrink-0 text-[#1d3b77]">
+                  <MapPin className="w-6 h-6" />
+                </div>
                 <div>
-                  <h3 className="font-bold text-gray-700 text-xl">
-                    {t("institute")}
-                  </h3>
-                  <p className="text-gray-700 leading-relaxed">
-                    {t("address_line_1")}
-                    <br />
-                    {t("address_line_2")}
+                  <p className="text-sm font-medium text-slate-500 mb-1">Địa chỉ</p>
+                  <p className="text-base font-medium text-slate-900 leading-snug">
+                    Tòa nhà VIT, 519 Kim Mã, Ngọc Khánh, Ba Đình, Hà Nội
                   </p>
                 </div>
               </div>
 
-              <div className="flex items-center gap-4">
-                <Phone className="w-6 h-6 text-[#9b1422] shrink-0" />
-                <a
-                  href="tel:+911352607310"
-                  className="text-gray-700 hover:text-[#9b1422] transition-colors font-medium"
-                >
-                  +91 135 2607310
-                </a>
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 rounded-full bg-[#1d3b77]/10 flex items-center justify-center flex-shrink-0 text-[#1d3b77]">
+                  <Phone className="w-6 h-6" />
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-slate-500 mb-1">Hotline</p>
+                  <p className="text-base font-medium text-slate-900">0984 872 828</p>
+                </div>
               </div>
 
-              <div className="flex items-center gap-4">
-                <Mail className="w-6 h-6 text-[#9b1422] shrink-0" />
-                <a
-                  href="mailto:bbdki@hotmail.com"
-                  className="text-gray-700 hover:text-[#9b1422] transition-colors font-medium"
-                >
-                  bbdki@hotmail.com
-                </a>
-              </div>
-
-              <div className="flex items-center gap-4">
-                <Globe className="w-6 h-6 text-[#9b1422] shrink-0" />
-                <a
-                  href="https://www.drikung.org"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-700 hover:text-[#9b1422] transition-colors font-medium"
-                >
-                  www.drikung.org
-                </a>
-              </div>
-            </address>
-          </section>
-
-          {/* Right Column: Other Contacts (6/10 = 3/5) */}
-          <section className="md:col-span-3">
-            <div className="space-y-8 text-lg">
-              {/* Private Office */}
-              <div className="border-l-2 border-[#9b1422] pl-4 py-1">
-                <h3 className="font-bold text-gray-800 leading-tight mb-2 text-xl">
-                  {t("private_office")}:
-                </h3>
-                <a
-                  href="mailto:pohhdkc@gmail.com"
-                  className="flex items-center gap-2 text-[#9b1422] hover:text-red-700 transition-colors"
-                >
-                  <Mail size={18} />
-                  pohhdkc@gmail.com
-                </a>
-              </div>
-
-              {/* Institute */}
-              <div className="border-l-2 border-[#9b1422] pl-4 py-1">
-                <h3 className="font-bold text-gray-800 leading-tight mb-2 text-xl">
-                  {t("institute")}:
-                </h3>
-                <a
-                  href="mailto:bbdki@hotmail.com"
-                  className="flex items-center gap-2 text-[#9b1422] hover:text-red-700 transition-colors"
-                >
-                  <Mail size={18} />
-                  bbdki@hotmail.com
-                </a>
-              </div>
-
-              {/* Library */}
-              <div className="border-l-2 border-[#9b1422] pl-4 py-1">
-                <h3 className="font-bold text-gray-800 leading-tight mb-2 text-xl">
-                  {t("library")}:
-                </h3>
-                <a
-                  href="mailto:songtsenlibrary@gmail.com"
-                  className="flex items-center gap-2 text-[#9b1422] hover:text-red-700 transition-colors"
-                >
-                  <Mail size={18} />
-                  songtsenlibrary@gmail.com
-                </a>
-              </div>
-
-              {/* College */}
-              <div className="border-l-2 border-[#9b1422] pl-4 py-1">
-                <h3 className="font-bold text-gray-800 leading-tight mb-2 text-xl">
-                  {t("college")}:
-                </h3>
-                <a
-                  href="mailto:kagyucollege@yahoo.com"
-                  className="flex items-center gap-2 text-[#9b1422] hover:text-red-700 transition-colors"
-                >
-                  <Mail size={18} />
-                  kagyucollege@yahoo.com
-                </a>
-              </div>
-
-              {/* Nunnery */}
-              <div className="border-l-2 border-[#9b1422] pl-4 py-1">
-                <h3 className="font-bold text-gray-800 leading-tight mb-2 text-xl">
-                  {t("nunnery")}:
-                </h3>
-                <a
-                  href="mailto:drikungn@hotmail.com"
-                  className="flex items-center gap-2 text-[#9b1422] hover:text-red-700 transition-colors"
-                >
-                  <Mail size={18} />
-                  drikungn@hotmail.com
-                </a>
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 rounded-full bg-[#1d3b77]/10 flex items-center justify-center flex-shrink-0 text-[#1d3b77]">
+                  <Mail className="w-6 h-6" />
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-slate-500 mb-1">Email</p>
+                  <p className="text-base font-medium text-slate-900">inquiry_vn@nakaoss.com</p>
+                </div>
               </div>
             </div>
-          </section>
-        </div>
 
-        {/* Map Section */}
-        <section className="p-4" aria-label={t("map_title")}>
-          <div className="w-full h-96 bg-gray-200 rounded-lg overflow-hidden relative">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3441.077209988267!2d78.07729221535736!3d30.405786381752327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3908d13b7b7b7b7b%3A0x7b7b7b7b7b7b7b7b!2sDrikung%20Kagyu%20Institute!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin"
-              title={t("map_title")}
-              width="100%"
-              height="100%"
-              className="border-0 w-full h-full"
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
+            <div className="mt-12 rounded-lg overflow-hidden h-48 w-full bg-slate-200 relative">
+              <div
+                className="absolute inset-0 bg-cover bg-center"
+                style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuBPQCSTIGE7jqLoSBojzGiSzJ7q4X-rczaf5ROlEPJmPkRRK_rOW8AmQXZiH5XE4NydyV2M2EJtmbNXetp5R6tdkZ3iZWoHHdIbdKC5A6aRQajl6NwM5b9z3BiGvlhm4vgwmnBNyk4FEGsVP6VMZ7Ma5Tlkg4BZWZJyJWTZ2U2M_OdaHv3Ln2TzLx9v0ObPd1wJE82ajOHz4aZZCvhn4xXBJgzL28nMmTNLfOQZ2H4pNE3GBFOkYqmqRBSFyOnSBpJPk-Chv2rWZ9O9')" }}
+              ></div>
+            </div>
           </div>
-        </section>
+
+          <div className="lg:w-3/5 p-8 lg:p-12">
+            <form className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <label className="block">
+                  <span className="text-slate-700 font-medium mb-2 block">
+                    Họ và tên <span className="text-red-500">*</span>
+                  </span>
+                  <input
+                    className="form-input mt-1 block w-full rounded-lg border-slate-300 bg-white focus:border-[#1d3b77] focus:ring focus:ring-[#1d3b77]/20 transition-all py-3 px-4"
+                    placeholder="Nguyễn Văn A"
+                    type="text"
+                  />
+                </label>
+                <label className="block">
+                  <span className="text-slate-700 font-medium mb-2 block">
+                    Tên doanh nghiệp <span className="text-red-500">*</span>
+                  </span>
+                  <input
+                    className="form-input mt-1 block w-full rounded-lg border-slate-300 bg-white focus:border-[#1d3b77] focus:ring focus:ring-[#1d3b77]/20 transition-all py-3 px-4"
+                    placeholder="Công ty TNHH ABC"
+                    type="text"
+                  />
+                </label>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <label className="block">
+                  <span className="text-slate-700 font-medium mb-2 block">
+                    Địa chỉ Email <span className="text-red-500">*</span>
+                  </span>
+                  <input
+                    className="form-input mt-1 block w-full rounded-lg border-slate-300 bg-white focus:border-[#1d3b77] focus:ring focus:ring-[#1d3b77]/20 transition-all py-3 px-4"
+                    placeholder="example@company.com"
+                    type="email"
+                  />
+                </label>
+                <label className="block">
+                  <span className="text-slate-700 font-medium mb-2 block">Số điện thoại</span>
+                  <input
+                    className="form-input mt-1 block w-full rounded-lg border-slate-300 bg-white focus:border-[#1d3b77] focus:ring focus:ring-[#1d3b77]/20 transition-all py-3 px-4"
+                    placeholder="09xxxxxxx"
+                    type="tel"
+                  />
+                </label>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <label className="block">
+                  <span className="text-slate-700 font-medium mb-2 block">Sản phẩm quan tâm</span>
+                  <select className="form-select mt-1 block w-full rounded-lg border-slate-300 bg-white focus:border-[#1d3b77] focus:ring focus:ring-[#1d3b77]/20 transition-all py-3 px-4 text-slate-600">
+                    <option>Vui lòng chọn</option>
+                    <option>Bản lề</option>
+                    <option>Ray trượt</option>
+                    <option>Tay nắm</option>
+                    <option>Phụ kiện cửa trượt</option>
+                    <option>Khác</option>
+                  </select>
+                </label>
+                <label className="block">
+                  <span className="text-slate-700 font-medium mb-2 block">Lĩnh vực hoạt động</span>
+                  <select className="form-select mt-1 block w-full rounded-lg border-slate-300 bg-white focus:border-[#1d3b77] focus:ring focus:ring-[#1d3b77]/20 transition-all py-3 px-4 text-slate-600">
+                    <option>Vui lòng chọn</option>
+                    <option>Nhà thầu thi công</option>
+                    <option>Kiến trúc sư / Thiết kế</option>
+                    <option>Đại lý phân phối</option>
+                    <option>Xưởng sản xuất nội thất</option>
+                    <option>Khác</option>
+                  </select>
+                </label>
+              </div>
+
+              <label className="block">
+                <span className="text-slate-700 font-medium mb-2 block">Nội dung mong muốn</span>
+                <textarea
+                  className="form-textarea mt-1 block w-full rounded-lg border-slate-300 bg-white focus:border-[#1d3b77] focus:ring focus:ring-[#1d3b77]/20 transition-all py-3 px-4 h-32"
+                  placeholder="Vui lòng mô tả yêu cầu của bạn..."
+                ></textarea>
+              </label>
+
+              <div className="pt-4">
+                <button
+                  className="w-full bg-[#1d3b77] hover:bg-[#1d3b77]/90 text-white font-bold py-4 px-8 rounded-lg transition-colors shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group"
+                  type="button"
+                >
+                  <span>GỬI THÔNG TIN - NAKAO SẼ LIÊN HỆ NGAY</span>
+                  <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div
+        className="bg-stone-50/50 py-24 relative"
+        style={{
+          backgroundImage: "linear-gradient(rgba(29, 59, 119, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(29, 59, 119, 0.03) 1px, transparent 1px)",
+          backgroundSize: "40px 40px"
+        }}
+      >
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 md:mb-24 gap-8">
+            <div className="max-w-xl">
+              <span className="text-[#1d3b77] font-mono text-sm tracking-widest uppercase mb-2 block opacity-80">
+                Nakao B2B Services
+              </span>
+              <h2 className="text-4xl lg:text-5xl font-light text-slate-900 tracking-tight leading-tight relative inline-block pb-4 after:content-[''] after:absolute after:left-0 after:bottom-[-8px] after:w-10 after:h-0.5 after:bg-[#1d3b77]">
+                Hỗ trợ <strong className="font-bold text-[#1d3b77]">B2B chuyên sâu</strong>
+              </h2>
+            </div>
+            <p className="text-slate-500 max-w-md text-base font-light leading-relaxed md:text-right">
+              Đồng hành cùng sự phát triển bền vững của doanh nghiệp thông qua các dịch vụ hỗ trợ kỹ thuật và thương mại chất lượng Nhật Bản.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
+            <div className="lg:col-span-7 bg-white p-10 rounded-none border-l-4 border-[#1d3b77] shadow-[0_10px_40px_-15px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_-15px_rgba(0,0,0,0.1)] transition-all duration-300 group hover:-translate-y-1 cursor-default">
+              <div className="flex flex-col h-full justify-between">
+                <div className="flex justify-between items-start mb-8">
+                  <div className="p-3 bg-slate-50 rounded-lg group-hover:bg-[#1d3b77]/5 transition-colors">
+                    <PenTool className="w-9 h-9 text-[#1d3b77]" strokeWidth={1.5} />
+                  </div>
+                  <span className="font-mono text-slate-300 text-sm">01</span>
+                </div>
+                <div>
+                  <h3 className="text-2xl font-semibold text-[#1d3b77] mb-4 transition-colors">Tư vấn giải pháp kỹ thuật</h3>
+                  <p className="text-slate-600 leading-relaxed text-lg font-light">
+                    Đội ngũ kỹ sư Nakao với kinh nghiệm chuyên sâu sẵn sàng phân tích bản vẽ, giải đáp thắc mắc và đề xuất phương án thi công tối ưu nhất cho từng hạng mục công trình.
+                  </p>
+                </div>
+                <div className="mt-8 pt-6 border-t border-slate-100 flex items-center text-[#1d3b77] text-sm font-semibold tracking-wide uppercase opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-2 group-hover:translate-y-0">
+                  Chi tiết dịch vụ <ArrowUpRight className="w-4 h-4 ml-1" />
+                </div>
+              </div>
+            </div>
+
+            <div className="lg:col-span-5 bg-white p-10 rounded-none shadow-[0_10px_40px_-15px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_-15px_rgba(0,0,0,0.1)] transition-all duration-300 group hover:-translate-y-1 cursor-default relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-24 h-24 bg-[#1d3b77]/5 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-150 duration-500 ease-out"></div>
+              <div className="relative z-10 flex flex-col h-full">
+                <div className="flex justify-between items-start mb-6">
+                  <div className="p-3 bg-slate-50 rounded-lg group-hover:bg-[#1d3b77]/5 transition-colors">
+                    <BookOpen className="w-9 h-9 text-[#1d3b77]" strokeWidth={1.5} />
+                  </div>
+                  <span className="font-mono text-slate-300 text-sm">02</span>
+                </div>
+                <h3 className="text-xl font-semibold text-slate-900 mb-3">Gửi Catalogue tận nơi</h3>
+                <p className="text-slate-500 leading-relaxed mb-auto">
+                  Cung cấp trọn bộ tài liệu kỹ thuật, catalogue in ấn chất lượng cao và mẫu vật liệu mới nhất trực tiếp đến văn phòng của bạn để thuận tiện cho việc trình mẫu.
+                </p>
+              </div>
+            </div>
+
+            <div className="lg:col-span-12 bg-[#1d3b77] text-white p-10 rounded-none shadow-lg relative overflow-hidden group">
+              <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: "linear-gradient(45deg, #ffffff 1px, transparent 1px)", backgroundSize: "30px 30px" }}></div>
+              <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+                <div className="flex-1">
+                  <div className="flex items-center gap-4 mb-3 opacity-90">
+                    <span className="font-mono text-sm border border-white/30 px-2 py-0.5 rounded">03</span>
+                    <span className="uppercase tracking-widest text-sm font-medium">Đối tác dự án</span>
+                  </div>
+                  <h3 className="text-3xl font-light mb-2">Yêu cầu báo giá dự án</h3>
+                  <p className="text-white/80 font-light text-lg max-w-2xl">
+                    Chính sách giá đặc biệt dành riêng cho B2B với cam kết phản hồi báo giá nhanh chóng, chính xác theo khối lượng và yêu cầu kỹ thuật.
+                  </p>
+                </div>
+                <div className="flex-shrink-0">
+                  <div className="w-16 h-16 rounded-full border border-white/20 flex items-center justify-center bg-white/10 group-hover:bg-white group-hover:text-[#1d3b77] transition-all duration-300 cursor-pointer">
+                    <ArrowRight className="w-8 h-8" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </main>
   );

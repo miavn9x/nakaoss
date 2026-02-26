@@ -35,16 +35,54 @@ export default function TinyMCEContent({
   // Configured to allow SVG and Inline Styles properly like previous SunEditor needs
   const sanitizedContent = DOMPurify.sanitize(processedContent || "", {
     USE_PROFILES: { html: true, svg: true }, // Allow HTML and SVG
-    ADD_TAGS: ["iframe", "style", "svg", "path"], // Allow iframes for embedded content, style tags, svg
+    ADD_TAGS: [
+      "iframe",
+      "style",
+      "svg",
+      "path",
+      "circle",
+      "rect",
+      "line",
+      "polyline",
+      "polygon",
+      "details",
+      "summary",
+      "figure",
+      "figcaption",
+      "video",
+      "audio",
+      "source",
+      "track",
+    ], // Allow embeds, advanced formatting, and media
     ADD_ATTR: [
       "allow",
       "allowfullscreen",
       "frameborder",
       "scrolling",
       "style",
+      "class",
+      "dir",
+      "lang",
+      "target",
+      "rel",
+      "href",
+      "src",
+      "alt",
+      "title",
+      "width",
+      "height",
+      "controls",
+      "autoplay",
+      "muted",
+      "loop",
+      "poster",
+      "preload",
       "onmouseover",
       "onmouseout",
       "aria-label",
+      "aria-hidden",
+      "aria-expanded",
+      "aria-controls",
       "viewBox",
       "fill",
       "opacity",
@@ -62,7 +100,7 @@ export default function TinyMCEContent({
       "cy",
       "r",
       "xmlns",
-    ], // Allow iframe attributes, inline styles, event handlers, and svg attrs
+    ], // Allow full suite of attributes for tinyMCE advanced features
   });
 
   return (

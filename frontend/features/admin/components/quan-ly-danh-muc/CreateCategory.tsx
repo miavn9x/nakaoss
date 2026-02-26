@@ -38,6 +38,13 @@ export default function CreateCategory() {
     return null;
   };
 
+  const stripEmptyCodes = (cat: any) => {
+    if (cat.code === "") delete cat.code;
+    if (cat.children && cat.children.length > 0) {
+      cat.children.forEach((child: any) => stripEmptyCodes(child));
+    }
+  };
+
   const handleSubmit = async (data: CreateCategoryRequest) => {
     try {
       console.log("📦 RAW DATA:", JSON.stringify(data, null, 2));
@@ -49,7 +56,8 @@ export default function CreateCategory() {
         return;
       }
 
-      const payload = { ...data, parentCode: null };
+      const payload: any = { ...data, parentCode: null };
+      stripEmptyCodes(payload);
       console.log("✅ PAYLOAD GỬI LÊN:", JSON.stringify(payload, null, 2));
 
       await createCategory.mutateAsync(payload);

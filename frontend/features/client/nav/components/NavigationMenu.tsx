@@ -70,6 +70,7 @@ const NavigationMenu = ({
     }));
 
     const staticAfter = [
+      { label: t("news"), href: "/news" },
       { label: t("contact"), href: "/contact" },
       { label: t("recruitment"), href: "/recruitment" },
     ];

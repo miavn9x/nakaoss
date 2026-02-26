@@ -42,6 +42,12 @@ export const routing = defineRouting({
       ja: "/recruitment",
       en: "/recruitment",
     },
+    "/news": {
+      vi: "/tin-tuc",
+      cn: "/xin-wen",
+      ja: "/news",
+      en: "/news",
+    },
 
     "/jamtul-rinpoche-jamyang-sherab": {
       vi: "/jamtul-rinpoche-jamyang-sherab",

@@ -76,7 +76,7 @@ export default async function ContactFeaturePage() {
           `,
         }}
       />
-      <main className="pb-8 relative bg-[#f6f7f8] font-display text-slate-900 min-h-screen flex flex-col">
+      <main className="pb-8 relative bg-white font-display text-slate-900 min-h-screen flex flex-col">
         <div className="relative w-full h-[400px] flex items-center justify-center overflow-hidden contact-hero-bg">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
             <h1 className="text-white text-4xl sm:text-5xl lg:text-6xl font-black mb-4 tracking-tight">

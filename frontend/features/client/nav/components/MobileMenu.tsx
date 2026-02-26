@@ -116,6 +116,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
             <div className="flex flex-col">
               {[
                 { label: t("home"), href: "/" },
+                { label: t("news"), href: "/news" },
                 { label: t("contact"), href: "/contact" },
                 { label: t("recruitment"), href: "/recruitment" },
               ].map(

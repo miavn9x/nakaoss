@@ -29,14 +29,14 @@ export default function FeaturedPost({ post }: FeaturedPostProps) {
           <span className="text-xs font-bold text-naka-blue uppercase tracking-wider font-display border border-naka-blue/20 px-2 py-0.5">
             {post.category}
           </span>
-          <span className="text-slate-400 text-xs font-medium uppercase tracking-wide font-display">
+          <span className="text-slate-500 text-xs font-medium font-display uppercase tracking-wide">
             {post.date}
           </span>
         </div>
-        <h2 className="text-2xl lg:text-3xl font-bold text-slate-900 mb-3 font-serif leading-tight group-hover:text-naka-blue transition-colors">
+        <h2 className="text-2xl lg:text-3xl font-bold text-naka-blue mb-3 font-serif leading-tight group-hover:text-naka-blue transition-colors">
           <Link href={`/news/${post.slug}`}>{post.title}</Link>
         </h2>
-        <p className="text-slate-600 text-base leading-relaxed mb-4 line-clamp-3">
+        <p className="text-slate-600 font-display font-light text-base leading-relaxed mb-4 line-clamp-3 text-justify">
           {post.description}
         </p>
         <Link

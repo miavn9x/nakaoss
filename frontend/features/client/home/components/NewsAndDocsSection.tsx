@@ -8,19 +8,19 @@ import { Download } from "lucide-react";
 export default function NewsAndDocsSection() {
   return (
     <section className="py-24 bg-white border-t border-slate-100">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-12 reveal-on-scroll">
         <div className="flex flex-col md:flex-row items-end justify-between mb-12 gap-6">
           <div>
-            <span className="text-naka-blue text-[10px] font-bold tracking-[0.4em] uppercase mb-2 block">
+            <span className="text-naka-blue text-[10px] font-bold font-display tracking-[0.4em] uppercase mb-2 block">
               Cập nhật
             </span>
-            <h2 className="text-3xl font-['Playfair_Display',serif] text-slate-800">
+            <h2 className="text-3xl font-serif text-naka-blue">
               Tin tức &amp; Tài liệu
             </h2>
           </div>
           <Link
             href="/news"
-            className="text-xs uppercase tracking-[0.25em] text-naka-blue border-b border-naka-blue pb-1 hover:opacity-70 transition-opacity"
+            className="text-xs font-display uppercase tracking-[0.25em] text-naka-blue border-b border-naka-blue pb-1 hover:opacity-70 transition-opacity"
           >
             Xem tất cả
           </Link>
@@ -36,23 +36,23 @@ export default function NewsAndDocsSection() {
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-500 grayscale group-hover:grayscale-0"
               />
-              <div className="absolute top-4 left-4 bg-[#234584] text-white px-3 py-1 text-[10px] font-bold uppercase tracking-wider">
+              <div className="absolute top-4 left-4 bg-naka-blue text-white px-3 py-1 text-[10px] font-bold font-display uppercase tracking-wider">
                 TIÊU ĐIỂM
               </div>
             </div>
             <div className="w-full md:w-1/2 p-8 lg:p-10 flex flex-col justify-center">
-              <span className="text-xs text-[#234584] font-medium block mb-3">
+              <span className="text-xs text-naka-blue font-display font-medium block mb-3">
                 20 Tháng 06, 2025
               </span>
-              <h3 className="text-2xl font-['Playfair_Display',serif] text-slate-800 mb-4 group-hover:text-naka-blue transition-colors">
+              <h3 className="text-2xl font-serif text-naka-blue mb-4 group-hover:text-naka-blue transition-colors">
                 Thành lập Nakao Việt Nam
               </h3>
-              <p className="text-slate-500 font-light text-sm leading-relaxed mb-6 line-clamp-4">
+              <p className="text-slate-500 font-display font-light text-sm leading-relaxed mb-6 line-clamp-4 text-justify">
                 Đánh dấu sự hiện diện chính thức của Nakao Seisakusho tại thị
                 trường Việt Nam. Văn phòng mới sẽ là cầu nối trực tiếp mang đến
                 các giải pháp phụ kiện kiến trúc chuẩn Nhật Bản cho cả...
               </p>
-              <button className="text-[10px] uppercase tracking-[0.2em] text-[#234584] font-medium border-b border-[#234584]/30 pb-1 self-start hover:border-[#234584] transition-colors">
+              <button className="text-[10px] uppercase font-display tracking-[0.2em] text-naka-blue font-medium border-b border-naka-blue/30 pb-1 self-start hover:border-naka-blue transition-colors cursor-pointer">
                 ĐỌC THÊM
               </button>
             </div>
@@ -71,13 +71,13 @@ export default function NewsAndDocsSection() {
                 />
               </div>
               <div className="flex flex-col">
-                <span className="text-[11px] text-[#869ab8] font-medium block mb-2">
+                <span className="text-[11px] text-[#869ab8] font-display font-medium block mb-2">
                   15/10/2024
                 </span>
-                <h4 className="text-lg font-['Playfair_Display',serif] text-slate-800 group-hover:text-naka-blue transition-colors mb-1">
+                <h4 className="text-lg font-serif text-naka-blue group-hover:text-naka-blue transition-colors mb-1">
                   Triển lãm Quốc tế Vietbuild TP.HCM
                 </h4>
-                <p className="text-slate-500 text-sm font-light">
+                <p className="text-slate-500 text-sm font-display font-light">
                   Trưng bày các giải pháp cửa lùa mới nhất.
                 </p>
               </div>
@@ -94,20 +94,20 @@ export default function NewsAndDocsSection() {
                 />
               </div>
               <div className="flex flex-col">
-                <span className="text-[11px] text-[#869ab8] font-medium block mb-2">
+                <span className="text-[11px] text-[#869ab8] font-display font-medium block mb-2">
                   05/09/2024
                 </span>
-                <h4 className="text-lg font-['Playfair_Display',serif] text-slate-800 group-hover:text-naka-blue transition-colors mb-1">
+                <h4 className="text-lg font-serif text-naka-blue group-hover:text-naka-blue transition-colors mb-1">
                   Công nghệ mới: Hệ thống đóng kín khí thế hệ 2
                 </h4>
-                <p className="text-slate-500 text-sm font-light">
+                <p className="text-slate-500 text-sm font-display font-light">
                   Cải tiến khả năng cách âm lên đến 30%.
                 </p>
               </div>
             </div>
 
             <div className="pt-6">
-              <button className="flex items-center gap-3 text-sm font-bold uppercase tracking-[0.2em] text-[#234584] hover:opacity-70 transition-opacity">
+              <button className="flex items-center gap-3 text-sm font-bold font-display uppercase tracking-[0.2em] text-naka-blue hover:opacity-70 transition-opacity cursor-pointer">
                 <Download className="w-5 h-5 mb-1" /> TẢI CATALOGUE PHỤ KIỆN
                 2025
               </button>

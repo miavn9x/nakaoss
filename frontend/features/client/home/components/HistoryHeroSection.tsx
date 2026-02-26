@@ -6,22 +6,21 @@ import Image from "next/image";
 export default function HistoryHeroSection() {
   return (
     <section className="relative py-12 lg:py-16 bg-[#fbfbf9] overflow-hidden">
-
       {/* 1925 Background Watermark */}
-      <div className="absolute top-[20%] left-[-5%] text-[15rem] lg:text-[25rem] leading-none font-['Playfair_Display',serif] font-black opacity-20 select-none z-0 rotate-90 lg:rotate-0 text-transparent [-webkit-text-stroke:1px_rgba(29,59,120,0.1)]">
+      <div className="absolute top-[20%] left-[-5%] text-[15rem] lg:text-[25rem] leading-none font-serif font-black opacity-20 select-none z-0 rotate-90 lg:rotate-0 text-transparent [-webkit-text-stroke:1px_rgba(29,59,120,0.1)]">
         1925
       </div>
 
-      <div className="relative w-full max-w-[1400px] mx-auto px-6 lg:px-12 z-10">
+      <div className="relative w-full max-w-[1400px] mx-auto px-6 lg:px-12 z-10 reveal-on-scroll">
         <div className="mb-2 lg:mb-4 relative z-10">
-          <span className="text-naka-blue text-sm font-bold tracking-[0.4em] uppercase mb-4 block">
+          <span className="text-naka-blue text-sm font-bold font-display tracking-[0.4em] uppercase mb-4 block">
             Về Chúng Tôi
           </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-['Playfair_Display',serif] text-naka-blue leading-tight max-w-4xl">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-naka-blue leading-tight max-w-4xl">
             LỊCH SỬ HÌNH THÀNH &amp; <br />
             PHÁT TRIỂN NAKAO
           </h2>
-          <p className="text-slate-500 font-light italic mt-6 text-lg lg:text-xl border-l-2 border-naka-blue pl-6 ml-1">
+          <p className="text-slate-500 font-display font-light italic mt-6 text-lg lg:text-xl border-l-2 border-naka-blue pl-6 ml-1">
             Hành trình 100 năm kiến tạo những chi tiết ẩn giấu làm nên kiệt tác.
           </p>
         </div>
@@ -30,22 +29,22 @@ export default function HistoryHeroSection() {
           <div className="lg:col-span-5 relative">
             <div className="flex items-start gap-6 mb-8">
               <div className="w-px h-20 bg-naka-blue/30 mt-2"></div>
-              <span className="text-naka-blue font-['Noto_Serif_JP',serif] text-lg tracking-[0.3em] opacity-60 py-2 [writing-mode:vertical-rl] [text-orientation:mixed]">
+              <span className="text-naka-blue font-serif text-lg tracking-[0.3em] opacity-60 py-2 [writing-mode:vertical-rl] [text-orientation:mixed]">
                 歴史と伝統
               </span>
             </div>
 
-            <h1 className="text-5xl lg:text-7xl font-['Playfair_Display',serif] font-medium text-naka-blue leading-[1.1] mb-8">
+            <h1 className="text-5xl lg:text-7xl font-serif font-medium text-naka-blue leading-[1.1] mb-8">
               Chế tác tại <br />
               <span className="italic font-light ml-8">Tsu, Mie (1925)</span>
             </h1>
 
             <div className="pl-8 border-l border-naka-blue/10 space-y-8">
               <div>
-                <span className="text-xs font-bold text-naka-blue uppercase tracking-[0.25em] mb-2 block">
+                <span className="text-xs font-bold font-display text-naka-blue uppercase tracking-[0.25em] mb-2 block">
                   Những bước đi đầu tiên
                 </span>
-                <p className="text-slate-600 font-light leading-relaxed text-sm lg:text-base text-justify">
+                <p className="text-slate-600 font-display font-light leading-relaxed text-sm lg:text-base text-justify">
                   Tháng 3 năm 1925 tại thành phố Tsu, tỉnh Mie, Nhật Bản, Nakao
                   Seisakusho chính thức được thành lập. Trong giai đoạn khởi đầu
                   đầy thử thách, chúng tôi tập trung sản xuất bản lề, tay nắm và
@@ -54,10 +53,10 @@ export default function HistoryHeroSection() {
                 </p>
               </div>
               <div>
-                <span className="text-xs font-bold text-naka-blue uppercase tracking-[0.25em] mb-2 block">
+                <span className="text-xs font-bold font-display text-naka-blue uppercase tracking-[0.25em] mb-2 block">
                   Di sản Thủ công
                 </span>
-                <p className="text-slate-600 font-light leading-relaxed text-sm lg:text-base text-justify">
+                <p className="text-slate-600 font-display font-light leading-relaxed text-sm lg:text-base text-justify">
                   Từ những chiếc bản lề thủ công đầu tiên đến các hệ thống phụ
                   kiện kiến trúc phức tạp ngày nay, Nakao luôn gìn giữ triết lý
                   tôn trọng vật liệu và sự hoàn hảo trong từng chi tiết nhỏ, kế
@@ -97,7 +96,7 @@ export default function HistoryHeroSection() {
                   id="curve"
                 ></path>
                 <text
-                  className="text-[8px] md:text-[10px] uppercase tracking-[0.25em] fill-naka-blue"
+                  className="text-[8px] md:text-[10px] uppercase font-display tracking-[0.25em] fill-naka-blue"
                   width="500"
                 >
                   <textPath href="#curve">

@@ -5,21 +5,21 @@ import Image from "next/image";
 
 export default function TechBreakdownSection() {
   return (
-    <section className="py-24 bg-white border-t border-slate-100">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+    <section className="py-24 bg-white border-t border-slate-100 overflow-hidden">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-12 reveal-on-scroll">
         <div className="mb-12 border-b border-naka-blue/10 pb-6">
           <div>
-            <span className="text-naka-blue text-[10px] font-bold tracking-[0.4em] uppercase mb-3 block">
+            <span className="text-naka-blue text-[10px] font-bold font-display tracking-[0.4em] uppercase mb-3 block">
               Kỹ thuật Xuất sắc
             </span>
-            <h2 className="text-3xl md:text-4xl font-['Playfair_Display',serif] text-naka-blue uppercase mb-6">
+            <h2 className="text-3xl md:text-4xl font-serif text-naka-blue uppercase mb-6">
               THÀNH TỰU TẠI NHẬT BẢN
             </h2>
-            <p className="text-slate-600 font-light leading-relaxed text-lg max-w-4xl text-justify">
+            <p className="text-slate-600 font-display font-light leading-relaxed text-lg max-w-4xl text-justify">
               Tại thị trường Nhật Bản, nơi yêu cầu về độ chính xác và tính ứng
               dụng luôn ở mức cao nhất, Nakao được vinh danh nhờ năng lực kiểm
-              soát toàn diện từ khâu R&amp;D (Nghiên cứu &amp; Phát triển) đến
-              gia công và phân phối.
+              soát toàn diện từ khâu R&D (Nghiên cứu & Phát triển) đến gia công
+              và phân phối.
             </p>
           </div>
         </div>
@@ -37,7 +37,7 @@ export default function TechBreakdownSection() {
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover opacity-90 group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute top-6 left-6 bg-naka-blue/90 text-white px-4 py-2 text-[10px] font-mono backdrop-blur-sm">
+                <div className="absolute top-6 left-6 bg-naka-blue/90 text-white px-4 py-2 text-[10px] font-display backdrop-blur-sm">
                   HÌNH 01: HỆ THỐNG KÍN KHÍ
                 </div>
                 <svg
@@ -77,11 +77,11 @@ export default function TechBreakdownSection() {
           <div className="order-1 lg:order-2 lg:pl-12">
             <div className="flex items-center gap-4 mb-4">
               <span className="h-px w-8 bg-naka-blue"></span>
-              <span className="text-naka-blue font-mono text-xs">
+              <span className="text-naka-blue font-display text-xs">
                 MÃ: SD-AT-2023
               </span>
             </div>
-            <h3 className="text-3xl font-['Playfair_Display',serif] text-slate-800 mb-6">
+            <h3 className="text-3xl font-serif text-naka-blue mb-6">
               Hệ thống đóng kín khí cho cửa lùa
             </h3>
             <span className="text-sm font-bold text-slate-400 uppercase tracking-[0.25em] mb-4 block">
@@ -92,18 +92,18 @@ export default function TechBreakdownSection() {
             </p>
             <div className="grid grid-cols-2 gap-8 border-t border-slate-200 pt-8">
               <div>
-                <span className="text-[10px] uppercase text-slate-400 tracking-[0.25em] block mb-1">
+                <span className="text-[10px] font-display uppercase text-slate-400 tracking-[0.25em] block mb-1">
                   Tính năng
                 </span>
-                <span className="text-naka-blue font-['Playfair_Display',serif] text-xl">
+                <span className="text-naka-blue font-serif text-xl">
                   Chống ồn, Ngăn bụi
                 </span>
               </div>
               <div>
-                <span className="text-[10px] uppercase text-slate-400 tracking-[0.25em] block mb-1">
+                <span className="text-[10px] font-display uppercase text-slate-400 tracking-[0.25em] block mb-1">
                   Thẩm mỹ
                 </span>
-                <span className="text-naka-blue font-['Playfair_Display',serif] text-xl">
+                <span className="text-naka-blue font-serif text-xl">
                   Vô khuyết
                 </span>
               </div>
@@ -116,34 +116,34 @@ export default function TechBreakdownSection() {
           <div className="lg:pr-12">
             <div className="flex items-center gap-4 mb-4">
               <span className="h-px w-8 bg-naka-blue"></span>
-              <span className="text-naka-blue font-mono text-xs">
+              <span className="text-naka-blue font-display text-xs">
                 MÃ: 3D-H-2024
               </span>
             </div>
-            <h3 className="text-3xl font-['Playfair_Display',serif] text-slate-800 mb-6">
+            <h3 className="text-3xl font-serif text-naka-blue mb-6">
               Bản lề âm điều chỉnh 3 chiều
             </h3>
             <span className="text-sm font-bold text-slate-400 uppercase tracking-[0.25em] mb-4 block">
               (3D Adjustable Hinge)
             </span>
-            <p className="text-slate-600 font-light leading-relaxed mb-8 text-justify">
+            <p className="text-slate-600 font-display font-light leading-relaxed mb-8 text-justify">
               Giải pháp hoàn hảo cho các công trình cao cấp, đòi hỏi tính thẩm
               mỹ vô khuyết và khả năng vận hành êm ái.
             </p>
             <div className="grid grid-cols-2 gap-8 border-t border-slate-200 pt-8">
               <div>
-                <span className="text-[10px] uppercase text-slate-400 tracking-[0.25em] block mb-1">
+                <span className="text-[10px] font-display uppercase text-slate-400 tracking-[0.25em] block mb-1">
                   Điều chỉnh
                 </span>
-                <span className="text-naka-blue font-['Playfair_Display',serif] text-xl">
+                <span className="text-naka-blue font-serif text-xl">
                   3 Chiều X-Y-Z
                 </span>
               </div>
               <div>
-                <span className="text-[10px] uppercase text-slate-400 tracking-[0.25em] block mb-1">
+                <span className="text-[10px] font-display uppercase text-slate-400 tracking-[0.25em] block mb-1">
                   Thiết kế
                 </span>
-                <span className="text-naka-blue font-['Playfair_Display',serif] text-xl">
+                <span className="text-naka-blue font-serif text-xl">
                   Ẩn mình
                 </span>
               </div>
@@ -165,17 +165,17 @@ export default function TechBreakdownSection() {
                   <span className="text-[10px] font-bold uppercase block mb-2 text-naka-blue">
                     Phạm vi điều chỉnh
                   </span>
-                  <div className="grid grid-cols-3 gap-2 font-mono text-[10px] text-slate-500">
+                  <div className="grid grid-cols-3 gap-2 font-display text-[10px] text-slate-500">
                     <div className="flex flex-col items-center">
-                      <span className="block font-bold text-slate-800">X</span>
+                      <span className="block font-bold text-naka-blue">X</span>
                       <span>±3mm</span>
                     </div>
                     <div className="flex flex-col items-center">
-                      <span className="block font-bold text-slate-800">Y</span>
+                      <span className="block font-bold text-naka-blue">Y</span>
                       <span>±3mm</span>
                     </div>
                     <div className="flex flex-col items-center">
-                      <span className="block font-bold text-slate-800">Z</span>
+                      <span className="block font-bold text-naka-blue">Z</span>
                       <span>±2mm</span>
                     </div>
                   </div>

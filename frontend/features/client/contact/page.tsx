@@ -78,11 +78,11 @@ export default async function ContactFeaturePage() {
       />
       <main className="pb-8 relative bg-white font-display text-slate-900 min-h-screen flex flex-col">
         <div className="relative w-full h-[400px] flex items-center justify-center overflow-hidden contact-hero-bg">
-          <div className="w-full max-w-[1400px] mx-auto px-6 lg:px-12 text-center relative z-10">
-            <h1 className="text-white text-4xl sm:text-5xl lg:text-6xl font-black mb-4 tracking-tight">
+          <div className="w-full max-w-[1400px] mx-auto px-6 lg:px-12 text-center relative z-10 reveal-on-scroll">
+            <h1 className="text-white text-4xl sm:text-5xl lg:text-6xl font-serif font-black mb-4 tracking-tight">
               LIÊN HỆ VỚI NAKAO VIỆT NAM
             </h1>
-            <p className="text-slate-200 text-lg sm:text-xl font-normal max-w-2xl mx-auto leading-relaxed">
+            <p className="text-slate-200 text-lg sm:text-xl font-display font-light max-w-2xl mx-auto leading-relaxed">
               Chúng tôi sẵn sàng hỗ trợ tư vấn giải pháp kỹ thuật và báo giá dự
               án cho doanh nghiệp của bạn.
             </p>
@@ -90,12 +90,12 @@ export default async function ContactFeaturePage() {
         </div>
         <div className="grow w-full max-w-[1400px] mx-auto px-6 lg:px-12 -mt-16 mb-20 relative z-20">
           <div className="bg-white rounded-xl shadow-xl overflow-hidden flex flex-col lg:flex-row">
-            <div className="lg:w-2/5 bg-slate-50 p-8 lg:p-12 border-r border-slate-100">
+            <div className="lg:w-2/5 bg-slate-50 p-8 lg:p-12 border-r border-slate-100 reveal-on-scroll">
               <div className="mb-10">
-                <h3 className="text-2xl font-bold text-slate-900 mb-2">
+                <h3 className="text-2xl font-bold font-serif text-naka-blue mb-2">
                   Thông tin liên hệ & Tư vấn
                 </h3>
-                <p className="text-slate-500">
+                <p className="text-slate-500 font-display font-light">
                   Vui lòng điền thông tin hoặc liên hệ trực tiếp văn phòng đại
                   diện.
                 </p>
@@ -107,10 +107,10 @@ export default async function ContactFeaturePage() {
                     <MapPin className="w-6 h-6" />
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-slate-500 mb-1">
+                    <p className="text-sm font-medium font-display text-slate-500 mb-1">
                       Địa chỉ
                     </p>
-                    <p className="text-base font-medium text-slate-900 leading-snug">
+                    <p className="text-base font-medium font-display text-slate-900 leading-snug">
                       Tòa nhà VIT, 519 Kim Mã, Ngọc Khánh, Ba Đình, Hà Nội
                     </p>
                   </div>
@@ -121,10 +121,10 @@ export default async function ContactFeaturePage() {
                     <Phone className="w-6 h-6" />
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-slate-500 mb-1">
+                    <p className="text-sm font-medium font-display text-slate-500 mb-1">
                       Hotline
                     </p>
-                    <p className="text-base font-medium text-slate-900">
+                    <p className="text-base font-medium font-display text-slate-900">
                       0984 872 828
                     </p>
                   </div>
@@ -135,10 +135,10 @@ export default async function ContactFeaturePage() {
                     <Mail className="w-6 h-6" />
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-slate-500 mb-1">
+                    <p className="text-sm font-medium font-display text-slate-500 mb-1">
                       Email
                     </p>
-                    <p className="text-base font-medium text-slate-900">
+                    <p className="text-base font-medium font-display text-slate-900">
                       inquiry_vn@nakaoss.com
                     </p>
                   </div>
@@ -150,25 +150,25 @@ export default async function ContactFeaturePage() {
               </div>
             </div>
 
-            <div className="lg:w-3/5 p-8 lg:p-12">
+            <div className="lg:w-3/5 p-8 lg:p-12 reveal-on-scroll">
               <form className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <label className="block">
-                    <span className="text-slate-700 font-medium mb-2 block">
+                    <span className="text-slate-700 font-medium font-display mb-2 block">
                       Họ và tên <span className="text-red-500">*</span>
                     </span>
                     <input
-                      className="form-input mt-1 block w-full rounded-lg border-slate-300 bg-white focus:border-[#1d3b77] focus:ring focus:ring-[#1d3b77]/20 transition-all py-3 px-4"
+                      className="form-input mt-1 block w-full rounded-lg border-slate-300 bg-white font-display focus:border-naka-blue focus:ring focus:ring-naka-blue/20 transition-all py-3 px-4"
                       placeholder="Nguyễn Văn A"
                       type="text"
                     />
                   </label>
                   <label className="block">
-                    <span className="text-slate-700 font-medium mb-2 block">
+                    <span className="text-slate-700 font-medium font-display mb-2 block">
                       Tên doanh nghiệp <span className="text-red-500">*</span>
                     </span>
                     <input
-                      className="form-input mt-1 block w-full rounded-lg border-slate-300 bg-white focus:border-[#1d3b77] focus:ring focus:ring-[#1d3b77]/20 transition-all py-3 px-4"
+                      className="form-input mt-1 block w-full rounded-lg border-slate-300 bg-white font-display focus:border-naka-blue focus:ring focus:ring-naka-blue/20 transition-all py-3 px-4"
                       placeholder="Công ty TNHH ABC"
                       type="text"
                     />
@@ -177,21 +177,21 @@ export default async function ContactFeaturePage() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <label className="block">
-                    <span className="text-slate-700 font-medium mb-2 block">
+                    <span className="text-slate-700 font-medium font-display mb-2 block">
                       Địa chỉ Email <span className="text-red-500">*</span>
                     </span>
                     <input
-                      className="form-input mt-1 block w-full rounded-lg border-slate-300 bg-white focus:border-[#1d3b77] focus:ring focus:ring-[#1d3b77]/20 transition-all py-3 px-4"
+                      className="form-input mt-1 block w-full rounded-lg border-slate-300 bg-white font-display focus:border-naka-blue focus:ring focus:ring-naka-blue/20 transition-all py-3 px-4"
                       placeholder="example@company.com"
                       type="email"
                     />
                   </label>
                   <label className="block">
-                    <span className="text-slate-700 font-medium mb-2 block">
+                    <span className="text-slate-700 font-medium font-display mb-2 block">
                       Số điện thoại
                     </span>
                     <input
-                      className="form-input mt-1 block w-full rounded-lg border-slate-300 bg-white focus:border-[#1d3b77] focus:ring focus:ring-[#1d3b77]/20 transition-all py-3 px-4"
+                      className="form-input mt-1 block w-full rounded-lg border-slate-300 bg-white font-display focus:border-naka-blue focus:ring focus:ring-naka-blue/20 transition-all py-3 px-4"
                       placeholder="09xxxxxxx"
                       type="tel"
                     />
@@ -200,10 +200,10 @@ export default async function ContactFeaturePage() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <label className="block">
-                    <span className="text-slate-700 font-medium mb-2 block">
+                    <span className="text-slate-700 font-medium font-display mb-2 block">
                       Sản phẩm quan tâm
                     </span>
-                    <select className="form-select mt-1 block w-full rounded-lg border-slate-300 bg-white focus:border-naka-blue focus:ring focus:ring-naka-blue/20 transition-all py-3 px-4 text-slate-600">
+                    <select className="form-select mt-1 block w-full rounded-lg border-slate-300 bg-white font-display focus:border-naka-blue focus:ring focus:ring-naka-blue/20 transition-all py-3 px-4 text-slate-600">
                       <option>Vui lòng chọn</option>
                       <option>Bản lề</option>
                       <option>Ray trượt</option>
@@ -213,10 +213,10 @@ export default async function ContactFeaturePage() {
                     </select>
                   </label>
                   <label className="block">
-                    <span className="text-slate-700 font-medium mb-2 block">
+                    <span className="text-slate-700 font-medium font-display mb-2 block">
                       Lĩnh vực hoạt động
                     </span>
-                    <select className="form-select mt-1 block w-full rounded-lg border-slate-300 bg-white focus:border-naka-blue focus:ring focus:ring-naka-blue/20 transition-all py-3 px-4 text-slate-600">
+                    <select className="form-select mt-1 block w-full rounded-lg border-slate-300 bg-white font-display focus:border-naka-blue focus:ring focus:ring-naka-blue/20 transition-all py-3 px-4 text-slate-600">
                       <option>Vui lòng chọn</option>
                       <option>Nhà thầu thi công</option>
                       <option>Kiến trúc sư / Thiết kế</option>
@@ -228,18 +228,18 @@ export default async function ContactFeaturePage() {
                 </div>
 
                 <label className="block">
-                  <span className="text-slate-700 font-medium mb-2 block">
+                  <span className="text-slate-700 font-medium font-display mb-2 block">
                     Nội dung mong muốn
                   </span>
                   <textarea
-                    className="form-textarea mt-1 block w-full rounded-lg border-slate-300 bg-white focus:border-naka-blue focus:ring focus:ring-naka-blue/20 transition-all py-3 px-4 h-32"
+                    className="form-textarea mt-1 block w-full rounded-lg border-slate-300 bg-white font-display focus:border-naka-blue focus:ring focus:ring-naka-blue/20 transition-all py-3 px-4 h-32"
                     placeholder="Vui lòng mô tả yêu cầu của bạn..."
                   ></textarea>
                 </label>
 
                 <div className="pt-4">
                   <button
-                    className="w-full bg-naka-blue hover:bg-naka-blue/90 text-white font-bold py-4 px-8 rounded-lg transition-colors shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group"
+                    className="w-full bg-naka-blue hover:bg-naka-blue/90 text-white font-bold font-display py-4 px-8 rounded-lg transition-colors shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group cursor-pointer"
                     type="button"
                   >
                     <span>GỬI THÔNG TIN - NAKAO SẼ LIÊN HỆ NGAY</span>
@@ -255,24 +255,21 @@ export default async function ContactFeaturePage() {
           <div className="w-full max-w-[1400px] mx-auto px-6 lg:px-12">
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 md:mb-24 gap-8">
               <div className="max-w-xl">
-                <span className="text-naka-blue font-mono text-sm tracking-widest uppercase mb-2 block opacity-80">
+                <span className="text-naka-blue font-display font-bold text-sm tracking-widest uppercase mb-2 block opacity-80">
                   Nakao B2B Services
                 </span>
-                <h2 className="text-4xl lg:text-5xl font-light text-slate-900 tracking-tight leading-tight relative inline-block pb-4 after:content-[''] after:absolute after:left-0 after:bottom-[-8px] after:w-10 after:h-0.5 after:bg-naka-blue">
-                  Hỗ trợ{" "}
-                  <strong className="font-bold text-naka-blue">
-                    B2B chuyên sâu
-                  </strong>
+                <h2 className="text-4xl lg:text-5xl font-serif text-naka-blue tracking-tight leading-tight relative inline-block pb-4 after:content-[''] after:absolute after:left-0 after:bottom-[-8px] after:w-10 after:h-0.5 after:bg-naka-blue">
+                  Hỗ trợ <strong className="font-bold">B2B chuyên sâu</strong>
                 </h2>
               </div>
-              <p className="text-slate-500 max-w-md text-base font-light leading-relaxed md:text-right">
+              <p className="text-slate-600 font-display max-w-md text-base font-light leading-relaxed md:text-right text-justify">
                 Đồng hành cùng sự phát triển bền vững của doanh nghiệp thông qua
                 các dịch vụ hỗ trợ kỹ thuật và thương mại chất lượng Nhật Bản.
               </p>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
-              <div className="lg:col-span-7 bg-white p-10 rounded-none border-l-4 border-naka-blue shadow-[0_10px_40px_-15px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_-15px_rgba(0,0,0,0.1)] transition-all duration-300 group hover:-translate-y-1 cursor-default">
+              <div className="lg:col-span-7 bg-white p-10 rounded-none border-l-4 border-naka-blue shadow-[0_10px_40px_-15px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_-15px_rgba(0,0,0,0.1)] transition-all duration-300 group hover:-translate-y-1 cursor-default reveal-on-scroll">
                 <div className="flex flex-col h-full justify-between">
                   <div className="flex justify-between items-start mb-8">
                     <div className="p-3 bg-slate-50 rounded-lg group-hover:bg-naka-blue/5 transition-colors">
@@ -281,25 +278,27 @@ export default async function ContactFeaturePage() {
                         strokeWidth={1.5}
                       />
                     </div>
-                    <span className="font-mono text-slate-300 text-sm">01</span>
+                    <span className="font-display text-slate-300 text-sm">
+                      01
+                    </span>
                   </div>
                   <div>
-                    <h3 className="text-2xl font-semibold text-naka-blue mb-4 transition-colors">
+                    <h3 className="text-2xl font-bold font-serif text-naka-blue mb-4 transition-colors">
                       Tư vấn giải pháp kỹ thuật
                     </h3>
-                    <p className="text-slate-600 leading-relaxed text-lg font-light">
+                    <p className="text-slate-600 leading-relaxed text-lg font-display font-light text-justify">
                       Đội ngũ kỹ sư Nakao với kinh nghiệm chuyên sâu sẵn sàng
                       phân tích bản vẽ, giải đáp thắc mắc và đề xuất phương án
                       thi công tối ưu nhất cho từng hạng mục công trình.
                     </p>
                   </div>
-                  <div className="mt-8 pt-6 border-t border-slate-100 flex items-center text-naka-blue text-sm font-semibold tracking-wide uppercase opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-2 group-hover:translate-y-0">
+                  <div className="mt-8 pt-6 border-t border-slate-100 flex items-center text-naka-blue text-sm font-bold font-display tracking-wide uppercase opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-2 group-hover:translate-y-0">
                     Chi tiết dịch vụ <ArrowUpRight className="w-4 h-4 ml-1" />
                   </div>
                 </div>
               </div>
 
-              <div className="lg:col-span-5 bg-white p-10 rounded-none shadow-[0_10px_40px_-15px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_-15px_rgba(0,0,0,0.1)] transition-all duration-300 group hover:-translate-y-1 cursor-default relative overflow-hidden">
+              <div className="lg:col-span-5 bg-white p-10 rounded-none shadow-[0_10px_40px_-15px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_-15px_rgba(0,0,0,0.1)] transition-all duration-300 group hover:-translate-y-1 cursor-default relative overflow-hidden reveal-on-scroll">
                 <div className="absolute top-0 right-0 w-24 h-24 bg-naka-blue/5 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-150 duration-500 ease-out"></div>
                 <div className="relative z-10 flex flex-col h-full">
                   <div className="flex justify-between items-start mb-6">
@@ -309,12 +308,14 @@ export default async function ContactFeaturePage() {
                         strokeWidth={1.5}
                       />
                     </div>
-                    <span className="font-mono text-slate-300 text-sm">02</span>
+                    <span className="font-display text-slate-300 text-sm">
+                      02
+                    </span>
                   </div>
-                  <h3 className="text-xl font-semibold text-slate-900 mb-3">
+                  <h3 className="text-xl font-bold font-serif text-naka-blue mb-3">
                     Gửi Catalogue tận nơi
                   </h3>
-                  <p className="text-slate-500 leading-relaxed mb-auto">
+                  <p className="text-slate-600 font-display font-light leading-relaxed mb-auto text-justify">
                     Cung cấp trọn bộ tài liệu kỹ thuật, catalogue in ấn chất
                     lượng cao và mẫu vật liệu mới nhất trực tiếp đến văn phòng
                     của bạn để thuận tiện cho việc trình mẫu.
@@ -322,22 +323,22 @@ export default async function ContactFeaturePage() {
                 </div>
               </div>
 
-              <div className="lg:col-span-12 bg-naka-blue text-white p-10 rounded-none shadow-lg relative overflow-hidden group">
+              <div className="lg:col-span-12 bg-naka-blue text-white p-10 rounded-none shadow-lg relative overflow-hidden group reveal-on-scroll">
                 <div className="absolute inset-0 opacity-10 pointer-events-none contact-pattern-bg"></div>
                 <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
                   <div className="flex-1">
                     <div className="flex items-center gap-4 mb-3 opacity-90">
-                      <span className="font-mono text-sm border border-white/30 px-2 py-0.5 rounded">
+                      <span className="font-display text-sm border border-white/30 px-2 py-0.5 rounded">
                         03
                       </span>
-                      <span className="uppercase tracking-widest text-sm font-medium">
+                      <span className="uppercase font-display tracking-widest text-sm font-medium">
                         Đối tác dự án
                       </span>
                     </div>
-                    <h3 className="text-3xl font-light mb-2">
+                    <h3 className="text-3xl font-serif font-light mb-2">
                       Yêu cầu báo giá dự án
                     </h3>
-                    <p className="text-white/80 font-light text-lg max-w-2xl">
+                    <p className="text-white/80 font-display font-light text-lg max-w-2xl text-justify">
                       Chính sách giá đặc biệt dành riêng cho B2B với cam kết
                       phản hồi báo giá nhanh chóng, chính xác theo khối lượng và
                       yêu cầu kỹ thuật.

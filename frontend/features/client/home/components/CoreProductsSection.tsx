@@ -8,12 +8,12 @@ export default function CoreProductsSection() {
     <section className="py-12 bg-[#fbfbf9] relative overflow-hidden">
       <div className="absolute inset-0 opacity-40 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-size-[40px_40px]"></div>
 
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10 reveal-on-scroll">
         <div className="flex flex-col items-center mb-24 text-center">
           <span className="text-naka-blue text-[10px] font-bold tracking-[0.4em] uppercase mb-4">
             Bộ sưu tập
           </span>
-          <h2 className="text-4xl md:text-5xl font-['Playfair_Display',serif] text-naka-blue uppercase">
+          <h2 className="text-4xl md:text-5xl font-serif text-naka-blue uppercase">
             LĨNH VỰC KINH DOANH
           </h2>
         </div>
@@ -29,16 +29,12 @@ export default function CoreProductsSection() {
             />
             <div className="absolute inset-0 bg-linear-to-t from-naka-blue/90 via-transparent to-transparent opacity-90"></div>
             <div className="absolute inset-0 p-8 flex flex-col justify-end text-white">
-              <span className="font-['Noto_Serif_JP',serif] text-2xl mb-2 opacity-50">
-                01
-              </span>
-              <h3 className="font-['Playfair_Display',serif] text-2xl font-bold mb-2">
-                Ray trượt
-              </h3>
-              <p className="text-[10px] uppercase tracking-[0.25em] text-white/70 mb-4 border-t border-white/30 pt-4 inline-block">
+              <span className="font-serif text-2xl mb-2 opacity-50">01</span>
+              <h3 className="font-serif text-2xl font-bold mb-2">Ray trượt</h3>
+              <p className="text-[10px] font-display uppercase tracking-[0.25em] text-white/70 mb-4 border-t border-white/30 pt-4 inline-block">
                 Vận hành mượt mà
               </p>
-              <p className="text-xs font-light leading-relaxed text-white/90">
+              <p className="text-xs font-display font-light leading-relaxed text-white/90 text-justify">
                 Hệ thống ray trượt được thiết kế chính xác để cửa vận hành trơn
                 tru, nhẹ nhàng với độ bền vượt trội.
               </p>
@@ -55,16 +51,12 @@ export default function CoreProductsSection() {
             />
             <div className="absolute inset-0 bg-linear-to-t from-naka-blue/90 via-transparent to-transparent opacity-90"></div>
             <div className="absolute inset-0 p-8 flex flex-col justify-end text-white">
-              <span className="font-['Noto_Serif_JP',serif] text-2xl mb-2 opacity-50">
-                02
-              </span>
-              <h3 className="font-['Playfair_Display',serif] text-2xl font-bold mb-2">
-                Bản lề
-              </h3>
-              <p className="text-[10px] uppercase tracking-[0.25em] text-white/70 mb-4 border-t border-white/30 pt-4 inline-block">
+              <span className="font-serif text-2xl mb-2 opacity-50">02</span>
+              <h3 className="font-serif text-2xl font-bold mb-2">Bản lề</h3>
+              <p className="text-[10px] font-display uppercase tracking-[0.25em] text-white/70 mb-4 border-t border-white/30 pt-4 inline-block">
                 Kết nối vững chắc
               </p>
-              <p className="text-xs font-light leading-relaxed text-white/90">
+              <p className="text-xs font-display font-light leading-relaxed text-white/90 text-justify">
                 Đảm bảo sự liên kết chắc chắn giữa cửa và khung, cho phép đóng
                 mở linh hoạt và ổn định lâu dài.
               </p>
@@ -81,16 +73,12 @@ export default function CoreProductsSection() {
             />
             <div className="absolute inset-0 bg-linear-to-t from-naka-blue/90 via-transparent to-transparent opacity-90"></div>
             <div className="absolute inset-0 p-8 flex flex-col justify-end text-white">
-              <span className="font-['Noto_Serif_JP',serif] text-2xl mb-2 opacity-50">
-                03
-              </span>
-              <h3 className="font-['Playfair_Display',serif] text-2xl font-bold mb-2">
-                Xiết đáy
-              </h3>
-              <p className="text-[10px] uppercase tracking-[0.25em] text-white/70 mb-4 border-t border-white/30 pt-4 inline-block">
+              <span className="font-serif text-2xl mb-2 opacity-50">03</span>
+              <h3 className="font-serif text-2xl font-bold mb-2">Xiết đáy</h3>
+              <p className="text-[10px] font-display uppercase tracking-[0.25em] text-white/70 mb-4 border-t border-white/30 pt-4 inline-block">
                 Kín khí tối đa
               </p>
-              <p className="text-xs font-light leading-relaxed text-white/90">
+              <p className="text-xs font-display font-light leading-relaxed text-white/90 text-justify">
                 Cơ chế ép sát sàn khi đóng cửa giúp ngăn bụi, côn trùng và cách
                 âm hiệu quả cho không gian.
               </p>
@@ -107,16 +95,12 @@ export default function CoreProductsSection() {
             />
             <div className="absolute inset-0 bg-linear-to-t from-naka-blue/90 via-transparent to-transparent opacity-90"></div>
             <div className="absolute inset-0 p-8 flex flex-col justify-end text-white">
-              <span className="font-['Noto_Serif_JP',serif] text-2xl mb-2 opacity-50">
-                04
-              </span>
-              <h3 className="font-['Playfair_Display',serif] text-2xl font-bold mb-2">
-                Chặn cửa
-              </h3>
-              <p className="text-[10px] uppercase tracking-[0.25em] text-white/70 mb-4 border-t border-white/30 pt-4 inline-block">
+              <span className="font-serif text-2xl mb-2 opacity-50">04</span>
+              <h3 className="font-serif text-2xl font-bold mb-2">Chặn cửa</h3>
+              <p className="text-[10px] font-display uppercase tracking-[0.25em] text-white/70 mb-4 border-t border-white/30 pt-4 inline-block">
                 An toàn tuyệt đối
               </p>
-              <p className="text-xs font-light leading-relaxed text-white/90">
+              <p className="text-xs font-display font-light leading-relaxed text-white/90 text-justify">
                 Ngăn ngừa va đập mạnh gây hư hại cửa và tường, bảo vệ an toàn
                 cho người sử dụng trong mọi tình huống.
               </p>

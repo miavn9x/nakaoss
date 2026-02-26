@@ -34,10 +34,10 @@ export default function PostListItem({ post }: PostListItemProps) {
             {post.date}
           </span>
         </div>
-        <h3 className="text-xl font-bold text-slate-900 mb-2 font-serif group-hover:text-naka-blue transition-colors leading-snug">
+        <h3 className="text-xl font-bold text-naka-blue mb-2 font-serif group-hover:opacity-80 transition-opacity leading-snug">
           <Link href={`/news/${post.slug}`}>{post.title}</Link>
         </h3>
-        <p className="text-slate-600 text-sm line-clamp-2 mb-3 leading-relaxed">
+        <p className="text-slate-600 text-sm font-display font-light line-clamp-2 mb-3 leading-relaxed text-justify">
           {post.description}
         </p>
       </div>

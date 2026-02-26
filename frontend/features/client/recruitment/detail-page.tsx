@@ -16,18 +16,7 @@ import {
 export default function RecruitmentDetailFeaturePage() {
   return (
     <>
-      <style
-        dangerouslySetInnerHTML={{
-          __html: `
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
-        
-        .font-playfair {
-          font-family: 'Playfair Display', serif;
-        }
-      `,
-        }}
-      />
-      <div className="relative flex min-h-screen flex-col items-center bg-white text-slate-900 font-sans">
+      <div className="relative flex min-h-screen flex-col items-center bg-white text-slate-900 font-display">
         <main className="w-full max-w-[1400px] mx-auto px-6 lg:px-12 py-12 flex flex-col gap-10">
           <section className="flex flex-col gap-4">
             <div className="flex flex-wrap gap-2">
@@ -184,103 +173,109 @@ export default function RecruitmentDetailFeaturePage() {
             </section>
           </article>
 
-          <section className="mt-12 py-10 border-t border-b border-slate-100">
-            <h2 className="text-2xl font-bold text-[#0f172a] mb-8 text-center">
+          <section className="mt-12 py-10 border-t border-b border-slate-100 reveal-on-scroll">
+            <h2 className="text-3xl font-bold text-naka-blue mb-10 text-center font-serif">
               Quy trình tuyển dụng
             </h2>
             <div className="flex flex-col md:flex-row items-center justify-between gap-8 relative">
               <div className="hidden md:block absolute top-[24px] left-0 w-full h-0.5 bg-slate-100 -z-10"></div>
 
-              <div className="flex flex-col items-center text-center gap-3 bg-white px-4">
-                <div className="w-12 h-12 rounded-full bg-[#1152d4] text-white flex items-center justify-center font-bold shadow-lg shadow-[#1152d4]/20">
+              <div className="flex flex-col items-center text-center gap-3 bg-white px-4 relative">
+                <div className="w-12 h-12 rounded-full bg-naka-blue text-white flex items-center justify-center font-bold shadow-lg shadow-naka-blue/20">
                   1
                 </div>
                 <div>
-                  <p className="font-bold text-sm">Nộp hồ sơ</p>
-                  <p className="text-xs text-slate-500">CV & Portfolio</p>
+                  <p className="font-bold text-sm text-slate-900">Nộp hồ sơ</p>
+                  <p className="text-xs text-slate-500 font-light">
+                    CV & Portfolio
+                  </p>
                 </div>
               </div>
 
-              <div className="flex flex-col items-center text-center gap-3 bg-white px-4">
-                <div className="w-12 h-12 rounded-full bg-[#1152d4] text-white flex items-center justify-center font-bold shadow-lg shadow-[#1152d4]/20">
+              <div className="flex flex-col items-center text-center gap-3 bg-white px-4 relative">
+                <div className="w-12 h-12 rounded-full bg-naka-blue text-white flex items-center justify-center font-bold shadow-lg shadow-naka-blue/20">
                   2
                 </div>
                 <div>
-                  <p className="font-bold text-sm">Sơ loại</p>
-                  <p className="text-xs text-slate-500">
+                  <p className="font-bold text-sm text-slate-900">Sơ loại</p>
+                  <p className="text-xs text-slate-500 font-light">
                     Phỏng vấn qua điện thoại
                   </p>
                 </div>
               </div>
 
-              <div className="flex flex-col items-center text-center gap-3 bg-white px-4">
-                <div className="w-12 h-12 rounded-full bg-[#1152d4] text-white flex items-center justify-center font-bold shadow-lg shadow-[#1152d4]/20">
+              <div className="flex flex-col items-center text-center gap-3 bg-white px-4 relative">
+                <div className="w-12 h-12 rounded-full bg-naka-blue text-white flex items-center justify-center font-bold shadow-lg shadow-naka-blue/20">
                   3
                 </div>
                 <div>
-                  <p className="font-bold text-sm">Phỏng vấn</p>
-                  <p className="text-xs text-slate-500">Gặp mặt trực tiếp</p>
+                  <p className="font-bold text-sm text-slate-900">Phỏng vấn</p>
+                  <p className="text-xs text-slate-500 font-light">
+                    Gặp mặt trực tiếp
+                  </p>
                 </div>
               </div>
 
-              <div className="flex flex-col items-center text-center gap-3 bg-white px-4">
-                <div className="w-12 h-12 rounded-full bg-[#1152d4] text-white flex items-center justify-center font-bold shadow-lg shadow-[#1152d4]/20">
+              <div className="flex flex-col items-center text-center gap-3 bg-white px-4 relative">
+                <div className="w-12 h-12 rounded-full bg-naka-blue text-white flex items-center justify-center font-bold shadow-lg shadow-naka-blue/20">
                   4
                 </div>
                 <div>
-                  <p className="font-bold text-sm">Thử việc</p>
-                  <p className="text-xs text-slate-500">Bắt đầu hành trình</p>
+                  <p className="font-bold text-sm text-slate-900">Thử việc</p>
+                  <p className="text-xs text-slate-500 font-light">
+                    Bắt đầu hành trình
+                  </p>
                 </div>
               </div>
             </div>
           </section>
 
           <section
-            className="bg-slate-50 rounded-2xl p-8 md:p-10 border border-slate-100"
+            className="bg-slate-50 rounded-2xl p-8 md:p-10 border border-slate-100 reveal-on-scroll"
             id="apply-form"
           >
             <div className="mb-8">
-              <h2 className="text-2xl font-bold text-[#0f172a] mb-2">
+              <h2 className="text-3xl font-bold text-naka-blue mb-3 font-serif">
                 Ứng tuyển nhanh
               </h2>
-              <p className="text-slate-600">
+              <p className="text-slate-600 font-light text-justify max-w-2xl">
                 Vui lòng điền thông tin bên dưới để bộ phận Tuyển dụng liên hệ
                 với bạn.
               </p>
             </div>
             <form className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="col-span-2 md:col-span-1">
-                <label className="block text-sm font-semibold mb-2 text-slate-900">
+                <label className="block text-sm font-bold mb-2 text-slate-800 font-display">
                   Họ và tên *
                 </label>
                 <input
-                  className="w-full px-4 py-3 rounded-lg border-slate-200 bg-white focus:ring-[#1152d4] focus:border-[#1152d4] outline-none"
+                  className="w-full px-4 py-3 rounded-lg border-slate-200 bg-white focus:ring-naka-blue focus:border-naka-blue outline-none transition-all font-display"
                   placeholder="Nguyễn Văn A"
                   type="text"
                 />
               </div>
               <div className="col-span-2 md:col-span-1">
-                <label className="block text-sm font-semibold mb-2 text-slate-900">
+                <label className="block text-sm font-bold mb-2 text-slate-800 font-display">
                   Số điện thoại *
                 </label>
                 <input
-                  className="w-full px-4 py-3 rounded-lg border-slate-200 bg-white focus:ring-[#1152d4] focus:border-[#1152d4] outline-none"
+                  className="w-full px-4 py-3 rounded-lg border-slate-200 bg-white focus:ring-naka-blue focus:border-naka-blue outline-none transition-all font-display"
                   placeholder="0901 234 567"
                   type="tel"
                 />
               </div>
               <div className="col-span-2">
-                <label className="block text-sm font-semibold mb-2 text-slate-900">
+                <label className="block text-sm font-bold mb-2 text-slate-800 font-display">
                   Email *
                 </label>
                 <input
-                  className="w-full px-4 py-3 rounded-lg border-slate-200 bg-white focus:ring-[#1152d4] focus:border-[#1152d4] outline-none"
+                  className="w-full px-4 py-3 rounded-lg border-slate-200 bg-white focus:ring-naka-blue focus:border-naka-blue outline-none transition-all font-display"
                   placeholder="email@example.com"
                   type="email"
                 />
               </div>
               <div className="col-span-2">
-                <label className="block text-sm font-semibold mb-2 text-slate-900">
+                <label className="block text-sm font-bold mb-2 text-slate-800 font-display">
                   Tải hồ sơ / CV (.pdf, .docx) *
                 </label>
                 <div className="border-2 border-dashed border-slate-200 rounded-xl p-8 flex flex-col items-center justify-center bg-white hover:bg-slate-100 transition-colors cursor-pointer">
@@ -295,7 +290,7 @@ export default function RecruitmentDetailFeaturePage() {
               </div>
               <div className="col-span-2 mt-2">
                 <button
-                  className="w-full bg-[#1152d4] hover:bg-[#1152d4]/90 text-white font-bold py-4 rounded-xl transition-all shadow-lg shadow-[#1152d4]/20 flex items-center justify-center gap-2"
+                  className="w-full bg-naka-blue hover:bg-naka-blue/90 text-white font-bold py-4 rounded-xl transition-all shadow-xl shadow-naka-blue/20 flex items-center justify-center gap-2 font-display cursor-pointer"
                   type="button"
                 >
                   GỬI HỒ SƠ NGAY

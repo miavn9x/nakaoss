@@ -19,7 +19,7 @@ export default function GlobalVisionSection() {
             <div className="absolute inset-0 bg-naka-blue/10 mix-blend-multiply"></div>
           </div>
           <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-[#fbfbf9] border border-naka-blue/10 p-6 hidden md:flex flex-col justify-center items-center shadow-lg">
-            <span className="text-4xl font-['Playfair_Display',serif] text-naka-blue mb-2 text-center">
+            <span className="text-4xl font-serif text-naka-blue mb-2 text-center">
               1991
             </span>
             <span className="text-xs uppercase tracking-[0.25em] text-slate-500 text-center">
@@ -32,16 +32,16 @@ export default function GlobalVisionSection() {
           <span className="text-naka-blue text-[10px] font-bold tracking-[0.4em] uppercase mb-4 block">
             Tầm nhìn Quốc tế
           </span>
-          <h2 className="text-3xl md:text-4xl font-['Playfair_Display',serif] text-slate-800 mb-6">
+          <h2 className="text-3xl md:text-4xl font-serif text-naka-blue mb-6">
             Mở rộng Nhà máy tại Trung Quốc
           </h2>
-          <p className="text-slate-600 font-light leading-relaxed mb-6 text-justify">
+          <p className="text-slate-600 font-display font-light leading-relaxed mb-6 text-justify">
             Năm 1991 đánh dấu một cột mốc quan trọng trong lịch sử công ty với
             việc thành lập nhà máy tại Trung Quốc. Đây là bước đi chiến lược
             nhằm mở rộng năng lực sản xuất, đáp ứng nhu cầu ngày càng cao của
             thị trường quốc tế về phụ kiện cửa chất lượng cao.
           </p>
-          <p className="text-slate-600 font-light leading-relaxed text-justify">
+          <p className="text-slate-600 font-display font-light leading-relaxed text-justify">
             Dưới sự giám sát trực tiếp và nghiêm ngặt của các kỹ sư Nhật Bản,
             nhà máy mới vẫn duy trì nguyên vẹn các tiêu chuẩn chất lượng khắt
             khe của Nakao Seisakusho, đảm bảo tính đồng nhất trên toàn cầu dù

@@ -17,7 +17,7 @@ export default function Pagination({
         <button
           onClick={() => onPageChange(currentPage - 1)}
           disabled={currentPage === 1}
-          className="w-10 h-10 flex items-center justify-center border border-slate-200 text-slate-500 hover:bg-slate-50 transition-colors disabled:opacity-50 text-sm hover:text-naka-blue"
+          className="w-10 h-10 flex items-center justify-center border border-slate-200 text-slate-500 hover:bg-slate-50 transition-colors disabled:opacity-50 text-sm hover:text-naka-blue font-display"
         >
           <span className="material-symbols-outlined text-sm">west</span>
         </button>
@@ -28,7 +28,7 @@ export default function Pagination({
             <button
               key={page}
               onClick={() => onPageChange(page)}
-              className={`w-10 h-10 flex items-center justify-center transition-colors text-sm ${
+              className={`w-10 h-10 flex items-center justify-center transition-colors text-sm font-display ${
                 currentPage === page
                   ? "bg-naka-blue text-white font-bold"
                   : "border border-slate-200 text-slate-600 hover:bg-slate-50 hover:text-naka-blue"
@@ -48,7 +48,7 @@ export default function Pagination({
         <button
           onClick={() => onPageChange(currentPage + 1)}
           disabled={currentPage === totalPages}
-          className="w-10 h-10 flex items-center justify-center border border-slate-200 text-slate-500 hover:bg-slate-50 transition-colors disabled:opacity-50 text-sm hover:text-naka-blue"
+          className="w-10 h-10 flex items-center justify-center border border-slate-200 text-slate-500 hover:bg-slate-50 transition-colors disabled:opacity-50 text-sm hover:text-naka-blue font-display"
         >
           <span className="material-symbols-outlined text-sm">east</span>
         </button>

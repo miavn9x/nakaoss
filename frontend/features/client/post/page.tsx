@@ -81,13 +81,13 @@ export default function PostFeaturePage() {
 
   return (
     <div className="relative flex h-auto min-h-screen w-full flex-col bg-white group/design-root overflow-x-hidden">
-      <main className="flex-1 w-full max-w-[1400px] mx-auto px-6 lg:px-12 py-12 lg:py-16">
+      <main className="flex-1 w-full max-w-[1400px] mx-auto px-6 lg:px-12 py-12 lg:py-16 reveal-on-scroll">
         <div className="flex flex-col gap-2 mb-10 text-center">
-          <h1 className="text-slate-900 text-3xl lg:text-4xl font-bold font-serif tracking-tight leading-tight uppercase">
+          <h1 className="text-naka-blue text-3xl lg:text-4xl font-bold font-serif tracking-tight leading-tight uppercase">
             Tin tức & Sự kiện
           </h1>
-          <div className="w-12 h-1 bg-naka-blue mx-auto my-4"></div>
-          <p className="text-slate-500 text-sm max-w-lg mx-auto font-body">
+          <div className="w-12 h-1 bg-naka-blue/20 mx-auto my-4"></div>
+          <p className="text-slate-600/80 text-sm max-w-lg mx-auto font-display font-light">
             Thông tin chính thức về hoạt động kinh doanh, sự kiện doanh nghiệp
             và các dự án tiêu biểu của Nakao Việt Nam.
           </p>

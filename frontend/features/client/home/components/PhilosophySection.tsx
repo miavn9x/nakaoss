@@ -12,11 +12,11 @@ export default function PhilosophySection() {
       <div className="bg-naka-blue text-white pt-4 pb-6 lg:pt-12 lg:pb-16 relative z-10">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4=')] opacity-20"></div>
 
-        <div className="relative z-10 max-w-[1400px] mx-auto px-6 text-center">
+        <div className="relative z-10 max-w-[1400px] mx-auto px-6 text-center reveal-on-scroll">
           <span className="inline-block py-1 px-4 border border-white/20 text-[10px] tracking-[0.3em] uppercase mb-10 backdrop-blur-sm bg-white/5 relative">
             Triết lý Doanh nghiệp
           </span>
-          <h2 className="text-4xl md:text-5xl lg:text-7xl font-['Playfair_Display',serif] leading-tight mb-8 font-medium">
+          <h2 className="text-4xl md:text-5xl lg:text-7xl font-serif leading-tight mb-8 font-bold italic">
             "Thông qua thử thách và sáng tạo
             <br />
             <span className="text-white/80">
@@ -26,14 +26,14 @@ export default function PhilosophySection() {
 
           <div className="flex justify-center items-center gap-6 mb-12 opacity-80">
             <div className="h-px w-16 bg-white/20"></div>
-            <span className="font-['Noto_Serif_JP',serif] text-3xl font-light tracking-[0.25em]">
+            <span className="font-serif text-3xl font-light tracking-[0.25em]">
               ものづくり
             </span>
             <div className="h-px w-16 bg-white/20"></div>
           </div>
 
           <div className="max-w-2xl mx-auto">
-            <p className="text-white/80 font-light text-base md:text-lg leading-relaxed tracking-wide">
+            <p className="text-white/80 font-display font-light text-base md:text-lg leading-relaxed text-justify [text-align-last:center]">
               Tinh thần{" "}
               <span className="text-white font-medium italic">Monozukuri</span>{" "}
               không chỉ là sản xuất, mà là nghệ thuật thổi hồn vào vật chất. Tại
@@ -86,7 +86,7 @@ export default function PhilosophySection() {
                 <span className="block text-[10px] md:text-xs font-bold uppercase tracking-[0.4em] mb-2 text-white/80">
                   The 100th Anniversary Film
                 </span>
-                <h3 className="text-5xl md:text-7xl font-['Playfair_Display',serif] text-white mb-2">
+                <h3 className="text-5xl md:text-7xl font-serif text-white mb-2">
                   1925 — 2025
                 </h3>
                 <span className="block text-sm md:text-base font-light tracking-[0.25em] uppercase text-white/90 mt-4">

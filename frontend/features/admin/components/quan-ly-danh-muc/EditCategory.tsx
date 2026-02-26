@@ -46,6 +46,13 @@ export default function EditCategory() {
     return null;
   };
 
+  const stripEmptyCodes = (cat: any) => {
+    if (cat.code === "") delete cat.code;
+    if (cat.children && cat.children.length > 0) {
+      cat.children.forEach((child: any) => stripEmptyCodes(child));
+    }
+  };
+
   const handleSubmit = async (data: CreateCategoryRequest) => {
     if (!code) return;
     try {
@@ -57,6 +64,8 @@ export default function EditCategory() {
       }
 
       const payload = { ...data, parentCode: data.parentCode || null };
+      stripEmptyCodes(payload);
+
       await updateCategory.mutateAsync({ code, data: payload });
       toast.success(t("messages.updateSuccess"));
       setCurrentPage("category-list");

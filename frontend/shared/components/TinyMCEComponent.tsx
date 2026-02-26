@@ -133,33 +133,96 @@ export default function TinyMCEComponent({
         onEditorChange={handleEditorChange}
         init={{
           height: height || 500,
-          menubar: true,
+          menubar: "file edit view insert format tools table help",
           plugins: [
+            "accordion",
             "advlist",
-            "autolink",
-            "lists",
-            "link",
-            "image",
-            "charmap",
-            "preview",
             "anchor",
-            "searchreplace",
-            "visualblocks",
+            "autolink",
+            "autoresize",
+            "autosave",
+            "charmap",
             "code",
+            "codesample",
+            "directionality",
+            "emoticons",
             "fullscreen",
-            "insertdatetime",
-            "media",
-            "table",
             "help",
+            "image",
+            "importcss",
+            "insertdatetime",
+            "link",
+            "lists",
+            "media",
+            "nonbreaking",
+            "pagebreak",
+            "preview",
+            "quickbars",
+            "save",
+            "searchreplace",
+            "table",
+            "visualblocks",
+            "visualchars",
             "wordcount",
           ],
           toolbar:
-            "undo redo | blocks | " +
-            "bold italic forecolor | alignleft aligncenter " +
-            "alignright alignjustify | bullist numlist outdent indent | " +
-            "removeformat | image media table | help",
+            "undo redo | blocks fontfamily fontsize | " +
+            "bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | " +
+            "bullist numlist outdent indent | forecolor backcolor removeformat | " +
+            "image media table link anchor codesample | charmap emoticons insertdatetime pagebreak accordion | " +
+            "searchreplace visualblocks preview fullscreen ltr rtl | help",
+          toolbar_mode: "wrap",
+
+          // --- Advanced Features Configuration ---
+          autosave_ask_before_unload: true,
+          autosave_interval: "30s",
+          autosave_prefix: "{path}{query}-{id}-",
+          autosave_restore_when_empty: false,
+          autosave_retention: "2m",
+
+          image_caption: true,
+          media_live_embeds: true,
+          link_default_target: "_blank",
+          table_toolbar:
+            "tableprops tabledelete | tableinsertrowbefore tableinsertrowafter tabledeleterow | tableinsertcolbefore tableinsertcolafter tabledeletecol",
+
+          quickbars_selection_toolbar:
+            "bold italic | quicklink h2 h3 blockquote quickimage quicktable",
+          quickbars_insert_toolbar: "quickimage quicktable | hr pagebreak",
+          contextmenu: "link image table",
+          font_family_formats:
+            "Inter=Inter, sans-serif;" +
+            "Merriweather=Merriweather, serif;" +
+            "Roboto=Roboto, sans-serif;" +
+            "Open Sans='Open Sans', sans-serif;" +
+            "Lato=Lato, sans-serif;" +
+            "Montserrat=Montserrat, sans-serif;" +
+            "Poppins=Poppins, sans-serif;" +
+            "Playfair Display='Playfair Display', serif;" +
+            "Arial=arial,helvetica,sans-serif;" +
+            "Arial Black='Arial Black',avant garde;" +
+            "Book Antiqua='Book Antiqua',palatino;" +
+            "Calibri=Calibri,sans-serif;" +
+            "Cambria=Cambria,serif;" +
+            "Century Gothic='Century Gothic',sans-serif;" +
+            "Comic Sans MS='Comic Sans MS',sans-serif;" +
+            "Consolas=Consolas,monospace;" +
+            "Courier New='Courier New',courier;" +
+            "Georgia=georgia,palatino;" +
+            "Helvetica=helvetica;" +
+            "Impact=impact,chicago;" +
+            "Oswald=Oswald,sans-serif;" +
+            "Tahoma=tahoma,arial,helvetica,sans-serif;" +
+            "Times New Roman='Times New Roman',times;" +
+            "Trebuchet MS='Trebuchet MS',geneva;" +
+            "Verdana=verdana,geneva;",
+          font_size_formats:
+            "8pt 10pt 12pt 14pt 16pt 18pt 24pt 36pt 48pt 60pt 72pt 84pt 96pt 120pt",
           content_style: `
-            body { font-family: Inter, Arial, sans-serif; font-size:16px } 
+            @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300&family=Roboto:ital,wght@0,400;0,500;0,700;1,400&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&family=Lato:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Oswald:wght@400;500;600;700&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+            .material-symbols-outlined { font-family: 'Material Symbols Outlined'; font-weight: normal; font-style: normal; display: inline-block; line-height: 1; text-transform: none; letter-spacing: normal; word-wrap: normal; white-space: nowrap; direction: ltr; -webkit-font-smoothing: antialiased; }
+            body { font-family: 'Inter', Arial, sans-serif; font-size:16px } 
             img { max-width: 100% !important; height: auto !important; display: block; }
             figure.image { max-width: 100% !important; }
             figure.image img { max-width: 100% !important; height: auto !important; }
@@ -183,7 +246,6 @@ export default function TinyMCEComponent({
           file_picker_types: "image",
 
           // Override paste to retain styles on standard tags (p, div, span, etc.)
-          paste_retain_style_properties: "all",
           paste_webkit_styles: "all",
           paste_merge_formats: false,
         }}

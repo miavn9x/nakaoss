@@ -16,8 +16,8 @@ export default function RecruitmentFeaturePage() {
         }}
       />
       <main className="antialiased bg-white text-[#1a1a1a] font-sans">
-        <header className="relative min-h-[80vh] flex items-center px-6 md:px-20 py-20 bg-white overflow-hidden">
-          <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <header className="relative  flex items-center py-20 bg-white overflow-hidden">
+          <div className="w-full max-w-[1400px] mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-7 z-10">
               <span className="inline-block text-naka-blue font-semibold tracking-[0.3em] uppercase mb-6 text-sm border-b-2 border-naka-blue pb-1">
                 Kỷ nguyên mới
@@ -58,7 +58,7 @@ export default function RecruitmentFeaturePage() {
           </div>
         </header>
 
-        <section className="relative py-32 px-6 overflow-hidden bg-[#0f2147] text-white">
+        <section className="relative py-32 overflow-hidden bg-[#0f2147] text-white">
           <div className="absolute inset-0 opacity-20">
             <img
               alt="Abstract workspace"
@@ -66,38 +66,40 @@ export default function RecruitmentFeaturePage() {
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuBODyGxC5KAJbqdipK8f-YtIvT3kfDU55OhQb0LblFwpvVuWKdFHpWdJV9Hw8xdVZcTpnQ2JPZfKGVt6mD8EohfwxvtwZ9TxMzInGbnNGPSgTLN-nOvjfyJSOBIlFa3CtFwAq8aeRE7Ig3et69oSyQ-2CsLx2n55reufqwv6-g3307-V9rA36zNtFzQoaoNGUTEViS2JdjEGXAagyiXLBs2OgHGaR-XsKNeONti_ddVRJRIDKFU1mxYMcfA0qzfYvP5AmWzzihgbAHQ"
             />
           </div>
-          <div className="max-w-5xl mx-auto relative z-10 text-center">
-            <h2 className="text-4xl md:text-6xl mb-12 italic font-playfair">
-              Tinh thần Monozukuri
-            </h2>
-            <div className="grid md:grid-cols-2 gap-16 items-start text-left">
-              <div className="space-y-6">
-                <h3 className="text-2xl text-[#c5a059] uppercase tracking-widest font-sans font-bold">
-                  Thử thách & Sáng tạo
-                </h3>
-                <p className="text-xl leading-relaxed opacity-90">
-                  Tại Nakao, chúng tôi không chỉ tạo ra sản phẩm; chúng tôi kiến
-                  tạo những giải pháp bền vững. Tinh thần 'Monozukuri' là kim
-                  chỉ nam cho mọi hoạt động, nơi sự tỉ mỉ trong từng chi tiết
-                  nhỏ nhất được đặt lên hàng đầu.
-                </p>
-              </div>
-              <div className="space-y-6 pt-12 md:pt-24 border-t border-white/20">
-                <p className="text-lg leading-relaxed opacity-80 italic">
-                  "Chúng tôi tìm kiếm những cộng sự không ngại dấn thân, những
-                  người sở hữu tư duy sáng tạo không giới hạn để cùng Nakao định
-                  nghĩa lại chuẩn mực của ngành phụ kiện kiến trúc."
-                </p>
-                <p className="font-bold tracking-widest uppercase text-sm">
-                  — Ban lãnh đạo Nakao Việt Nam
-                </p>
+          <div className="w-full max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
+            <div className="max-w-5xl mx-auto text-center">
+              <h2 className="text-4xl md:text-6xl mb-12 italic font-playfair">
+                Tinh thần Monozukuri
+              </h2>
+              <div className="grid md:grid-cols-2 gap-16 items-start text-left">
+                <div className="space-y-6">
+                  <h3 className="text-2xl text-[#c5a059] uppercase tracking-widest font-sans font-bold">
+                    Thử thách & Sáng tạo
+                  </h3>
+                  <p className="text-xl leading-relaxed opacity-90">
+                    Tại Nakao, chúng tôi không chỉ tạo ra sản phẩm; chúng tôi
+                    kiến tạo những giải pháp bền vững. Tinh thần 'Monozukuri' là
+                    kim chỉ nam cho mọi hoạt động, nơi sự tỉ mỉ trong từng chi
+                    tiết nhỏ nhất được đặt lên hàng đầu.
+                  </p>
+                </div>
+                <div className="space-y-6 pt-12 md:pt-24 border-t border-white/20">
+                  <p className="text-lg leading-relaxed opacity-80 italic">
+                    "Chúng tôi tìm kiếm những cộng sự không ngại dấn thân, những
+                    người sở hữu tư duy sáng tạo không giới hạn để cùng Nakao
+                    định nghĩa lại chuẩn mực của ngành phụ kiện kiến trúc."
+                  </p>
+                  <p className="font-bold tracking-widest uppercase text-sm">
+                    — Ban lãnh đạo Nakao Việt Nam
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="py-32 px-6 bg-white">
-          <div className="max-w-7xl mx-auto">
+        <section className="py-32 bg-white">
+          <div className="w-full max-w-[1400px] mx-auto px-6 lg:px-12">
             <div className="flex items-end justify-between mb-24 border-b border-slate-200 pb-8">
               <div>
                 <h2 className="text-5xl text-naka-blue mb-4 font-playfair">
@@ -226,8 +228,8 @@ export default function RecruitmentFeaturePage() {
           </div>
         </section>
 
-        <section className="py-32 px-6 bg-slate-50 border-t border-slate-200">
-          <div className="max-w-7xl mx-auto">
+        <section className="py-32 bg-slate-50 border-t border-slate-200">
+          <div className="w-full max-w-[1400px] mx-auto px-6 lg:px-12">
             <h2 className="text-5xl text-naka-blue text-center mb-24 italic font-playfair">
               Đãi ngộ & Phát triển
             </h2>
@@ -274,33 +276,35 @@ export default function RecruitmentFeaturePage() {
           </div>
         </section>
 
-        <section className="py-40 px-6 bg-white text-center">
-          <div className="max-w-3xl mx-auto space-y-12">
-            <h2 className="text-5xl md:text-7xl text-[#0f2147] leading-tight font-playfair">
-              Viết tiếp chương mới
-              <br />
-              cùng Nakao
-            </h2>
-            <p className="text-xl text-slate-500">
-              Nếu bạn chưa tìm thấy vị trí phù hợp nhưng tin rằng năng lực của
-              mình có thể đóng góp cho sự phát triển của Nakao, đừng ngần ngại
-              chia sẻ hồ sơ với chúng tôi.
-            </p>
-            <div className="pt-8 flex flex-col md:flex-row items-center justify-center gap-6">
-              <button className="w-full md:w-auto px-16 py-6 bg-naka-blue text-white text-xs font-bold uppercase tracking-[0.2em] hover:bg-[#0f2147] transition-all shadow-xl">
-                Gửi hồ sơ ứng tuyển
-              </button>
-              <a
-                className="text-naka-blue font-bold uppercase tracking-widest text-xs border-b border-naka-blue pb-1 hover:text-[#2a4e91] transition-colors"
-                href="#"
-              >
-                Tìm hiểu thêm về chúng tôi
-              </a>
-            </div>
-            <div className="pt-20">
-              <p className="text-[10px] uppercase tracking-[0.5em] text-slate-400">
-                Nakao Vietnam Recruitment • Est. 2025
+        <section className="py-40 bg-white text-center">
+          <div className="w-full max-w-[1400px] mx-auto px-6 lg:px-12">
+            <div className="max-w-3xl mx-auto space-y-12">
+              <h2 className="text-5xl md:text-7xl text-[#0f2147] leading-tight font-playfair">
+                Viết tiếp chương mới
+                <br />
+                cùng Nakao
+              </h2>
+              <p className="text-xl text-slate-500">
+                Nếu bạn chưa tìm thấy vị trí phù hợp nhưng tin rằng năng lực của
+                mình có thể đóng góp cho sự phát triển của Nakao, đừng ngần ngại
+                chia sẻ hồ sơ với chúng tôi.
               </p>
+              <div className="pt-8 flex flex-col md:flex-row items-center justify-center gap-6">
+                <button className="w-full md:w-auto px-16 py-6 bg-naka-blue text-white text-xs font-bold uppercase tracking-[0.2em] hover:bg-[#0f2147] transition-all shadow-xl">
+                  Gửi hồ sơ ứng tuyển
+                </button>
+                <a
+                  className="text-naka-blue font-bold uppercase tracking-widest text-xs border-b border-naka-blue pb-1 hover:text-[#2a4e91] transition-colors"
+                  href="#"
+                >
+                  Tìm hiểu thêm về chúng tôi
+                </a>
+              </div>
+              <div className="pt-20">
+                <p className="text-[10px] uppercase tracking-[0.5em] text-slate-400">
+                  Nakao Vietnam Recruitment • Est. 2025
+                </p>
+              </div>
             </div>
           </div>
         </section>

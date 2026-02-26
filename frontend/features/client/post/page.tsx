@@ -81,7 +81,7 @@ export default function PostFeaturePage() {
 
   return (
     <div className="relative flex h-auto min-h-screen w-full flex-col bg-white group/design-root overflow-x-hidden">
-      <main className="flex-1 w-full max-w-[800px] mx-auto px-4 lg:px-0 py-12 lg:py-16">
+      <main className="flex-1 w-full max-w-[1400px] mx-auto px-6 lg:px-12 py-12 lg:py-16">
         <div className="flex flex-col gap-2 mb-10 text-center">
           <h1 className="text-slate-900 text-3xl lg:text-4xl font-bold font-serif tracking-tight leading-tight uppercase">
             Tin tức & Sự kiện

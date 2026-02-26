@@ -78,7 +78,7 @@ export default async function ContactFeaturePage() {
       />
       <main className="pb-8 relative bg-white font-display text-slate-900 min-h-screen flex flex-col">
         <div className="relative w-full h-[400px] flex items-center justify-center overflow-hidden contact-hero-bg">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <div className="w-full max-w-[1400px] mx-auto px-6 lg:px-12 text-center relative z-10">
             <h1 className="text-white text-4xl sm:text-5xl lg:text-6xl font-black mb-4 tracking-tight">
               LIÊN HỆ VỚI NAKAO VIỆT NAM
             </h1>
@@ -88,8 +88,7 @@ export default async function ContactFeaturePage() {
             </p>
           </div>
         </div>
-
-        <div className="grow container mx-auto px-4 sm:px-6 lg:px-8 -mt-16 mb-20 relative z-20">
+        <div className="grow w-full max-w-[1400px] mx-auto px-6 lg:px-12 -mt-16 mb-20 relative z-20">
           <div className="bg-white rounded-xl shadow-xl overflow-hidden flex flex-col lg:flex-row">
             <div className="lg:w-2/5 bg-slate-50 p-8 lg:p-12 border-r border-slate-100">
               <div className="mb-10">
@@ -253,7 +252,7 @@ export default async function ContactFeaturePage() {
         </div>
 
         <div className="bg-stone-50/50 py-24 relative contact-grid-bg">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="w-full max-w-[1400px] mx-auto px-6 lg:px-12">
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 md:mb-24 gap-8">
               <div className="max-w-xl">
                 <span className="text-naka-blue font-mono text-sm tracking-widest uppercase mb-2 block opacity-80">

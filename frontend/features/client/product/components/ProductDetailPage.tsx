@@ -15,7 +15,7 @@ import RelatedProducts from "./detail/RelatedProducts";
  */
 export default function ProductDetailPage() {
   return (
-    <div className="bg-[#f6f7f8] text-slate-900 antialiased font-sans min-h-screen">
+    <div className="bg-[#f6f7f8] text-slate-900 antialiased font-display min-h-screen">
       {/* Breadcrumb điều hướng */}
       <ProductBreadcrumb />
 
@@ -25,11 +25,15 @@ export default function ProductDetailPage() {
           <div className="lg:col-span-8 flex flex-col gap-10">
             {/* Tiêu đề - chỉ hiện trên mobile */}
             <div className="lg:hidden">
-              <h1 className="text-2xl font-bold text-slate-900 mb-2">
-                Bộ thu gom Shuttle Closer Collect W (dành cho ray rộng 28mm) /
-                NHT-1052
+              <span className="inline-block text-naka-blue font-display font-bold tracking-widest uppercase mb-2 text-xs border-b-2 border-naka-blue/20 pb-1">
+                Mã đơn hàng: NHT-1052
+              </span>
+              <h1 className="text-2xl font-serif font-black text-naka-blue mb-1 uppercase tracking-tight leading-tight">
+                Bộ thu gom Shuttle Closer Collect W
               </h1>
-              <p className="text-slate-500">Mã đơn hàng: NHT-1052</p>
+              <p className="text-slate-500 font-display font-light text-sm">
+                dành cho ray rộng 28mm
+              </p>
             </div>
 
             {/* Ảnh sản phẩm */}

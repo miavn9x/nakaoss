@@ -160,7 +160,6 @@ export default function DocumentViewer({ publicFileUrl }: DocumentViewerProps) {
         onClose={() => setDownloadOpen(false)}
         fileName={FILE_NAME}
         filePath={FILE_PATH}
-        countdownSeconds={60}
       />
     </div>
   );

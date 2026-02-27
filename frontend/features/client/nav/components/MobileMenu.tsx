@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 
 import {
   X,
@@ -14,6 +14,8 @@ import {
   Twitter,
   MapPin,
   Globe,
+  Plus,
+  Minus,
 } from "lucide-react";
 import { Link, useRouter, usePathname } from "@/language/i18n/navigation";
 import { useAuthModal } from "@/features/auth/shared/contexts/AuthModalContext";
@@ -37,11 +39,36 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
   const pathname = usePathname();
   const currentLocale = useLocale();
 
+  const [expandedItems, setExpandedItems] = useState<string[]>([]);
+
+  const toggleExpand = (label: string) => {
+    setExpandedItems((prev) =>
+      prev.includes(label) ? prev.filter((i) => i !== label) : [...prev, label],
+    );
+  };
+
   const changeLanguage = (locale: string) => {
     router.replace(pathname as any, { locale });
   };
 
   if (!isOpen) return null;
+
+  const menuItems = [
+    { label: t("home"), href: "/" },
+    { label: t("product_service"), href: "/product" },
+    { label: t("advantage"), href: "/advantage" },
+    {
+      label: t("news"),
+      href: "/news",
+      subItems: [
+        { label: t("news_projects"), href: "/news/projects" },
+        { label: t("news_nakao"), href: "/news/nakao" },
+      ],
+    },
+    { label: t("recruitment"), href: "/recruitment" },
+    { label: t("document"), href: "/document" },
+    { label: t("contact"), href: "/contact" },
+  ];
 
   return (
     <>
@@ -114,33 +141,57 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
           {/* Menu List */}
           <div className="flex-1 px-5 flex flex-col">
             <div className="flex flex-col">
-              {[
-                { label: t("home"), href: "/" },
-                { label: t("product_service"), href: "/product" },
-                { label: t("advantage"), href: "/advantage" },
-                { label: t("news"), href: "/news" },
-                { label: t("recruitment"), href: "/recruitment" },
-                { label: t("document"), href: "/document" },
-                { label: t("contact"), href: "/contact" },
-              ].map(
-                (item: { label: string; href: string; hasSub?: boolean }) => (
-                  <Link
-                    key={item.href}
-                    href={item.href as any}
-                    onClick={onClose}
-                    className="group border-b border-gray-100 py-4 flex items-center justify-between"
-                  >
-                    <span className="text-gray-800 font-bold text-sm uppercase group-hover:text-naka-blue transition-colors">
-                      {item.label}
-                    </span>
-                    {item.hasSub && (
-                      <span className="text-gray-400 text-lg font-light group-hover:text-naka-blue">
-                        +
-                      </span>
+              {menuItems.map((item) => {
+                const isExpanded = expandedItems.includes(item.label);
+
+                return (
+                  <div key={item.href} className="border-b border-gray-100">
+                    <div className="flex items-center justify-between py-4 group">
+                      <Link
+                        href={item.href as any}
+                        onClick={onClose}
+                        className="flex-1"
+                      >
+                        <span className="text-gray-800 font-bold text-sm uppercase group-hover:text-naka-blue transition-colors">
+                          {item.label}
+                        </span>
+                      </Link>
+
+                      {item.subItems && (
+                        <button
+                          onClick={(e) => {
+                            e.preventDefault();
+                            toggleExpand(item.label);
+                          }}
+                          className="p-1 text-gray-400 hover:text-naka-blue transition-colors"
+                        >
+                          {isExpanded ? (
+                            <Minus size={18} />
+                          ) : (
+                            <Plus size={18} />
+                          )}
+                        </button>
+                      )}
+                    </div>
+
+                    {/* Sub Menu Section */}
+                    {item.subItems && isExpanded && (
+                      <div className="bg-gray-50/50 rounded-lg mb-2 overflow-hidden animate-in slide-in-from-top-2 duration-200">
+                        {item.subItems.map((sub, sIdx) => (
+                          <Link
+                            key={`${item.href}-${sIdx}`}
+                            href={sub.href as any}
+                            onClick={onClose}
+                            className="block py-3 px-4 text-xs font-semibold text-gray-600 hover:text-naka-blue hover:bg-gray-100 transition-colors uppercase border-l-2 border-naka-blue/20"
+                          >
+                            {sub.label}
+                          </Link>
+                        ))}
+                      </div>
                     )}
-                  </Link>
-                ),
-              )}
+                  </div>
+                );
+              })}
             </div>
 
             {/* Auth Section - Minimalist */}

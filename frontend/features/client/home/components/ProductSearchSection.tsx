@@ -20,7 +20,7 @@ export default function ProductSearchSection() {
             Sản phẩm &amp; Dịch vụ
           </span>
           <h2 className="text-4xl md:text-5xl font-serif text-naka-blue uppercase tracking-wider">
-            TRA CỨU SẢN PHẨM
+            SẢN PHẨM NAKAO
           </h2>
           <div className="h-px w-24 bg-naka-blue/20 mt-8"></div>
         </div>
@@ -46,15 +46,15 @@ export default function ProductSearchSection() {
               </svg>
             </div>
             <h3 className="text-lg font-bold font-display tracking-[0.2em] mb-2 uppercase z-10">
-              Tra theo loại cửa
+              SẢN PHẨM theo loại cửa
             </h3>
             <span className="text-[10px] font-display tracking-[0.25em] uppercase opacity-70 mb-8 z-10 block">
               Search by Set
             </span>
             <div className="w-8 h-px bg-white/30 mb-8 z-10"></div>
             <p className="text-xs font-display font-light leading-relaxed opacity-80 z-10 max-w-[80%] text-justify">
-              Lựa chọn sản phẩm dựa trên quy cách và cách vận hành của hệ thống
-              cửa.
+              Lựa chọn sản phẩm chuẩn Nhật Bản theo quy cách từng hệ cửa. Cung
+              cấp giải pháp tối ưu cho nhà thầu, kiến trúc sư và xưởng mộc.
             </p>
           </div>
 
@@ -141,14 +141,16 @@ export default function ProductSearchSection() {
         <div className="flex flex-col lg:flex-row gap-0 lg:gap-1 mb-4 md:mb-6 bg-white shadow-xl  mx-auto">
           <div className="flex-1 lg:w-1/3 bg-[#152a55] text-white p-6 md:p-8 lg:p-12 flex flex-col justify-center items-start relative overflow-hidden group min-h-[200px] lg:min-h-auto">
             <h3 className="text-lg font-bold font-display tracking-[0.2em] mb-2 uppercase z-10">
-              Tra theo danh mục
+              Tra theo dòng sản phẩm Nakao
             </h3>
             <span className="text-[10px] font-display tracking-[0.25em] uppercase opacity-70 mb-8 z-10 block">
               Search by Category
             </span>
             <div className="w-8 h-px bg-white/30 mb-8 z-10"></div>
             <p className="text-xs font-display font-light leading-relaxed opacity-80 z-10 max-w-full md:max-w-[80%] text-justify">
-              Tìm kiếm nhanh các linh kiện và phụ kiện lẻ theo tên gọi kỹ thuật.
+              4 dòng linh kiện cốt lõi giải quyết nhu cầu khắt khe của công
+              trình hiện đại. Đồng hành cùng Nakao Vietnam - Trở thành đại lý
+              phân phối ngay hôm nay.
             </p>
           </div>
           <div className="flex-1 lg:w-2/3 bg-white p-6 md:p-8 lg:p-10">

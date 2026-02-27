@@ -107,10 +107,13 @@ export default function NewsAndDocsSection() {
             </div>
 
             <div className="pt-6">
-              <button className="flex items-center gap-3 text-sm font-bold font-display uppercase tracking-[0.2em] text-naka-blue hover:opacity-70 transition-opacity cursor-pointer">
+              <Link
+                href="/document"
+                className="flex items-center gap-3 text-sm font-bold font-display uppercase tracking-[0.2em] text-naka-blue hover:opacity-70 transition-opacity cursor-pointer"
+              >
                 <Download className="w-5 h-5 mb-1" /> TẢI CATALOGUE PHỤ KIỆN
                 2025
-              </button>
+              </Link>
             </div>
           </div>
         </div>

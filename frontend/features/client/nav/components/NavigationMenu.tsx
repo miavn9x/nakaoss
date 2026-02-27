@@ -1,14 +1,12 @@
 "use client";
 
 import { Link } from "@/language/i18n/navigation";
-import { Search, X, Menu, ChevronLeft, ChevronRight } from "lucide-react";
-import { useState, useRef, useEffect, useMemo, useCallback } from "react";
+import { Search, X, Menu, ChevronDown } from "lucide-react";
+import { useState, useRef, useEffect, useMemo } from "react";
 import SearchOverlay from "./SearchOverlay";
 import { useTranslations } from "next-intl";
 
 import { useCategoryTree } from "@/features/client/category/hooks/useCategoryTree";
-import CategoryNavItem from "@/features/client/category/components/CategoryNavItem";
-
 import { Category } from "@/features/client/category/types/category.types";
 
 interface NavigationMenuProps {
@@ -24,21 +22,7 @@ const NavigationMenu = ({
   const containerRef = useRef<HTMLDivElement>(null);
   const { categories } = useCategoryTree(initialCategories);
 
-  // Incremental reveal states
-  const [startIndex, setStartIndex] = useState(0);
-  const [visibleIndices, setVisibleIndices] = useState<number[]>([]);
-  const [showArrows, setShowArrows] = useState(false);
-  const [isClient, setIsClient] = useState(false);
-  const [hasMore, setHasMore] = useState(false);
-
-  const navItemsRef = useRef<HTMLUListElement>(null);
-  const navContainerRef = useRef<HTMLDivElement>(null);
-
   const t = useTranslations("Navigation");
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
 
   // Handle click outside for search
   useEffect(() => {
@@ -64,141 +48,19 @@ const NavigationMenu = ({
       { label: t("home"), href: "/" },
       { label: t("product_service"), href: "/product" },
       { label: t("advantage"), href: "/advantage" },
-      { label: t("news"), href: "/news" },
+      {
+        label: t("news"),
+        href: "/news",
+        subItems: [
+          { label: t("news_projects"), href: "/news/projects" },
+          { label: t("news_nakao"), href: "/news/nakao" },
+        ],
+      },
       { label: t("recruitment"), href: "/recruitment" },
       { label: t("document"), href: "/document" },
       { label: t("contact"), href: "/contact" },
     ];
   }, [t]);
-
-  const measureRef = useRef<HTMLDivElement>(null);
-
-  // Calculate visible items from startIndex
-  const calculateVisibleItems = useCallback(() => {
-    if (!isClient || !navContainerRef.current || !measureRef.current) return;
-
-    // 1. Batch read container width
-    const containerWidth = navContainerRef.current.clientWidth;
-    const arrowsWidth = 80;
-    const availableWidth = containerWidth - arrowsWidth;
-    if (availableWidth <= 0) return;
-
-    const visible: number[] = [];
-    let currentWidth = 0;
-    const gapWidth = 18; // gap-6 = 24px (md breakpoint)
-
-    // 2. Batch read all item widths at once
-    const itemElements = Array.from(
-      measureRef.current.children,
-    ) as HTMLElement[];
-    const itemWidths = itemElements.map((el) => el.offsetWidth);
-
-    // 3. Pure calculation logic (no more DOM reads)
-    // Start from startIndex and measure until full
-    for (let i = startIndex; i < menuItems.length; i++) {
-      // Since hidden container has ALL items, index matches global menuItems index
-      const itemWidth = itemWidths[i];
-      if (itemWidth === undefined) continue;
-
-      const widthWithGap = itemWidth + (visible.length > 0 ? gapWidth : 0);
-
-      // Always add at least 1 item, even if it overflows
-      if (visible.length === 0) {
-        visible.push(i);
-        currentWidth += itemWidth;
-      } else if (currentWidth + widthWithGap <= availableWidth) {
-        visible.push(i);
-        currentWidth += widthWithGap;
-      } else {
-        break; // Stop when no more space
-      }
-    }
-
-    setVisibleIndices(visible);
-
-    // Has more items after visible?
-    const lastVisibleIndex = visible[visible.length - 1] || startIndex;
-    setHasMore(lastVisibleIndex < menuItems.length - 1);
-
-    // Show arrows if not all items fit OR if startIndex > 0
-    setShowArrows(startIndex > 0 || lastVisibleIndex < menuItems.length - 1);
-  }, [menuItems, startIndex, isClient]);
-
-  const goToPrevious = useCallback(() => {
-    if (startIndex <= 0 || !navContainerRef.current || !measureRef.current)
-      return;
-
-    const containerWidth = navContainerRef.current.clientWidth;
-    const arrowsWidth = 80;
-    const availableWidth = containerWidth - arrowsWidth;
-
-    let backCount = 0;
-    let currentWidth = 0;
-    const gapWidth = 24;
-
-    // Batch read widths
-    const itemElements = Array.from(
-      measureRef.current.children,
-    ) as HTMLElement[];
-    const itemWidths = itemElements.map((el) => el.offsetWidth);
-
-    // Go backwards from startIndex-1
-    for (let i = startIndex - 1; i >= 0; i--) {
-      // const itemEl = itemElements[i];
-      // if (!itemEl) continue;
-      const itemWidth = itemWidths[i];
-      if (itemWidth === undefined) continue;
-
-      const widthWithGap = itemWidth + (backCount > 0 ? gapWidth : 0);
-
-      if (backCount === 0) {
-        backCount = 1;
-        currentWidth += itemWidth;
-      } else if (currentWidth + widthWithGap <= availableWidth) {
-        backCount++;
-        currentWidth += widthWithGap;
-      } else {
-        break;
-      }
-    }
-
-    setStartIndex(Math.max(0, startIndex - backCount));
-  }, [startIndex, menuItems]);
-
-  const goToNext = useCallback(() => {
-    if (!hasMore) return;
-
-    const lastVisibleIndex = visibleIndices[visibleIndices.length - 1];
-    if (
-      lastVisibleIndex !== undefined &&
-      lastVisibleIndex < menuItems.length - 1
-    ) {
-      setStartIndex(lastVisibleIndex + 1);
-    }
-  }, [hasMore, visibleIndices, menuItems.length]);
-
-  useEffect(() => {
-    if (!isClient) return;
-    // Initial calculation
-    calculateVisibleItems();
-
-    let animationFrameId: number;
-    const handleResize = () => {
-      cancelAnimationFrame(animationFrameId);
-      animationFrameId = requestAnimationFrame(() => {
-        calculateVisibleItems();
-      });
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => {
-      cancelAnimationFrame(animationFrameId);
-      window.removeEventListener("resize", handleResize);
-    };
-  }, [calculateVisibleItems, isClient]);
-
-  const canGoPrev = startIndex > 0;
-  const canGoNext = hasMore;
 
   return (
     <>
@@ -207,118 +69,67 @@ const NavigationMenu = ({
         className="bg-naka-blue md:bg-white shadow-md relative z-20 overflow-visible"
       >
         <div className="absolute inset-0 z-0 md:hidden bg-[url('/bg/footer_pattent.png')] bg-repeat opacity-60 pointer-events-none" />
-        <div className="container mx-auto  flex items-center justify-between md:justify-center relative min-h-15 md:min-h-12.5">
-          {/* Mobile Menu Button (Left) */}
-          <div className="md:hidden flex items-center">
-            <button
-              onClick={onToggleMobileMenu}
-              aria-label="Toggle mobile menu"
-              className="p-1 text-white hover:bg-white/10 rounded transition-colors"
-            >
-              <Menu size={28} strokeWidth={2} />
-            </button>
-          </div>
+        <div className="container mx-auto flex items-center justify-between relative min-h-15 md:min-h-14 px-4">
+          {/* Logo (Left) */}
+          <Link
+            href="/"
+            className="relative z-20 flex items-center py-2 shrink-0 group"
+          >
+            <img
+              src="/logo/Logo-NAKAO.png"
+              alt="NAKAO VIỆT NAM"
+              className="h-10 md:h-12 w-auto object-contain transition-transform group-hover:scale-105"
+            />
+          </Link>
 
-          {/* Centered Menu Links (Desktop) - Incremental Reveal */}
-          <div className="hidden md:flex items-center justify-center w-full overflow-visible">
-            <div
-              ref={navContainerRef}
-              className={`w-full overflow-visible ${showArrows ? "grid grid-cols-[1fr_auto] gap-4" : "flex justify-center"}`}
-            >
-              {/* HIDDEN Measurement Container */}
-              <div
-                ref={measureRef}
-                className="absolute invisible pointer-events-none opacity-0 flex"
-              >
-                {menuItems.map((item: any, index) => (
-                  <div
-                    key={`measure-${index}`}
-                    className="px-3 whitespace-nowrap font-bold text-sm uppercase"
+          {/* Centered Menu Links (Desktop) - Simple Static Menu */}
+          <nav className="hidden md:flex items-center justify-center flex-1 h-full overflow-visible px-4">
+            <ul className="flex items-center justify-center gap-1 lg:gap-2 h-full list-none m-0 p-0 overflow-visible">
+              {menuItems.map((item, index) => (
+                <li
+                  key={`nav-item-${index}`}
+                  className="relative h-full shrink-0 flex items-center group/item hover:z-30"
+                >
+                  <Link
+                    href={item.href as any}
+                    className="flex items-center gap-1.5 px-3 lg:px-4 h-10 font-bold text-naka-blue text-[11px] lg:text-xs xl:text-sm uppercase hover:bg-naka-blue hover:text-white transition-all whitespace-nowrap rounded-md"
                   >
-                    {item.label || "DANH MỤC"}
-                  </div>
-                ))}
-              </div>
+                    {item.label}
+                    {item.subItems && (
+                      <ChevronDown
+                        size={14}
+                        className="opacity-50 group-hover/item:rotate-180 transition-transform"
+                      />
+                    )}
+                  </Link>
 
-              {/* Menu Items */}
-              <ul
-                ref={navItemsRef}
-                className={`flex ${showArrows ? "justify-start" : "justify-center"} items-center gap-2 md:gap-6 py-2 md:py-0 h-12 md:h-14 list-none m-0 p-0 max-w-full overflow-visible`}
-              >
-                {menuItems.map((item: any, index) => {
-                  if (!visibleIndices.includes(index)) return null;
+                  {/* Dropdown Menu */}
+                  {item.subItems && (
+                    <div className="absolute top-full left-0 w-max min-w-full max-w-[280px] opacity-0 -translate-y-2 pointer-events-none group-hover/item:opacity-100 group-hover/item:translate-y-0 group-hover/item:pointer-events-auto transition-all duration-300 z-50">
+                      <div className="pt-2">
+                        <ul className="bg-white shadow-2xl border border-gray-100 rounded-lg overflow-hidden flex flex-col p-1.5">
+                          {item.subItems.map((sub, sIdx) => (
+                            <li key={`sub-${sIdx}`}>
+                              <Link
+                                href={sub.href as any}
+                                className="block px-4 py-2.5 font-bold text-naka-blue text-[11px] lg:text-xs uppercase hover:bg-naka-blue hover:text-white rounded-md transition-colors whitespace-nowrap"
+                              >
+                                {sub.label}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </nav>
 
-                  if (item.component) {
-                    return (
-                      <li
-                        key={`nav-item-${index}`}
-                        className="shrink-0 h-full flex items-center"
-                      >
-                        {item.component}
-                      </li>
-                    );
-                  }
-
-                  return (
-                    <li
-                      key={`nav-item-${index}`}
-                      className="relative shrink-0 h-full flex items-center"
-                    >
-                      <Link
-                        href={item.href as any}
-                        className="h-full flex items-center px-3 font-bold text-naka-blue text-sm sm:text-base lg:text-sm uppercase hover:bg-naka-blue hover:text-white transition-colors whitespace-nowrap"
-                      >
-                        {item.label}
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-
-              {/* Navigation Buttons */}
-              {showArrows && (
-                <div className="flex items-center justify-end space-x-1">
-                  <button
-                    onClick={goToPrevious}
-                    disabled={!canGoPrev}
-                    className={`p-2 rounded transition-colors ${
-                      !canGoPrev
-                        ? "opacity-50 cursor-not-allowed"
-                        : "cursor-pointer hover:bg-naka-blue/10"
-                    } text-naka-blue`}
-                    aria-label="Previous items"
-                  >
-                    <ChevronLeft className="w-4 h-4" />
-                  </button>
-                  <button
-                    onClick={goToNext}
-                    disabled={!canGoNext}
-                    className={`p-2 rounded transition-colors ${
-                      !canGoNext
-                        ? "opacity-50 cursor-not-allowed"
-                        : "cursor-pointer hover:bg-naka-blue/10"
-                    } text-naka-blue`}
-                    aria-label="Next items"
-                  >
-                    <ChevronRight className="w-4 h-4" />
-                  </button>
-                </div>
-              )}
-            </div>
-          </div>
-
-          {/* Mobile Logo Title (Center) */}
-          <div className="md:hidden absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
-            <div className="text-white font-serif text-lg sm:text-xl font-bold tracking-wider uppercase whitespace-nowrap">
-              {t("mobile_title")}
-            </div>
-            <div className="text-[10px] sm:text-xs text-white/80 tracking-widest uppercase">
-              {t("mobile_subtitle")}
-            </div>
-          </div>
-
-          {/* Search Icon (Right) - Mobile Only */}
-          <div className="flex items-center md:hidden absolute right-4 top-1/2 -translate-y-1/2">
+          {/* Right Controls (Mobile Only) */}
+          <div className="flex items-center gap-2 md:hidden relative z-20">
+            {/* Search Icon */}
             <button
               onClick={() => setIsSearchOpen(!isSearchOpen)}
               className={`p-2 rounded-full transition-colors ${
@@ -330,8 +141,17 @@ const NavigationMenu = ({
               {isSearchOpen ? (
                 <X size={24} strokeWidth={2.5} />
               ) : (
-                <Search size={24} strokeWidth={2.5} />
+                <Search size={22} strokeWidth={2.5} />
               )}
+            </button>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={onToggleMobileMenu}
+              aria-label="Toggle mobile menu"
+              className="p-2 text-white hover:bg-white/10 rounded transition-colors"
+            >
+              <Menu size={26} strokeWidth={2.5} />
             </button>
           </div>
         </div>

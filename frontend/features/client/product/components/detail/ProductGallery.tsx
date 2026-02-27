@@ -8,16 +8,13 @@ export default function ProductGallery() {
 
   return (
     <div className="flex flex-col gap-4">
-      {/* Main Image */}
-      <div className="w-full aspect-video bg-slate-100 rounded-xl overflow-hidden border border-slate-200 relative">
+      {/* Main Image — object-contain để không bị cắt ảnh sản phẩm */}
+      <div className="w-full aspect-video bg-white rounded-xl overflow-hidden border border-slate-200 relative shadow-sm">
         <img
           src={galleryImages[activeImage].src}
           alt={galleryImages[activeImage].alt}
-          className="absolute inset-0 w-full h-full object-cover transition-all duration-500"
+          className="absolute inset-0 w-full h-full object-contain transition-all duration-500 p-4"
         />
-        <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded text-xs font-medium text-slate-700 shadow-sm">
-          Main View
-        </div>
       </div>
 
       {/* Thumbnails */}
@@ -28,16 +25,16 @@ export default function ProductGallery() {
             onClick={() => setActiveImage(i)}
             aria-label={`Xem ảnh: ${img.alt}`}
             title={img.alt}
-            className={`aspect-square bg-slate-100 rounded-lg overflow-hidden border-2 cursor-pointer transition-colors ${
+            className={`aspect-square bg-white rounded-lg overflow-hidden border-2 cursor-pointer transition-all duration-200 ${
               activeImage === i
-                ? "border-blue-600"
-                : "border-slate-200 hover:border-blue-300"
+                ? "border-naka-blue shadow-md"
+                : "border-slate-200 hover:border-naka-blue/40"
             }`}
           >
             <img
               src={img.src}
               alt={img.alt}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-contain p-2"
             />
           </button>
         ))}

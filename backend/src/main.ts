@@ -72,7 +72,7 @@ async function bootstrap() {
         'http://localhost:3001',
         'https://demobanhtrang.wfourtech.vn',
         'https://miavn9x.id.vn',
-        'https://83xqq1xp-3000.asse.devtunnels.ms',
+        'https://83xqq1xp-3001.asse.devtunnels.ms/',
       ];
 
       // a. Cho phép Non-Browser (Postman, Mobile, Server-to-Server)

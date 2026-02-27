@@ -7,9 +7,9 @@ export default function ProductBreadcrumb() {
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-3">
         <nav
           aria-label="Breadcrumb"
-          className="flex items-center gap-2 text-sm text-slate-500 flex-wrap"
+          className="flex items-center gap-2 text-sm text-slate-500 flex-wrap font-display"
         >
-          <Link href="/" className="hover:text-blue-600 transition-colors">
+          <Link href="/" className="hover:text-naka-blue transition-colors">
             Home
           </Link>
           <span
@@ -20,7 +20,7 @@ export default function ProductBreadcrumb() {
           </span>
           <Link
             href="/product"
-            className="hover:text-blue-600 transition-colors"
+            className="hover:text-naka-blue transition-colors"
           >
             Phần cứng
           </Link>
@@ -32,7 +32,7 @@ export default function ProductBreadcrumb() {
           </span>
           <Link
             href="/product"
-            className="hover:text-blue-600 transition-colors"
+            className="hover:text-naka-blue transition-colors"
           >
             Bộ thu gom cửa
           </Link>
@@ -42,7 +42,7 @@ export default function ProductBreadcrumb() {
           >
             chevron_right
           </span>
-          <span className="text-slate-900 font-medium">
+          <span className="text-naka-blue font-medium">
             Shuttle Closer Collect W - NHT-1052
           </span>
         </nav>

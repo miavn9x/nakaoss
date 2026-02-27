@@ -150,7 +150,10 @@ export default async function ContactFeaturePage() {
               </div>
             </div>
 
-            <div className="lg:w-3/5 p-8 lg:p-12 reveal-on-scroll">
+            <div
+              id="contact-form"
+              className="lg:w-3/5 p-8 lg:p-12 reveal-on-scroll"
+            >
               <form className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <label className="block">

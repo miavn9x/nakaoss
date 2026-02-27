@@ -11,19 +11,36 @@ export const routing = defineRouting({
 
   pathnames: {
     "/": "/",
-    "/tue-quang": {
-      vi: "/thu-vien-tue-quang",
-      cn: "/tue-quang",
-      ja: "/tue-quang",
-      en: "/tue-quang-library",
+    "/product": {
+      vi: "/san-pham-dich-vu",
+      cn: "/product",
+      ja: "/product",
+      en: "/product-service",
     },
-    "/longchen": {
-      vi: "/dong-longchen-nyingthig",
-      cn: "/longchen",
-      ja: "/longchen",
-      en: "/longchen-lineage",
+    "/advantage": {
+      vi: "/loi-the",
+      cn: "/advantage",
+      ja: "/advantage",
+      en: "/advantage",
     },
-
+    "/news": {
+      vi: "/tin-tuc-va-chia-se",
+      cn: "/xin-wen",
+      ja: "/news",
+      en: "/news-sharing",
+    },
+    "/recruitment": {
+      vi: "/tuyen-dung",
+      cn: "/recruit",
+      ja: "/recruitment",
+      en: "/recruitment",
+    },
+    "/document": {
+      vi: "/tai-lieu",
+      cn: "/document",
+      ja: "/document",
+      en: "/document",
+    },
     "/contact": {
       vi: "/lien-he",
       cn: "/lian-xi",
@@ -36,19 +53,18 @@ export const routing = defineRouting({
       ja: "/profile",
       en: "/profile",
     },
-    "/recruitment": {
-      vi: "/tuyen-dung",
-      cn: "/recruit",
-      ja: "/recruitment",
-      en: "/recruitment",
+    "/tue-quang": {
+      vi: "/thu-vien-tue-quang",
+      cn: "/tue-quang",
+      ja: "/tue-quang",
+      en: "/tue-quang-library",
     },
-    "/news": {
-      vi: "/tin-tuc",
-      cn: "/xin-wen",
-      ja: "/news",
-      en: "/news",
+    "/longchen": {
+      vi: "/dong-longchen-nyingthig",
+      cn: "/longchen",
+      ja: "/longchen",
+      en: "/longchen-lineage",
     },
-
     "/jamtul-rinpoche-jamyang-sherab": {
       vi: "/jamtul-rinpoche-jamyang-sherab",
       cn: "/jamtul-rinpoche-jamyang-sherab",

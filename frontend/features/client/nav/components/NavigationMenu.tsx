@@ -60,24 +60,16 @@ const NavigationMenu = ({
 
   // Menu items array
   const menuItems = useMemo(() => {
-    const staticBefore = [{ label: t("home"), href: "/" }];
-
-    // Map categories to menu items
-    const dynamicCategories = categories.map((cat) => ({
-      component: <CategoryNavItem category={cat} />,
-      key: cat.code,
-      label: cat.details.find((d) => d.lang === "vi")?.name || cat.code, // Fallback label for measurement
-    }));
-
-    const staticAfter = [
-      { label: t("news"), href: "/news" },
+    return [
+      { label: t("home"), href: "/" },
+      { label: t("product_service"), href: "/product" },
       { label: t("advantage"), href: "/advantage" },
-      { label: t("contact"), href: "/contact" },
+      { label: t("news"), href: "/news" },
       { label: t("recruitment"), href: "/recruitment" },
+      { label: t("document"), href: "/document" },
+      { label: t("contact"), href: "/contact" },
     ];
-
-    return [...staticBefore, ...dynamicCategories, ...staticAfter];
-  }, [t, categories]);
+  }, [t]);
 
   const measureRef = useRef<HTMLDivElement>(null);
 

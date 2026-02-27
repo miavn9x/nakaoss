@@ -8,7 +8,7 @@ const documents = [
     title: "Bản vẽ CAD Bản lề âm 3D",
     desc: "Bản lề âm điều chỉnh 3 chiều (3D Adjustable Hinge) thế hệ mới, tối ưu hóa khả năng chịu lực và thẩm mỹ.",
     icon: "architecture",
-    type: "DWG",
+    type: "PDF",
     updated: "10/2024",
   },
   {

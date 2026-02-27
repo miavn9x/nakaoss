@@ -1,70 +1,75 @@
 {
   "Navigation": {
     "home": "首页",
+    "product_service": "产品与服务",
     "tue_quang_library": "产品",
     "longchen_lineage": "优势",
     "about": "关于我们",
     "contact": "联系我们",
-    "recruitment": "人才招聘",
-    "news": "新闻动态",
+    "recruitment": "招贤纳士",
+    "news": "新闻与分享",
+    "news_projects": "项目",
+    "news_nakao": "中尾新闻",
+    "document": "文档",
+    "advantage": "优势",
     "language": "语言",
     "mobile_title": "NAKAO VIETNAM",
-    "mobile_subtitle": "日本门配件"
+    "mobile_subtitle": "日本门五金"
   },
   "Auth": {
     "login": "登录",
     "register": "注册",
-    "logout": "登出",
+    "logout": "注销",
     "hello": "你好",
     "profile": "账户信息",
-    "emailLabel": "您的电子邮箱",
-    "emailPlaceholder": "输入您的电子邮箱",
+    "emailLabel": "您的邮箱",
+    "emailPlaceholder": "输入您的邮箱",
     "passwordLabel": "密码",
     "passwordPlaceholder": "输入密码",
     "captchaLabel": "验证码",
     "captchaPlaceholder": "输入验证码",
-    "changeCaptcha": "换一张",
+    "changeCaptcha": "更换验证码",
     "processing": "处理中...",
     "loginSuccess": "登录成功！",
     "registerSuccess": "注册成功！",
-    "locked": "已锁定 ({seconds}秒)",
-    "tooManyAttempts": "尝试次数过多。请等待解锁。",
-    "invalidEmail": "电子邮箱无效。请重新检查。",
-    "requiredEmail": "请输入电子邮箱。",
+    "locked": "暂时锁定（{seconds}秒）",
+    "tooManyAttempts": "尝试失败次数过多。请稍后再试。",
+    "invalidEmail": "邮箱无效，请重新检查。",
+    "requiredEmail": "请输入您的邮箱。",
     "requiredPassword": "请输入密码。",
     "requiredCaptcha": "请输入验证码。",
-    "firstName": "名",
-    "lastName": "姓",
+    "firstName": "名字",
+    "lastName": "姓氏",
     "phoneNumber": "电话号码",
     "address": "地址",
     "confirmPassword": "确认密码",
-    "welcomeBack": "你好，",
+    "welcomeBack": "欢迎回来，",
     "orCreateAccount": " 或 ",
     "createAccount": "创建账户",
     "orLogin": " 或 ",
     "close": "关闭",
-    "onlySupportEmails": "系统仅支持：{domains}",
+    "onlySupportEmails": "系统仅支持以下邮箱：{domains}",
     "invalidLogin": "登录失败。请检查您的信息。",
-    "tooFast": "操作过快。请稍候。",
+    "tooFast": "操作过快，请稍候。",
     "failedToLoadCaptcha": "无法加载验证码。",
-    "nameNoNumbers": "名字不能包含数字。",
-    "nameLettersOnly": "名字只能包含字母和空格。",
+    "nameNoNumbers": "姓名不能包含数字。",
+    "nameLettersOnly": "姓名只能包含字母和空格。",
     "invalidPhoneNumber": "电话号码无效。",
-    "passwordRequirement": "密码必须为8-32位，包含至少1个大写字母 and 1个特殊字符 (!@#$&*)"
+    "passwordRequirement": "密码必须为8-32个字符，包含至少1个大写字母和1个特殊字符（!@#$&*）"
   },
   "Banner": {
-    "title": "用于内容...",
-    "subtitle": "用于内容或横幅图片...",
-    "prevSlide": "上一张",
-    "nextSlide": "下一张",
-    "goToSlide": "转到第 {index} 张"
+    "title": " 内容...",
+    "subtitle": " 内容或图片横幅...",
+    "prevSlide": "上一张幻灯片",
+    "nextSlide": "下一张幻灯片",
+    "goToSlide": "转到幻灯片 {index}"
   },
   "Search": {
     "placeholder": "搜索...",
     "suggestions": "建议",
     "searching": "搜索中...",
     "results": "结果",
-    "noResults": "未找到相关结果。"
+    "noResults": "未找到匹配结果。"
   },
   "Common": {
     "loading": "加载中...",
@@ -81,68 +86,68 @@
     "viewAll": "查看全部"
   },
   "Footer": {
-    "tagline": "打造符合日本品牌标准的网站，提升在越南市场的信誉度",
+    "tagline": "打造日本标准网站，提升在越南市场的信誉",
     "col1_title": "联系信息",
     "col1_address_label": "代表处",
-    "col1_address_value": "越南河内市降武坊金马街519号VIT大厦9层10室",
+    "col1_address_value": "越南河内市讲武坊金马519号VIT大厦9层10室",
     "col1_hotline_label": "热线",
     "col1_hotline_value": "0984.872.828",
-    "col1_email_label": "电子邮箱",
+    "col1_email_label": "电子邮件",
     "col1_email_value": "inquiry_vn@nakaoss.com",
-    "col1_connect": "关注我们",
+    "col1_connect": "连接",
     "col2_title": "产品",
-    "col2_product1": "合页 (Hinges)",
-    "col2_product2": "滑动系统 (Sliding Systems)",
-    "col2_product3": "门挡 (Door Stoppers)",
-    "col2_product4": "门底密封条 (Door Bottom Seals)",
+    "col2_product1": "铰链（Hinges）",
+    "col2_product2": "推拉系统",
+    "col2_product3": "门挡",
+    "col2_product4": "门底密封",
     "col3_title": "关于我们",
-    "col3_company": "中尾越南有限公司",
+    "col3_company": "Nakao Vietnam Co., Ltd",
     "col3_factories_jp": "日本工厂",
     "col3_hq_label": "总部",
-    "col3_hq_name": "株式会社中尾製作所 – NAKAO Seisakusho Co., Ltd.",
-    "col3_factory_unzu": "卯津工厂",
-    "col3_factory_akogi": "阿古木工厂",
+    "col3_hq_name": "株式会社中尾製作所 - NAKAO Seisakusho Co., Ltd.",
+    "col3_factory_unzu": "云出工厂",
+    "col3_factory_akogi": "阿漕工厂",
     "col3_factories_cn": "中国工厂",
-    "col3_factory_shanghai": "上海中尾五金有限公司",
-    "col3_factory_haiyang": "海阳中尾五金有限公司",
-    "copyright": "© 2025 中尾越南有限公司。Design by W Four Tech."
+    "col3_factory_shanghai": "上海中尾金物有限公司",
+    "col3_factory_haiyang": "海阳中尾金物有限公司",
+    "copyright": "© 2025 Nakao Vietnam Co., Ltd. Design by W Four Tech."
   },
   "ConfirmRole": {
-    "invalidLink": "链接无效",
-    "invalidLinkDesc": "验证链接缺少信息或已损坏。",
+    "invalidLink": "无效链接",
+    "invalidLinkDesc": "确认链接缺失信息或已损坏。",
     "backHome": "返回首页",
     "verificationFailed": "验证失败",
     "successMessage": "恭喜！您的权限已更新。",
-    "expiredLink": "链接已过期或无效。",
+    "expiredLink": "该链接已过期或无效。",
     "successTitle": "晋升成功！",
-    "redirecting": "欢迎来到新权限。系统即将跳转...",
-    "goToAdmin": "立即进入管理后台",
+    "redirecting": "欢迎使用新权限。系统将稍后自动重定向...",
+    "goToAdmin": "立即访问管理页面",
     "confirmTitle": "确认晋升",
-    "confirmDesc": "您收到更改账户角色的请求。请确认以应用更改。",
-    "confirmButton": "接受新角色",
-    "cancelButton": "忽略并返回首页",
-    "disclaimer": "如果这不是您的请求，请忽略或联系管理员。"
+    "confirmDesc": "您收到了帐户权限更改请求。请确认以应用此更改。",
+    "confirmButton": "接受新权限",
+    "cancelButton": "跳过并返回首页",
+    "disclaimer": "如果您没有请求此更改，请忽略它或联系管理员。"
   },
   "AdminHeader": {
-    "notification": "{count} 待处理订单",
-    "logout": "登出",
+    "notification": "{count} 个待处理订单",
+    "logout": "注销",
     "language": "语言"
   },
   "Dashboard": {
     "title": "综合仪表板",
-    "subtitle": "数据从系统实时更新",
+    "subtitle": "数据由系统实时更新",
     "refresh": "刷新数据",
-    "posts": "文章",
+    "posts": "帖子",
     "total": "总计",
     "current_total": "当前总数",
-    "posts_desc": "内容文章总数",
-    "welcome_title": "Nakao Vietnam内容管理系统",
-    "welcome_desc": "使用左侧菜单管理文章、横幅和其他内容。"
+    "posts_desc": "内容帖子总数",
+    "welcome_title": "Nakao Vietnam 内容管理系统",
+    "welcome_desc": "使用左侧菜单管理帖子、横幅和其他内容。"
   },
   "DefaultPage": {
     "page_developing": "页面开发中",
-    "feature_developing": "功能正在开发中",
-    "page_in_development_msg": "页面 <bold>{page}</bold> 目前正在开发阶段。",
+    "feature_developing": "功能开发中",
+    "page_in_development_msg": "页面 <bold>{page}</bold> 目前正在开发中。",
     "need_support": "需要开发支持？",
     "contact_dev": "要完成此功能，请联系开发人员：",
     "contact_now": "立即联系",
@@ -150,30 +155,30 @@
   },
   "Profile": {
     "title": "账户信息",
-    "edit_profile": "编辑资料",
-    "account_info": "账户信息",
+    "edit_profile": "编辑信息",
+    "account_info": "帐户信息",
     "personal_info": "个人信息",
-    "member_exclusive_content": "会员专享内容",
+    "member_exclusive_content": "会员专属内容",
     "not_updated": "未更新",
     "role_label": "角色",
     "roles": {
       "user": "会员",
       "admin": "管理员"
     },
-    "click_to_change_avatar": "点击图片更改",
+    "click_to_change_avatar": "点击更改头像",
     "save_changes": "保存更改",
-    "success_message": "资料更新成功！",
-    "error_message": "更新时发生错误！",
+    "success_message": "账户信息已成功更新！",
+    "error_message": "更新信息时出错！",
     "errors": {
-      "max_file_size": "图片大小不得超过 5MB",
-      "invalid_image_type": "请选择有效的图片格式 (JPG, PNG, GIF)"
+      "max_file_size": "图像大小不能超过 5MB",
+      "invalid_image_type": "请选择有效的图像格式（JPG、PNG、GIF）"
     }
   },
   "Users": {
     "title": "会员管理",
-    "subtitle": "系统会员列表 ({count} 个账户)",
+    "subtitle": "系统会员列表（{count} 个账户）",
     "refresh": "刷新",
-    "searchPlaceholder": "按姓名、邮箱或电话号码搜索...",
+    "searchPlaceholder": "按姓名、电子邮件或电话号码搜索...",
     "noUsersFound": "未找到会员。",
     "list": {
       "user": "会员",
@@ -192,15 +197,15 @@
     "roles": {
       "user": {
         "label": "用户 (User)",
-        "description": "基本权限，可以发表评论。"
+        "description": "基本权限，可以评论。"
       },
       "admin": {
         "label": "管理员 (Admin)",
-        "description": "拥有系统的完全管理权限。"
+        "description": "完整的系统管理权限。"
       }
     },
     "cancel": "取消",
     "save": "保存更改",
-    "processing": "正在处理..."
+    "processing": "处理中..."
   }
 }

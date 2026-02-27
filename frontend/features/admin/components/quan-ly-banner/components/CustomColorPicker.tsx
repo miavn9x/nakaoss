@@ -10,7 +10,7 @@ export const CustomColorPicker = ({
   initialColor,
   onChange,
 }: CustomColorPickerProps) => {
-  const t = useTranslations("Banner");
+  const t = useTranslations("AdminBanner");
 
   const DIRECTIONS = [
     { label: t("directions.ltr"), value: "90deg" },

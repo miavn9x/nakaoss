@@ -6,7 +6,7 @@
     "longchen_lineage": "ADVANTAGES",
     "about": "ABOUT US",
     "contact": "CONTACT",
-    "recruitment": "RECRUITMENT",
+    "recruitment": "CAREERS",
     "news": "NEWS & SHARING",
     "news_projects": "PROJECTS",
     "news_nakao": "Nakao News",
@@ -21,61 +21,59 @@
     "register": "Register",
     "logout": "LOGOUT",
     "hello": "Hello",
-    "profile": "Profile",
+    "profile": "Account Profile",
     "emailLabel": "Your Email",
     "emailPlaceholder": "Enter your email",
     "passwordLabel": "Password",
     "passwordPlaceholder": "Enter password",
-    "captchaLabel": "Captcha",
-    "captchaPlaceholder": "Enter captcha",
-    "changeCaptcha": "Refresh",
+    "captchaLabel": "Verification Code",
+    "captchaPlaceholder": "Enter verification code",
+    "changeCaptcha": "Change code",
     "processing": "Processing...",
     "loginSuccess": "Login successful!",
     "registerSuccess": "Registration successful!",
-    "locked": "Locked ({seconds}s)",
-    "tooManyAttempts": "Too many attempts. Please wait to unlock.",
+    "locked": "Temporarily locked ({seconds}s)",
+    "tooManyAttempts": "Too many failed attempts. Please wait.",
     "invalidEmail": "Invalid email. Please check again.",
-    "requiredEmail": "Please enter email.",
-    "requiredPassword": "Please enter password.",
-    "requiredCaptcha": "Please enter captcha.",
+    "requiredEmail": "Please enter your email.",
+    "requiredPassword": "Please enter your password.",
+    "requiredCaptcha": "Please enter the verification code.",
     "firstName": "First Name",
     "lastName": "Last Name",
     "phoneNumber": "Phone Number",
     "address": "Address",
     "confirmPassword": "Confirm Password",
-    "welcomeBack": "Welcome,",
+    "welcomeBack": "Welcome back,",
     "orCreateAccount": " or ",
-    "createAccount": "Create Account",
+    "createAccount": "Create an account",
     "orLogin": " or ",
     "close": "Close",
-    "onlySupportEmails": "System only supports: {domains}",
-    "invalidLogin": "Login failed. Please check your info.",
-    "tooFast": "Access too fast. Please wait.",
-    "failedToLoadCaptcha": "Failed to load captcha.",
-    "nameNoNumbers": "Name cannot contain numbers.",
-    "nameLettersOnly": "Name only contains letters and spaces.",
+    "onlySupportEmails": "The system only supports the following emails: {domains}",
+    "invalidLogin": "Login failed. Please check your information.",
+    "tooFast": "Action too fast. Please wait.",
+    "failedToLoadCaptcha": "Failed to load verification code.",
+    "nameNoNumbers": "Name must not contain numbers.",
+    "nameLettersOnly": "Name must contain only letters and spaces.",
     "invalidPhoneNumber": "Invalid phone number.",
-    "passwordRequirement": "Password must be 8-32 characters, at least 1 uppercase and 1 special character (!@#$&*)"
+    "passwordRequirement": "Password must be 8-32 characters, contain at least 1 uppercase letter and 1 special character (!@#$&*)"
   },
   "Banner": {
-    "title": "for content...",
-    "subtitle": "for content or banner image...",
+    "title": " content ...",
+    "subtitle": " content or image banner...",
     "prevSlide": "Previous slide",
     "nextSlide": "Next slide",
     "goToSlide": "Go to slide {index}"
   },
-
   "Search": {
     "placeholder": "Search...",
     "suggestions": "Suggestions",
-
     "searching": "Searching...",
     "results": "Results",
-    "noResults": "No results found."
+    "noResults": "No matching results found."
   },
   "Common": {
     "loading": "Loading...",
-    "error": "Error",
+    "error": "An error occurred",
     "submit": "Submit",
     "search": "Search",
     "save": "Save",
@@ -85,14 +83,13 @@
     "create": "Create",
     "action": "Action",
     "close": "Close",
-    "viewAll": "View All"
+    "viewAll": "View all"
   },
-
   "Footer": {
-    "tagline": "Building a Japanese brand-standard website to enhance credibility in the Vietnamese market",
+    "tagline": "Building Japanese standard website, increasing credibility in the Vietnamese market",
     "col1_title": "CONTACT INFORMATION",
     "col1_address_label": "Representative Office",
-    "col1_address_value": "Room 10, Floor 9, VIT Building, 519 Kim Ma, Giang Vo Ward, Hanoi, Vietnam",
+    "col1_address_value": "Room 10, 9th Floor, VIT Building, 519 Kim Ma, Giang Vo Ward, Hanoi City, Vietnam",
     "col1_hotline_label": "Hotline",
     "col1_hotline_value": "0984.872.828",
     "col1_email_label": "Email",
@@ -104,10 +101,10 @@
     "col2_product3": "Door Stoppers",
     "col2_product4": "Door Bottom Seals",
     "col3_title": "ABOUT US",
-    "col3_company": "Nakao Vietnam Co., Ltd.",
+    "col3_company": "Nakao Vietnam Co., Ltd",
     "col3_factories_jp": "Factories in Japan",
     "col3_hq_label": "Headquarters",
-    "col3_hq_name": "株式会社中尾製作所 – NAKAO Seisakusho Co., Ltd.",
+    "col3_hq_name": "NAKAO Seisakusho Co., Ltd.",
     "col3_factory_unzu": "Unzu Factory",
     "col3_factory_akogi": "Akogi Factory",
     "col3_factories_cn": "Factories in China",
@@ -115,76 +112,73 @@
     "col3_factory_haiyang": "Haiyang Nakao Hardware Co., Ltd.",
     "copyright": "© 2025 Nakao Vietnam Co., Ltd. Design by W Four Tech."
   },
-
   "ConfirmRole": {
-    "invalidLink": "Invalid Link",
-    "invalidLinkDesc": "The verification link is missing information or broken.",
+    "invalidLink": "Invalid link",
+    "invalidLinkDesc": "The confirmation link is missing information or broken.",
     "backHome": "Back to Home",
     "verificationFailed": "Verification failed",
-    "successMessage": "Congratulations! Your role has been updated.",
-    "expiredLink": "Link expired or invalid.",
-    "successTitle": "Promotion Successful!",
-    "redirecting": "Welcome to your new role. Redirecting in a moment...",
-    "goToAdmin": "Go to Admin Dashboard",
-    "confirmTitle": "Confirm Role Upgrade",
-    "confirmDesc": "You received a request to change your account role. Please confirm to apply this change.",
-    "confirmButton": "Accept New Role",
-    "cancelButton": "Ignore and Home",
-    "disclaimer": "If you did not request this, please ignore or contact admin."
+    "successMessage": "Congratulations! Your privileges have been updated.",
+    "expiredLink": "The link has expired or is invalid.",
+    "successTitle": "Promotion successful!",
+    "redirecting": "Welcome to your new privileges. The system will automatically redirect shortly...",
+    "goToAdmin": "Go to admin page now",
+    "confirmTitle": "Confirm Promotion",
+    "confirmDesc": "You have received an account privilege change request. Please confirm to apply this change.",
+    "confirmButton": "Accept New Rights",
+    "cancelButton": "Skip and Go Home",
+    "disclaimer": "If you didn't request this change, ignore it or contact the administrator."
   },
   "AdminHeader": {
     "notification": "{count} pending orders",
     "logout": "Logout",
     "language": "Language"
   },
-
   "Dashboard": {
     "title": "General Dashboard",
-    "subtitle": "Data is updated in real-time from the system",
-    "refresh": "Refresh data",
+    "subtitle": "Data is updated in real time from the system",
+    "refresh": "Refresh Data",
     "posts": "Posts",
     "total": "Total",
     "current_total": "Current Total",
-    "posts_desc": "Total number of content posts",
+    "posts_desc": "Total content posts",
     "welcome_title": "Nakao Vietnam Content Management System",
     "welcome_desc": "Use the left menu to manage posts, banners, and other content."
   },
   "DefaultPage": {
-    "page_developing": "Page under development",
-    "feature_developing": "Feature is being developed",
-    "page_in_development_msg": "Page <bold>{page}</bold> is currently in development.",
+    "page_developing": "Page in development",
+    "feature_developing": "Feature in development",
+    "page_in_development_msg": "The page <bold>{page}</bold> is currently in development.",
     "need_support": "Need development support?",
     "contact_dev": "To complete this feature, please contact the developer:",
     "contact_now": "Contact Now",
     "get_quote": "Get Quote"
   },
-
   "Profile": {
     "title": "Account Profile",
-    "edit_profile": "Edit Information",
-    "account_info": "Account Info",
-    "personal_info": "Personal Info",
+    "edit_profile": "Edit Profile",
+    "account_info": "Account Information",
+    "personal_info": "Personal Information",
     "member_exclusive_content": "Member Exclusive Content",
     "not_updated": "Not updated",
     "role_label": "Role",
     "roles": {
       "user": "Member",
-      "admin": "Admin"
+      "admin": "Administrator"
     },
-    "click_to_change_avatar": "Click on image to change",
-    "save_changes": "Save Changes",
+    "click_to_change_avatar": "Click to change avatar",
+    "save_changes": "Save changes",
     "success_message": "Profile updated successfully!",
     "error_message": "An error occurred while updating!",
     "errors": {
-      "max_file_size": "Image size must not exceed 5MB",
+      "max_file_size": "Image size cannot exceed 5MB",
       "invalid_image_type": "Please select a valid image format (JPG, PNG, GIF)"
     }
   },
   "Users": {
     "title": "Member Management",
-    "subtitle": "System member list ({count} accounts)",
+    "subtitle": "System members list ({count} accounts)",
     "refresh": "Refresh",
-    "searchPlaceholder": "Search by name, email or phone number...",
+    "searchPlaceholder": "Search by name, email, or phone number...",
     "noUsersFound": "No members found.",
     "list": {
       "user": "Member",
@@ -194,24 +188,24 @@
       "id": "ID"
     },
     "roles": {
-      "admin": "Admin",
+      "admin": "Administrator",
       "user": "Member"
     }
   },
   "EditRoleModal": {
-    "title": "Update Role",
+    "title": "Update Privileges",
     "roles": {
       "user": {
         "label": "User",
-        "description": "Basic access, can comment."
+        "description": "Basic privileges, can comment."
       },
       "admin": {
         "label": "Administrator",
-        "description": "Full system access."
+        "description": "Full system management privileges."
       }
     },
     "cancel": "Cancel",
-    "save": "Save Changes",
+    "save": "Save changes",
     "processing": "Processing..."
   }
 }

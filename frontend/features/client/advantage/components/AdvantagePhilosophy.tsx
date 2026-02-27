@@ -8,10 +8,10 @@ export default function AdvantagePhilosophy() {
           <div className="inline-block border border-naka-blue px-4 py-1 text-naka-blue text-xs font-bold tracking-widest uppercase bg-white">
             Triết lý Nakao
           </div>
-          <h3 className="text-2xl md:text-4xl font-serif font-bold uppercase text-naka-blue">
+          <h2 className="text-2xl md:text-4xl font-serif font-bold uppercase text-naka-blue leading-[1.3]">
             Công nghệ chính xác &amp; Vận hành êm ái
-          </h3>
-          <div className="space-y-4 text-gray-700 text-sm md:text-base">
+          </h2>
+          <div className="space-y-4 text-slate-700 text-sm md:text-base font-light text-justify leading-relaxed">
             <p>
               Hệ thống ray trượt cao cấp giúp triệt tiêu tiếng ồn, mang lại
               không gian sống tĩnh tại tuyệt đối.
@@ -20,32 +20,6 @@ export default function AdvantagePhilosophy() {
               Phụ kiện NAKAO hòa mình vào cánh cửa, tôn vinh vẻ đẹp của nội thất
               mà không phô trương.
             </p>
-          </div>
-          <div className="grid grid-cols-3 gap-2 md:gap-8 py-6 border-t border-naka-blue/20">
-            <div className="text-center md:text-left">
-              <div className="text-xl md:text-2xl font-bold text-naka-blue">
-                0.1mm
-              </div>
-              <div className="text-[9px] md:text-[10px] uppercase font-bold text-gray-500 tracking-wider">
-                Sai số cho phép
-              </div>
-            </div>
-            <div className="text-center md:text-left">
-              <div className="text-xl md:text-2xl font-bold text-naka-blue">
-                200K
-              </div>
-              <div className="text-[9px] md:text-[10px] uppercase font-bold text-gray-500 tracking-wider">
-                Chu kỳ đóng mở
-              </div>
-            </div>
-            <div className="text-center md:text-left">
-              <div className="text-xl md:text-2xl font-bold text-naka-blue">
-                -45dB
-              </div>
-              <div className="text-[9px] md:text-[10px] uppercase font-bold text-gray-500 tracking-wider">
-                Khả năng cách âm
-              </div>
-            </div>
           </div>
         </div>
         <div className="relative group order-1 md:order-2">

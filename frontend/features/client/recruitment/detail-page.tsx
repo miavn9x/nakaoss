@@ -27,7 +27,7 @@ export default function RecruitmentDetailFeaturePage() {
                 Toàn thời gian
               </span>
             </div>
-            <h1 className="text-[#0f172a] text-4xl md:text-5xl font-black leading-tight tracking-tight">
+            <h1 className="text-naka-blue text-3xl md:text-4xl font-black leading-[1.3] tracking-tight font-serif uppercase">
               Kỹ sư Tư vấn Giải pháp Phụ kiện Cửa
             </h1>
             <div className="flex flex-wrap items-center gap-y-2 gap-x-6 text-slate-500 text-sm font-medium">
@@ -56,7 +56,7 @@ export default function RecruitmentDetailFeaturePage() {
 
           <article className="prose prose-slate max-w-none">
             <section>
-              <h2 className="text-2xl font-bold text-[#0f172a] mb-4 border-l-4 border-[#1152d4] pl-4">
+              <h2 className="text-xl md:text-2xl font-bold text-naka-blue mb-6 border-l-4 border-naka-blue pl-4 font-serif leading-relaxed">
                 Về Nakao Việt Nam và Tầm nhìn 100 năm
               </h2>
               <p className="text-slate-700 leading-relaxed mb-4">
@@ -74,7 +74,7 @@ export default function RecruitmentDetailFeaturePage() {
             </section>
 
             <section className="mt-12">
-              <h2 className="text-2xl font-bold text-[#0f172a] mb-6">
+              <h2 className="text-xl md:text-2xl font-bold text-naka-blue mb-6 font-serif leading-relaxed">
                 Mô tả công việc chi tiết
               </h2>
               <ul className="space-y-4 text-slate-700 list-none p-0">
@@ -110,7 +110,7 @@ export default function RecruitmentDetailFeaturePage() {
             </section>
 
             <section className="mt-12">
-              <h2 className="text-2xl font-bold text-[#0f172a] mb-6">
+              <h2 className="text-xl md:text-2xl font-bold text-naka-blue mb-6 font-serif leading-relaxed">
                 Yêu cầu ứng viên
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -145,7 +145,7 @@ export default function RecruitmentDetailFeaturePage() {
             </section>
 
             <section className="mt-12">
-              <h2 className="text-2xl font-bold text-[#0f172a] mb-6">
+              <h2 className="text-xl md:text-2xl font-bold text-naka-blue mb-6 font-serif leading-relaxed">
                 Quyền lợi & Chế độ đãi ngộ
               </h2>
               <div className="flex flex-wrap gap-4">

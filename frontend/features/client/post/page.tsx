@@ -81,18 +81,32 @@ export default function PostFeaturePage() {
 
   return (
     <div className="relative flex h-auto min-h-screen w-full flex-col bg-white group/design-root overflow-x-hidden">
-      <main className="flex-1 w-full max-w-[1400px] mx-auto px-6 lg:px-12 py-12 lg:py-16 reveal-on-scroll">
-        <div className="flex flex-col gap-2 mb-10 text-center">
-          <h1 className="text-naka-blue text-3xl lg:text-4xl font-bold font-serif tracking-tight leading-tight uppercase">
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
+            .post-hero-bg {
+              background-image: linear-gradient(rgba(19, 23, 31, 0.7), rgba(29, 59, 119, 0.6)), url('https://lh3.googleusercontent.com/aida-public/AB6AXuDZ3duGqViKmYqjFCdom8m89XAb6Wc9mp3xxe3RDkUMTKlTW_fwgu61abevHA9owz_HlhCAEFHUQUJuSDgPaD81FNJ7K_rTKIb9ztL3WRSRZLIrknUQTFgdz3VlPzDyKmamYdOuxgIsJsNA87m93lzQxy73kJtfuJrkCzlKQauR3PN5o0rx-iWdd4uweRAp-VS5j2Vu8mpz-KQ_viopap81Cv5EG29KBx_empYTAxOpkUiRwxAyF5TwxMh2KouIYsY336RGcH6TrHBt');
+              background-size: cover;
+              background-position: center;
+            }
+          `,
+        }}
+      />
+
+      {/* Banner Section */}
+      <div className="relative w-full h-[350px] md:h-[450px] flex items-center justify-center overflow-hidden post-hero-bg">
+        <div className="w-full max-w-[1400px] mx-auto px-6 lg:px-12 text-center relative z-10 reveal-on-scroll">
+          <h1 className="text-white text-3xl md:text-5xl lg:text-6xl font-serif font-black mb-6 tracking-tight uppercase leading-[1.3]">
             Tin tức & Sự kiện
           </h1>
-          <div className="w-12 h-1 bg-naka-blue/20 mx-auto my-4"></div>
-          <p className="text-slate-600/80 text-sm max-w-lg mx-auto font-display font-light">
+          <p className="text-slate-200 text-base md:text-xl font-display font-light max-w-2xl mx-auto leading-relaxed">
             Thông tin chính thức về hoạt động kinh doanh, sự kiện doanh nghiệp
             và các dự án tiêu biểu của Nakao Việt Nam.
           </p>
         </div>
+      </div>
 
+      <main className="flex-1 w-full max-w-[1400px] mx-auto px-6 lg:px-12 py-12 lg:py-16 reveal-on-scroll">
         <CategoryFilter
           categories={CATEGORIES}
           activeCategory={activeCategory}

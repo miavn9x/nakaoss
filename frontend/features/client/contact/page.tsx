@@ -89,7 +89,7 @@ export default async function ContactFeaturePage() {
           </div>
         </div>
         <div className="grow w-full max-w-[1400px] mx-auto px-6 lg:px-12 -mt-16 mb-20 relative z-20">
-          <div className="bg-white rounded-xl shadow-xl overflow-hidden flex flex-col lg:flex-row">
+          <div className="bg-white rounded-tl-[100px] rounded-br-[100px] rounded-tr-none rounded-bl-none shadow-2xl overflow-hidden flex flex-col lg:flex-row border border-slate-100">
             <div className="lg:w-2/5 bg-slate-50 p-8 lg:p-12 border-r border-slate-100 reveal-on-scroll">
               <div className="mb-10">
                 <h3 className="text-2xl font-bold font-serif text-naka-blue mb-2">
@@ -239,7 +239,7 @@ export default async function ContactFeaturePage() {
 
                 <div className="pt-4">
                   <button
-                    className="w-full bg-naka-blue hover:bg-naka-blue/90 text-white font-bold font-display py-4 px-8 rounded-lg transition-colors shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group cursor-pointer"
+                    className="w-full bg-naka-blue hover:bg-naka-blue/90 text-white font-bold font-display py-4 px-8 rounded-tl-2xl rounded-br-2xl rounded-tr-none rounded-bl-none transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group cursor-pointer"
                     type="button"
                   >
                     <span>GỬI THÔNG TIN - NAKAO SẼ LIÊN HỆ NGAY</span>
@@ -269,8 +269,9 @@ export default async function ContactFeaturePage() {
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
-              <div className="lg:col-span-7 bg-white p-10 rounded-none border-l-4 border-naka-blue shadow-[0_10px_40px_-15px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_-15px_rgba(0,0,0,0.1)] transition-all duration-300 group hover:-translate-y-1 cursor-default reveal-on-scroll">
-                <div className="flex flex-col h-full justify-between">
+              <div className="lg:col-span-7 bg-white p-10 rounded-bl-[60px] border-l-4 border-naka-blue shadow-[0_10px_40px_-15px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_-15px_rgba(0,0,0,0.1)] transition-all duration-300 group hover:-translate-y-1 cursor-default relative overflow-hidden reveal-on-scroll">
+                <div className="absolute top-0 right-0 w-24 h-24 bg-naka-blue/5 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-150 duration-500 ease-out"></div>
+                <div className="relative z-10 flex flex-col h-full justify-between">
                   <div className="flex justify-between items-start mb-8">
                     <div className="p-3 bg-slate-50 rounded-lg group-hover:bg-naka-blue/5 transition-colors">
                       <PenTool
@@ -292,13 +293,13 @@ export default async function ContactFeaturePage() {
                       thi công tối ưu nhất cho từng hạng mục công trình.
                     </p>
                   </div>
-                  <div className="mt-8 pt-6 border-t border-slate-100 flex items-center text-naka-blue text-sm font-bold font-display tracking-wide uppercase opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-2 group-hover:translate-y-0">
+                  {/* <div className="mt-8 pt-6 border-t border-slate-100 flex items-center text-naka-blue text-sm font-bold font-display tracking-wide uppercase opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-2 group-hover:translate-y-0">
                     Chi tiết dịch vụ <ArrowUpRight className="w-4 h-4 ml-1" />
-                  </div>
+                  </div> */}
                 </div>
               </div>
 
-              <div className="lg:col-span-5 bg-white p-10 rounded-none shadow-[0_10px_40px_-15px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_-15px_rgba(0,0,0,0.1)] transition-all duration-300 group hover:-translate-y-1 cursor-default relative overflow-hidden reveal-on-scroll">
+              <div className="lg:col-span-5 bg-white p-10 rounded-br-[60px] border-r-4 border-naka-blue shadow-[0_10px_40px_-15px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_-15px_rgba(0,0,0,0.1)] transition-all duration-300 group hover:-translate-y-1 cursor-default relative overflow-hidden reveal-on-scroll">
                 <div className="absolute top-0 right-0 w-24 h-24 bg-naka-blue/5 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-150 duration-500 ease-out"></div>
                 <div className="relative z-10 flex flex-col h-full">
                   <div className="flex justify-between items-start mb-6">
@@ -323,7 +324,7 @@ export default async function ContactFeaturePage() {
                 </div>
               </div>
 
-              <div className="lg:col-span-12 bg-naka-blue text-white p-10 rounded-none shadow-lg relative overflow-hidden group reveal-on-scroll">
+              <div className="lg:col-span-12 bg-naka-blue text-white p-10 rounded-bl-[60px] rounded-br-[60px] border-l-4 border-r-4 border-white shadow-lg relative overflow-hidden group reveal-on-scroll">
                 <div className="absolute inset-0 opacity-10 pointer-events-none contact-pattern-bg"></div>
                 <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
                   <div className="flex-1">
@@ -344,11 +345,11 @@ export default async function ContactFeaturePage() {
                       yêu cầu kỹ thuật.
                     </p>
                   </div>
-                  <div className="shrink-0">
+                  {/* <div className="shrink-0">
                     <div className="w-16 h-16 rounded-full border border-white/20 flex items-center justify-center bg-white/10 group-hover:bg-white group-hover:text-naka-blue transition-all duration-300 cursor-pointer">
                       <ArrowRight className="w-8 h-8" />
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>

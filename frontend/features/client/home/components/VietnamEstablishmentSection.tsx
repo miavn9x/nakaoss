@@ -15,11 +15,12 @@ export default function VietnamEstablishmentSection() {
               Thành lập mới
             </span>
           </div>
-          <h2 className="text-4xl md:text-6xl font-serif font-bold mb-6 leading-tight">
-            Nakao Việt Nam
+          <h2 className="text-4xl md:text-6xl font-serif font-bold mb-6 leading-tight uppercase flex flex-col">
+            <span className="text-left">NAKAO</span>
+            <span className="text-right mt-1 md:mt-2">VIỆT NAM</span>
           </h2>
           <p className="text-white/80 text-lg font-display font-light leading-relaxed mb-8 max-w-xl text-justify">
-            Ngày 20/06/2025 đánh dấu sự ra đời chính thức của Nakao Việt Nam.
+            Ngày 20/06/2025 đánh dấu sự ra đời chính thức của NAKAO VIỆT NAM.
             Đây là cột mốc chiến lược quan trọng, khẳng định cam kết lâu dài và
             sự hiện diện vững chắc của chúng tôi tại thị trường Đông Nam Á đầy
             tiềm năng.

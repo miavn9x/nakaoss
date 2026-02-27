@@ -18,10 +18,10 @@ export default function AdvantageVideoLibrary({
     <section className="space-y-8 md:space-y-12">
       <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-gray-200 pb-6 md:pb-8 reveal-on-scroll">
         <div className="text-center md:text-left">
-          <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-tight text-naka-blue">
+          <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-tight text-naka-blue font-serif leading-tight">
             Thư viện Video Kỹ thuật
-          </h3>
-          <p className="text-gray-500 mt-2 text-sm md:text-base">
+          </h2>
+          <p className="text-slate-500 mt-2 text-sm md:text-base font-light">
             Dữ liệu thực nghiệm &amp; Chứng nhận chất lượng tiêu chuẩn quốc tế
           </p>
         </div>
@@ -57,10 +57,10 @@ export default function AdvantageVideoLibrary({
               </div>
             </div>
           </div>
-          <h4 className="text-xl font-bold mb-3 uppercase text-naka-blue">
+          <h3 className="text-xl font-bold mb-3 uppercase text-naka-blue font-serif leading-tight">
             Hệ thống đóng kín khí Air Tight
-          </h4>
-          <p className="text-gray-600 text-sm leading-relaxed mb-6">
+          </h3>
+          <p className="text-slate-600 text-sm leading-relaxed mb-6 text-justify font-light">
             Giải pháp tối ưu giúp cố định form cửa, tăng cường khả năng chống
             ồn, ngăn bụi và cản gió lùa, giữ cho không gian luôn kín khít và an
             toàn. Tối ưu hóa hiệu quả cho các hệ cửa lùa hiện đại.
@@ -89,10 +89,10 @@ export default function AdvantageVideoLibrary({
               </div>
             </div>
           </div>
-          <h4 className="text-xl font-bold mb-3 uppercase text-naka-blue">
+          <h3 className="text-xl font-bold mb-3 uppercase text-naka-blue font-serif leading-tight">
             Bản lề âm 3D thông minh
-          </h4>
-          <p className="text-gray-600 text-sm leading-relaxed mb-6">
+          </h3>
+          <p className="text-slate-600 text-sm leading-relaxed mb-6 text-justify font-light">
             Thiết kế chắc chắn, linh hoạt, là giải pháp hoàn hảo cho các công
             trình cao cấp đòi hỏi tính thẩm mỹ vô khuyết và khả năng vận hành
             trơn tru, duy trì tuổi thọ lâu dài.
@@ -121,10 +121,10 @@ export default function AdvantageVideoLibrary({
               </div>
             </div>
           </div>
-          <h4 className="text-xl font-bold mb-3 uppercase text-naka-blue">
+          <h3 className="text-xl font-bold mb-3 uppercase text-naka-blue font-serif leading-tight">
             Ray trượt siêu êm (Soft-Close)
-          </h4>
-          <p className="text-gray-600 text-sm leading-relaxed mb-6">
+          </h3>
+          <p className="text-slate-600 text-sm leading-relaxed mb-6 text-justify font-light">
             Hệ thống ray trượt siêu êm, chịu tải trọng tốt, đảm bảo chuyển động
             mượt mà, không rung lắc và đặc biệt bền bỉ cho các hệ cửa lùa, cửa
             trượt.
@@ -153,10 +153,10 @@ export default function AdvantageVideoLibrary({
               </div>
             </div>
           </div>
-          <h4 className="text-xl font-bold mb-3 uppercase text-naka-blue">
+          <h3 className="text-xl font-bold mb-3 uppercase text-naka-blue font-serif leading-tight">
             CHẾ TÁC CHÍNH XÁC &amp; ĐỘ BỀN CAO
-          </h4>
-          <p className="text-gray-600 text-sm leading-relaxed mb-6">
+          </h3>
+          <p className="text-slate-600 text-sm leading-relaxed mb-6 text-justify font-light">
             Sản phẩm được chế tác với dung sai cực nhỏ, đảm bảo sự vận hành trơn
             tru và tuổi thọ lên tới hàng trăm ngàn chu kỳ đóng mở theo tinh thần
             Monozukuri Nhật Bản.

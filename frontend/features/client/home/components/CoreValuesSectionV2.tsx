@@ -11,8 +11,8 @@ export default function CoreValuesSectionV2() {
           <span className="text-naka-blue text-[10px] font-bold tracking-[0.4em] uppercase mb-4 block">
             Giá trị của chúng tôi
           </span>
-          <h2 className="text-4xl md:text-5xl font-serif text-naka-blue">
-            Giá trị Cốt lõi
+          <h2 className="text-4xl md:text-5xl font-serif text-naka-blue uppercase">
+            GIÁ TRỊ CỐT LÕI
           </h2>
         </div>
 

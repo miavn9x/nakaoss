@@ -8,22 +8,12 @@ export default function AdvantageHero({ onPlay }: AdvantageHeroProps) {
   const HERO_VIDEO_URL = "https://youtu.be/N24NjVfReCc";
   return (
     <section className="space-y-6 md:space-y-8 reveal-on-scroll is-visible text-center md:text-left">
-      <div className="flex items-center justify-center md:justify-start gap-4">
+      <div className="flex items-center justify-center gap-4">
         <span className="w-8 md:w-12 h-[2px] bg-naka-blue"></span>
         <span className="text-naka-blue font-bold tracking-widest text-xs md:text-sm uppercase">
-          Kỹ thuật &amp; Sáng tạo Nhật Bản
+          Thước phim thực tế
         </span>
-        <span className="w-8 md:w-0 h-[2px] bg-naka-blue md:hidden"></span>
-      </div>
-      <div className="max-w-4xl mx-auto md:mx-0">
-        <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif font-bold leading-[1.1] tracking-tight text-naka-blue uppercase">
-          LỢI THẾ ĐỘC QUYỀN <br className="hidden md:block" />
-          <span className="text-naka-blue">&amp; CÔNG NGHỆ NAKAO</span>
-        </h2>
-        <p className="mt-4 md:mt-6 text-base md:text-xl text-gray-600 max-w-2xl mx-auto md:mx-0 leading-relaxed">
-          Khám phá sự tinh hoa trong từng chi tiết kỹ thuật và vận hành từ Nhật
-          Bản qua những thước phim minh chứng chân thực.
-        </p>
+        <span className="w-8 md:w-12 h-[2px] bg-naka-blue"></span>
       </div>
       <div className="relative group mt-8 md:mt-12 overflow-hidden rounded-lg shadow-sm hover:shadow-xl transition-shadow duration-500">
         <div className="aspect-video w-full relative bg-slate-200">

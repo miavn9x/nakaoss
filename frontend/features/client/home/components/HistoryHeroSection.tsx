@@ -88,15 +88,15 @@ export default function HistoryHeroSection() {
             </div>
 
             {/* Circular Rotating Badge */}
-            <div className="absolute left-[20%] md:left-[35%] top-[25%] md:top-[20%] w-24 h-24 md:w-32 md:h-32 border border-naka-blue/20 rounded-full z-0 animate-[spin_10s_linear_infinite]">
-              <svg className="w-full h-full p-2 md:p-2" viewBox="0 0 100 100">
+            <div className="absolute left-[15%] md:left-[28%] top-[20%] md:top-[12%] w-28 h-28 md:w-44 md:h-44 border border-naka-blue/10 rounded-full z-0 animate-[spin_12s_linear_infinite]">
+              <svg className="w-full h-full p-2 md:p-3" viewBox="0 0 100 100">
                 <path
-                  d="M 20, 50 a 30,30 0 1,1 60,0 a 30,30 0 1,1 -60,0"
+                  d="M 10, 50 a 40,40 0 1,1 80,0 a 40,40 0 1,1 -80,0"
                   fill="transparent"
                   id="curve"
                 ></path>
                 <text
-                  className="text-[8px] md:text-[10px] uppercase font-display tracking-[0.25em] fill-naka-blue"
+                  className="text-[12px] md:text-[12px] uppercase font-display tracking-[0.2em] fill-naka-blue/60"
                   width="500"
                 >
                   <textPath href="#curve">

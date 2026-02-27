@@ -32,7 +32,7 @@ export default function NewsAndDocsSection() {
             <div className="w-full md:w-1/2 aspect-square md:aspect-auto relative overflow-hidden">
               <Image
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZSC05N40EedTTceSJ97TCnt0LnR-t6JYwEXJclaDo7M-GS33zjf0SPDAxbfTaZkz-akhu2ss89sZsZtR2EZOhHBL78dVHzFl6q4_p7XTZY1usvwYwpglQ1ITjc0OxJsOvtlsl4K_i2K6Gwo5TapTLYYFXqERgu-LzDIU4Jec364KUYN0O9SH0LYWDVseQmUC6Gi6Q3fWwgmqctT7NQ1NAa_ldrkNqcbIjnaD-UylooMFTzAqIB0lIginQW2g9SEPKYmDsPNFtPm9E"
-                alt="Thành lập Nakao Việt Nam"
+                alt="Thành lập NAKAO VIỆT NAM"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-500 grayscale group-hover:grayscale-0"
               />
@@ -44,8 +44,8 @@ export default function NewsAndDocsSection() {
               <span className="text-xs text-naka-blue font-display font-medium block mb-3">
                 20 Tháng 06, 2025
               </span>
-              <h3 className="text-2xl font-serif text-naka-blue mb-4 group-hover:text-naka-blue transition-colors">
-                Thành lập Nakao Việt Nam
+              <h3 className="text-2xl font-serif text-naka-blue mb-4 group-hover:text-naka-blue transition-colors uppercase">
+                Thành lập NAKAO VIỆT NAM
               </h3>
               <p className="text-slate-500 font-display font-light text-sm leading-relaxed mb-6 line-clamp-4 text-justify">
                 Đánh dấu sự hiện diện chính thức của Nakao Seisakusho tại thị

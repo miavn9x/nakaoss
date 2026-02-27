@@ -7,6 +7,14 @@ import TechnicalDetailsSection from "./components/TechnicalDetailsSection";
 
 export default function ProductFeaturePage() {
   const [activeCategory, setActiveCategory] = useState("truot");
+  const [activeSubCategory, setActiveSubCategory] = useState<string | null>(
+    null,
+  );
+
+  const handleCategoryChange = (id: string) => {
+    setActiveCategory(id);
+    setActiveSubCategory(null);
+  };
 
   return (
     <div className="bg-white text-slate-900 font-display antialiased">
@@ -30,9 +38,14 @@ export default function ProductFeaturePage() {
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 ">
           <CategorySection
             activeCategory={activeCategory}
-            setActiveCategory={setActiveCategory}
+            setActiveCategory={handleCategoryChange}
+            activeSubCategory={activeSubCategory}
+            setActiveSubCategory={setActiveSubCategory}
           />
-          <TechnicalDetailsSection activeCategory={activeCategory} />
+          <TechnicalDetailsSection
+            activeCategory={activeCategory}
+            activeSubCategory={activeSubCategory}
+          />
         </div>
       </main>
     </div>

@@ -24,8 +24,14 @@ export default function HeroSection() {
           <div className="flex items-center justify-center gap-4">
             <div className="h-px w-16 bg-white opacity-60 hidden md:block"></div>
             <p className="text-slate-200 text-lg sm:text-xl font-display font-light max-w-2xl mx-auto leading-relaxed tracking-wide">
-              Giải pháp linh kiện kiến trúc kỹ thuật cao - Hình ảnh chuẩn xác
-              100%
+              Giải pháp các sản phẩm cần thiết để lắp đặt{" "}
+              <strong className="text-white font-medium">cửa trượt</strong>,{" "}
+              <strong className="text-white font-medium">cửa xếp</strong> và{" "}
+              <strong className="text-white font-medium">cửa bản lề</strong>{" "}
+              theo từng kiểu cửa{" "}
+              <strong className="text-white font-bold tracking-wider">
+                Nakao Nhật Bản
+              </strong>
             </p>
             <div className="h-px w-16 bg-white opacity-60 hidden md:block"></div>
           </div>

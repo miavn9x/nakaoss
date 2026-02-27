@@ -1,9 +1,13 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import HeroSection from "./components/HeroSection";
 import CategorySection from "./components/CategorySection";
 import TechnicalDetailsSection from "./components/TechnicalDetailsSection";
 
 export default function ProductFeaturePage() {
+  const [activeCategory, setActiveCategory] = useState("truot");
+
   return (
     <div className="bg-white text-slate-900 font-display antialiased">
       <style
@@ -21,11 +25,14 @@ export default function ProductFeaturePage() {
           `,
         }}
       />
-      <main >
+      <main>
         <HeroSection />
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 ">
-          <CategorySection />
-          <TechnicalDetailsSection />
+          <CategorySection
+            activeCategory={activeCategory}
+            setActiveCategory={setActiveCategory}
+          />
+          <TechnicalDetailsSection activeCategory={activeCategory} />
         </div>
       </main>
     </div>

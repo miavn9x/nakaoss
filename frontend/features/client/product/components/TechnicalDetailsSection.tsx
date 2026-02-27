@@ -1,6 +1,15 @@
-import React from "react";
+import { CATEGORIES } from "./CategorySection";
 
-export default function TechnicalDetailsSection() {
+interface TechnicalDetailsSectionProps {
+  activeCategory: string;
+}
+
+export default function TechnicalDetailsSection({
+  activeCategory,
+}: TechnicalDetailsSectionProps) {
+  const activeCategoryName =
+    CATEGORIES.find((cat) => cat.id === activeCategory)?.name || "......";
+
   return (
     <section className="mt-24">
       <div className="flex items-center justify-between mb-10 border-b border-gray-100 pb-4">
@@ -8,7 +17,7 @@ export default function TechnicalDetailsSection() {
           <span className="material-symbols-outlined text-3xl">
             precision_manufacturing
           </span>
-          Sản phẩm danh mục ......
+          Sản phẩm danh mục {activeCategoryName}
         </h3>
         <div className="hidden md:flex gap-2">
           <button className="p-2 rounded-[4px] bg-naka-blue text-white hover:bg-[#152c5b] shadow-sm">

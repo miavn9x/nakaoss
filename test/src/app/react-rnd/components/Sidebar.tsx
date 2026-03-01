@@ -10,6 +10,7 @@ interface SidebarProps {
   setBannerBg: (bg: BannerBg) => void;
   device: DeviceType;
   resetElementRatio?: (id: string, device: DeviceType) => void;
+  onReset?: () => void;
 }
 
 export const Sidebar: React.FC<SidebarProps> = ({
@@ -20,6 +21,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   setBannerBg,
   device,
   resetElementRatio,
+  onReset,
 }) => {
   const pendingUpdatesRef = useRef<Partial<BannerElement>>({});
   const lastUpdateRef = useRef(0);
@@ -57,8 +59,12 @@ export const Sidebar: React.FC<SidebarProps> = ({
         <div className="space-y-4 pt-4 border-t">
           <button
             onClick={() => {
-              setBannerBg({ type: "color", value: "#ffffff" });
-              setBannerHeight(300);
+              if (onReset) {
+                onReset();
+              } else {
+                setBannerBg({ type: "color", value: "#ffffff" });
+                setBannerHeight(300);
+              }
             }}
             className="w-full py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm font-medium rounded-lg transition-colors border border-slate-200 flex items-center justify-center gap-2"
           >

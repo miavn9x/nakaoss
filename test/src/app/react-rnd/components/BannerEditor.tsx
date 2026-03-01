@@ -81,9 +81,9 @@ export default function BannerEditor() {
         id: newId,
         type: "text",
         bounds: {
-          desktop: { leftPct: 30, topPct: 40, widthPct: 40, heightPct: 15 },
-          ipad: { leftPct: 30, topPct: 40, widthPct: 40, heightPct: 15 },
-          mobile: { leftPct: 10, topPct: 40, widthPct: 80, heightPct: 15 },
+          desktop: { leftPct: 0, topPct: 0, widthPct: 40, heightPct: 15 },
+          ipad: { leftPct: 0, topPct: 0, widthPct: 40, heightPct: 15 },
+          mobile: { leftPct: 0, topPct: 0, widthPct: 80, heightPct: 15 },
         },
         text: "Nhấp đúp để nhập văn bản...",
         color: "#ffffff",
@@ -188,7 +188,7 @@ export default function BannerEditor() {
 
       bounds[d] = {
         leftPct: 0,
-        topPct: (100 - initialHeightPct) / 2,
+        topPct: 0,
         widthPct: 100,
         heightPct: initialHeightPct,
       };
@@ -243,6 +243,19 @@ export default function BannerEditor() {
   const deleteElement = useCallback((id: string) => {
     setElements((prev) => prev.filter((el) => el.id !== id));
     setSelectedId((prev) => (prev === id ? null : prev));
+  }, []);
+
+  const handleReset = useCallback(() => {
+    if (
+      confirm(
+        "Sẽ xóa toàn bộ nội dung và thông số nền về mặc định. Chắc chắn chứ?",
+      )
+    ) {
+      setElements([]);
+      setBannerHeights({ desktop: 300, ipad: 300, mobile: 300 });
+      setBannerBg({ type: "color", value: "#ffffff" });
+      setSelectedId(null);
+    }
   }, []);
 
   const resetElementRatio = useCallback(
@@ -618,6 +631,7 @@ export default function BannerEditor() {
           setBannerBg={setBannerBg}
           device={device}
           resetElementRatio={resetElementRatio}
+          onReset={handleReset}
         />
       </div>
     </div>

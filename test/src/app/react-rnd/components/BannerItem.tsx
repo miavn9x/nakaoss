@@ -1,9 +1,10 @@
 import React, { useLayoutEffect, useRef, memo, useMemo } from "react";
 import { Rnd } from "react-rnd";
 import Image from "next/image";
-import { BannerElement } from "./types";
+import { BannerElement, DeviceType } from "./types";
 
 interface BannerItemProps {
+  device: DeviceType;
   el: BannerElement;
   isSelected: boolean;
   currentZoom: number;
@@ -33,6 +34,7 @@ interface BannerItemProps {
 
 export const BannerItem = memo(
   ({
+    device,
     el,
     isSelected,
     currentZoom,
@@ -166,7 +168,7 @@ export const BannerItem = memo(
         size={{ width: px.w || "auto", height: px.h || "auto" }}
         position={{ x: px.x, y: px.y }}
         scale={currentZoom}
-        lockAspectRatio={false}
+        lockAspectRatio={el.type === "image"}
         resizeHandleClasses={handleClasses}
         resizeHandleStyles={handleStyles}
         onDragStop={(e, d) => onDragStop(el.id, d)}
@@ -223,14 +225,14 @@ export const BannerItem = memo(
             </div>
           ) : (
             <>
-              {el.imageUrl ? (
+              {el.imageUrl || el.imageUrls ? (
                 <Image
                   ref={imageInnerRef}
-                  src={el.imageUrl}
+                  src={el.imageUrls?.[device] || el.imageUrl || ""}
                   alt="banner element"
                   fill
                   unoptimized
-                  className="pointer-events-none object-cover"
+                  className="pointer-events-none object-contain" // Use object-contain to support transparency better
                 />
               ) : (
                 <div className="text-slate-400 text-xs">No Image</div>

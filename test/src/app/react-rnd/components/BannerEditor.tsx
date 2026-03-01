@@ -2,7 +2,13 @@
 
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import useMeasure from "react-use-measure";
-import { DeviceType, BannerElement, BannerBg, deviceWidths } from "./types";
+import {
+  DeviceType,
+  BannerElement,
+  BannerBg,
+  deviceWidths,
+  ElementBounds,
+} from "./types";
 import { Toolbar } from "./Toolbar";
 import { Sidebar } from "./Sidebar";
 import { Canvas } from "./Canvas";
@@ -10,7 +16,22 @@ import { Canvas } from "./Canvas";
 export default function BannerEditor() {
   // === 1. Responsive Measurement & Device State ===
   const [device, setDevice] = useState<DeviceType>("desktop");
-  const [bannerHeight, setBannerHeight] = useState(300);
+  const [bannerHeights, setBannerHeights] = useState<
+    Record<DeviceType, number>
+  >({
+    desktop: 300,
+    ipad: 300,
+    mobile: 300,
+  });
+  const bannerHeight = bannerHeights[device];
+
+  const updateBannerHeight = useCallback(
+    (h: number) => {
+      setBannerHeights((prev) => ({ ...prev, [device]: h }));
+    },
+    [device],
+  );
+
   const [bannerRef] = useMeasure();
 
   // === 2. Banner Global State ===
@@ -59,10 +80,11 @@ export default function BannerEditor() {
       {
         id: newId,
         type: "text",
-        leftPct: 30, // Canh giữa hơn (30% + 40% width = 70% -> tâm 50%)
-        topPct: 40,
-        widthPct: 40,
-        heightPct: 15,
+        bounds: {
+          desktop: { leftPct: 30, topPct: 40, widthPct: 40, heightPct: 15 },
+          ipad: { leftPct: 30, topPct: 40, widthPct: 40, heightPct: 15 },
+          mobile: { leftPct: 10, topPct: 40, widthPct: 80, heightPct: 15 },
+        },
         text: "Nhấp đúp để nhập văn bản...",
         color: "#ffffff",
         fontSize: 24,
@@ -83,33 +105,59 @@ export default function BannerEditor() {
 
   const addImageElement = (url: string, w: number, h: number) => {
     const newId = `image-${Date.now()}`;
-    const bannerW = deviceWidths[device];
-    const bannerH = bannerHeight; // Lấy từ state bannerHeight hiện tại
+    const ratio = w / h;
+    const bounds: Partial<Record<DeviceType, ElementBounds>> = {};
 
-    // 1. Tính toán chiều rộng khởi tạo (chiếm 30% banner width hoặc nhỏ hơn nếu ảnh bé)
-    const initialWidthPct = Math.min(30, (w / bannerW) * 100);
+    (["desktop", "ipad", "mobile"] as DeviceType[]).forEach((d) => {
+      const bannerW = deviceWidths[d];
+      const bannerH = bannerHeights[d];
 
-    // 2. Tính toán chiều cao Phần trăm (PCT) cho đúng tỉ lệ thực của ảnh:
-    // Vì đơn vị PCT được tính theo tỉ lệ (độ dài thực / độ dài trục tương ứng)
-    // PCT_H = (H_ảnh / W_ảnh) * PCT_W * (Banner_W / Banner_H)
-    const initialHeightPct = (h / w) * initialWidthPct * (bannerW / bannerH);
+      let initialWidthPct = 30;
+      let initialHeightPct = 30;
+
+      if (w > bannerW || h > bannerH) {
+        if (ratio > 1) {
+          initialWidthPct = Math.min(80, (w / bannerW) * 100);
+          initialHeightPct =
+            (((initialWidthPct / 100) * bannerW) / ratio / bannerH) * 100;
+
+          if (initialHeightPct > 80) {
+            initialHeightPct = 80;
+            initialWidthPct =
+              (((initialHeightPct / 100) * bannerH * ratio) / bannerW) * 100;
+          }
+        } else {
+          initialHeightPct = Math.min(80, (h / bannerH) * 100);
+          initialWidthPct =
+            (((initialHeightPct / 100) * bannerH * ratio) / bannerW) * 100;
+        }
+      } else {
+        initialWidthPct = (w / bannerW) * 100;
+        initialHeightPct = (h / bannerH) * 100;
+      }
+
+      bounds[d] = {
+        leftPct: (100 - initialWidthPct) / 2,
+        topPct: (100 - initialHeightPct) / 2,
+        widthPct: initialWidthPct,
+        heightPct: initialHeightPct,
+      };
+    });
 
     setElements([
       ...elements,
       {
         id: newId,
         type: "image",
-        leftPct: (100 - initialWidthPct) / 2, // Canh giữa ngang chính xác
-        topPct: (100 - initialHeightPct) / 2, // Canh giữa dọc chính xác
-        widthPct: initialWidthPct,
-        heightPct: initialHeightPct,
-        text: "", // Không dùng cho ảnh
+        bounds: bounds as Record<DeviceType, ElementBounds>,
+        text: "",
         color: "#000000",
         fontSize: 16,
         textAlign: "center",
         fontWeight: "normal",
         fontFamily: "sans-serif",
         imageUrl: url,
+        imageUrls: { desktop: url, ipad: url, mobile: url },
         imageOpacity: 1,
         backgroundColor: "transparent",
         padding: 0,
@@ -124,29 +172,34 @@ export default function BannerEditor() {
   };
 
   const addImageAsBackground = (url: string, w: number, h: number) => {
-    const bannerW = deviceWidths[device];
-    const ratio = h / w;
-    const scaledHeight = bannerW * ratio;
-
-    // Đặt chiều cao banner theo ảnh nếu ảnh quá cao, hoặc giữ tối thiểu 300px
-    const targetBannerHeight = Math.max(300, scaledHeight);
-    setBannerHeight(targetBannerHeight);
-
+    const ratio = w / h;
     const newId = `bg-${Date.now()}`;
+    const bounds: Partial<Record<DeviceType, ElementBounds>> = {};
+    const newHeights = { ...bannerHeights };
 
-    // Tính toán kích thước Phần trăm dựa trên bannerHeight mới
-    // Nếu bannerHeight == scaledHeight, thì initialHeightPct sẽ là 100
-    // Nếu bannerHeight > scaledHeight (do tối thiểu 300), thì nó sẽ < 100
-    const initialWidthPct = 100;
-    const initialHeightPct = (scaledHeight / targetBannerHeight) * 100;
+    (["desktop", "ipad", "mobile"] as DeviceType[]).forEach((d) => {
+      const bannerW = deviceWidths[d];
+
+      const scaledHeight = Math.round(bannerW / ratio);
+      const targetBannerHeight = Math.max(300, scaledHeight);
+      newHeights[d] = targetBannerHeight; // Expand correctly for all devices
+
+      const initialHeightPct = (scaledHeight / targetBannerHeight) * 100;
+
+      bounds[d] = {
+        leftPct: 0,
+        topPct: (100 - initialHeightPct) / 2,
+        widthPct: 100,
+        heightPct: initialHeightPct,
+      };
+    });
+
+    setBannerHeights(newHeights);
 
     const newBgElement: BannerElement = {
       id: newId,
       type: "image",
-      leftPct: 0,
-      topPct: (100 - initialHeightPct) / 2, // Canh giữa dọc
-      widthPct: initialWidthPct,
-      heightPct: initialHeightPct,
+      bounds: bounds as Record<DeviceType, ElementBounds>,
       text: "",
       color: "#000000",
       fontSize: 16,
@@ -154,6 +207,7 @@ export default function BannerEditor() {
       fontWeight: "normal",
       fontFamily: "sans-serif",
       imageUrl: url,
+      imageUrls: { desktop: url, ipad: url, mobile: url },
       imageOpacity: 1,
       backgroundColor: "transparent",
       padding: 0,
@@ -198,10 +252,10 @@ export default function BannerEditor() {
       const height = bannerHeight;
 
       return {
-        x: (el.leftPct / 100) * width,
-        y: (el.topPct / 100) * height,
-        w: (el.widthPct / 100) * width,
-        h: (el.heightPct / 100) * height,
+        x: (el.bounds[device].leftPct / 100) * width,
+        y: (el.bounds[device].topPct / 100) * height,
+        w: (el.bounds[device].widthPct / 100) * width,
+        h: (el.bounds[device].heightPct / 100) * height,
       };
     },
     [device, bannerHeight],
@@ -249,15 +303,19 @@ export default function BannerEditor() {
           const current = prev[index];
           const nextLeft = (d.x / width) * 100;
           const nextTop = (d.y / oldHeight) * 100;
-          const nextW = newW ? (newW / width) * 100 : current.widthPct;
-          const nextH = newH ? (newH / oldHeight) * 100 : current.heightPct;
+          const nextW = newW
+            ? (newW / width) * 100
+            : current.bounds[device].widthPct;
+          const nextH = newH
+            ? (newH / oldHeight) * 100
+            : current.bounds[device].heightPct;
 
           // Skip update if change is negligible
           if (
-            Math.abs(current.leftPct - nextLeft) < 0.01 &&
-            Math.abs(current.topPct - nextTop) < 0.01 &&
-            Math.abs(current.widthPct - nextW) < 0.01 &&
-            Math.abs(current.heightPct - nextH) < 0.01
+            Math.abs(current.bounds[device].leftPct - nextLeft) < 0.01 &&
+            Math.abs(current.bounds[device].topPct - nextTop) < 0.01 &&
+            Math.abs(current.bounds[device].widthPct - nextW) < 0.01 &&
+            Math.abs(current.bounds[device].heightPct - nextH) < 0.01
           ) {
             return prev;
           }
@@ -265,10 +323,15 @@ export default function BannerEditor() {
           const newArr = [...prev];
           newArr[index] = {
             ...current,
-            leftPct: nextLeft,
-            topPct: nextTop,
-            widthPct: nextW,
-            heightPct: nextH,
+            bounds: {
+              ...current.bounds,
+              [device]: {
+                leftPct: nextLeft,
+                topPct: nextTop,
+                widthPct: nextW,
+                heightPct: nextH,
+              },
+            },
           };
           return newArr;
         });
@@ -282,24 +345,38 @@ export default function BannerEditor() {
           if (e.id === movingId) {
             return {
               ...e,
-              topPct: (d.y / finalNewHeight) * 100,
-              heightPct: newH
-                ? (newH / finalNewHeight) * 100
-                : e.heightPct * ratio,
-              leftPct: (d.x / width) * 100,
-              widthPct: newW ? (newW / width) * 100 : e.widthPct,
+              bounds: {
+                ...e.bounds,
+                [device]: {
+                  ...e.bounds[device],
+                  topPct: (d.y / finalNewHeight) * 100,
+                  heightPct: newH
+                    ? (newH / finalNewHeight) * 100
+                    : e.bounds[device].heightPct * ratio,
+                  leftPct: (d.x / width) * 100,
+                  widthPct: newW
+                    ? (newW / width) * 100
+                    : e.bounds[device].widthPct,
+                },
+              },
             };
           }
           return {
             ...e,
-            topPct: e.topPct * ratio,
-            heightPct: e.heightPct * ratio,
+            bounds: {
+              ...e.bounds,
+              [device]: {
+                ...e.bounds[device],
+                topPct: e.bounds[device].topPct * ratio,
+                heightPct: e.bounds[device].heightPct * ratio,
+              },
+            },
           };
         }),
       );
-      setBannerHeight(finalNewHeight);
+      updateBannerHeight(finalNewHeight);
     },
-    [device, bannerHeight],
+    [device, bannerHeight, updateBannerHeight],
   );
 
   const lastDragTimeRef = useRef(0);
@@ -317,21 +394,55 @@ export default function BannerEditor() {
             ? Math.max(
                 ...others.map(
                   (e) =>
-                    (e.topPct / 100) * oldHeight +
-                    (e.heightPct / 100) * oldHeight,
+                    (e.bounds[device].topPct / 100) * oldHeight +
+                    (e.bounds[device].heightPct / 100) * oldHeight,
                 ),
               )
             : 0;
       }
       applyDynamicHeight(id, d.y + 100, d, undefined, undefined, false);
     },
-    [elements, bannerHeight, applyDynamicHeight],
+    [device, elements, bannerHeight, applyDynamicHeight],
+  );
+
+  const handleResize = useCallback(
+    (id: string, ref: HTMLElement, position: { x: number; y: number }) => {
+      const now = performance.now();
+      if (now - lastDragTimeRef.current < 16) return;
+      lastDragTimeRef.current = now;
+
+      if (othersMaxBottomRef.current === 0 && elements.length > 1) {
+        const oldHeight = bannerHeight;
+        const others = elements.filter((e) => e.id !== id);
+        othersMaxBottomRef.current =
+          others.length > 0
+            ? Math.max(
+                ...others.map(
+                  (e) =>
+                    (e.bounds[device].topPct / 100) * oldHeight +
+                    (e.bounds[device].heightPct / 100) * oldHeight,
+                ),
+              )
+            : 0;
+      }
+
+      const wMatch = ref.style.width.match(/([\d.]+)px/);
+      const hMatch = ref.style.height.match(/([\d.]+)px/);
+      const newW = wMatch ? parseFloat(wMatch[1]) : ref.offsetWidth;
+      const newH = hMatch ? parseFloat(hMatch[1]) : ref.offsetHeight;
+      const newBottomPx = position.y + newH;
+
+      applyDynamicHeight(id, newBottomPx, position, newW, newH, false);
+    },
+    [device, elements, bannerHeight, applyDynamicHeight],
   );
 
   const handleResizeStop = useCallback(
     (id: string, ref: HTMLElement, position: { x: number; y: number }) => {
-      const newW = ref.offsetWidth;
-      const newH = ref.offsetHeight;
+      const wMatch = ref.style.width.match(/([\d.]+)px/);
+      const hMatch = ref.style.height.match(/([\d.]+)px/);
+      const newW = wMatch ? parseFloat(wMatch[1]) : ref.offsetWidth;
+      const newH = hMatch ? parseFloat(hMatch[1]) : ref.offsetHeight;
       const newBottomPx = position.y + newH;
 
       applyDynamicHeight(id, newBottomPx, position, newW, newH, true);
@@ -370,12 +481,12 @@ export default function BannerEditor() {
       if (!el) return;
 
       const oldHeight = bannerHeight;
-      const elementHeightPx = (el.heightPct / 100) * oldHeight;
+      const elementHeightPx = (el.bounds[device].heightPct / 100) * oldHeight;
       const newBottomPx = d.y + elementHeightPx;
 
       applyDynamicHeight(id, newBottomPx, d, undefined, undefined, true);
     },
-    [elements, bannerHeight, applyDynamicHeight],
+    [device, elements, bannerHeight, applyDynamicHeight],
   );
 
   const handleExport = () => {
@@ -416,6 +527,7 @@ export default function BannerEditor() {
       <div className="flex-1 flex flex-col lg:flex-row overflow-hidden">
         {/* Editor Workspace Component */}
         <Canvas
+          device={device}
           containerWidth={containerWidth}
           currentZoom={currentZoom}
           bannerHeight={bannerHeight}
@@ -427,11 +539,11 @@ export default function BannerEditor() {
           onDragStop={handleDragStop}
           onDrag={handleDrag}
           onResizeStop={handleResizeStop}
-          onResize={handleResizeStop} // We reuse stop logic for live updates too, but throttled by applyDynamicHeight
+          onResize={handleResize}
           onSelect={setSelectedId}
           updateElement={updateElement}
           onDelete={deleteElement}
-          setBannerHeight={setBannerHeight}
+          setBannerHeight={updateBannerHeight}
         />
 
         {/* Properties Sidebar Component */}
@@ -439,8 +551,9 @@ export default function BannerEditor() {
           activeEl={activeEl}
           updateSelected={updateSelected}
           onDelete={deleteElement}
-          setBannerHeight={setBannerHeight}
+          setBannerHeight={updateBannerHeight}
           setBannerBg={setBannerBg}
+          device={device}
         />
       </div>
     </div>

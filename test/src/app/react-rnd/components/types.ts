@@ -1,10 +1,17 @@
-export type BannerElement = {
-  id: string;
-  type: "text" | "image";
+export type ElementBounds = {
   leftPct: number;
   topPct: number;
   widthPct: number;
   heightPct: number;
+};
+
+export type BannerElement = {
+  id: string;
+  type: "text" | "image";
+
+  // Tọa độ và kích thước tách biệt độc lập trên từng thiết bị
+  bounds: Record<DeviceType, ElementBounds>;
+
   // Nội dung (Dành cho Text)
   text: string;
   // Font & Chữ (Dành cho Text)
@@ -15,6 +22,7 @@ export type BannerElement = {
   fontFamily: string;
   // Nội dung (Dành cho Image)
   imageUrl?: string;
+  imageUrls?: Record<DeviceType, string>;
   imageOpacity?: number;
   // Khung (Box) - Dùng chung
   backgroundColor: string;

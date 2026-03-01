@@ -1,4 +1,5 @@
-import { BannerElement, BannerBg } from "./types";
+import { useCallback, useRef } from "react";
+import { BannerElement, BannerBg, DeviceType } from "./types";
 
 interface SidebarProps {
   activeEl: BannerElement | undefined;
@@ -7,6 +8,7 @@ interface SidebarProps {
   // Banner global props
   setBannerHeight: (h: number) => void;
   setBannerBg: (bg: BannerBg) => void;
+  device: DeviceType;
 }
 
 export const Sidebar: React.FC<SidebarProps> = ({
@@ -15,7 +17,34 @@ export const Sidebar: React.FC<SidebarProps> = ({
   onDelete,
   setBannerHeight,
   setBannerBg,
+  device,
 }) => {
+  const pendingUpdatesRef = useRef<Partial<BannerElement>>({});
+  const lastUpdateRef = useRef(0);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleUpdate = useCallback(
+    (newProps: Partial<BannerElement>) => {
+      pendingUpdatesRef.current = { ...pendingUpdatesRef.current, ...newProps };
+
+      const applyUpdate = () => {
+        updateSelected(pendingUpdatesRef.current);
+        pendingUpdatesRef.current = {};
+        lastUpdateRef.current = performance.now();
+      };
+
+      const now = performance.now();
+      if (now - lastUpdateRef.current >= 32) {
+        // approx 30fps throttle for input dragging is perfectly smooth
+        applyUpdate();
+      } else {
+        if (timeoutRef.current) clearTimeout(timeoutRef.current);
+        timeoutRef.current = setTimeout(applyUpdate, 32);
+      }
+    },
+    [updateSelected],
+  );
+
   if (!activeEl) {
     return (
       <div className="w-full lg:w-80 editor-toolbar bg-white p-5 rounded-xl border border-slate-200 shadow-sm shrink-0 flex flex-col gap-5 h-max sticky top-4">
@@ -69,7 +98,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 aria-label="Cỡ chữ"
                 value={activeEl.fontSize || ""}
                 onChange={(e) =>
-                  updateSelected({ fontSize: Number(e.target.value) || 0 })
+                  handleUpdate({ fontSize: Number(e.target.value) || 0 })
                 }
                 className="w-full border p-1.5 text-sm rounded"
               />
@@ -82,7 +111,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                   title="Chọn màu chữ"
                   aria-label="Màu chữ"
                   value={activeEl.color || "#000000"}
-                  onChange={(e) => updateSelected({ color: e.target.value })}
+                  onChange={(e) => handleUpdate({ color: e.target.value })}
                   className="w-6 h-6 rounded cursor-pointer border-0 p-0"
                 />
                 <span className="text-xs uppercase text-slate-600 flex-1">
@@ -94,7 +123,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
           <div className="flex border rounded-md overflow-hidden">
             <button
-              onClick={() => updateSelected({ textAlign: "left" })}
+              onClick={() => handleUpdate({ textAlign: "left" })}
               title="Căn trái"
               aria-label="Căn trái"
               className={`flex-1 p-2 flex justify-center ${activeEl.textAlign === "left" ? "bg-slate-200" : "hover:bg-slate-100"}`}
@@ -113,7 +142,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
               </svg>
             </button>
             <button
-              onClick={() => updateSelected({ textAlign: "center" })}
+              onClick={() => handleUpdate({ textAlign: "center" })}
               title="Căn giữa"
               aria-label="Căn giữa"
               className={`flex-1 p-2 flex justify-center border-x ${activeEl.textAlign === "center" ? "bg-slate-200" : "hover:bg-slate-100"}`}
@@ -132,7 +161,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
               </svg>
             </button>
             <button
-              onClick={() => updateSelected({ textAlign: "right" })}
+              onClick={() => handleUpdate({ textAlign: "right" })}
               title="Căn phải"
               aria-label="Căn phải"
               className={`flex-1 p-2 flex justify-center ${activeEl.textAlign === "right" ? "bg-slate-200" : "hover:bg-slate-100"}`}
@@ -156,7 +185,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
             aria-label="Kiểu Font Chữ"
             title="Chọn kiểu chữ"
             value={activeEl.fontFamily}
-            onChange={(e) => updateSelected({ fontFamily: e.target.value })}
+            onChange={(e) => handleUpdate({ fontFamily: e.target.value })}
             className="w-full border p-1.5 text-sm rounded bg-white"
           >
             <option value="sans-serif">Sans Serif</option>
@@ -170,7 +199,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
               type="checkbox"
               checked={activeEl.fontWeight === "bold"}
               onChange={(e) =>
-                updateSelected({
+                handleUpdate({
                   fontWeight: e.target.checked ? "bold" : "normal",
                 })
               }
@@ -185,7 +214,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
       {activeEl.type === "image" && (
         <div className="space-y-3">
           <label className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
-            Hình Ảnh
+            Hình Ảnh ({device.toUpperCase()})
           </label>
           <div className="relative overflow-hidden group w-full">
             <button className="w-full px-4 py-2 bg-blue-50 text-blue-600 hover:bg-blue-100 font-medium rounded-lg transition-colors flex items-center justify-center gap-2 text-sm border border-blue-200">
@@ -194,14 +223,23 @@ export const Sidebar: React.FC<SidebarProps> = ({
             <input
               type="file"
               accept="image/*"
-              title="Thay đổi file ảnh hiện tại"
+              title={`Thay đổi file ảnh hiện tại cho ${device}`}
               onChange={(e) => {
                 const file = e.target.files?.[0];
                 if (file) {
                   const reader = new FileReader();
                   reader.onload = (ev) => {
                     const url = ev.target?.result as string;
-                    updateSelected({ imageUrl: url });
+                    handleUpdate({
+                      imageUrls: {
+                        ...(activeEl.imageUrls || {
+                          desktop: activeEl.imageUrl || "",
+                          ipad: activeEl.imageUrl || "",
+                          mobile: activeEl.imageUrl || "",
+                        }),
+                        [device]: url,
+                      } as Record<DeviceType, string>,
+                    });
                   };
                   reader.readAsDataURL(file);
                 }
@@ -223,7 +261,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
               step="0.05"
               value={activeEl.imageOpacity ?? 1}
               onChange={(e) =>
-                updateSelected({ imageOpacity: Number(e.target.value) })
+                handleUpdate({ imageOpacity: Number(e.target.value) })
               }
               className="w-full"
             />
@@ -249,14 +287,14 @@ export const Sidebar: React.FC<SidebarProps> = ({
                   : activeEl.backgroundColor
               }
               onChange={(e) =>
-                updateSelected({ backgroundColor: e.target.value })
+                handleUpdate({ backgroundColor: e.target.value })
               }
               className="w-6 h-6 rounded cursor-pointer border-0 p-0"
             />
             <span>Nền thẻ</span>
           </label>
           <button
-            onClick={() => updateSelected({ backgroundColor: "transparent" })}
+            onClick={() => handleUpdate({ backgroundColor: "transparent" })}
             className="border rounded text-xs text-slate-500 hover:bg-slate-100"
           >
             Xóa nền
@@ -276,7 +314,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
               max="64"
               value={activeEl.padding || 0}
               onChange={(e) =>
-                updateSelected({ padding: Number(e.target.value) || 0 })
+                handleUpdate({ padding: Number(e.target.value) || 0 })
               }
               className="w-full"
             />
@@ -293,7 +331,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
               max="100"
               value={activeEl.borderRadius || 0}
               onChange={(e) =>
-                updateSelected({ borderRadius: Number(e.target.value) || 0 })
+                handleUpdate({ borderRadius: Number(e.target.value) || 0 })
               }
               className="w-full"
             />
@@ -305,7 +343,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
             <input
               type="checkbox"
               checked={activeEl.hasShadow}
-              onChange={(e) => updateSelected({ hasShadow: e.target.checked })}
+              onChange={(e) => handleUpdate({ hasShadow: e.target.checked })}
               className="rounded"
             />
             Đổ bóng nền (Shadow)
@@ -323,7 +361,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
           <input
             type="checkbox"
             checked={activeEl.hasBorder}
-            onChange={(e) => updateSelected({ hasBorder: e.target.checked })}
+            onChange={(e) => handleUpdate({ hasBorder: e.target.checked })}
             className="rounded"
           />
           <span className="font-medium text-slate-700">
@@ -343,7 +381,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 max="20"
                 value={activeEl.borderWidth || ""}
                 onChange={(e) =>
-                  updateSelected({
+                  handleUpdate({
                     borderWidth: Number(e.target.value) || 0,
                   })
                 }
@@ -359,9 +397,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 title="Chọn màu viền"
                 aria-label="Màu viền"
                 value={activeEl.borderColor || "#ffffff"}
-                onChange={(e) =>
-                  updateSelected({ borderColor: e.target.value })
-                }
+                onChange={(e) => handleUpdate({ borderColor: e.target.value })}
                 className="w-full h-7 rounded cursor-pointer border p-0"
               />
             </div>

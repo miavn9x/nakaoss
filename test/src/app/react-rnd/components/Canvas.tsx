@@ -1,8 +1,9 @@
 import React, { useLayoutEffect, useRef } from "react";
 import { BannerItem } from "./BannerItem";
-import { BannerBg, BannerElement } from "./types";
+import { BannerBg, BannerElement, DeviceType } from "./types";
 
 interface CanvasProps {
+  device: DeviceType;
   containerWidth: number;
   currentZoom: number;
   bannerHeight: number;
@@ -35,6 +36,7 @@ interface CanvasProps {
 }
 
 export const Canvas: React.FC<CanvasProps> = ({
+  device,
   containerWidth,
   currentZoom,
   bannerHeight,
@@ -131,6 +133,7 @@ export const Canvas: React.FC<CanvasProps> = ({
             {elements.map((el) => (
               <BannerItem
                 key={el.id}
+                device={device}
                 el={el}
                 isSelected={selectedId === el.id}
                 currentZoom={currentZoom}

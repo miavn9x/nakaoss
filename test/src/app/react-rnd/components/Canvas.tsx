@@ -130,9 +130,10 @@ export const Canvas: React.FC<CanvasProps> = ({
             ref={setRefs}
             className="w-full relative overflow-visible bg-cover bg-no-repeat bg-center"
           >
-            {elements.map((el) => (
+            {elements.map((el, idx) => (
               <BannerItem
                 key={el.id}
+                index={idx}
                 device={device}
                 el={el}
                 isSelected={selectedId === el.id}

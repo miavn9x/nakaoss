@@ -216,6 +216,7 @@ export default function BannerEditor() {
       borderColor: "#ffffff",
       borderWidth: 2,
       hasShadow: false,
+      isLocked: true,
     };
 
     // Thêm vào đầu mảng để nằm dưới cùng
@@ -243,6 +244,30 @@ export default function BannerEditor() {
   const deleteElement = useCallback((id: string) => {
     setElements((prev) => prev.filter((el) => el.id !== id));
     setSelectedId((prev) => (prev === id ? null : prev));
+  }, []);
+
+  const bringForward = useCallback((id: string) => {
+    setElements((prev) => {
+      const idx = prev.findIndex((e) => e.id === id);
+      if (idx === -1 || idx === prev.length - 1) return prev;
+      const newArr = [...prev];
+      const temp = newArr[idx];
+      newArr[idx] = newArr[idx + 1];
+      newArr[idx + 1] = temp;
+      return newArr;
+    });
+  }, []);
+
+  const sendBackward = useCallback((id: string) => {
+    setElements((prev) => {
+      const idx = prev.findIndex((e) => e.id === id);
+      if (idx <= 0) return prev;
+      const newArr = [...prev];
+      const temp = newArr[idx];
+      newArr[idx] = newArr[idx - 1];
+      newArr[idx - 1] = temp;
+      return newArr;
+    });
   }, []);
 
   const handleReset = useCallback(() => {
@@ -632,6 +657,8 @@ export default function BannerEditor() {
           device={device}
           resetElementRatio={resetElementRatio}
           onReset={handleReset}
+          bringForward={bringForward}
+          sendBackward={sendBackward}
         />
       </div>
     </div>

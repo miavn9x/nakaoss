@@ -34,6 +34,8 @@ export type BannerElement = {
   borderWidth: number;
   // Đổ bóng (Shadow) - Dùng chung
   hasShadow: boolean;
+  // Tính năng Khóa phần tử chặn thao tác
+  isLocked?: boolean;
 };
 
 export type DeviceType = "desktop" | "ipad" | "mobile";

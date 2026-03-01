@@ -9,6 +9,7 @@ interface BannerItemProps {
   isSelected: boolean;
   currentZoom: number;
   containerWidth: number;
+  index: number;
   pctToPx: (el: BannerElement) => {
     x: number;
     y: number;
@@ -39,6 +40,7 @@ export const BannerItem = memo(
     isSelected,
     currentZoom,
     containerWidth,
+    index,
     pctToPx,
     onDragStop,
     onResizeStop,
@@ -193,22 +195,28 @@ export const BannerItem = memo(
           }
         }}
         onDragStart={() => onSelect(el.id)}
-        enableResizing={{
-          top: true,
-          right: true,
-          bottom: true,
-          left: true,
-          topRight: true,
-          bottomRight: true,
-          topLeft: true,
-          bottomLeft: true,
-        }}
-        className={`rnd-element group transition-none! ${isSelected ? "z-30 border-2 border-blue-400" : "z-10 border-2 border-transparent hover:border-white/50"}`}
-        dragHandleClassName="draggable-area"
+        disableDragging={el.isLocked}
+        enableResizing={
+          el.isLocked
+            ? false
+            : {
+                top: true,
+                right: true,
+                bottom: true,
+                left: true,
+                topRight: true,
+                bottomRight: true,
+                topLeft: true,
+                bottomLeft: true,
+              }
+        }
+        className={`rnd-element group transition-none! ${isSelected ? "border-2 border-blue-400" : "border-2 border-transparent hover:border-white/50"}`}
+        style={{ zIndex: index }}
+        dragHandleClassName={el.isLocked ? "" : "draggable-area"}
       >
         <div
           ref={elementRef}
-          className="w-full h-full relative overflow-hidden flex items-center justify-center font-sans! draggable-area select-none"
+          className={`w-full h-full relative overflow-hidden flex items-center justify-center font-sans! select-none ${el.isLocked ? "" : "draggable-area"}`}
           onMouseDown={() => {
             onSelect(el.id);
             // Do NOT stop propagation, otherwise Rnd won't start its own drag

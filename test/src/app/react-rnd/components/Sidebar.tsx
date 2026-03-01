@@ -11,6 +11,8 @@ interface SidebarProps {
   device: DeviceType;
   resetElementRatio?: (id: string, device: DeviceType) => void;
   onReset?: () => void;
+  bringForward?: (id: string) => void;
+  sendBackward?: (id: string) => void;
 }
 
 export const Sidebar: React.FC<SidebarProps> = ({
@@ -22,6 +24,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
   device,
   resetElementRatio,
   onReset,
+  bringForward,
+  sendBackward,
 }) => {
   const pendingUpdatesRef = useRef<Partial<BannerElement>>({});
   const lastUpdateRef = useRef(0);
@@ -424,12 +428,42 @@ export const Sidebar: React.FC<SidebarProps> = ({
       </div>
 
       {/* Actions */}
-      <div className="pt-4 border-t">
+      <div className="pt-4 border-t flex flex-col gap-2">
+        <div className="flex gap-2">
+          {sendBackward && (
+            <button
+              onClick={() => sendBackward(activeEl.id)}
+              className="flex-1 py-1.5 bg-slate-100 text-slate-700 hover:bg-slate-200 text-xs font-semibold rounded-lg transition-colors border border-slate-200"
+              title="Xuống 1 lớp"
+            >
+              ⬇️ Lùi lớp
+            </button>
+          )}
+          {bringForward && (
+            <button
+              onClick={() => bringForward(activeEl.id)}
+              className="flex-1 py-1.5 bg-slate-100 text-slate-700 hover:bg-slate-200 text-xs font-semibold rounded-lg transition-colors border border-slate-200"
+              title="Lên 1 lớp"
+            >
+              ⬆️ Tiến lớp
+            </button>
+          )}
+        </div>
+        <button
+          onClick={() => updateSelected({ isLocked: !activeEl.isLocked })}
+          className={`w-full py-2 font-medium rounded-lg transition-colors border text-sm flex items-center justify-center gap-2 ${
+            activeEl.isLocked
+              ? "bg-amber-50 text-amber-600 hover:bg-amber-100 border-amber-200"
+              : "bg-slate-50 text-slate-600 hover:bg-slate-100 border-slate-200"
+          }`}
+        >
+          {activeEl.isLocked ? "🔒 Mở khóa phần tử" : "🔓 Khóa phần tử"}
+        </button>
         <button
           onClick={() => onDelete(activeEl.id)}
-          className="w-full py-2 bg-red-50 text-red-600 hover:bg-red-100 font-medium rounded-lg transition-colors border border-red-200"
+          className="w-full py-2 bg-red-50 text-red-600 hover:bg-red-100 text-sm font-medium rounded-lg transition-colors border border-red-200 flex items-center justify-center gap-2"
         >
-          Xóa Khối Này
+          🗑️ Xóa Khối Này
         </button>
       </div>
     </div>

@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* React-rnd element and handle optimizations */
+.rnd-element {
+  overflow: visible !important;
+}
+.rnd-handle {
+  z-index: 999 !important;
+  transition: opacity 0.1s ease-in-out !important;
+}
+.handle-corner {
+  width: 14px !important;
+  height: 14px !important;
+  background-color: white !important;
+  border: 2px solid #3b82f6 !important;
+  border-radius: 50% !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+}
+/* Full edge handles with central pill indicator */
+.handle-side-h::after,
+.handle-side-v::after {
+  content: "";
+  position: absolute;
+  background-color: white;
+  border: 2px solid #3b82f6;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.1s ease-in-out;
+}
+.handle-side-h::after {
+  width: 8px;
+  height: 24px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 4px;
+}
+.handle-side-v::after {
+  width: 24px;
+  height: 8px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 4px;
+}
+/* Subtle hover indicator for the entire edge */
+.handle-side-h:hover::after,
+.handle-side-v:hover::after {
+  transform: translate(-50%, -50%) scale(1.2);
+  background-color: #3b82f6;
+}
+.handle-corner:hover {
+  transform: scale(1.3) !important;
+  background-color: #3b82f6 !important;
+}

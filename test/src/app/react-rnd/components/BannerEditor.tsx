@@ -137,8 +137,8 @@ export default function BannerEditor() {
       }
 
       bounds[d] = {
-        leftPct: (100 - initialWidthPct) / 2,
-        topPct: (100 - initialHeightPct) / 2,
+        leftPct: 0,
+        topPct: 0,
         widthPct: initialWidthPct,
         heightPct: initialHeightPct,
       };
@@ -244,6 +244,69 @@ export default function BannerEditor() {
     setElements((prev) => prev.filter((el) => el.id !== id));
     setSelectedId((prev) => (prev === id ? null : prev));
   }, []);
+
+  const resetElementRatio = useCallback(
+    (id: string, dev: DeviceType) => {
+      setElements((prev) => {
+        const idx = prev.findIndex((e) => e.id === id);
+        if (idx === -1) return prev;
+        const el = prev[idx];
+        if (el.type !== "image") return prev;
+
+        const imgUrl = el.imageUrls?.[dev] || el.imageUrl;
+        if (!imgUrl) return prev;
+
+        // Create dummy image to get original dimensions
+        const img = new Image();
+        img.src = imgUrl;
+
+        // Because img.onload is async, we can only roughly estimate ratio
+        // if it's already cached. Modern browsers load blob/data-uri instantly.
+        if (img.width && img.height) {
+          const ratio = img.width / img.height;
+          const bannerW = deviceWidths[dev];
+          const bannerH = bannerHeights[dev];
+
+          // Re-run the intelligent sizing logic for just this device
+          let wPct = 30;
+          let hPct = 30;
+
+          if (img.width > bannerW || img.height > bannerH) {
+            if (ratio > 1) {
+              wPct = Math.min(80, (img.width / bannerW) * 100);
+              hPct = (((wPct / 100) * bannerW) / ratio / bannerH) * 100;
+              if (hPct > 80) {
+                hPct = 80;
+                wPct = (((hPct / 100) * bannerH * ratio) / bannerW) * 100;
+              }
+            } else {
+              hPct = Math.min(80, (img.height / bannerH) * 100);
+              wPct = (((hPct / 100) * bannerH * ratio) / bannerW) * 100;
+            }
+          } else {
+            wPct = (img.width / bannerW) * 100;
+            hPct = (img.height / bannerH) * 100;
+          }
+
+          const newArr = [...prev];
+          newArr[idx] = {
+            ...el,
+            bounds: {
+              ...el.bounds,
+              [dev]: {
+                ...el.bounds[dev],
+                widthPct: wPct,
+                heightPct: hPct,
+              },
+            },
+          };
+          return newArr;
+        }
+        return prev;
+      });
+    },
+    [bannerHeights],
+  );
 
   // === 4. Conversion Helpers (Percent ↔ Pixel) ===
   const pctToPx = useCallback(
@@ -554,6 +617,7 @@ export default function BannerEditor() {
           setBannerHeight={updateBannerHeight}
           setBannerBg={setBannerBg}
           device={device}
+          resetElementRatio={resetElementRatio}
         />
       </div>
     </div>

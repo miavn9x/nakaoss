@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef, memo, useMemo } from "react";
+import React, { useLayoutEffect, useRef, memo, useMemo, useState } from "react";
 import { Rnd } from "react-rnd";
 import Image from "next/image";
 import { BannerElement, DeviceType } from "./types";
@@ -51,6 +51,7 @@ export const BannerItem = memo(
     const px = pctToPx(el);
     const elementRef = useRef<HTMLDivElement>(null);
     const imageInnerRef = useRef<HTMLImageElement>(null);
+    const [isCornerDrag, setIsCornerDrag] = useState(true);
 
     // Apply dynamic styles via JS to bypass 'no-inline-styles' linting
     useLayoutEffect(() => {
@@ -168,7 +169,7 @@ export const BannerItem = memo(
         size={{ width: px.w || "auto", height: px.h || "auto" }}
         position={{ x: px.x, y: px.y }}
         scale={currentZoom}
-        lockAspectRatio={el.type === "image"}
+        lockAspectRatio={el.type === "image" && isCornerDrag}
         resizeHandleClasses={handleClasses}
         resizeHandleStyles={handleStyles}
         onDragStop={(e, d) => onDragStop(el.id, d)}
@@ -179,6 +180,18 @@ export const BannerItem = memo(
         onResize={(e, dir, ref, delta, position) =>
           onResize(el.id, ref, position)
         }
+        onResizeStart={(e, dir) => {
+          onSelect(el.id);
+          if (el.type === "image") {
+            const corners = [
+              "topLeft",
+              "topRight",
+              "bottomLeft",
+              "bottomRight",
+            ];
+            setIsCornerDrag(corners.includes(dir));
+          }
+        }}
         onDragStart={() => onSelect(el.id)}
         enableResizing={{
           top: true,
@@ -232,7 +245,7 @@ export const BannerItem = memo(
                   alt="banner element"
                   fill
                   unoptimized
-                  className="pointer-events-none object-contain" // Use object-contain to support transparency better
+                  className="pointer-events-none object-fill"
                 />
               ) : (
                 <div className="text-slate-400 text-xs">No Image</div>

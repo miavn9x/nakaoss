@@ -68,7 +68,7 @@ const NavigationMenu = ({
         ref={containerRef}
         className="bg-naka-blue md:bg-white shadow-md relative z-20 overflow-visible"
       >
-        <div className="absolute inset-0 z-0 md:hidden bg-[url('/bg/footer_pattent.png')] bg-repeat opacity-60 pointer-events-none" />
+        <div className="absolute inset-0 z-0 md:hidden  bg-repeat opacity-60 pointer-events-none" />
         <div className="container mx-auto flex items-center justify-between relative min-h-15 md:min-h-14 px-4">
           {/* Logo (Left) */}
           <Link

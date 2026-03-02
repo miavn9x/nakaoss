@@ -7,8 +7,8 @@ export const metadata = {
 
 export default function ReactRndPage() {
   return (
-    <div className="min-h-screen bg-slate-100 py-8">
-      <div className="w-full mx-auto bg-white rounded-xl shadow-md p-6">
+    <div className=" ">
+      <div className="w-full mx-auto bg-white ">
 
 
         <BannerEditor />

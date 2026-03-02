@@ -63,91 +63,100 @@ export const Toolbar: React.FC<ToolbarProps> = ({
   };
 
   return (
-    <div className="bg-white border-b px-6 py-4 flex items-center justify-between shadow-sm sticky top-0 z-50">
-      <div className="flex gap-2">
-        <button
-          onClick={() => setDevice("desktop")}
-          className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${device === "desktop" ? "bg-indigo-600 text-white" : "bg-slate-100 text-slate-700 hover:bg-slate-200"}`}
-        >
-          PC
-        </button>
-        <button
-          onClick={() => setDevice("ipad")}
-          className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${device === "ipad" ? "bg-indigo-600 text-white" : "bg-slate-100 text-slate-700 hover:bg-slate-200"}`}
-        >
-          iPad
-        </button>
-        <button
-          onClick={() => setDevice("mobile")}
-          className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${device === "mobile" ? "bg-indigo-600 text-white" : "bg-slate-100 text-slate-700 hover:bg-slate-200"}`}
-        >
-          Mobile
-        </button>
-
-        <div className="h-8 w-px bg-slate-200 mx-2"></div>
-
-        <button
-          onClick={() => setScaleMode("fit")}
-          className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${scaleMode === "fit" ? "bg-cyan-600 text-white" : "bg-slate-100 text-slate-700 hover:bg-slate-200"}`}
-          title="Tự động Thu nhỏ Canvas vừa khung hình làm việc"
-          aria-label="Vừa vặn (Fit)"
-        >
-          🔎 Thu vừa khung ({Math.round(currentZoom * 100)}%)
-        </button>
-
-        <div className="flex items-center rounded-lg border border-slate-200 bg-white shadow-sm overflow-hidden h-9">
+    <div className="editor-toolbar bg-white/80 backdrop-blur-xl border-b border-slate-200/80 px-8 py-4 flex items-center justify-between shadow-[0_4px_20px_rgb(0,0,0,0.03)] sticky top-0 z-50">
+      <div className="flex items-center gap-3">
+        <div className="flex bg-slate-100 p-1 rounded-xl">
           <button
-            onClick={() => {
-              setScaleMode("custom");
-              setCurrentZoom((prev) => Math.max(0.1, prev - 0.1));
-            }}
-            className="px-3 h-full text-slate-600 hover:bg-slate-100 hover:text-indigo-600 font-bold"
-            title="Thu nhỏ (-)"
+            onClick={() => setDevice("desktop")}
+            className={`px-5 py-2 text-sm font-semibold rounded-lg transition-all ${device === "desktop" ? "bg-white text-indigo-700 shadow-sm" : "text-slate-500 hover:text-slate-700"}`}
           >
-            -
+            PC
           </button>
-          <span className="px-2 text-sm font-medium text-slate-700 bg-slate-50 min-w-14 text-center h-full flex items-center justify-center border-x border-slate-200">
-            {Math.round(currentZoom * 100)}%
-          </span>
           <button
-            onClick={() => {
-              setScaleMode("custom");
-              setCurrentZoom((prev) => Math.min(3, prev + 0.1));
-            }}
-            className="px-3 h-full text-slate-600 hover:bg-slate-100 hover:text-indigo-600 font-bold"
-            title="Phóng to (+)"
+            onClick={() => setDevice("ipad")}
+            className={`px-5 py-2 text-sm font-semibold rounded-lg transition-all ${device === "ipad" ? "bg-white text-indigo-700 shadow-sm" : "text-slate-500 hover:text-slate-700"}`}
           >
-            +
+            iPad
+          </button>
+          <button
+            onClick={() => setDevice("mobile")}
+            className={`px-5 py-2 text-sm font-semibold rounded-lg transition-all ${device === "mobile" ? "bg-white text-indigo-700 shadow-sm" : "text-slate-500 hover:text-slate-700"}`}
+          >
+            Mobile
           </button>
         </div>
 
-        <button
-          onClick={() => {
-            setScaleMode("100");
-            setCurrentZoom(1);
-          }}
-          className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${scaleMode === "100" ? "bg-cyan-600 text-white" : "bg-slate-100 text-slate-700 hover:bg-slate-200"}`}
-          title="Hiển thị đúng 100% kích thước pixel gốc"
-          aria-label="100% Zoom"
-        >
-          Gốc (100%)
-        </button>
+        <div className="h-8 w-px bg-slate-200 mx-2"></div>
+
+        <div className="flex items-center gap-2">
+          <button
+            onClick={() => setScaleMode("fit")}
+            className={`px-4 py-2 text-sm font-medium rounded-xl transition-all border outline-none ${scaleMode === "fit" ? "bg-slate-800 text-white border-slate-800 shadow-md" : "bg-white text-slate-600 hover:bg-slate-50 border-slate-200"}`}
+            title="Tự động Thu nhỏ Canvas vừa khung hình làm việc"
+            aria-label="Vừa vặn (Fit)"
+          >
+            <span className="flex items-center gap-2">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" /></svg>
+              Vừa màn hình
+            </span>
+          </button>
+
+          <div className="flex items-center rounded-xl border border-slate-200 bg-white shadow-sm overflow-hidden h-9">
+            <button
+              onClick={() => {
+                setScaleMode("custom");
+                setCurrentZoom((prev) => Math.max(0.1, prev - 0.1));
+              }}
+              className="px-3 h-full text-slate-500 hover:bg-slate-50 hover:text-indigo-600 font-bold transition-colors"
+              title="Thu nhỏ (-)"
+            >
+              -
+            </button>
+            <span className="px-3 text-sm font-bold text-slate-700 bg-slate-50 min-w-[70px] text-center h-full flex items-center justify-center border-x border-slate-200">
+              {Math.round(currentZoom * 100)}%
+            </span>
+            <button
+              onClick={() => {
+                setScaleMode("custom");
+                setCurrentZoom((prev) => Math.min(3, prev + 0.1));
+              }}
+              className="px-3 h-full text-slate-500 hover:bg-slate-50 hover:text-indigo-600 font-bold transition-colors"
+              title="Phóng to (+)"
+            >
+              +
+            </button>
+          </div>
+
+          <button
+            onClick={() => {
+              setScaleMode("100");
+              setCurrentZoom(1);
+            }}
+            className={`px-4 py-2 text-sm font-medium rounded-xl transition-all border outline-none ${scaleMode === "100" ? "bg-slate-800 text-white border-slate-800 shadow-md" : "bg-white text-slate-600 hover:bg-slate-50 border-slate-200"}`}
+            title="Hiển thị đúng 100% kích thước pixel gốc"
+            aria-label="100% Zoom"
+          >
+            <span className="flex items-center gap-2">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /><line x1="11" y1="8" x2="11" y2="14" /><line x1="8" y1="11" x2="14" y2="11" /></svg>
+              100% (Gốc)
+            </span>
+          </button>
+        </div>
       </div>
 
-      <div className="flex items-center gap-3 border-l pl-4 border-slate-200">
+      <div className="flex items-center gap-3">
         {/* Change background IMAGE */}
         <div className="relative overflow-hidden group">
           <button
-            className="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium rounded-lg transition-colors flex items-center gap-2 text-sm border border-slate-200"
+            className="px-5 py-2.5 bg-white hover:bg-slate-50 hover:text-indigo-600 text-slate-700 font-semibold rounded-xl transition-all flex items-center gap-2 text-sm border border-slate-200 shadow-sm"
             title="Chọn tải một ảnh nền mới từ máy tính"
           >
-            📷 Tải Ảnh Nền
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2" /><circle cx="8.5" cy="8.5" r="1.5" /><polyline points="21 15 16 10 5 21" /></svg>
+            Tải Ảnh Nền
           </button>
           <input
             type="file"
             accept="image/*"
-            aria-label="Tải ảnh nền mới"
-            title="Tải ảnh nền mới"
             onChange={handleImageUpload}
             className="absolute inset-0 opacity-0 cursor-pointer"
           />
@@ -156,16 +165,15 @@ export const Toolbar: React.FC<ToolbarProps> = ({
         {/* Add IMAGE ELEMENT */}
         <div className="relative overflow-hidden group">
           <button
-            className="px-4 py-2 bg-blue-50 text-blue-600 hover:bg-blue-100 font-medium rounded-lg transition-colors flex items-center gap-2 text-sm border border-blue-200"
+            className="px-5 py-2.5 bg-indigo-50 text-indigo-700 hover:bg-indigo-100 font-semibold rounded-xl transition-all flex items-center gap-2 text-sm border border-indigo-100 shadow-sm"
             title="Thêm một hình ảnh di động vào banner"
           >
-            🖼️ Thêm Hình
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2" /><circle cx="8.5" cy="8.5" r="1.5" /><polyline points="21 15 16 10 5 21" /></svg>
+            Thêm Ảnh
           </button>
           <input
             type="file"
             accept="image/*"
-            aria-label="Thêm hình ảnh vào banner"
-            title="Thêm hình ảnh vào banner"
             onChange={onAddImage}
             className="absolute inset-0 opacity-0 cursor-pointer"
           />
@@ -173,18 +181,22 @@ export const Toolbar: React.FC<ToolbarProps> = ({
 
         <button
           onClick={addTextElement}
-          className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors text-sm"
+          className="px-6 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl transition-all text-sm shadow-md shadow-indigo-200 flex items-center gap-2 border border-indigo-600"
           title="Thêm một khối văn bản mới"
         >
-          + Thêm Chữ
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="4 7 4 4 20 4 20 7" /><line x1="9" y1="20" x2="15" y2="20" /><line x1="12" y1="4" x2="12" y2="20" /></svg>
+          Thêm Chữ
         </button>
+
+        <div className="h-8 w-px bg-slate-200 mx-1"></div>
 
         <button
           onClick={onExport}
-          className="ml-4 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-medium rounded-lg transition-colors flex items-center gap-2 text-sm shadow-sm"
+          className="px-6 py-2.5 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold rounded-xl transition-all flex items-center gap-2 text-sm shadow-md shadow-emerald-200 border border-emerald-500"
           title="Lưu cấu trúc banner hiện tại thành file JSON"
         >
-          Lưu JSON
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" /></svg>
+          Xuất JSON
         </button>
       </div>
     </div>

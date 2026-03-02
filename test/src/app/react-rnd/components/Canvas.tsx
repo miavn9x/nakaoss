@@ -124,7 +124,7 @@ export const Canvas: React.FC<CanvasProps> = ({
       <div ref={spacerRef} className="relative">
         <div
           ref={scalableRef}
-          className="border shadow-lg bg-white relative origin-top-left"
+          className="shadow-xl relative origin-top-left ring-1 ring-slate-200/50"
         >
           <div
             ref={setRefs}

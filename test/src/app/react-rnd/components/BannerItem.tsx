@@ -83,15 +83,15 @@ export const BannerItem = memo(
       () =>
         isSelected
           ? {
-              top: "rnd-handle handle-side-v handle-n",
-              right: "rnd-handle handle-side-h handle-e",
-              bottom: "rnd-handle handle-side-v handle-s",
-              left: "rnd-handle handle-side-h handle-w",
-              topRight: "rnd-handle handle-corner handle-ne",
-              bottomRight: "rnd-handle handle-corner handle-se",
-              bottomLeft: "rnd-handle handle-corner handle-sw",
-              topLeft: "rnd-handle handle-corner handle-nw",
-            }
+            top: "rnd-handle handle-side-v handle-n",
+            right: "rnd-handle handle-side-h handle-e",
+            bottom: "rnd-handle handle-side-v handle-s",
+            left: "rnd-handle handle-side-h handle-w",
+            topRight: "rnd-handle handle-corner handle-ne",
+            bottomRight: "rnd-handle handle-corner handle-se",
+            bottomLeft: "rnd-handle handle-corner handle-sw",
+            topLeft: "rnd-handle handle-corner handle-nw",
+          }
           : {},
       [isSelected],
     );
@@ -100,67 +100,67 @@ export const BannerItem = memo(
       () =>
         isSelected
           ? {
-              top: {
-                width: "100%",
-                height: "4px",
-                left: 0,
-                top: "-2px",
-                cursor: "n-resize",
-              },
-              bottom: {
-                width: "100%",
-                height: "4px",
-                left: 0,
-                bottom: "-2px",
-                cursor: "s-resize",
-              },
-              left: {
-                width: "4px",
-                height: "100%",
-                top: 0,
-                left: "-2px",
-                cursor: "w-resize",
-              },
-              right: {
-                width: "4px",
-                height: "100%",
-                top: 0,
-                right: "-2px",
-                cursor: "e-resize",
-              },
-              topLeft: {
-                width: "14px",
-                height: "14px",
-                left: "-7px",
-                top: "-7px",
-                cursor: "nw-resize",
-                zIndex: 1000,
-              },
-              topRight: {
-                width: "14px",
-                height: "14px",
-                right: "-7px",
-                top: "-7px",
-                cursor: "ne-resize",
-                zIndex: 1000,
-              },
-              bottomLeft: {
-                width: "14px",
-                height: "14px",
-                left: "-7px",
-                bottom: "-7px",
-                cursor: "sw-resize",
-                zIndex: 1000,
-              },
-              bottomRight: {
-                width: "14px",
-                height: "14px",
-                right: "-7px",
-                bottom: "-7px",
-                cursor: "se-resize",
-                zIndex: 1000,
-              },
-            }
+            top: {
+              width: "100%",
+              height: "4px",
+              left: 0,
+              top: "-2px",
+              cursor: "n-resize",
+            },
+            bottom: {
+              width: "100%",
+              height: "4px",
+              left: 0,
+              bottom: "-2px",
+              cursor: "s-resize",
+            },
+            left: {
+              width: "4px",
+              height: "100%",
+              top: 0,
+              left: "-2px",
+              cursor: "w-resize",
+            },
+            right: {
+              width: "4px",
+              height: "100%",
+              top: 0,
+              right: "-2px",
+              cursor: "e-resize",
+            },
+            topLeft: {
+              width: "14px",
+              height: "14px",
+              left: "-7px",
+              top: "-7px",
+              cursor: "nw-resize",
+              zIndex: 1000,
+            },
+            topRight: {
+              width: "14px",
+              height: "14px",
+              right: "-7px",
+              top: "-7px",
+              cursor: "ne-resize",
+              zIndex: 1000,
+            },
+            bottomLeft: {
+              width: "14px",
+              height: "14px",
+              left: "-7px",
+              bottom: "-7px",
+              cursor: "sw-resize",
+              zIndex: 1000,
+            },
+            bottomRight: {
+              width: "14px",
+              height: "14px",
+              right: "-7px",
+              bottom: "-7px",
+              cursor: "se-resize",
+              zIndex: 1000,
+            },
+          }
           : {},
       [isSelected],
     );
@@ -200,17 +200,17 @@ export const BannerItem = memo(
           el.isLocked
             ? false
             : {
-                top: true,
-                right: true,
-                bottom: true,
-                left: true,
-                topRight: true,
-                bottomRight: true,
-                topLeft: true,
-                bottomLeft: true,
-              }
+              top: true,
+              right: true,
+              bottom: true,
+              left: true,
+              topRight: true,
+              bottomRight: true,
+              topLeft: true,
+              bottomLeft: true,
+            }
         }
-        className={`rnd-element group transition-none! ${isSelected ? "border-2 border-blue-400" : "border-2 border-transparent hover:border-white/50"}`}
+        className={`rnd-element group transition-none! ${isSelected ? "ring-2 ring-blue-500" : "ring-2 ring-transparent hover:ring-white/50"}`}
         style={{ zIndex: index }}
         dragHandleClassName={el.isLocked ? "" : "draggable-area"}
       >

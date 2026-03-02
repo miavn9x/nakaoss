@@ -82,7 +82,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
         {/* Main Sidebar Content */}
         <div className="h-full w-[80vw] max-w-75 bg-white shadow-2xl overflow-y-auto flex flex-col pointer-events-auto animate-in slide-in-from-left duration-300 relative">
           {/* Background Image */}
-          <div className="absolute inset-0 z-0 flex items-end justify-center pb-20 opacity-60 pointer-events-none">
+          {/* <div className="absolute inset-0 z-0 flex items-end justify-center pb-20 opacity-60 pointer-events-none">
             <div className="w-4/5 relative aspect-square">
               <Image
                 src="/bg/ico_quote_home.png"
@@ -92,7 +92,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                 className="object-contain"
               />
             </div>
-          </div>
+          </div> */}
           {/* Header */}
           <div className="p-5 flex items-center justify-center border-b border-gray-100">
             {/* Language Switcher */}

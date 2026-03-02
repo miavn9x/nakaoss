@@ -33,8 +33,9 @@ export function useCanvasInteractions(
             const width = deviceWidths[device];
             const oldHeight = bannerHeight;
 
+            // Drop the 300px hard limit so small backgrounds don't snap larger 
             const newHeight = Math.max(
-                  300,
+                  50,
                   Math.ceil(currentMovingBottomPx),
                   othersMaxBottomRef.current,
             );

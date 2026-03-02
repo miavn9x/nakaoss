@@ -12,9 +12,10 @@ interface ToolbarProps {
   addImageElement: (url: string, w: number, h: number) => void;
   onAddImageAsBackground: (url: string, w: number, h: number) => void;
   onExport: () => void;
+  hasBackground?: boolean;
 }
 
-export const Toolbar: React.FC<ToolbarProps> = ({
+export const Toolbar = ({
   device,
   setDevice,
   scaleMode,
@@ -25,7 +26,8 @@ export const Toolbar: React.FC<ToolbarProps> = ({
   addImageElement,
   onAddImageAsBackground,
   onExport,
-}) => {
+  hasBackground,
+}: ToolbarProps) => {
   const onAddImage = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
@@ -46,7 +48,7 @@ export const Toolbar: React.FC<ToolbarProps> = ({
     e.target.value = "";
   };
 
-  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleBackgroundUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
       const reader = new FileReader();
@@ -145,21 +147,27 @@ export const Toolbar: React.FC<ToolbarProps> = ({
       </div>
 
       <div className="flex items-center gap-3">
-        {/* Change background IMAGE */}
+        {/* Add BACKGROUND IMAGE */}
         <div className="relative overflow-hidden group">
           <button
-            className="px-5 py-2.5 bg-white hover:bg-slate-50 hover:text-indigo-600 text-slate-700 font-semibold rounded-xl transition-all flex items-center gap-2 text-sm border border-slate-200 shadow-sm"
-            title="Chọn tải một ảnh nền mới từ máy tính"
+            disabled={hasBackground}
+            className={`px-5 py-2.5 font-semibold rounded-xl transition-all flex items-center gap-2 text-sm border shadow-sm ${hasBackground
+                ? "bg-slate-100/50 text-slate-400 border-slate-200 cursor-not-allowed"
+                : "bg-white hover:bg-slate-50 hover:text-indigo-600 text-slate-700 border-slate-200"
+              }`}
+            title={hasBackground ? "Chỉ được phép có 1 ảnh nền. Hãy xóa ảnh cũ để thêm mới." : "Chọn tải một ảnh nền mới từ máy tính"}
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2" /><circle cx="8.5" cy="8.5" r="1.5" /><polyline points="21 15 16 10 5 21" /></svg>
             Tải Ảnh Nền
           </button>
-          <input
-            type="file"
-            accept="image/*"
-            onChange={handleImageUpload}
-            className="absolute inset-0 opacity-0 cursor-pointer"
-          />
+          {!hasBackground && (
+            <input
+              type="file"
+              accept="image/*"
+              onChange={handleBackgroundUpload}
+              className="absolute inset-0 opacity-0 cursor-pointer"
+            />
+          )}
         </div>
 
         {/* Add IMAGE ELEMENT */}

@@ -51,6 +51,7 @@ export const BannerItem = memo(
     onResize,
   }: BannerItemProps) => {
     const px = pctToPx(el);
+    const [isEditing, setIsEditing] = useState(false);
     const elementRef = useRef<HTMLDivElement>(null);
     const imageInnerRef = useRef<HTMLImageElement>(null);
     const [isCornerDrag, setIsCornerDrag] = useState(true);
@@ -216,31 +217,42 @@ export const BannerItem = memo(
       >
         <div
           ref={elementRef}
-          className={`w-full h-full relative overflow-hidden flex items-center justify-center font-sans! select-none ${el.isLocked ? "" : "draggable-area"}`}
-          onMouseDown={() => {
+          className={`w-full h-full relative overflow-hidden flex items-center justify-center font-sans! ${isEditing ? "" : "select-none"} ${el.isLocked || isEditing ? "" : "draggable-area"}`}
+          onMouseDown={(e) => {
+            if (isEditing) e.stopPropagation(); // let user click inside text
             onSelect(el.id);
-            // Do NOT stop propagation, otherwise Rnd won't start its own drag
           }}
-          onClick={() => {
-            // Fallback for selection if mousedown already passed
-            onSelect(el.id);
+          onDoubleClick={() => {
+            if (el.type === "text") setIsEditing(true);
           }}
         >
           {el.type === "text" ? (
             <div
-              contentEditable
+              contentEditable={isEditing}
               suppressContentEditableWarning
               onInput={(e) =>
                 updateElement(el.id, {
                   text: e.currentTarget.textContent || "",
                 })
               }
+              onFocus={(e) => {
+                // Auto-select text if it's the default text
+                if (el.text === "Nhấp đúp để nhập văn bản...") {
+                  const range = document.createRange();
+                  range.selectNodeContents(e.currentTarget);
+                  const sel = window.getSelection();
+                  sel?.removeAllRanges();
+                  sel?.addRange(range);
+                }
+              }}
               onBlur={() => {
+                setIsEditing(false);
                 if (!el.text.trim()) {
                   onDelete(el.id);
                 }
               }}
-              className="outline-none min-h-[1em] wrap-break-word whitespace-pre-wrap cursor-text w-full h-full flex-1 flex flex-col justify-center"
+              className={`outline-none min-h-[1em] wrap-break-word whitespace-pre-wrap w-full h-full flex flex-col justify-center ${isEditing ? "cursor-text" : "cursor-pointer"}`}
+              style={{ textAlign: el.textAlign || "center" }}
             >
               {el.text}
             </div>

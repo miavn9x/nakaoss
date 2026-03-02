@@ -68,6 +68,7 @@ export default function BannerEditor() {
   if (!isClient) return null;
 
   const activeEl = elements.find((e) => e.id === selectedId);
+  const hasBackground = elements.some((el) => el.id.startsWith("bg-"));
 
   return (
     <div className="flex flex-col h-screen bg-slate-50 overflow-hidden font-sans text-slate-900">
@@ -83,6 +84,7 @@ export default function BannerEditor() {
         addImageElement={addImageElement}
         onAddImageAsBackground={addImageAsBackground}
         onExport={handleExport}
+        hasBackground={hasBackground}
       />
 
       <div className="flex-1 flex flex-col lg:flex-row overflow-hidden">

@@ -217,17 +217,27 @@ export const BannerItem = memo(
       >
         <div
           ref={elementRef}
-          className={`w-full h-full relative overflow-hidden flex items-center justify-center font-sans! ${isEditing ? "" : "select-none"} ${el.isLocked || isEditing ? "" : "draggable-area"}`}
+          className={`w-full h-full relative overflow-hidden flex items-center justify-center font-sans! ${el.isLocked || isEditing ? "" : "draggable-area"}`}
           onMouseDown={(e) => {
             if (isEditing) e.stopPropagation(); // let user click inside text
             onSelect(el.id);
           }}
           onDoubleClick={() => {
-            if (el.type === "text") setIsEditing(true);
+            if (el.type === "text") {
+              setIsEditing(true);
+            }
           }}
         >
           {el.type === "text" ? (
             <div
+              ref={(node) => {
+                if (node && isEditing && document.activeElement !== node) {
+                  // Wait for next tick to ensure contentEditable is applied before focusing
+                  setTimeout(() => {
+                    node.focus();
+                  }, 0);
+                }
+              }}
               contentEditable={isEditing}
               suppressContentEditableWarning
               onInput={(e) =>
@@ -236,13 +246,10 @@ export const BannerItem = memo(
                 })
               }
               onFocus={(e) => {
-                // Auto-select text if it's the default text
+                // Auto-clear the default placeholder to let the user type immediately
                 if (el.text === "Nhấp đúp để nhập văn bản...") {
-                  const range = document.createRange();
-                  range.selectNodeContents(e.currentTarget);
-                  const sel = window.getSelection();
-                  sel?.removeAllRanges();
-                  sel?.addRange(range);
+                  updateElement(el.id, { text: "" });
+                  e.currentTarget.textContent = "";
                 }
               }}
               onBlur={() => {
@@ -251,8 +258,19 @@ export const BannerItem = memo(
                   onDelete(el.id);
                 }
               }}
-              className={`outline-none min-h-[1em] wrap-break-word whitespace-pre-wrap w-full h-full flex flex-col justify-center ${isEditing ? "cursor-text" : "cursor-pointer"}`}
-              style={{ textAlign: el.textAlign || "center" }}
+              className={`outline-none min-h-[1em] wrap-break-word whitespace-pre-wrap w-full h-full flex flex-col justify-center ${isEditing ? "cursor-text select-text" : "cursor-pointer select-none"}`}
+              style={{
+                textAlign: el.textAlign || "center",
+                backgroundColor: el.backgroundColor || "transparent",
+                borderRadius: el.borderRadius ? `${el.borderRadius}px` : undefined,
+                padding: el.padding ? `${el.padding}px` : undefined,
+                border: el.hasBorder ? `${el.borderWidth}px solid ${el.borderColor}` : undefined,
+                boxShadow: el.hasShadow ? "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)" : undefined,
+                color: el.color,
+                fontSize: el.fontSize,
+                fontFamily: el.fontFamily,
+                fontWeight: el.fontWeight,
+              }}
             >
               {el.text}
             </div>

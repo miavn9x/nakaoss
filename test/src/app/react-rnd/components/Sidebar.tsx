@@ -359,12 +359,14 @@ export const Sidebar: React.FC<SidebarProps> = ({
         <SectionLabel>Viền Element</SectionLabel>
 
         <label className="flex items-center gap-3 text-sm cursor-pointer bg-slate-50/50 hover:bg-slate-100 p-3 rounded-xl border border-slate-200/60 transition-colors">
-          <input
-            type="checkbox"
-            checked={activeEl.hasBorder}
-            onChange={(e) => handleUpdate({ hasBorder: e.target.checked })}
-            className="peer h-4 w-4 shrink-0 rounded border-slate-300 text-indigo-600 focus:ring-indigo-600"
-          />
+          <div className="relative flex items-center">
+            <input
+              type="checkbox"
+              checked={activeEl.hasBorder}
+              onChange={(e) => handleUpdate({ hasBorder: e.target.checked })}
+              className="peer h-4 w-4 shrink-0 rounded border-slate-300 text-indigo-600 focus:ring-indigo-600"
+            />
+          </div>
           <span className="font-medium text-slate-700">Bật viền xung quanh</span>
         </label>
 

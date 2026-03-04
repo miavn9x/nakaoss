@@ -1,15 +1,18 @@
-import React, { useRef, useCallback } from "react";
-import { DeviceType, BannerElement, deviceWidths } from "../types";
+import React, { useRef, useCallback, useState } from "react";
+import { DeviceType, BannerElement, deviceWidths, BannerBg, ActiveGuide } from "../types";
 
 export function useCanvasInteractions(
       device: DeviceType,
       bannerHeight: number,
       updateBannerHeight: (h: number) => void,
       elements: BannerElement[],
-      setElements: React.Dispatch<React.SetStateAction<BannerElement[]>>
+      setElements: React.Dispatch<React.SetStateAction<BannerElement[]>>,
+      bannerBg: BannerBg,
+      recordHistory: (elements: BannerElement[], bg: BannerBg) => void
 ) {
       const othersMaxBottomRef = useRef(0);
       const lastDragTimeRef = useRef(0);
+      const [activeGuides, setActiveGuides] = useState<ActiveGuide[]>([]);
 
       const pctToPx = useCallback((el: BannerElement) => {
             const width = deviceWidths[device];
@@ -123,7 +126,37 @@ export function useCanvasInteractions(
                         ? Math.max(...others.map((e) => (e.bounds[device].topPct / 100) * oldHeight + (e.bounds[device].heightPct / 100) * oldHeight))
                         : 0;
             }
-            applyDynamicHeight(id, d.y + 100, d, undefined, undefined, false);
+
+            // --- SNAPPING LOGIC ---
+            const SNAP_THRESHOLD = 5;
+            const currentEl = elements.find(el => el.id === id);
+            if (!currentEl) return;
+
+            const wPx = (currentEl.bounds[device].widthPct / 100) * deviceWidths[device];
+            const hPx = (currentEl.bounds[device].heightPct / 100) * bannerHeight;
+
+            const centerX = deviceWidths[device] / 2;
+            const centerY = bannerHeight / 2;
+
+            let finalX = d.x;
+            let finalY = d.y;
+            const newGuides: ActiveGuide[] = [];
+
+            // Horizontal Center Snap (Vertical Guide Line)
+            if (Math.abs(d.x + wPx / 2 - centerX) < SNAP_THRESHOLD) {
+                  finalX = centerX - wPx / 2;
+                  newGuides.push({ type: "vertical", position: centerX });
+            }
+
+            // Vertical Center Snap (Horizontal Guide Line)
+            if (Math.abs(d.y + hPx / 2 - centerY) < SNAP_THRESHOLD) {
+                  finalY = centerY - hPx / 2;
+                  newGuides.push({ type: "horizontal", position: centerY });
+            }
+
+            setActiveGuides(newGuides);
+
+            applyDynamicHeight(id, finalY + 100, { x: finalX, y: finalY }, undefined, undefined, false);
       }, [device, elements, bannerHeight, applyDynamicHeight]);
 
       const handleResize = useCallback((id: string, ref: HTMLElement, position: { x: number; y: number }) => {
@@ -157,18 +190,34 @@ export function useCanvasInteractions(
 
             applyDynamicHeight(id, newBottomPx, position, newW, newH, true);
             othersMaxBottomRef.current = 0;
-      }, [applyDynamicHeight]);
+
+            // Allow state to settle before recording history
+            setTimeout(() => {
+                  setElements((latestElements) => {
+                        recordHistory(latestElements, bannerBg);
+                        return latestElements;
+                  });
+            }, 0);
+      }, [applyDynamicHeight, bannerBg, recordHistory, setElements]);
 
       const handleDragStop = useCallback((id: string, d: { x: number; y: number }) => {
-            const el = elements.find((e) => e.id === id);
-            if (!el) return;
+            setActiveGuides([]);
+            const index = elements.findIndex((item) => item.id === id);
+            if (index === -1) return;
+            const current = elements[index];
+            const currentH_Px = (current.bounds[device].heightPct / 100) * bannerHeight;
+            const bottomPx = d.y + currentH_Px;
 
-            const oldHeight = bannerHeight;
-            const elementHeightPx = (el.bounds[device].heightPct / 100) * oldHeight;
-            const newBottomPx = d.y + elementHeightPx;
+            applyDynamicHeight(id, bottomPx, d, undefined, undefined, true);
 
-            applyDynamicHeight(id, newBottomPx, d, undefined, undefined, true);
-      }, [device, elements, bannerHeight, applyDynamicHeight]);
+            // Allow state to settle before recording history
+            setTimeout(() => {
+                  setElements((latestElements) => {
+                        recordHistory(latestElements, bannerBg);
+                        return latestElements;
+                  });
+            }, 0);
+      }, [applyDynamicHeight, bannerHeight, device, elements, bannerBg, recordHistory, setElements]);
 
-      return { pctToPx, handleDrag, handleResize, handleResizeStop, handleDragStop };
+      return { pctToPx, handleDrag, handleResize, handleResizeStop, handleDragStop, activeGuides };
 }

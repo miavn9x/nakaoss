@@ -1,6 +1,7 @@
 import React, { useLayoutEffect, useRef } from "react";
 import { BannerItem } from "./BannerItem";
-import { BannerBg, BannerElement, DeviceType } from "./types";
+import { Guides } from "./Guides";
+import { BannerBg, BannerElement, DeviceType, ActiveGuide } from "./types";
 
 interface CanvasProps {
   device: DeviceType;
@@ -10,6 +11,7 @@ interface CanvasProps {
   bannerRef: (node: HTMLElement | null) => void;
   bannerBg: BannerBg;
   elements: BannerElement[];
+  activeGuides: ActiveGuide[];
   selectedId: string | null;
   pctToPx: (el: BannerElement) => {
     x: number;
@@ -33,6 +35,8 @@ interface CanvasProps {
     position: { x: number; y: number },
   ) => void;
   setBannerHeight: (h: number) => void;
+  showGrid: boolean;
+  gridColor: string;
 }
 
 export const Canvas: React.FC<CanvasProps> = ({
@@ -43,6 +47,7 @@ export const Canvas: React.FC<CanvasProps> = ({
   bannerRef,
   bannerBg,
   elements,
+  activeGuides,
   selectedId,
   pctToPx,
   onDragStop,
@@ -53,6 +58,8 @@ export const Canvas: React.FC<CanvasProps> = ({
   onDrag,
   onResize,
   setBannerHeight,
+  showGrid,
+  gridColor,
 }) => {
   const spacerRef = useRef<HTMLDivElement>(null);
   const scalableRef = useRef<HTMLDivElement>(null);
@@ -120,7 +127,10 @@ export const Canvas: React.FC<CanvasProps> = ({
   };
 
   return (
-    <div className="flex-1 w-full bg-slate-100 rounded-xl border border-dashed border-slate-300 overflow-auto min-h-[80vh] flex justify-center items-start relative focus:outline-hidden">
+    <div
+      className="flex-1 w-full bg-slate-100 rounded-xl border border-dashed border-slate-300 overflow-auto min-h-[80vh] flex justify-center items-start relative focus:outline-hidden"
+      style={{ "--zoom": currentZoom } as React.CSSProperties}
+    >
       <div ref={spacerRef} className="relative">
         <div
           ref={scalableRef}
@@ -130,6 +140,8 @@ export const Canvas: React.FC<CanvasProps> = ({
             ref={setRefs}
             className="w-full relative overflow-visible bg-cover bg-no-repeat bg-center"
           >
+            <Guides activeGuides={activeGuides} />
+
             {elements.map((el, idx) => (
               <BannerItem
                 key={el.id}
@@ -150,27 +162,25 @@ export const Canvas: React.FC<CanvasProps> = ({
               />
             ))}
 
-            {/* Canvas Rezise Handle at Bottom */}
-            <div
-              onMouseDown={handleResizeStart}
-              className="absolute bottom-0 left-0 w-full h-1 bg-blue-400/0 hover:bg-blue-400 group cursor-s-resize z-30 transition-colors"
-              title="Kéo để chỉnh chiều cao Banner"
-            >
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 bg-blue-500 text-white rounded-full p-0.5 shadow-md flex items-center justify-center pointer-events-none transition-opacity">
-                <svg
-                  width="12"
-                  height="12"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="3"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
-                </svg>
-              </div>
-            </div>
+            {/* Grid Overlay Placed Above Elements */}
+            {showGrid && (
+              <div
+                className="absolute inset-0 pointer-events-none z-9999"
+                style={{
+                  height: `${bannerHeight}px`,
+                  backgroundImage: `linear-gradient(to right, ${gridColor}80 1px, transparent 1px), linear-gradient(to bottom, ${gridColor}80 1px, transparent 1px)`,
+                  backgroundSize: '20px 20px'
+                }}
+              />
+            )}
+          </div>
+
+          {/* Canvas Rezise Handle at Bottom */}
+          <div
+            onMouseDown={handleResizeStart}
+            className="absolute bottom-[-10px] left-0 right-0 h-[20px] cursor-row-resize flex justify-center items-center z-50 group"
+          >
+            <div className="w-8 h-1.5 bg-slate-300 rounded-full group-hover:bg-indigo-500 transition-colors shadow-sm border border-white/50" />
           </div>
         </div>
       </div>

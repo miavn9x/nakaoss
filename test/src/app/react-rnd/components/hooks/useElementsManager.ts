@@ -1,12 +1,15 @@
 import React, { useState, useCallback } from "react";
 import { DeviceType, BannerElement, ElementBounds, deviceWidths, BannerBg } from "../types";
+import { v4 as uuidv4 } from "uuid";
 
 export function useElementsManager(
+      elements: BannerElement[],
+      setElements: React.Dispatch<React.SetStateAction<BannerElement[]>>,
       bannerHeights: Record<DeviceType, number>,
       setBannerHeights: React.Dispatch<React.SetStateAction<Record<DeviceType, number>>>,
+      bannerBg: BannerBg,
       setBannerBg: React.Dispatch<React.SetStateAction<BannerBg>>
 ) {
-      const [elements, setElements] = useState<BannerElement[]>([]);
       const [selectedId, setSelectedId] = useState<string | null>(null);
 
       const addTextElement = useCallback(() => {
@@ -37,10 +40,9 @@ export function useElementsManager(
                   },
             ]);
             setSelectedId(newId);
-      }, []);
-
+      }, [setElements]);
       const addImageElement = useCallback((url: string, w: number, h: number) => {
-            const newId = `image-${Date.now()}`;
+            const newId = uuidv4();
             const ratio = w / h;
             const bounds: Partial<Record<DeviceType, ElementBounds>> = {};
 
@@ -97,11 +99,11 @@ export function useElementsManager(
                   },
             ]);
             setSelectedId(newId);
-      }, [bannerHeights]);
+      }, [bannerHeights, setElements]);
 
       const addImageAsBackground = useCallback((url: string, w: number, h: number) => {
             const ratio = w / h;
-            const newId = `bg-${Date.now()}`;
+            const newId = `bg-${uuidv4()}`;
             const bounds: Partial<Record<DeviceType, ElementBounds>> = {};
             const newHeights = { ...bannerHeights };
 
@@ -144,11 +146,11 @@ export function useElementsManager(
             setElements((prev) => [newBgElement, ...prev]);
             setSelectedId(newId);
             setBannerBg({ type: "color", value: "transparent" });
-      }, [bannerHeights, setBannerHeights, setBannerBg]);
+      }, [bannerHeights, setBannerHeights, setBannerBg, setElements]);
 
       const updateElement = useCallback((id: string, newProps: Partial<BannerElement>) => {
             setElements((prev) => prev.map((el) => (el.id === id ? { ...el, ...newProps } : el)));
-      }, []);
+      }, [setElements]);
 
       const updateSelected = useCallback((newProps: Partial<BannerElement>) => {
             setElements((prevElements) => {
@@ -162,14 +164,14 @@ export function useElementsManager(
                   });
                   return updated ? newElements : prevElements;
             });
-      }, [selectedId]);
+      }, [selectedId, setElements]);
 
       const deleteElement = useCallback((id: string) => {
             setElements((prev) => prev.filter((el) => el.id !== id));
             if (selectedId === id) {
                   setSelectedId(null);
             }
-      }, [selectedId]);
+      }, [selectedId, setElements]);
 
       const bringForward = useCallback((id: string) => {
             setElements((prev) => {
@@ -181,7 +183,7 @@ export function useElementsManager(
                   newArr[idx + 1] = temp;
                   return newArr;
             });
-      }, []);
+      }, [setElements]);
 
       const sendBackward = useCallback((id: string) => {
             setElements((prev) => {
@@ -193,7 +195,7 @@ export function useElementsManager(
                   newArr[idx - 1] = temp;
                   return newArr;
             });
-      }, []);
+      }, [setElements]);
 
       const resetElementRatio = useCallback((id: string, dev: DeviceType) => {
             setElements((prev) => {
@@ -242,7 +244,7 @@ export function useElementsManager(
                   }
                   return prev;
             });
-      }, [bannerHeights]);
+      }, [bannerHeights, setElements]);
 
       return {
             elements, setElements,

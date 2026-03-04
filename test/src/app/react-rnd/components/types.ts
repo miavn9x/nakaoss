@@ -16,9 +16,13 @@ export type BannerElement = {
   text: string;
   // Font & Chữ (Dành cho Text)
   color: string;
+  textFillType?: "color" | "gradient";
+  textGradient?: string;
   fontSize: number;
-  textAlign: "left" | "center" | "right";
+  textAlign: "left" | "center" | "right" | "justify";
   fontWeight: "normal" | "bold";
+  fontStyle?: "normal" | "italic";
+  textDecoration?: "none" | "underline";
   fontFamily: string;
   // Nội dung (Dành cho Image)
   imageUrl?: string;
@@ -26,11 +30,15 @@ export type BannerElement = {
   imageOpacity?: number;
   // Khung (Box) - Dùng chung
   backgroundColor: string;
+  backgroundFillType?: "color" | "gradient";
+  backgroundGradient?: string;
   padding: number;
   borderRadius: number;
   // Viền (Border) - Dùng chung
   hasBorder: boolean;
   borderColor: string;
+  borderGradient?: string;
+  borderFillType?: "color" | "gradient";
   borderWidth: number;
   // Đổ bóng (Shadow) - Dùng chung
   hasShadow: boolean;
@@ -50,3 +58,8 @@ export type BannerBg = {
   type: "color" | "gradient" | "image";
   value: string;
 };
+
+export interface ActiveGuide {
+  type: "vertical" | "horizontal";
+  position: number;
+}

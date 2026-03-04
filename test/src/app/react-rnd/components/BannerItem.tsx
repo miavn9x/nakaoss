@@ -46,13 +46,15 @@ export const BannerItem = memo(
     onResizeStop,
     onSelect,
     updateElement,
-    onDelete,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    onDelete: _onDelete,
     onDrag,
     onResize,
   }: BannerItemProps) => {
     const px = pctToPx(el);
     const [isEditing, setIsEditing] = useState(false);
     const elementRef = useRef<HTMLDivElement>(null);
+    const borderOverlayRef = useRef<HTMLDivElement>(null);
     const imageInnerRef = useRef<HTMLImageElement>(null);
     const [isCornerDrag, setIsCornerDrag] = useState(true);
 
@@ -60,20 +62,62 @@ export const BannerItem = memo(
     useLayoutEffect(() => {
       if (elementRef.current) {
         const s = elementRef.current.style;
-        s.color = el.color;
-        s.textAlign = el.textAlign;
-        s.fontWeight = el.fontWeight;
-        s.fontFamily = el.fontFamily;
-        s.backgroundColor = el.backgroundColor;
+        // Note: color, fontFamily, fontWeight, textAlign, fontSize are applied
+        // directly on the inner text div to avoid conflicting with gradient mode.
         s.padding = `${el.padding}px`;
+
+        // ─── Background (independent from border) ──────────────────────────
+        if (el.backgroundFillType === "gradient" && el.backgroundGradient) {
+          s.backgroundColor = "";
+          s.backgroundImage = el.backgroundGradient;
+        } else {
+          s.backgroundColor = el.backgroundColor;
+          s.backgroundImage = "";
+        }
+        s.backgroundClip = "";
+        s.backgroundOrigin = "";
+
+        // ─── Solid border on elementRef (gradient border is on overlay div) ─────
         s.borderRadius = `${el.borderRadius}px`;
-        s.border = el.hasBorder
-          ? `${el.borderWidth}px solid ${el.borderColor}`
-          : "none";
+        s.borderImage = "";
+        if (el.hasBorder && el.borderFillType !== "gradient") {
+          s.border = `${el.borderWidth}px solid ${el.borderColor}`;
+        } else {
+          s.border = "none";
+        }
+
         s.boxShadow = el.hasShadow
           ? "0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.3)"
           : "none";
-        s.fontSize = `clamp(12px, ${(el.fontSize / 1000) * containerWidth}px, 120px)`;
+      }
+
+      // ─── Gradient border via CSS Mask (overlay div) ─────────────────────────
+      // Technique: fill overlay div with gradient, then mask out the center
+      // leaving only the border-width ring visible. Supports border-radius
+      // and is fully independent from the element's background.
+      if (borderOverlayRef.current) {
+        const bo = borderOverlayRef.current.style;
+        if (el.hasBorder && el.borderFillType === "gradient" && el.borderGradient) {
+          const bw = el.borderWidth;
+          const br = el.borderRadius;
+          bo.display = "block";
+          bo.background = el.borderGradient;
+          bo.borderRadius = `${br}px`;
+          // CSS mask ring technique:
+          // 1. Fill overlay with gradient
+          // 2. padding = borderWidth defines the ring thickness
+          // 3. mask subtracts the content-box (inner area) from the full area
+          //    leaving only the padding ring visible
+          bo.padding = `${bw}px`;
+          bo.boxSizing = "border-box";
+          const maskValue = "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)";
+          bo.webkitMask = maskValue;
+          bo.webkitMaskComposite = "destination-out";
+          (bo as unknown as Record<string, string>).mask = maskValue;
+          (bo as unknown as Record<string, string>).maskComposite = "exclude";
+        } else {
+          bo.display = "none";
+        }
       }
       if (imageInnerRef.current) {
         imageInnerRef.current.style.opacity = (el.imageOpacity ?? 1).toString();
@@ -98,72 +142,78 @@ export const BannerItem = memo(
     );
 
     const handleStyles = useMemo(
-      () =>
-        isSelected
+      () => {
+        const cornerSize = 10 / currentZoom;
+        const cornerOffset = -cornerSize / 2;
+        const edgeThickness = 3 / currentZoom;
+        const edgeOffset = -edgeThickness / 2;
+
+        return isSelected
           ? {
             top: {
               width: "100%",
-              height: "4px",
+              height: `${edgeThickness}px`,
               left: 0,
-              top: "-2px",
+              top: `${edgeOffset}px`,
               cursor: "n-resize",
             },
             bottom: {
               width: "100%",
-              height: "4px",
+              height: `${edgeThickness}px`,
               left: 0,
-              bottom: "-2px",
+              bottom: `${edgeOffset}px`,
               cursor: "s-resize",
             },
             left: {
-              width: "4px",
+              width: `${edgeThickness}px`,
               height: "100%",
               top: 0,
-              left: "-2px",
+              left: `${edgeOffset}px`,
               cursor: "w-resize",
             },
             right: {
-              width: "4px",
+              width: `${edgeThickness}px`,
               height: "100%",
               top: 0,
-              right: "-2px",
+              right: `${edgeOffset}px`,
               cursor: "e-resize",
             },
             topLeft: {
-              width: "14px",
-              height: "14px",
-              left: "-7px",
-              top: "-7px",
+              width: `${cornerSize}px`,
+              height: `${cornerSize}px`,
+              left: `${cornerOffset}px`,
+              top: `${cornerOffset}px`,
               cursor: "nw-resize",
               zIndex: 1000,
             },
             topRight: {
-              width: "14px",
-              height: "14px",
-              right: "-7px",
-              top: "-7px",
+              width: `${cornerSize}px`,
+              height: `${cornerSize}px`,
+              right: `${cornerOffset}px`,
+              top: `${cornerOffset}px`,
               cursor: "ne-resize",
               zIndex: 1000,
             },
             bottomLeft: {
-              width: "14px",
-              height: "14px",
-              left: "-7px",
-              bottom: "-7px",
+              width: `${cornerSize}px`,
+              height: `${cornerSize}px`,
+              left: `${cornerOffset}px`,
+              bottom: `${cornerOffset}px`,
               cursor: "sw-resize",
               zIndex: 1000,
             },
             bottomRight: {
-              width: "14px",
-              height: "14px",
-              right: "-7px",
-              bottom: "-7px",
+              width: `${cornerSize}px`,
+              height: `${cornerSize}px`,
+              right: `${cornerOffset}px`,
+              bottom: `${cornerOffset}px`,
               cursor: "se-resize",
               zIndex: 1000,
             },
           }
-          : {},
-      [isSelected],
+          : {};
+      },
+      [isSelected, currentZoom],
     );
 
     return (
@@ -212,22 +262,25 @@ export const BannerItem = memo(
             }
         }
         className={`rnd-element group transition-none! ${isSelected ? "ring-2 ring-blue-500" : "ring-2 ring-transparent hover:ring-white/50"}`}
-        style={{ zIndex: index }}
+        style={{
+          zIndex: index,
+          borderRadius: el.borderRadius ? `${el.borderRadius}px` : undefined
+        }}
         dragHandleClassName={el.isLocked ? "" : "draggable-area"}
       >
         <div
           ref={elementRef}
-          className={`w-full h-full relative overflow-hidden flex items-center justify-center font-sans! ${el.isLocked || isEditing ? "" : "draggable-area"}`}
+          className={`w-full h-full relative overflow-hidden flex items-center justify-center ${el.isLocked || isEditing ? "" : "draggable-area"}`}
           onMouseDown={(e) => {
-            if (isEditing) e.stopPropagation(); // let user click inside text
+            if (isEditing) e.stopPropagation();
             onSelect(el.id);
           }}
           onDoubleClick={() => {
-            if (el.type === "text") {
-              setIsEditing(true);
-            }
+            if (el.type === "text") setIsEditing(true);
           }}
         >
+          {/* Gradient border overlay using CSS mask technique — independent from background */}
+          <div ref={borderOverlayRef} className="absolute inset-0 pointer-events-none" style={{ zIndex: 2 }} />
           {el.type === "text" ? (
             <div
               ref={(node) => {
@@ -240,36 +293,39 @@ export const BannerItem = memo(
               }}
               contentEditable={isEditing}
               suppressContentEditableWarning
-              onInput={(e) =>
-                updateElement(el.id, {
-                  text: e.currentTarget.textContent || "",
-                })
-              }
               onFocus={(e) => {
                 // Auto-clear the default placeholder to let the user type immediately
                 if (el.text === "Nhấp đúp để nhập văn bản...") {
-                  updateElement(el.id, { text: "" });
                   e.currentTarget.textContent = "";
                 }
               }}
-              onBlur={() => {
+              onBlur={(e) => {
                 setIsEditing(false);
-                if (!el.text.trim()) {
-                  onDelete(el.id);
+                const val = e.currentTarget.textContent || "";
+                if (!val.trim()) {
+                  // Khôi phục chữ mặc định nếu lỡ xóa hết thay vì tự động xóa element
+                  updateElement(el.id, { text: "Nhập văn bản..." });
+                } else if (val !== el.text) {
+                  updateElement(el.id, { text: val });
                 }
               }}
               className={`outline-none min-h-[1em] wrap-break-word whitespace-pre-wrap w-full h-full flex flex-col justify-center ${isEditing ? "cursor-text select-text" : "cursor-pointer select-none"}`}
               style={{
-                textAlign: el.textAlign || "center",
-                backgroundColor: el.backgroundColor || "transparent",
-                borderRadius: el.borderRadius ? `${el.borderRadius}px` : undefined,
-                padding: el.padding ? `${el.padding}px` : undefined,
-                border: el.hasBorder ? `${el.borderWidth}px solid ${el.borderColor}` : undefined,
-                boxShadow: el.hasShadow ? "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)" : undefined,
-                color: el.color,
-                fontSize: el.fontSize,
                 fontFamily: el.fontFamily,
                 fontWeight: el.fontWeight,
+                fontStyle: el.fontStyle ?? "normal",
+                textDecoration: el.textDecoration ?? "none",
+                textAlign: el.textAlign as React.CSSProperties["textAlign"],
+                fontSize: `clamp(12px, ${(el.fontSize / 1000) * containerWidth}px, 120px)`,
+                ...(el.textFillType === "gradient" ? {
+                  backgroundImage: el.textGradient || "linear-gradient(to right, #ff7eb3, #ff758c)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  color: "transparent",
+                  backgroundClip: "text"
+                } : {
+                  color: el.color
+                })
               }}
             >
               {el.text}

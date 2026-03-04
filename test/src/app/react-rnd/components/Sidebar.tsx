@@ -117,7 +117,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
       {/* Font & Text (Only for TEXT type) */}
       {activeEl.type === "text" && (
-        <div className="space-y-4 pt-4 border-t border-slate-100">
+        <div className={`space-y-4 pt-4 border-t border-slate-100 ${activeEl.isLocked ? "opacity-60 pointer-events-none" : ""}`}>
           <SectionLabel>Văn Bản</SectionLabel>
 
           <div className="grid grid-cols-2 gap-3">
@@ -128,42 +128,136 @@ export const Sidebar: React.FC<SidebarProps> = ({
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 handleUpdate({ fontSize: Number(e.target.value) || 0 })
               }
+              disabled={activeEl.isLocked}
             />
             <div>
-              <span className="text-xs font-medium mb-1.5 block text-slate-500">Màu chữ</span>
-              <div className="flex items-center gap-2 border border-slate-200 bg-slate-50/50 rounded-lg p-1.5 transition-colors focus-within:border-indigo-500 focus-within:ring-2 focus-within:ring-indigo-500/20">
-                <div className="relative w-6 h-6 rounded-md overflow-hidden border border-slate-200 shrink-0 shadow-sm">
-                  <input
-                    type="color"
-                    value={activeEl.color || "#000000"}
-                    onChange={(e) => handleUpdate({ color: e.target.value })}
-                    className="absolute -top-4 -left-4 w-[100px] h-[100px] cursor-pointer"
-                  />
-                </div>
-                <span className="text-xs font-medium uppercase text-slate-600 truncate">
-                  {activeEl.color}
-                </span>
+              <div className="flex items-center justify-between mb-1.5">
+                <span className="text-xs font-medium text-slate-500">Màu chữ</span>
+                <select
+                  value={activeEl.textFillType || "color"}
+                  onChange={(e) => handleUpdate({ textFillType: e.target.value as "color" | "gradient" })}
+                  className="text-[10px] bg-transparent text-slate-500 font-medium outline-none cursor-pointer uppercase tracking-wide hover:text-indigo-600"
+                  disabled={activeEl.isLocked}
+                >
+                  <option value="color">Màu Đơn</option>
+                  <option value="gradient">Gradient</option>
+                </select>
               </div>
+
+              {activeEl.textFillType === "gradient" ? (() => {
+                // Parse existing gradient or use defaults
+                const gStr = activeEl.textGradient || "linear-gradient(to right, #ff0080, #7928ca)";
+                const dirMatch = gStr.match(/linear-gradient\(([^,]+),/);
+                const colorMatches = gStr.match(/#[0-9a-fA-F]{6}/g);
+                const dir = dirMatch?.[1]?.trim() ?? "to right";
+                const c1 = colorMatches?.[0] ?? "#ff0080";
+                const c2 = colorMatches?.[1] ?? "#7928ca";
+                const buildGradient = (d: string, a: string, b: string) =>
+                  `linear-gradient(${d}, ${a}, ${b})`;
+                return (
+                  <div className="flex flex-col gap-2 border border-slate-200 bg-slate-50/50 rounded-lg p-2">
+                    <select
+                      value={dir}
+                      onChange={(e) => handleUpdate({ textGradient: buildGradient(e.target.value, c1, c2) })}
+                      disabled={activeEl.isLocked}
+                      className="w-full text-xs p-1.5 bg-white border border-slate-200 rounded outline-none cursor-pointer"
+                    >
+                      <option value="to right">→ Trái sang Phải</option>
+                      <option value="to left">← Phải sang Trái</option>
+                      <option value="to bottom">↓ Trên xuống Dưới</option>
+                      <option value="to top">↑ Dưới lên Trên</option>
+                      <option value="135deg">↘ Chéo (135°)</option>
+                      <option value="45deg">↗ Chéo (45°)</option>
+                    </select>
+                    <div className="grid grid-cols-2 gap-2">
+                      <label className="flex items-center gap-1.5 cursor-pointer">
+                        <div className="relative w-7 h-7 rounded-md overflow-hidden border border-slate-200 shadow-sm shrink-0">
+                          <input
+                            type="color"
+                            value={c1}
+                            disabled={activeEl.isLocked}
+                            onChange={(e) => handleUpdate({ textGradient: buildGradient(dir, e.target.value, c2) })}
+                            className="w-full h-full cursor-pointer block p-0 border-0 bg-transparent outline-none [&::-webkit-color-swatch-wrapper]:p-0 [&::-webkit-color-swatch]:border-none"
+                          />
+                        </div>
+                        <span className="text-[10px] font-medium text-slate-500">Màu 1</span>
+                      </label>
+                      <label className="flex items-center gap-1.5 cursor-pointer">
+                        <div className="relative w-7 h-7 rounded-md overflow-hidden border border-slate-200 shadow-sm shrink-0">
+                          <input
+                            type="color"
+                            value={c2}
+                            disabled={activeEl.isLocked}
+                            onChange={(e) => handleUpdate({ textGradient: buildGradient(dir, c1, e.target.value) })}
+                            className="w-full h-full cursor-pointer block p-0 border-0 bg-transparent outline-none [&::-webkit-color-swatch-wrapper]:p-0 [&::-webkit-color-swatch]:border-none"
+                          />
+                        </div>
+                        <span className="text-[10px] font-medium text-slate-500">Màu 2</span>
+                      </label>
+                    </div>
+                    <div
+                      className="w-full h-5 rounded shadow-inner border border-slate-200/60"
+                      style={{ background: buildGradient(dir, c1, c2) }}
+                    />
+                  </div>
+                );
+              })() : (
+                <div className={`flex items-center gap-2 border border-slate-200 bg-slate-50/50 rounded-lg p-1.5 transition-colors ${!activeEl.isLocked ? "focus-within:border-indigo-500 focus-within:ring-2 focus-within:ring-indigo-500/20" : ""}`}>
+                  <div className="relative w-6 h-6 rounded-md overflow-hidden border border-slate-200 shrink-0 shadow-sm">
+                    <input
+                      type="color"
+                      value={activeEl.color || "#000000"}
+                      onChange={(e) => handleUpdate({ color: e.target.value })}
+                      disabled={activeEl.isLocked}
+                      className="w-full h-full cursor-pointer block p-0 border-0 bg-transparent outline-none [&::-webkit-color-swatch-wrapper]:p-0 [&::-webkit-color-swatch]:border-none [&::-moz-color-swatch]:border-none disabled:cursor-not-allowed"
+                    />
+                  </div>
+                  <span className="text-xs font-medium uppercase text-slate-600 truncate">
+                    {activeEl.color}
+                  </span>
+                </div>
+              )}
             </div>
           </div>
 
+          {/* Alignment & Format Bar */}
           <div>
-            <span className="text-xs font-medium mb-1.5 block text-slate-500">Căn lề</span>
-            <div className="flex p-0.5 border border-slate-200 bg-slate-50/50 rounded-lg overflow-hidden">
+            <span className="text-xs font-medium mb-1.5 block text-slate-500">Định dạng & Căn lề</span>
+            <div className="flex gap-1 p-0.5 border border-slate-200 bg-slate-50/50 rounded-lg overflow-hidden">
+              {/* B / I / U */}
+              <button
+                onClick={() => handleUpdate({ fontWeight: activeEl.fontWeight === "bold" ? "normal" : "bold" })}
+                className={`flex-1 py-1.5 flex justify-center rounded-md transition-all font-bold text-sm ${activeEl.fontWeight === "bold" ? "bg-white shadow-sm text-indigo-600 border border-slate-200/50" : "text-slate-500 hover:text-slate-800 hover:bg-slate-200/50 border border-transparent"}`}
+                title="In đậm (Bold)"
+              >B</button>
+              <button
+                onClick={() => handleUpdate({ fontStyle: activeEl.fontStyle === "italic" ? "normal" : "italic" })}
+                className={`flex-1 py-1.5 flex justify-center rounded-md transition-all italic text-sm ${activeEl.fontStyle === "italic" ? "bg-white shadow-sm text-indigo-600 border border-slate-200/50" : "text-slate-500 hover:text-slate-800 hover:bg-slate-200/50 border border-transparent"}`}
+                title="In nghiêng (Italic)"
+              >I</button>
+              <button
+                onClick={() => handleUpdate({ textDecoration: activeEl.textDecoration === "underline" ? "none" : "underline" })}
+                className={`flex-1 py-1.5 flex justify-center rounded-md transition-all underline text-sm ${activeEl.textDecoration === "underline" ? "bg-white shadow-sm text-indigo-600 border border-slate-200/50" : "text-slate-500 hover:text-slate-800 hover:bg-slate-200/50 border border-transparent"}`}
+                title="Gạch chân (Underline)"
+              >U</button>
+
+              {/* Separator */}
+              <div className="w-px bg-slate-200 mx-0.5 self-stretch" />
+
+              {/* Alignments */}
               {[
-                { id: "left", icon: <path d="M17 10H3M21 6H3M21 14H3M17 18H3" /> },
-                { id: "center", icon: <path d="M18 10H6M21 6H3M21 14H3M18 18H6" /> },
-                { id: "right", icon: <path d="M21 10H7M21 6H3M21 14H3M21 18H7" /> }
+                { id: "left", icon: <path d="M17 10H3M21 6H3M21 14H3M17 18H3" />, title: "Căn trái" },
+                { id: "center", icon: <path d="M18 10H6M21 6H3M21 14H3M18 18H6" />, title: "Căn giữa" },
+                { id: "right", icon: <path d="M21 10H7M21 6H3M21 14H3M21 18H7" />, title: "Căn phải" },
+                { id: "justify", icon: <path d="M21 10H3M21 6H3M21 14H3M21 18H3" />, title: "Căn đều" },
               ].map((align) => (
                 <button
                   key={align.id}
-                  onClick={() => handleUpdate({ textAlign: align.id as "left" | "center" | "right" })}
-                  className={`flex-1 p-2 flex justify-center rounded-md transition-all ${activeEl.textAlign === align.id
-                    ? "bg-white shadow-sm text-indigo-600 border border-slate-200/50"
-                    : "text-slate-500 hover:text-slate-800 hover:bg-slate-200/50 border border-transparent"
-                    }`}
+                  onClick={() => handleUpdate({ textAlign: align.id as "left" | "center" | "right" | "justify" })}
+                  className={`flex-1 py-1.5 flex justify-center rounded-md transition-all ${activeEl.textAlign === align.id ? "bg-white shadow-sm text-indigo-600 border border-slate-200/50" : "text-slate-500 hover:text-slate-800 hover:bg-slate-200/50 border border-transparent"}`}
+                  title={align.title}
                 >
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     {align.icon}
                   </svg>
                 </button>
@@ -177,36 +271,42 @@ export const Sidebar: React.FC<SidebarProps> = ({
               value={activeEl.fontFamily}
               onChange={(e) => handleUpdate({ fontFamily: e.target.value })}
               className="w-full border border-slate-200 bg-slate-50/50 hover:bg-slate-50 focus:bg-white focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all p-2.5 text-sm rounded-lg outline-none appearance-none cursor-pointer"
-              style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%2364748b' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 12px center' }}
             >
-              <option value="sans-serif">Sans Serif</option>
-              <option value="serif">Serif</option>
-              <option value="monospace">Monospace</option>
-              <option value="system-ui">System UI</option>
+              <optgroup label="Cơ bản (Sans-serif)">
+                <option value="sans-serif">Sans Serif</option>
+                <option value="Arial, Helvetica, sans-serif">Arial</option>
+                <option value="Verdana, Geneva, sans-serif">Verdana</option>
+                <option value="Tahoma, Geneva, sans-serif">Tahoma</option>
+                <option value="'Trebuchet MS', Helvetica, sans-serif">Trebuchet MS</option>
+              </optgroup>
+              <optgroup label="Cơ bản (Serif)">
+                <option value="serif">Serif</option>
+                <option value="'Times New Roman', Times, serif">Times New Roman</option>
+                <option value="Georgia, serif">Georgia</option>
+                <option value="Garamond, serif">Garamond</option>
+              </optgroup>
+              <optgroup label="Hiện đại (Modern)">
+                <option value="'Roboto', sans-serif">Roboto</option>
+                <option value="'Inter', sans-serif">Inter</option>
+                <option value="'Open Sans', sans-serif">Open Sans</option>
+                <option value="'Montserrat', sans-serif">Montserrat</option>
+                <option value="'Poppins', sans-serif">Poppins</option>
+                <option value="system-ui">Của hệ thống (System UI)</option>
+              </optgroup>
+              <optgroup label="Đặc biệt (Monospace/Cursive)">
+                <option value="monospace">Monospace (Mã code)</option>
+                <option value="'Courier New', Courier, monospace">Courier New</option>
+                <option value="cursive">Cursive (Nét chữ tay)</option>
+                <option value="'Comic Sans MS', cursive, sans-serif">Comic Sans</option>
+              </optgroup>
             </select>
           </div>
-
-          <label className="flex items-center gap-3 text-sm cursor-pointer mt-2 bg-slate-50/50 hover:bg-slate-100 p-3 rounded-xl border border-slate-200/60 transition-colors">
-            <div className="relative flex items-center">
-              <input
-                type="checkbox"
-                checked={activeEl.fontWeight === "bold"}
-                onChange={(e) =>
-                  handleUpdate({
-                    fontWeight: e.target.checked ? "bold" : "normal",
-                  })
-                }
-                className="peer h-4 w-4 shrink-0 rounded border-slate-300 text-indigo-600 focus:ring-indigo-600"
-              />
-            </div>
-            <span className="font-medium text-slate-700">In đậm (Bold)</span>
-          </label>
         </div>
       )}
 
       {/* Image Settings */}
       {activeEl.type === "image" && (
-        <div className="space-y-4 pt-4 border-t border-slate-100">
+        <div className={`space-y-4 pt-4 border-t border-slate-100 ${activeEl.isLocked ? "opacity-60 pointer-events-none" : ""}`}>
           <SectionLabel>
             Hình Ảnh <span className="text-indigo-500">({device.toUpperCase()})</span>
           </SectionLabel>
@@ -219,6 +319,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
             <input
               type="file"
               accept="image/*"
+              disabled={activeEl.isLocked}
               onChange={(e) => {
                 const file = e.target.files?.[0];
                 if (file) {
@@ -239,14 +340,15 @@ export const Sidebar: React.FC<SidebarProps> = ({
                   reader.readAsDataURL(file);
                 }
               }}
-              className="absolute inset-0 opacity-0 cursor-pointer"
+              className="absolute inset-0 opacity-0 cursor-pointer disabled:cursor-not-allowed"
             />
           </div>
 
           {resetElementRatio && (
             <button
               onClick={() => resetElementRatio(activeEl.id, device)}
-              className="w-full px-4 py-2.5 bg-white text-slate-700 hover:text-indigo-600 hover:bg-slate-50 font-medium rounded-xl transition-all flex items-center justify-center gap-2 text-sm border border-slate-200 shadow-sm"
+              disabled={activeEl.isLocked}
+              className="w-full px-4 py-2.5 bg-white text-slate-700 hover:text-indigo-600 hover:bg-slate-50 font-medium rounded-xl transition-all flex items-center justify-center gap-2 text-sm border border-slate-200 shadow-sm disabled:cursor-not-allowed"
               title="Đặt lại tỉ lệ đúng hình ảnh gốc"
             >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /><path d="M3 3v5h5" /></svg>
@@ -269,44 +371,108 @@ export const Sidebar: React.FC<SidebarProps> = ({
               max="1"
               step="0.05"
               value={activeEl.imageOpacity ?? 1}
+              disabled={activeEl.isLocked}
               onChange={(e) =>
                 handleUpdate({ imageOpacity: Number(e.target.value) })
               }
-              className="w-full h-1.5 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-indigo-600"
+              className="w-full h-1.5 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-indigo-600 disabled:cursor-not-allowed"
             />
           </div>
         </div>
       )}
 
       {/* Box Styling */}
-      <div className="space-y-4 pt-4 border-t border-slate-100">
+      <div className={`space-y-4 pt-4 border-t border-slate-100 ${activeEl.isLocked ? "opacity-60 pointer-events-none" : ""}`}>
         <SectionLabel>Khung & Nền hiển thị</SectionLabel>
 
-        <div className="grid grid-cols-2 gap-3">
-          <label className="flex items-center gap-2 border border-slate-200 bg-slate-50/50 hover:bg-slate-100 transition-colors rounded-xl p-2 text-sm cursor-pointer">
-            <div className="relative w-7 h-7 rounded-lg overflow-hidden border border-slate-200 shrink-0 shadow-sm">
-              <input
-                type="color"
-                value={
-                  activeEl.backgroundColor === "transparent"
-                    ? "#ffffff"
-                    : activeEl.backgroundColor
-                }
-                onChange={(e) =>
-                  handleUpdate({ backgroundColor: e.target.value })
-                }
-                className="absolute -top-4 -left-4 w-[100px] h-[100px] cursor-pointer"
-              />
+        {/* Background Fill UI */}
+        {(() => {
+          const bgFill = activeEl.backgroundFillType || "color";
+          const bgGStr = activeEl.backgroundGradient || "linear-gradient(to right, #6366f1, #8b5cf6)";
+          const bgDirMatch = bgGStr.match(/linear-gradient\(([^,]+),/);
+          const bgColorMatches = bgGStr.match(/#[0-9a-fA-F]{6}/g);
+          const bgDir = bgDirMatch?.[1]?.trim() ?? "to right";
+          const bgC1 = bgColorMatches?.[0] ?? "#6366f1";
+          const bgC2 = bgColorMatches?.[1] ?? "#8b5cf6";
+          const buildBg = (d: string, a: string, b: string) => `linear-gradient(${d}, ${a}, ${b})`;
+          return (
+            <div className="space-y-2">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-medium text-slate-500">Màu nền</span>
+                <select
+                  value={bgFill}
+                  onChange={(e) => handleUpdate({ backgroundFillType: e.target.value as "color" | "gradient" })}
+                  className="text-[10px] bg-transparent text-slate-500 font-medium outline-none cursor-pointer uppercase tracking-wide hover:text-indigo-600"
+                  disabled={activeEl.isLocked}
+                >
+                  <option value="color">Màu Đơn</option>
+                  <option value="gradient">Gradient</option>
+                </select>
+              </div>
+
+              {bgFill === "gradient" ? (
+                <div className="flex flex-col gap-2 border border-slate-200 bg-slate-50/50 rounded-lg p-2">
+                  <select
+                    value={bgDir}
+                    onChange={(e) => handleUpdate({ backgroundGradient: buildBg(e.target.value, bgC1, bgC2) })}
+                    disabled={activeEl.isLocked}
+                    className="w-full text-xs p-1.5 bg-white border border-slate-200 rounded outline-none cursor-pointer"
+                  >
+                    <option value="to right">→ Trái sang Phải</option>
+                    <option value="to left">← Phải sang Trái</option>
+                    <option value="to bottom">↓ Trên xuống Dưới</option>
+                    <option value="to top">↑ Dưới lên Trên</option>
+                    <option value="135deg">↘ Chéo (135°)</option>
+                    <option value="45deg">↗ Chéo (45°)</option>
+                  </select>
+                  <div className="grid grid-cols-2 gap-2">
+                    <label className="flex items-center gap-1.5 cursor-pointer">
+                      <div className="relative w-7 h-7 rounded-md overflow-hidden border border-slate-200 shadow-sm shrink-0">
+                        <input type="color" value={bgC1} disabled={activeEl.isLocked}
+                          onChange={(e) => handleUpdate({ backgroundGradient: buildBg(bgDir, e.target.value, bgC2) })}
+                          className="w-full h-full cursor-pointer block p-0 border-0 bg-transparent outline-none [&::-webkit-color-swatch-wrapper]:p-0 [&::-webkit-color-swatch]:border-none" />
+                      </div>
+                      <span className="text-[10px] font-medium text-slate-500">Màu 1</span>
+                    </label>
+                    <label className="flex items-center gap-1.5 cursor-pointer">
+                      <div className="relative w-7 h-7 rounded-md overflow-hidden border border-slate-200 shadow-sm shrink-0">
+                        <input type="color" value={bgC2} disabled={activeEl.isLocked}
+                          onChange={(e) => handleUpdate({ backgroundGradient: buildBg(bgDir, bgC1, e.target.value) })}
+                          className="w-full h-full cursor-pointer block p-0 border-0 bg-transparent outline-none [&::-webkit-color-swatch-wrapper]:p-0 [&::-webkit-color-swatch]:border-none" />
+                      </div>
+                      <span className="text-[10px] font-medium text-slate-500">Màu 2</span>
+                    </label>
+                  </div>
+                  <div className="w-full h-5 rounded shadow-inner border border-slate-200/60" style={{ background: buildBg(bgDir, bgC1, bgC2) }} />
+                  <button
+                    onClick={() => handleUpdate({ backgroundGradient: undefined, backgroundFillType: "color", backgroundColor: "transparent" })}
+                    className="text-[10px] text-red-500 hover:text-red-700 font-medium text-center"
+                  >Xóa nền</button>
+                </div>
+              ) : (
+                <div className="grid grid-cols-2 gap-3">
+                  <label className="flex items-center gap-2 border border-slate-200 bg-slate-50/50 hover:bg-slate-100 transition-colors rounded-xl p-2 text-sm cursor-pointer">
+                    <div className="relative w-7 h-7 rounded-lg overflow-hidden border border-slate-200 shrink-0 shadow-sm">
+                      <input
+                        type="color"
+                        value={activeEl.backgroundColor === "transparent" ? "#ffffff" : activeEl.backgroundColor}
+                        onChange={(e) => handleUpdate({ backgroundColor: e.target.value })}
+                        className="w-full h-full cursor-pointer block p-0 border-0 bg-transparent outline-none [&::-webkit-color-swatch-wrapper]:p-0 [&::-webkit-color-swatch]:border-none [&::-moz-color-swatch]:border-none"
+                      />
+                    </div>
+                    <span className="font-medium text-slate-600 text-xs">Màu nền</span>
+                  </label>
+                  <button
+                    onClick={() => handleUpdate({ backgroundColor: "transparent" })}
+                    className="border border-slate-200 bg-white hover:bg-slate-50 hover:text-red-600 rounded-xl text-xs font-medium text-slate-600 transition-colors"
+                  >
+                    Xóa màu nền
+                  </button>
+                </div>
+              )}
             </div>
-            <span className="font-medium text-slate-600 text-xs">Màu nền</span>
-          </label>
-          <button
-            onClick={() => handleUpdate({ backgroundColor: "transparent" })}
-            className="border border-slate-200 bg-white hover:bg-slate-50 hover:text-red-600 rounded-xl text-xs font-medium text-slate-600 transition-colors"
-          >
-            Xóa màu nền
-          </button>
-        </div>
+          );
+        })()}
 
         <div className="bg-slate-50/80 p-3.5 rounded-xl border border-slate-200/50 space-y-4">
           <div>
@@ -333,7 +499,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
             <input
               type="range"
               min="0"
-              max="100"
+              max="999"
               value={activeEl.borderRadius || 0}
               onChange={(e) =>
                 handleUpdate({ borderRadius: Number(e.target.value) || 0 })
@@ -355,7 +521,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
       </div>
 
       {/* Borders */}
-      <div className="space-y-4 pt-4 border-t border-slate-100">
+      <div className={`space-y-4 pt-4 border-t border-slate-100 ${activeEl.isLocked ? "opacity-60 pointer-events-none" : ""}`}>
         <SectionLabel>Viền Element</SectionLabel>
 
         <label className="flex items-center gap-3 text-sm cursor-pointer bg-slate-50/50 hover:bg-slate-100 p-3 rounded-xl border border-slate-200/60 transition-colors">
@@ -370,48 +536,103 @@ export const Sidebar: React.FC<SidebarProps> = ({
           <span className="font-medium text-slate-700">Bật viền xung quanh</span>
         </label>
 
-        {activeEl.hasBorder && (
-          <div className="grid grid-cols-2 gap-3 pl-2">
-            <InputField
-              label="Độ dày (px)"
-              type="number"
-              min="1"
-              max="20"
-              value={activeEl.borderWidth || ""}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                handleUpdate({
-                  borderWidth: Number(e.target.value) || 0,
-                })
-              }
-            />
-            <div>
-              <span className="text-xs font-medium mb-1.5 block text-slate-500">
-                Màu viền
-              </span>
-              <div className="flex items-center gap-2 border border-slate-200 bg-slate-50/50 rounded-lg p-1.5 h-[38px] transition-colors focus-within:border-indigo-500 focus-within:ring-2 focus-within:ring-indigo-500/20">
-                <div className="relative w-full h-full rounded border border-slate-200 overflow-hidden shadow-sm">
-                  <input
-                    type="color"
-                    value={activeEl.borderColor || "#ffffff"}
-                    onChange={(e) => handleUpdate({ borderColor: e.target.value })}
-                    className="absolute -top-4 -left-4 w-[200px] h-[200px] cursor-pointer"
-                  />
+        {activeEl.hasBorder && (() => {
+          const bFill = activeEl.borderFillType || "color";
+          const bGStr = activeEl.borderGradient || "linear-gradient(to right, #ff0080, #7928ca)";
+          const bDirMatch = bGStr.match(/linear-gradient\(([^,]+),/);
+          const bColorMatches = bGStr.match(/#[0-9a-fA-F]{6}/g);
+          const bDir = bDirMatch?.[1]?.trim() ?? "to right";
+          const bc1 = bColorMatches?.[0] ?? "#ff0080";
+          const bc2 = bColorMatches?.[1] ?? "#7928ca";
+          const buildBG = (d: string, a: string, b: string) => `linear-gradient(${d}, ${a}, ${b})`;
+          return (
+            <div className="space-y-3 pl-2">
+              <div className="grid grid-cols-2 gap-3">
+                <InputField
+                  label="Độ dày (px)"
+                  type="number"
+                  min="1"
+                  max="20"
+                  value={activeEl.borderWidth || ""}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                    handleUpdate({ borderWidth: Number(e.target.value) || 0 })
+                  }
+                />
+                <div>
+                  <div className="flex items-center justify-between mb-1.5">
+                    <span className="text-xs font-medium text-slate-500">Màu viền</span>
+                    <select
+                      value={bFill}
+                      onChange={(e) => handleUpdate({ borderFillType: e.target.value as "color" | "gradient" })}
+                      className="text-[10px] bg-transparent text-slate-500 font-medium outline-none cursor-pointer uppercase tracking-wide hover:text-indigo-600"
+                    >
+                      <option value="color">Đơn</option>
+                      <option value="gradient">Gradient</option>
+                    </select>
+                  </div>
+                  {bFill === "gradient" ? (
+                    <div className="flex flex-col gap-2 border border-slate-200 bg-slate-50/50 rounded-lg p-1.5">
+                      <select
+                        value={bDir}
+                        onChange={(e) => handleUpdate({ borderGradient: buildBG(e.target.value, bc1, bc2) })}
+                        className="w-full text-xs p-1 bg-white border border-slate-200 rounded outline-none cursor-pointer"
+                      >
+                        <option value="to right">→ T.sang P</option>
+                        <option value="to left">← P.sang T</option>
+                        <option value="to bottom">↓ Trên xuống</option>
+                        <option value="to top">↑ Dưới lên</option>
+                        <option value="135deg">↘ Chéo 135°</option>
+                        <option value="45deg">↗ Chéo 45°</option>
+                      </select>
+                      <div className="grid grid-cols-2 gap-1.5">
+                        <label className="flex items-center gap-1 cursor-pointer">
+                          <div className="relative w-6 h-6 rounded overflow-hidden border border-slate-200 shrink-0">
+                            <input type="color" value={bc1}
+                              onChange={(e) => handleUpdate({ borderGradient: buildBG(bDir, e.target.value, bc2) })}
+                              className="w-full h-full cursor-pointer block p-0 border-0 bg-transparent outline-none [&::-webkit-color-swatch-wrapper]:p-0 [&::-webkit-color-swatch]:border-none" />
+                          </div>
+                          <span className="text-[10px] text-slate-500">Màu 1</span>
+                        </label>
+                        <label className="flex items-center gap-1 cursor-pointer">
+                          <div className="relative w-6 h-6 rounded overflow-hidden border border-slate-200 shrink-0">
+                            <input type="color" value={bc2}
+                              onChange={(e) => handleUpdate({ borderGradient: buildBG(bDir, bc1, e.target.value) })}
+                              className="w-full h-full cursor-pointer block p-0 border-0 bg-transparent outline-none [&::-webkit-color-swatch-wrapper]:p-0 [&::-webkit-color-swatch]:border-none" />
+                          </div>
+                          <span className="text-[10px] text-slate-500">Màu 2</span>
+                        </label>
+                      </div>
+                      <div className="w-full h-3 rounded" style={{ background: buildBG(bDir, bc1, bc2) }} />
+                    </div>
+                  ) : (
+                    <div className="flex items-center gap-2 border border-slate-200 bg-slate-50/50 rounded-lg p-1.5 h-[38px] transition-colors focus-within:border-indigo-500 focus-within:ring-2 focus-within:ring-indigo-500/20">
+                      <div className="relative w-full h-full rounded border border-slate-200 overflow-hidden shadow-sm">
+                        <input
+                          type="color"
+                          value={activeEl.borderColor || "#ffffff"}
+                          onChange={(e) => handleUpdate({ borderColor: e.target.value })}
+                          className="w-full h-full cursor-pointer block p-0 border-0 bg-transparent outline-none [&::-webkit-color-swatch-wrapper]:p-0 [&::-webkit-color-swatch]:border-none [&::-moz-color-swatch]:border-none"
+                        />
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
-          </div>
-        )}
+          );
+        })()}
       </div>
 
       {/* Layer Actions */}
       <div className="pt-4 border-t border-slate-100 space-y-3">
         <SectionLabel>Quản lý Khối</SectionLabel>
 
-        <div className="flex gap-3">
+        <div className={`flex gap-3 ${activeEl.isLocked ? "opacity-60 pointer-events-none" : ""}`}>
           {sendBackward && (
             <button
               onClick={() => sendBackward(activeEl.id)}
-              className="flex-1 py-2 bg-white text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 hover:border-indigo-100 text-xs font-semibold rounded-xl transition-all border border-slate-200 shadow-sm flex items-center justify-center gap-1.5"
+              disabled={activeEl.isLocked}
+              className="flex-1 py-2 bg-white text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 hover:border-indigo-100 text-xs font-semibold rounded-xl transition-all border border-slate-200 shadow-sm flex items-center justify-center gap-1.5 disabled:cursor-not-allowed"
             >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 5v14M19 12l-7 7-7-7" /></svg>
               Lùi lớp
@@ -420,7 +641,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
           {bringForward && (
             <button
               onClick={() => bringForward(activeEl.id)}
-              className="flex-1 py-2 bg-white text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 hover:border-indigo-100 text-xs font-semibold rounded-xl transition-all border border-slate-200 shadow-sm flex items-center justify-center gap-1.5"
+              disabled={activeEl.isLocked}
+              className="flex-1 py-2 bg-white text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 hover:border-indigo-100 text-xs font-semibold rounded-xl transition-all border border-slate-200 shadow-sm flex items-center justify-center gap-1.5 disabled:cursor-not-allowed"
             >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 19V5M5 12l7-7 7 7" /></svg>
               Tiến lớp
@@ -444,7 +666,11 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
         <button
           onClick={() => onDelete(activeEl.id)}
-          className="w-full mt-2 py-2.5 bg-red-50/50 text-red-600 hover:bg-red-50 hover:border-red-200 hover:text-red-700 font-semibold rounded-xl transition-all border border-red-100 flex items-center justify-center gap-2 text-sm"
+          disabled={activeEl.isLocked}
+          className={`w-full mt-2 py-2.5 font-semibold rounded-xl transition-all border flex items-center justify-center gap-2 text-sm ${activeEl.isLocked
+            ? "bg-slate-50 text-slate-400 border-slate-100 cursor-not-allowed"
+            : "bg-red-50/50 text-red-600 hover:bg-red-50 hover:border-red-200 hover:text-red-700 border-red-100"
+            }`}
         >
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M10 11v6M14 11v6" /></svg>
           Xóa khối này

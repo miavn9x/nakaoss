@@ -5,12 +5,14 @@ import useMeasure from "react-use-measure";
 import { Toolbar } from "./Toolbar";
 import { Sidebar } from "./Sidebar";
 import { Canvas } from "./Canvas";
+import { BannerElement } from "./types";
 
 import { useDeviceState } from "./hooks/useDeviceState";
 import { useZoom } from "./hooks/useZoom";
 import { useElementsManager } from "./hooks/useElementsManager";
 import { useCanvasInteractions } from "./hooks/useCanvasInteractions";
 import { useEditorActions } from "./hooks/useEditorActions";
+import { useHistory } from "./hooks/useHistory";
 
 export default function BannerEditor() {
   const [isClient, setIsClient] = useState(false);
@@ -34,21 +36,79 @@ export default function BannerEditor() {
     containerWidth
   } = useZoom(device, bannerHeight);
 
+  // We need to initialize state at the top to break the circular dependency
+  const [elements, setElements] = useState<BannerElement[]>([]);
+  const [showGrid, setShowGrid] = useState(false);
+  const [gridColor, setGridColor] = useState("#000000");
+
   const {
-    elements, setElements,
+    past, future, recordHistory, undo, redo
+  } = useHistory(elements, bannerBg, setElements, setBannerBg);
+
+  const {
     selectedId, setSelectedId,
     addTextElement, addImageElement, addImageAsBackground,
     updateElement, updateSelected, deleteElement,
     bringForward, sendBackward, resetElementRatio
-  } = useElementsManager(bannerHeights, setBannerHeights, setBannerBg);
+  } = useElementsManager(elements, setElements, bannerHeights, setBannerHeights, bannerBg, setBannerBg);
 
   const {
-    pctToPx, handleDrag, handleResize, handleResizeStop, handleDragStop
-  } = useCanvasInteractions(device, bannerHeight, updateBannerHeight, elements, setElements);
+    pctToPx, handleDrag, handleResize, handleResizeStop, handleDragStop, activeGuides
+  } = useCanvasInteractions(device, bannerHeight, updateBannerHeight, elements, setElements, bannerBg, recordHistory);
 
   const { handleExport, handleReset } = useEditorActions(
     bannerBg, bannerHeight, elements, setElements, setBannerHeights, setBannerBg, setSelectedId
   );
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Ignore if user is typing in an input or contenteditable
+      if (
+        e.target instanceof HTMLInputElement ||
+        e.target instanceof HTMLTextAreaElement ||
+        (e.target as HTMLElement).isContentEditable
+      ) {
+        return;
+      }
+
+      if ((e.ctrlKey || e.metaKey) && e.key === 'z') {
+        if (e.shiftKey) {
+          e.preventDefault();
+          redo(elements, bannerBg);
+        } else {
+          e.preventDefault();
+          undo(elements, bannerBg);
+        }
+      } else if ((e.ctrlKey || e.metaKey) && e.key === 'y') {
+        e.preventDefault();
+        redo(elements, bannerBg);
+      }
+
+      // Keyboard Nudging (Arrow keys)
+      if (selectedId && ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
+        e.preventDefault();
+
+        const activeEl = elements.find(el => el.id === selectedId);
+        if (!activeEl || activeEl.isLocked) return;
+
+        const KEY_NUDGE_SPEED = e.shiftKey ? 10 : 1; // 10px if Shift is held, else 1px
+        const currentPx = pctToPx(activeEl);
+
+        let newX = currentPx.x;
+        let newY = currentPx.y;
+
+        if (e.key === 'ArrowUp') newY -= KEY_NUDGE_SPEED;
+        if (e.key === 'ArrowDown') newY += KEY_NUDGE_SPEED;
+        if (e.key === 'ArrowLeft') newX -= KEY_NUDGE_SPEED;
+        if (e.key === 'ArrowRight') newX += KEY_NUDGE_SPEED;
+
+        // Immediately update position via drag logic structure
+        handleDragStop(selectedId, { x: newX, y: newY });
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [elements, bannerBg, undo, redo, selectedId, pctToPx, handleDragStop]);
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -85,6 +145,14 @@ export default function BannerEditor() {
         onAddImageAsBackground={addImageAsBackground}
         onExport={handleExport}
         hasBackground={hasBackground}
+        canUndo={past.length > 0}
+        canRedo={future.length > 0}
+        onUndo={() => undo(elements, bannerBg)}
+        onRedo={() => redo(elements, bannerBg)}
+        showGrid={showGrid}
+        setShowGrid={setShowGrid}
+        gridColor={gridColor}
+        setGridColor={setGridColor}
       />
 
       <div className="flex-1 flex flex-col lg:flex-row overflow-hidden">
@@ -97,6 +165,7 @@ export default function BannerEditor() {
           bannerRef={bannerRef}
           bannerBg={bannerBg}
           elements={elements}
+          activeGuides={activeGuides}
           selectedId={selectedId}
           pctToPx={pctToPx}
           onDragStop={handleDragStop}
@@ -107,6 +176,8 @@ export default function BannerEditor() {
           updateElement={updateElement}
           onDelete={deleteElement}
           setBannerHeight={updateBannerHeight}
+          showGrid={showGrid}
+          gridColor={gridColor}
         />
 
         {/* Properties Sidebar Component */}

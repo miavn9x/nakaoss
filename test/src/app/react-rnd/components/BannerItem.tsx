@@ -65,6 +65,7 @@ export const BannerItem = memo(
         // Note: color, fontFamily, fontWeight, textAlign, fontSize are applied
         // directly on the inner text div to avoid conflicting with gradient mode.
         s.padding = `${el.padding}px`;
+        s.transform = `rotate(${el.rotation || 0}deg) scaleX(${el.flipX ? -1 : 1}) scaleY(${el.flipY ? -1 : 1})`;
 
         // ─── Background (independent from border) ──────────────────────────
         if (el.backgroundFillType === "gradient" && el.backgroundGradient) {

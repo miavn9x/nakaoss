@@ -80,6 +80,7 @@ export const BannerPreview: React.FC<BannerPreviewProps> = ({
                                     overflow: "hidden",
                                     padding: el.type === "text" ? `${el.padding}px` : undefined,
                                     boxSizing: "border-box",
+                                    transform: `rotate(${el.rotation || 0}deg) scaleX(${el.flipX ? -1 : 1}) scaleY(${el.flipY ? -1 : 1})`,
                               };
 
                               // Background phần tử

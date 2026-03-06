@@ -518,6 +518,22 @@ export const Sidebar: React.FC<SidebarProps> = ({
           />
           <span className="font-medium text-slate-700">Đổ bóng (Shadow)</span>
         </label>
+
+        <div className="bg-slate-50/80 p-3.5 rounded-xl border border-slate-200/50">
+          <div className="flex justify-between items-center mb-2">
+            <span className="text-xs font-semibold text-slate-600">Góc xoay (Độ)</span>
+            <span className="text-xs font-bold text-slate-500">{activeEl.rotation || 0}°</span>
+          </div>
+          <input
+            type="range"
+            min="0"
+            max="360"
+            value={activeEl.rotation || 0}
+            disabled={activeEl.isLocked}
+            onChange={(e) => handleUpdate({ rotation: Number(e.target.value) || 0 })}
+            className="w-full h-1.5 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-indigo-600 disabled:cursor-not-allowed"
+          />
+        </div>
       </div>
 
       {/* Borders */}
@@ -648,6 +664,24 @@ export const Sidebar: React.FC<SidebarProps> = ({
               Tiến lớp
             </button>
           )}
+          <button
+            onClick={() => handleUpdate({ flipX: !activeEl.flipX })}
+            disabled={activeEl.isLocked}
+            className={`flex-1 py-2 font-semibold rounded-xl transition-all border shadow-sm text-xs flex items-center justify-center gap-1.5 ${activeEl.flipX ? "bg-indigo-50 text-indigo-700 border-indigo-200" : "bg-white text-slate-600 hover:bg-slate-50 border-slate-200"}`}
+            title="Lật Ngang"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M8 21h8" /><path d="M12 3v18" /><path d="m3 12 3-3-3-3" /><path d="m21 12-3-3 3-3" /></svg>
+            Lật Ngang
+          </button>
+          <button
+            onClick={() => handleUpdate({ flipY: !activeEl.flipY })}
+            disabled={activeEl.isLocked}
+            className={`flex-1 py-2 font-semibold rounded-xl transition-all border shadow-sm text-xs flex items-center justify-center gap-1.5 ${activeEl.flipY ? "bg-indigo-50 text-indigo-700 border-indigo-200" : "bg-white text-slate-600 hover:bg-slate-50 border-slate-200"}`}
+            title="Lật Dọc"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 8v8" /><path d="M21 12H3" /><path d="m12 3-3 3-3-3" /><path d="m12 21-3-3 3-3" /></svg>
+            Lật Dọc
+          </button>
         </div>
 
         <button

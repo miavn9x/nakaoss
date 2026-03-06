@@ -37,6 +37,9 @@ export function useElementsManager(
                         borderColor: "#ffffff",
                         borderWidth: 2,
                         hasShadow: false,
+                        rotation: 0,
+                        flipX: false,
+                        flipY: false,
                   },
             ]);
             setSelectedId(newId);
@@ -96,6 +99,7 @@ export function useElementsManager(
                         borderColor: "#ffffff",
                         borderWidth: 2,
                         hasShadow: false,
+                        rotation: 0,
                   },
             ]);
             setSelectedId(newId);

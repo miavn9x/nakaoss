@@ -42,6 +42,12 @@ export type BannerElement = {
   borderWidth: number;
   // Đổ bóng (Shadow) - Dùng chung
   hasShadow: boolean;
+  // Xoay phần tử (Rotation)
+  rotation?: number;
+  // Lật ngược phần tử (Flip)
+  flipX?: boolean;
+  flipY?: boolean;
+
   // Tính năng Khóa phần tử chặn thao tác
   isLocked?: boolean;
 };

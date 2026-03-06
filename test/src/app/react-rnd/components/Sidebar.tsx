@@ -107,7 +107,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   }
 
   return (
-    <div className="editor-sidebar w-full lg:w-[340px] bg-white p-6 border-l border-slate-200/80 shrink-0 flex flex-col gap-6 h-max sticky top-0 overflow-y-auto max-h-[calc(100vh-73px)] custom-scrollbar">
+    <div className="editor-sidebar w-full lg:w-[340px] bg-white p-4 border-l border-slate-200/80 shrink-0 flex flex-col gap-2 h-max sticky top-0 overflow-y-auto max-h-[calc(100vh-73px)] custom-scrollbar">
       <div>
         <h3 className="font-semibold text-slate-800 text-base tracking-tight mb-1">
           Thuộc tính phần tử
@@ -383,7 +383,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
       {/* Box Styling */}
       <div className={`space-y-4 pt-4 border-t border-slate-100 ${activeEl.isLocked ? "opacity-60 pointer-events-none" : ""}`}>
-        <SectionLabel>Khung & Nền hiển thị</SectionLabel>
+        <h4 className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-3">Khung & nền hiển thị</h4>
 
         {/* Background Fill UI */}
         {(() => {
@@ -451,8 +451,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 </div>
               ) : (
                 <div className="grid grid-cols-2 gap-3">
-                  <label className="flex items-center gap-2 border border-slate-200 bg-slate-50/50 hover:bg-slate-100 transition-colors rounded-xl p-2 text-sm cursor-pointer">
-                    <div className="relative w-7 h-7 rounded-lg overflow-hidden border border-slate-200 shrink-0 shadow-sm">
+                  <label className="flex items-center justify-center gap-2 border border-slate-200 bg-slate-50/50 hover:bg-slate-100 transition-colors rounded-xl p-3 text-sm cursor-pointer shadow-sm">
+                    <div className="relative w-6 h-6 rounded-md overflow-hidden border border-slate-200 shrink-0 bg-white">
                       <input
                         type="color"
                         value={activeEl.backgroundColor === "transparent" ? "#ffffff" : activeEl.backgroundColor}
@@ -460,11 +460,11 @@ export const Sidebar: React.FC<SidebarProps> = ({
                         className="w-full h-full cursor-pointer block p-0 border-0 bg-transparent outline-none [&::-webkit-color-swatch-wrapper]:p-0 [&::-webkit-color-swatch]:border-none [&::-moz-color-swatch]:border-none"
                       />
                     </div>
-                    <span className="font-medium text-slate-600 text-xs">Màu nền</span>
+                    <span className="font-medium text-slate-600 text-xs text-center">Màu nền</span>
                   </label>
                   <button
                     onClick={() => handleUpdate({ backgroundColor: "transparent" })}
-                    className="border border-slate-200 bg-white hover:bg-slate-50 hover:text-red-600 rounded-xl text-xs font-medium text-slate-600 transition-colors"
+                    className="border border-slate-200 bg-white hover:bg-slate-50 hover:text-red-600 rounded-xl p-3 text-xs font-medium text-slate-600 transition-colors shadow-sm"
                   >
                     Xóa màu nền
                   </button>
@@ -474,11 +474,11 @@ export const Sidebar: React.FC<SidebarProps> = ({
           );
         })()}
 
-        <div className="bg-slate-50/80 p-3.5 rounded-xl border border-slate-200/50 space-y-4">
+        <div className="bg-slate-50/50 p-4 rounded-xl border border-slate-200/60 space-y-5">
           <div>
-            <div className="flex justify-between items-center mb-2">
+            <div className="flex justify-between items-center mb-2.5">
               <span className="text-xs font-semibold text-slate-600">Đệm viền (Padding)</span>
-              <span className="text-xs font-bold text-slate-500">{activeEl.padding || 0}px</span>
+              <span className="text-xs font-medium text-slate-500">{activeEl.padding || 0}px</span>
             </div>
             <input
               type="range"
@@ -488,13 +488,13 @@ export const Sidebar: React.FC<SidebarProps> = ({
               onChange={(e) =>
                 handleUpdate({ padding: Number(e.target.value) || 0 })
               }
-              className="w-full h-1.5 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-slate-500"
+              className="w-full h-1 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-slate-500 relative before:absolute before:inset-0 before:-top-2 before:-bottom-2"
             />
           </div>
           <div>
-            <div className="flex justify-between items-center mb-2">
+            <div className="flex justify-between items-center mb-2.5">
               <span className="text-xs font-semibold text-slate-600">Bo góc (Radius)</span>
-              <span className="text-xs font-bold text-slate-500">{activeEl.borderRadius || 0}px</span>
+              <span className="text-xs font-medium text-slate-500">{activeEl.borderRadius || 0}px</span>
             </div>
             <input
               type="range"
@@ -504,52 +504,74 @@ export const Sidebar: React.FC<SidebarProps> = ({
               onChange={(e) =>
                 handleUpdate({ borderRadius: Number(e.target.value) || 0 })
               }
-              className="w-full h-1.5 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-slate-500"
+              className="w-full h-1 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-slate-500 relative before:absolute before:inset-0 before:-top-2 before:-bottom-2"
             />
           </div>
         </div>
 
-        <label className="flex items-center gap-3 text-sm cursor-pointer bg-slate-50/50 hover:bg-slate-100 p-3 rounded-xl border border-slate-200/60 transition-colors">
+        <label className="flex items-center gap-3 text-sm cursor-pointer bg-slate-50/50 p-4 rounded-xl border border-slate-200/60 transition-colors">
           <input
             type="checkbox"
             checked={activeEl.hasShadow}
             onChange={(e) => handleUpdate({ hasShadow: e.target.checked })}
-            className="peer h-4 w-4 shrink-0 rounded border-slate-300 text-indigo-600 focus:ring-indigo-600"
+            className="peer h-4 w-4 shrink-0 rounded border-slate-300 text-slate-600 focus:ring-slate-600 cursor-pointer"
           />
-          <span className="font-medium text-slate-700">Đổ bóng (Shadow)</span>
+          <span className="font-medium text-slate-600">Đổ bóng (Shadow)</span>
         </label>
 
-        <div className="bg-slate-50/80 p-3.5 rounded-xl border border-slate-200/50">
-          <div className="flex justify-between items-center mb-2">
-            <span className="text-xs font-semibold text-slate-600">Góc xoay (Độ)</span>
-            <span className="text-xs font-bold text-slate-500">{activeEl.rotation || 0}°</span>
+        <div className="bg-slate-50/50 p-4 rounded-xl border border-slate-200/60 space-y-4">
+          <div>
+            <div className="flex justify-between items-center mb-2.5">
+              <span className="text-xs font-semibold text-slate-600">Góc xoay (Độ)</span>
+              <span className="text-xs font-medium text-slate-500">{activeEl.rotation || 0}°</span>
+            </div>
+            <input
+              type="range"
+              min="0"
+              max="360"
+              value={activeEl.rotation || 0}
+              disabled={activeEl.isLocked}
+              onChange={(e) => handleUpdate({ rotation: Number(e.target.value) || 0 })}
+              className="w-full h-1 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-indigo-600 disabled:cursor-not-allowed relative before:absolute before:inset-0 before:-top-2 before:-bottom-2"
+            />
           </div>
-          <input
-            type="range"
-            min="0"
-            max="360"
-            value={activeEl.rotation || 0}
-            disabled={activeEl.isLocked}
-            onChange={(e) => handleUpdate({ rotation: Number(e.target.value) || 0 })}
-            className="w-full h-1.5 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-indigo-600 disabled:cursor-not-allowed"
-          />
+          <div className={`flex gap-3 ${activeEl.isLocked ? "opacity-60 pointer-events-none" : ""}`}>
+            <button
+              onClick={() => handleUpdate({ flipX: !activeEl.flipX })}
+              disabled={activeEl.isLocked}
+              className={`flex-1 py-2 font-semibold rounded-lg transition-all border shadow-sm text-xs flex items-center justify-center gap-1.5 ${activeEl.flipX ? "bg-indigo-50 text-indigo-700 border-indigo-200" : "bg-white text-slate-600 hover:bg-slate-50 border-slate-200"}`}
+              title="Lật Ngang"
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M8 21h8" /><path d="M12 3v18" /><path d="m3 12 3-3-3-3" /><path d="m21 12-3-3 3-3" /></svg>
+              Lật Ngang
+            </button>
+            <button
+              onClick={() => handleUpdate({ flipY: !activeEl.flipY })}
+              disabled={activeEl.isLocked}
+              className={`flex-1 py-2 font-semibold rounded-lg transition-all border shadow-sm text-xs flex items-center justify-center gap-1.5 ${activeEl.flipY ? "bg-indigo-50 text-indigo-700 border-indigo-200" : "bg-white text-slate-600 hover:bg-slate-50 border-slate-200"}`}
+              title="Lật Dọc"
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 8v8" /><path d="M21 12H3" /><path d="m12 3-3 3-3-3" /><path d="m12 21-3-3 3-3" /></svg>
+              Lật Dọc
+            </button>
+          </div>
         </div>
       </div>
 
       {/* Borders */}
       <div className={`space-y-4 pt-4 border-t border-slate-100 ${activeEl.isLocked ? "opacity-60 pointer-events-none" : ""}`}>
-        <SectionLabel>Viền Element</SectionLabel>
+        <h4 className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-3">Viền element</h4>
 
-        <label className="flex items-center gap-3 text-sm cursor-pointer bg-slate-50/50 hover:bg-slate-100 p-3 rounded-xl border border-slate-200/60 transition-colors">
+        <label className="flex items-center gap-3 text-sm cursor-pointer bg-slate-50/50 p-4 rounded-xl border border-slate-200/60 transition-colors">
           <div className="relative flex items-center">
             <input
               type="checkbox"
               checked={activeEl.hasBorder}
               onChange={(e) => handleUpdate({ hasBorder: e.target.checked })}
-              className="peer h-4 w-4 shrink-0 rounded border-slate-300 text-indigo-600 focus:ring-indigo-600"
+              className="peer h-4 w-4 shrink-0 rounded border-slate-300 text-slate-600 focus:ring-slate-600 cursor-pointer"
             />
           </div>
-          <span className="font-medium text-slate-700">Bật viền xung quanh</span>
+          <span className="font-medium text-slate-600">Bật viền xung quanh</span>
         </label>
 
         {activeEl.hasBorder && (() => {
@@ -641,16 +663,16 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
       {/* Layer Actions */}
       <div className="pt-4 border-t border-slate-100 space-y-3">
-        <SectionLabel>Quản lý Khối</SectionLabel>
+        <h4 className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-3">Quản lý khối</h4>
 
-        <div className={`flex gap-3 ${activeEl.isLocked ? "opacity-60 pointer-events-none" : ""}`}>
+        <div className={`grid grid-cols-2 gap-3 ${activeEl.isLocked ? "opacity-60 pointer-events-none" : ""}`}>
           {sendBackward && (
             <button
               onClick={() => sendBackward(activeEl.id)}
               disabled={activeEl.isLocked}
-              className="flex-1 py-2 bg-white text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 hover:border-indigo-100 text-xs font-semibold rounded-xl transition-all border border-slate-200 shadow-sm flex items-center justify-center gap-1.5 disabled:cursor-not-allowed"
+              className="py-3 px-2 bg-white text-slate-600 hover:bg-slate-50 font-semibold rounded-xl transition-all border border-slate-200 shadow-sm flex items-center justify-center gap-2 text-xs"
             >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 5v14M19 12l-7 7-7-7" /></svg>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-slate-500"><path d="M12 5v14M19 12l-7 7-7-7" /></svg>
               Lùi lớp
             </button>
           )}
@@ -658,30 +680,12 @@ export const Sidebar: React.FC<SidebarProps> = ({
             <button
               onClick={() => bringForward(activeEl.id)}
               disabled={activeEl.isLocked}
-              className="flex-1 py-2 bg-white text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 hover:border-indigo-100 text-xs font-semibold rounded-xl transition-all border border-slate-200 shadow-sm flex items-center justify-center gap-1.5 disabled:cursor-not-allowed"
+              className="py-3 px-2 bg-white text-slate-600 hover:bg-slate-50 font-semibold rounded-xl transition-all border border-slate-200 shadow-sm flex items-center justify-center gap-2 text-xs"
             >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 19V5M5 12l7-7 7 7" /></svg>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-slate-500"><path d="M12 19V5M5 12l7-7 7 7" /></svg>
               Tiến lớp
             </button>
           )}
-          <button
-            onClick={() => handleUpdate({ flipX: !activeEl.flipX })}
-            disabled={activeEl.isLocked}
-            className={`flex-1 py-2 font-semibold rounded-xl transition-all border shadow-sm text-xs flex items-center justify-center gap-1.5 ${activeEl.flipX ? "bg-indigo-50 text-indigo-700 border-indigo-200" : "bg-white text-slate-600 hover:bg-slate-50 border-slate-200"}`}
-            title="Lật Ngang"
-          >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M8 21h8" /><path d="M12 3v18" /><path d="m3 12 3-3-3-3" /><path d="m21 12-3-3 3-3" /></svg>
-            Lật Ngang
-          </button>
-          <button
-            onClick={() => handleUpdate({ flipY: !activeEl.flipY })}
-            disabled={activeEl.isLocked}
-            className={`flex-1 py-2 font-semibold rounded-xl transition-all border shadow-sm text-xs flex items-center justify-center gap-1.5 ${activeEl.flipY ? "bg-indigo-50 text-indigo-700 border-indigo-200" : "bg-white text-slate-600 hover:bg-slate-50 border-slate-200"}`}
-            title="Lật Dọc"
-          >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 8v8" /><path d="M21 12H3" /><path d="m12 3-3 3-3-3" /><path d="m12 21-3-3 3-3" /></svg>
-            Lật Dọc
-          </button>
         </div>
 
         <button

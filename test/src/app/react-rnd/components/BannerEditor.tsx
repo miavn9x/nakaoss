@@ -47,7 +47,10 @@ export default function BannerEditor() {
 
   const {
     selectedId, setSelectedId,
-    addTextElement, addImageElement, addImageAsBackground,
+    addTextElement,
+    addButtonElement,
+    addImageElement,
+    addImageAsBackground,
     updateElement, updateSelected, deleteElement,
     bringForward, sendBackward, resetElementRatio
   } = useElementsManager(elements, setElements, bannerHeights, setBannerHeights, bannerBg, setBannerBg);
@@ -141,6 +144,7 @@ export default function BannerEditor() {
         currentZoom={currentZoom}
         setCurrentZoom={setCurrentZoom}
         addTextElement={addTextElement}
+        addButtonElement={addButtonElement}
         addImageElement={addImageElement}
         onAddImageAsBackground={addImageAsBackground}
         onExport={handleExport}

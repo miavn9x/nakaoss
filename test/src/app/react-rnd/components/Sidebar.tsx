@@ -112,11 +112,11 @@ export const Sidebar: React.FC<SidebarProps> = ({
         <h3 className="font-semibold text-slate-800 text-base tracking-tight mb-1">
           Thuộc tính phần tử
         </h3>
-        <p className="text-xs text-slate-500">Tùy chỉnh chi tiết cho {activeEl.type === 'text' ? 'Văn bản' : 'Hình ảnh'}</p>
+        <p className="text-xs text-slate-500">Tùy chỉnh chi tiết cho {activeEl.type === 'text' ? 'Văn bản' : activeEl.type === 'button' ? 'Nút bấm' : 'Hình ảnh'}</p>
       </div>
 
-      {/* Font & Text (Only for TEXT type) */}
-      {activeEl.type === "text" && (
+      {/* Font & Text (For TEXT and BUTTON type) */}
+      {(activeEl.type === "text" || activeEl.type === "button") && (
         <div className={`space-y-4 pt-4 border-t border-slate-100 ${activeEl.isLocked ? "opacity-60 pointer-events-none" : ""}`}>
           <SectionLabel>Văn Bản</SectionLabel>
 
@@ -381,6 +381,69 @@ export const Sidebar: React.FC<SidebarProps> = ({
         </div>
       )}
 
+      {/* Button Settings (Only for BUTTON type) */}
+      {activeEl.type === "button" && (
+        <div className={`space-y-4 pt-4 border-t border-slate-100 ${activeEl.isLocked ? "opacity-60 pointer-events-none" : ""}`}>
+          <SectionLabel>Thuộc Tính Nút Bấm</SectionLabel>
+
+          <InputField
+            label="Liên kết (Link URL)"
+            type="url"
+            placeholder="https://..."
+            value={activeEl.buttonLink || ""}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              handleUpdate({ buttonLink: e.target.value })
+            }
+            disabled={activeEl.isLocked}
+          />
+
+          <div className="bg-slate-50/50 p-4 rounded-xl border border-slate-200/60 space-y-4">
+            <span className="text-xs font-semibold text-slate-600 block mb-2">Màu sắc khi di chuột (Hover)</span>
+
+            <div className="grid grid-cols-2 gap-3">
+              <label className="flex items-center justify-center gap-2 border border-slate-200 bg-white hover:bg-slate-50 transition-colors rounded-xl p-2.5 text-sm cursor-pointer shadow-sm">
+                <div className="relative w-5 h-5 rounded-md overflow-hidden border border-slate-200 shrink-0 bg-white">
+                  <input
+                    type="color"
+                    value={activeEl.hoverBgColor || "#4338ca"}
+                    onChange={(e) => handleUpdate({ hoverBgColor: e.target.value })}
+                    className="w-full h-full cursor-pointer block p-0 border-0 bg-transparent outline-none [&::-webkit-color-swatch-wrapper]:p-0 [&::-webkit-color-swatch]:border-none"
+                  />
+                </div>
+                <span className="font-medium text-slate-600 text-xs text-center leading-tight">Màu<br />Nền</span>
+              </label>
+
+              <label className="flex items-center justify-center gap-2 border border-slate-200 bg-white hover:bg-slate-50 transition-colors rounded-xl p-2.5 text-sm cursor-pointer shadow-sm">
+                <div className="relative w-5 h-5 rounded-md overflow-hidden border border-slate-200 shrink-0 bg-white">
+                  <input
+                    type="color"
+                    value={activeEl.hoverTextColor || "#ffffff"}
+                    onChange={(e) => handleUpdate({ hoverTextColor: e.target.value })}
+                    className="w-full h-full cursor-pointer block p-0 border-0 bg-transparent outline-none [&::-webkit-color-swatch-wrapper]:p-0 [&::-webkit-color-swatch]:border-none"
+                  />
+                </div>
+                <span className="font-medium text-slate-600 text-xs text-center leading-tight">Màu<br />Chữ</span>
+              </label>
+            </div>
+
+            {activeEl.hasBorder && (
+              <label className="flex items-center justify-center gap-2 border border-slate-200 bg-white hover:bg-slate-50 transition-colors rounded-xl p-2.5 text-sm cursor-pointer shadow-sm w-[calc(50%-6px)]">
+                <div className="relative w-5 h-5 rounded-md overflow-hidden border border-slate-200 shrink-0 bg-white">
+                  <input
+                    type="color"
+                    value={activeEl.hoverBorderColor || "transparent"}
+                    onChange={(e) => handleUpdate({ hoverBorderColor: e.target.value })}
+                    className="w-full h-full cursor-pointer block p-0 border-0 bg-transparent outline-none [&::-webkit-color-swatch-wrapper]:p-0 [&::-webkit-color-swatch]:border-none"
+                  />
+                </div>
+                <span className="font-medium text-slate-600 text-xs text-center leading-tight">Màu<br />Viền</span>
+              </label>
+            )}
+
+          </div>
+        </div>
+      )}
+
       {/* Box Styling */}
       <div className={`space-y-4 pt-4 border-t border-slate-100 ${activeEl.isLocked ? "opacity-60 pointer-events-none" : ""}`}>
         <h4 className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-3">Khung & nền hiển thị</h4>
@@ -475,22 +538,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
         })()}
 
         <div className="bg-slate-50/50 p-4 rounded-xl border border-slate-200/60 space-y-5">
-          <div>
-            <div className="flex justify-between items-center mb-2.5">
-              <span className="text-xs font-semibold text-slate-600">Đệm viền (Padding)</span>
-              <span className="text-xs font-medium text-slate-500">{activeEl.padding || 0}px</span>
-            </div>
-            <input
-              type="range"
-              min="0"
-              max="64"
-              value={activeEl.padding || 0}
-              onChange={(e) =>
-                handleUpdate({ padding: Number(e.target.value) || 0 })
-              }
-              className="w-full h-1 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-slate-500 relative before:absolute before:inset-0 before:-top-2 before:-bottom-2"
-            />
-          </div>
+
           <div>
             <div className="flex justify-between items-center mb-2.5">
               <span className="text-xs font-semibold text-slate-600">Bo góc (Radius)</span>

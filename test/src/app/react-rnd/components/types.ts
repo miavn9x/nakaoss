@@ -7,7 +7,7 @@ export type ElementBounds = {
 
 export type BannerElement = {
   id: string;
-  type: "text" | "image";
+  type: "text" | "image" | "button";
 
   // Tọa độ và kích thước tách biệt độc lập trên từng thiết bị
   bounds: Record<DeviceType, ElementBounds>;
@@ -50,6 +50,12 @@ export type BannerElement = {
 
   // Tính năng Khóa phần tử chặn thao tác
   isLocked?: boolean;
+
+  // Tính năng dành riêng cho nút bấm (Button)
+  buttonLink?: string;
+  hoverBgColor?: string;
+  hoverTextColor?: string;
+  hoverBorderColor?: string;
 };
 
 export type DeviceType = "desktop" | "ipad" | "mobile";

@@ -75,12 +75,13 @@ export const BannerPreview: React.FC<BannerPreviewProps> = ({
                                     zIndex: idx + 10,
                                     display: "flex",
                                     alignItems: "center",
-                                    justifyContent: el.type === "text" ? el.textAlign : "center",
+                                    justifyContent: el.type === "text" || el.type === "button" ? el.textAlign : "center",
                                     borderRadius: el.borderRadius ? `${el.borderRadius}px` : undefined,
                                     overflow: "hidden",
-                                    padding: el.type === "text" ? `${el.padding}px` : undefined,
+                                    padding: el.type === "text" || el.type === "button" ? `${el.padding}px` : undefined,
                                     boxSizing: "border-box",
                                     transform: `rotate(${el.rotation || 0}deg) scaleX(${el.flipX ? -1 : 1}) scaleY(${el.flipY ? -1 : 1})`,
+                                    textDecoration: "none", // Reset for a tags
                               };
 
                               // Background phần tử
@@ -95,12 +96,35 @@ export const BannerPreview: React.FC<BannerPreviewProps> = ({
                                     elStyle.boxShadow = "rgba(0, 0, 0, 0.15) 0px 4px 12px";
                               }
 
+                              // Button hover class logic
+                              const isButton = el.type === "button";
+                              const buttonHoverClass = isButton ? `btn-hover-${el.id}` : "";
+                              const hoverStyleJSX = isButton ? (
+                                    <style dangerouslySetInnerHTML={{
+                                          __html: `
+                                          .${buttonHoverClass} { transition: all 0.2s ease-in-out; }
+                                          .${buttonHoverClass}:hover {
+                                                background-color: ${el.hoverBgColor || el.backgroundColor} !important;
+                                          }
+                                          .${buttonHoverClass}:hover > div {
+                                                color: ${el.hoverTextColor || el.color} !important;
+                                          }
+                                          ${el.hasBorder && el.hoverBorderColor !== "transparent" ? `
+                                          .${buttonHoverClass}:hover .border-layer {
+                                                background: ${el.hoverBorderColor} !important;
+                                          }
+                                          ` : ""}
+                                          `
+                                    }} />
+                              ) : null;
+
                               // Gradient Border dùng CSS Mask
                               const renderBorder = () => {
                                     if (!el.hasBorder || !el.borderWidth) return null;
                                     const isGradient = el.borderFillType === "gradient" && el.borderGradient;
                                     return (
                                           <div
+                                                className="border-layer"
                                                 style={{
                                                       position: "absolute",
                                                       inset: 0,
@@ -112,17 +136,28 @@ export const BannerPreview: React.FC<BannerPreviewProps> = ({
                                                       WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
                                                       WebkitMaskComposite: "xor",
                                                       maskComposite: "exclude",
+                                                      transition: "background 0.2s ease-in-out"
                                                 }}
                                           />
                                     );
                               };
 
+                              // Element wrapper
+                              const WrapperElement = isButton ? "a" : "div";
+                              const elementProps = isButton ? {
+                                    href: el.buttonLink || "#",
+                                    target: "_blank",
+                                    rel: "noopener noreferrer",
+                                    className: buttonHoverClass,
+                              } : {};
+
                               return (
-                                    <div key={el.id} style={elStyle}>
+                                    <WrapperElement key={el.id} style={elStyle} {...elementProps}>
+                                          {hoverStyleJSX}
                                           {renderBorder()}
 
-                                          {/* Text */}
-                                          {el.type === "text" && (
+                                          {/* Text / Button Text */}
+                                          {(el.type === "text" || el.type === "button") && (
                                                 <div
                                                       style={{
                                                             width: "100%",
@@ -142,6 +177,7 @@ export const BannerPreview: React.FC<BannerPreviewProps> = ({
                                                             lineHeight: "1.4",
                                                             position: "relative",
                                                             zIndex: 3,
+                                                            transition: "color 0.2s ease-in-out"
                                                       }}
                                                       dangerouslySetInnerHTML={{ __html: el.text }}
                                                 />
@@ -163,7 +199,7 @@ export const BannerPreview: React.FC<BannerPreviewProps> = ({
                                                       }}
                                                 />
                                           )}
-                                    </div>
+                                    </WrapperElement>
                               );
                         })}
                   </div>

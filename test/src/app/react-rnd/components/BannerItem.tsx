@@ -271,18 +271,39 @@ export const BannerItem = memo(
       >
         <div
           ref={elementRef}
-          className={`w-full h-full relative overflow-hidden flex items-center justify-center ${el.isLocked || isEditing ? "" : "draggable-area"}`}
+          className={`w-full h-full relative overflow-hidden flex items-center justify-center ${el.isLocked || isEditing ? "" : "draggable-area"} ${el.type === "button" ? `editor-btn-hover-${el.id}` : ""}`}
           onMouseDown={(e) => {
             if (isEditing) e.stopPropagation();
             onSelect(el.id);
           }}
           onDoubleClick={() => {
-            if (el.type === "text") setIsEditing(true);
+            if (el.type === "text" || el.type === "button") setIsEditing(true);
           }}
         >
           {/* Gradient border overlay using CSS mask technique — independent from background */}
           <div ref={borderOverlayRef} className="absolute inset-0 pointer-events-none" style={{ zIndex: 2 }} />
-          {el.type === "text" ? (
+
+          {/* Button hover class logic for the editor */}
+          {el.type === "button" && (
+            <style dangerouslySetInnerHTML={{
+              __html: `
+                .editor-btn-hover-${el.id} { transition: all 0.2s ease-in-out; }
+                .editor-btn-hover-${el.id}:hover {
+                  background-color: ${el.hoverBgColor || el.backgroundColor} !important;
+                }
+                .editor-btn-hover-${el.id}:hover > div {
+                  color: ${el.hoverTextColor || el.color} !important;
+                }
+                ${el.hasBorder && el.hoverBorderColor !== "transparent" ? `
+                .editor-btn-hover-${el.id}:hover .border-layer {
+                  background: ${el.hoverBorderColor} !important;
+                }
+                ` : ""}
+              `
+            }} />
+          )}
+
+          {el.type === "text" || el.type === "button" ? (
             <div
               ref={(node) => {
                 if (node && isEditing && document.activeElement !== node) {
@@ -318,6 +339,7 @@ export const BannerItem = memo(
                 textDecoration: el.textDecoration ?? "none",
                 textAlign: el.textAlign as React.CSSProperties["textAlign"],
                 fontSize: `clamp(12px, ${(el.fontSize / 1000) * containerWidth}px, 120px)`,
+                cursor: el.type === "button" ? "pointer" : "text",
                 ...(el.textFillType === "gradient" ? {
                   backgroundImage: el.textGradient || "linear-gradient(to right, #ff7eb3, #ff758c)",
                   WebkitBackgroundClip: "text",

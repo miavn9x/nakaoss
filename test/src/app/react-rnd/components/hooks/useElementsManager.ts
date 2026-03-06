@@ -44,6 +44,43 @@ export function useElementsManager(
             ]);
             setSelectedId(newId);
       }, [setElements]);
+
+      const addButtonElement = useCallback(() => {
+            const newId = `button-${Date.now()}`;
+            setElements((prev) => [
+                  ...prev,
+                  {
+                        id: newId,
+                        type: "button",
+                        bounds: {
+                              desktop: { leftPct: 40, topPct: 40, widthPct: 25, heightPct: 10 },
+                              ipad: { leftPct: 40, topPct: 40, widthPct: 25, heightPct: 10 },
+                              mobile: { leftPct: 25, topPct: 40, widthPct: 50, heightPct: 15 },
+                        },
+                        text: "NHẤP VÀO ĐÂY",
+                        color: "#ffffff",
+                        fontSize: 14,
+                        textAlign: "center",
+                        fontWeight: "bold",
+                        fontFamily: "sans-serif",
+                        backgroundColor: "#4f46e5", // bg-indigo-600
+                        padding: 10,
+                        borderRadius: 8,
+                        hasBorder: false,
+                        borderColor: "#ffffff",
+                        borderWidth: 2,
+                        hasShadow: true,
+                        rotation: 0,
+                        flipX: false,
+                        flipY: false,
+                        buttonLink: "",
+                        hoverBgColor: "#4338ca", // hover bg-indigo-700
+                        hoverTextColor: "#f8fafc", // hover light text
+                        hoverBorderColor: "transparent",
+                  },
+            ]);
+            setSelectedId(newId);
+      }, [setElements]);
       const addImageElement = useCallback((url: string, w: number, h: number) => {
             const newId = uuidv4();
             const ratio = w / h;
@@ -253,7 +290,7 @@ export function useElementsManager(
       return {
             elements, setElements,
             selectedId, setSelectedId,
-            addTextElement, addImageElement, addImageAsBackground,
+            addTextElement, addImageElement, addImageAsBackground, addButtonElement,
             updateElement, updateSelected, deleteElement,
             bringForward, sendBackward, resetElementRatio
       };

@@ -36,8 +36,12 @@ export function useCanvasInteractions(
             const width = deviceWidths[device];
             const oldHeight = bannerHeight;
 
-            // Drop the 300px hard limit so small backgrounds don't snap larger 
-            const newHeight = Math.max(
+            // Nếu người dùng đã khóa bất kỳ phần tử nào (nhất là 1 ảnh nền to)
+            // Tuyệt đối CẤM Canvas tự động co giãn kích thước để bảo toàn Layout
+            const hasLockedElement = elements.some((e) => e.isLocked);
+
+            // Bản gốc: Tự động kéo giãn theo currentMovingBottomPx
+            const newHeight = hasLockedElement ? oldHeight : Math.max(
                   50,
                   Math.ceil(currentMovingBottomPx),
                   othersMaxBottomRef.current,
@@ -113,7 +117,7 @@ export function useCanvasInteractions(
                   })
             );
             updateBannerHeight(finalNewHeight);
-      }, [device, bannerHeight, updateBannerHeight, setElements]);
+      }, [device, bannerHeight, elements, updateBannerHeight, setElements]);
 
       const handleDrag = useCallback((id: string, d: { x: number; y: number }) => {
             const now = performance.now();
@@ -208,7 +212,15 @@ export function useCanvasInteractions(
             const currentH_Px = (current.bounds[device].heightPct / 100) * bannerHeight;
             const bottomPx = d.y + currentH_Px;
 
+            // Tính toán lại othersMaxBottomRef tại khoảnh khắc thả ra cuối cùng
+            const others = elements.filter((e) => e.id !== id);
+            othersMaxBottomRef.current = others.length > 0
+                  ? Math.max(...others.map((e) => (e.bounds[device].topPct / 100) * bannerHeight + (e.bounds[device].heightPct / 100) * bannerHeight))
+                  : 0;
+
             applyDynamicHeight(id, bottomPx, d, undefined, undefined, true);
+            othersMaxBottomRef.current = 0; // Reset
+
 
             // Allow state to settle before recording history
             setTimeout(() => {

@@ -34,7 +34,6 @@ interface CanvasProps {
     ref: HTMLElement,
     position: { x: number; y: number },
   ) => void;
-  setBannerHeight: (h: number) => void;
   showGrid: boolean;
   gridColor: string;
 }
@@ -57,43 +56,12 @@ export const Canvas: React.FC<CanvasProps> = ({
   onDelete,
   onDrag,
   onResize,
-  setBannerHeight,
   showGrid,
   gridColor,
 }) => {
   const spacerRef = useRef<HTMLDivElement>(null);
   const scalableRef = useRef<HTMLDivElement>(null);
   const bannerInnerRef = useRef<HTMLDivElement>(null);
-  const isResizingRef = useRef(false);
-  const startYRef = useRef(0);
-  const startHeightRef = useRef(0);
-
-  // Direct height resize logic
-  const handleResizeStart = (e: React.MouseEvent) => {
-    e.preventDefault();
-    isResizingRef.current = true;
-    startYRef.current = e.clientY;
-    startHeightRef.current = bannerHeight;
-
-    const onMouseMove = (moveEvent: MouseEvent) => {
-      if (!isResizingRef.current) return;
-      const deltaY = (moveEvent.clientY - startYRef.current) / currentZoom;
-      const newHeight = Math.max(
-        100,
-        Math.round(startHeightRef.current + deltaY),
-      );
-      setBannerHeight(newHeight);
-    };
-
-    const onMouseUp = () => {
-      isResizingRef.current = false;
-      window.removeEventListener("mousemove", onMouseMove);
-      window.removeEventListener("mouseup", onMouseUp);
-    };
-
-    window.addEventListener("mousemove", onMouseMove);
-    window.addEventListener("mouseup", onMouseUp);
-  };
 
   // Apply dynamic styles via JS to bypass 'no-inline-styles' linting in JSX
   useLayoutEffect(() => {
@@ -173,14 +141,6 @@ export const Canvas: React.FC<CanvasProps> = ({
                 }}
               />
             )}
-          </div>
-
-          {/* Canvas Rezise Handle at Bottom */}
-          <div
-            onMouseDown={handleResizeStart}
-            className="absolute bottom-[-10px] left-0 right-0 h-[20px] cursor-row-resize flex justify-center items-center z-50 group"
-          >
-            <div className="w-8 h-1.5 bg-slate-300 rounded-full group-hover:bg-indigo-500 transition-colors shadow-sm border border-white/50" />
           </div>
         </div>
       </div>

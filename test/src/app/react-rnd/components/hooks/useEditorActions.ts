@@ -3,7 +3,7 @@ import { BannerBg, BannerElement, DeviceType } from "../types";
 
 export function useEditorActions(
       bannerBg: BannerBg,
-      bannerHeight: number,
+      bannerHeights: Record<DeviceType, number>,
       elements: BannerElement[],
       setElements: React.Dispatch<React.SetStateAction<BannerElement[]>>,
       setBannerHeights: React.Dispatch<React.SetStateAction<Record<DeviceType, number>>>,
@@ -11,7 +11,7 @@ export function useEditorActions(
       setSelectedId: React.Dispatch<React.SetStateAction<string | null>>
 ) {
       const handleExport = useCallback(() => {
-            const data = { bannerBg, bannerHeight, elements };
+            const data = { bannerBg, bannerHeights, elements };
             const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
             const url = URL.createObjectURL(blob);
             const link = document.createElement("a");
@@ -19,7 +19,7 @@ export function useEditorActions(
             link.download = `banner-${Date.now()}.json`;
             link.click();
             URL.revokeObjectURL(url);
-      }, [bannerBg, bannerHeight, elements]);
+      }, [bannerBg, bannerHeights, elements]);
 
       const handleReset = useCallback(() => {
             if (confirm("Sẽ xóa toàn bộ nội dung và thông số nền về mặc định. Chắc chắn chứ?")) {

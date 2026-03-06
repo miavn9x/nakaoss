@@ -57,7 +57,7 @@ export default function BannerEditor() {
   } = useCanvasInteractions(device, bannerHeight, updateBannerHeight, elements, setElements, bannerBg, recordHistory);
 
   const { handleExport, handleReset } = useEditorActions(
-    bannerBg, bannerHeight, elements, setElements, setBannerHeights, setBannerBg, setSelectedId
+    bannerBg, bannerHeights, elements, setElements, setBannerHeights, setBannerBg, setSelectedId
   );
 
   useEffect(() => {
@@ -175,7 +175,6 @@ export default function BannerEditor() {
           onSelect={setSelectedId}
           updateElement={updateElement}
           onDelete={deleteElement}
-          setBannerHeight={updateBannerHeight}
           showGrid={showGrid}
           gridColor={gridColor}
         />
